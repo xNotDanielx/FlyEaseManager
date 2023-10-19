@@ -12,3 +12,17 @@ C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\WindowsFormsApp1\obj\Debug
 C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\WindowsFormsApp1\obj\Debug\PresentacionGUI.csproj.CoreCompileInputs.cache
 C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\PresentacionGUI.csproj.AssemblyReference.cache
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormIniciarSesion.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmModuloVuelos.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmModuloAeropuertos.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmModuloAviones.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmPrincipal.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\PresentacionGUI.csproj.GenerateResource.cache
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\PresentacionGUI.csproj.CoreCompileInputs.cache
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
