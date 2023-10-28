@@ -1,0 +1,9 @@
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\DAL\bin\Debug\DAL.dll
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\DAL\bin\Debug\DAL.pdb
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\DAL\bin\Debug\Entity.dll
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\DAL\bin\Debug\Entity.pdb
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\DAL\obj\Debug\DAL.dll
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\DAL\obj\Debug\DAL.pdb

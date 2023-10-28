@@ -1,0 +1,6 @@
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\Entity\bin\Debug\Entity.dll
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\Entity\bin\Debug\Entity.pdb
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\Entity\obj\Debug\Entity.csproj.AssemblyReference.cache
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\Entity\obj\Debug\Entity.dll
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\Entity\obj\Debug\Entity.pdb
