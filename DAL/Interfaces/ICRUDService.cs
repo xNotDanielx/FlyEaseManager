@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Interfaces
+namespace BLL.Interfaces
 {
     public interface ICRUDService<T> : ILecturaService<T> where T : class
     {
         Task<string> Crear(T entity);
-        Task<string> Actualizar(T entity);
-        Task<string> Eliminar();
+        Task<string> Actualizar(string id, T entity);
+        Task<string> EliminarPorId(string id);
+        Task<string> EliminarTodos();
     }
 }

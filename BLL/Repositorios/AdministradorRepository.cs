@@ -19,11 +19,11 @@ namespace DAL
 
         public Administrador ObtenerPorNDocumento(string numeroDocumento)
         {
-            ApiClient apiClient = new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Administradores");
-            string endpoint = $"/GetByDocument/{numeroDocumento}";
-            string jsonResponse = apiClient.GetAsync(endpoint).Result;
-            var response = JsonConvert.DeserializeObject<Administrador>(jsonResponse);
-            return response;
+            
+            string endpoint = $"{this.baseURI}/GetByDocument/{numeroDocumento}";
+            string jsonResponse = this.apiClient.GetAsync(endpoint).Result;
+            var administrador = JsonConvert.DeserializeObject<Administrador>(jsonResponse);
+            return administrador;
         }
     }
 }

@@ -47,7 +47,18 @@
     <Compile Include="Interfaces\ILecturaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\AdministradorService.cs" />
-    <Compile Include="Servicios\ClienteService.cs" />
+    <Compile Include="Servicios\Vuelos\AereolineaService.cs" />
+    <Compile Include="Servicios\Aereopuertos\AereopuertoService.cs" />
+    <Compile Include="Servicios\Vuelos\AsientoService.cs" />
+    <Compile Include="Servicios\Vuelos\AvionService.cs" />
+    <Compile Include="Servicios\Boletos\BoletoService.cs" />
+    <Compile Include="Servicios\Boletos\CategoriaService.cs" />
+    <Compile Include="Servicios\Aereopuertos\CiudadService.cs" />
+    <Compile Include="Servicios\Boletos\ClienteService.cs" />
+    <Compile Include="Servicios\Vuelos\EstadoService.cs" />
+    <Compile Include="Servicios\Aereopuertos\PaisService.cs" />
+    <Compile Include="Servicios\Aereopuertos\RegionService.cs" />
+    <Compile Include="Servicios\Vuelos\VueloService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\DAL.csproj">

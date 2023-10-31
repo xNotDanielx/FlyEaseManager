@@ -1,26 +1,27 @@
 ﻿using DAL.Interfaces;
+using BLL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Clases_Abstractas
+namespace BLL.Clases_Abstractas
 {
     public abstract class AbstractLecturaService<T> : ILecturaService<T> where T : class
     {
-        protected ILecturaRepository<T> _lecturaRepository;
+        protected ILecturaRepository<T> lecturaRepository;
 
         public AbstractLecturaService(ILecturaRepository<T> lecturaRepository)
         {
-            _lecturaRepository = lecturaRepository;
+            this.lecturaRepository = lecturaRepository;
         }
 
-        public virtual async Task<List<T>> ObtenerTodos()
+        public virtual List<T> ObtenerTodos()
         {
             try
             {
-                return await _lecturaRepository.ObtenerTodos();
+                return lecturaRepository.ObtenerTodos();
             }
             catch (Exception ex)
             {
@@ -28,6 +29,17 @@ namespace DAL.Clases_Abstractas
             }
         }
 
+        public virtual T ObtenerPorId(string id)
+        {
+            try
+            {
+                return lecturaRepository.ObtenerPorId(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el elemento.", ex); // Cambiar la excepcion
+            }
+        }
 
     }
 }

@@ -12,8 +12,8 @@ namespace DAL.Clases_Abstractas
 {
     public abstract class AbstractLecturaRepository<T> : ILecturaRepository<T> where T : class
     {
-        private readonly IServiceClient apiClient;
-        private readonly string baseURI;
+        protected readonly IServiceClient apiClient;
+        protected readonly string baseURI;
 
         public AbstractLecturaRepository(IServiceClient apiClient, string baseURI)
         {
