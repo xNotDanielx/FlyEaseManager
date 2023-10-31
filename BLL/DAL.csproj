@@ -7,8 +7,8 @@
     <ProjectGuid>{8917B8B8-BB9F-472A-9D6A-8907C14CCF2E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -77,13 +77,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiClient.cs" />
-    <Compile Include="Clases Abstractas\AbstractCRUD.cs" />
-    <Compile Include="Clases Abstractas\AbstractLectura.cs" />
-    <Compile Include="Interfaces\ILectura.cs" />
-    <Compile Include="Repositorios\ClienteRepository.cs" />
-    <Compile Include="Interfaces\ICRUD.cs" />
-    <Compile Include="Repositorios\PaisRepository.cs" />
+    <Compile Include="Clases Abstractas\AbstractCRUDRepository.cs" />
+    <Compile Include="Clases Abstractas\AbstractLecturaRepository.cs" />
+    <Compile Include="Interfaces\ILecturaRepository.cs" />
+    <Compile Include="Interfaces\IServiceClient.cs" />
+    <Compile Include="Repositorios\Vuelos\AereolineaRepository.cs" />
+    <Compile Include="Repositorios\Aereopuertos\AereopuertoRepository.cs" />
+    <Compile Include="Repositorios\Vuelos\AsientoRepository.cs" />
+    <Compile Include="Repositorios\Vuelos\AvionRepository.cs" />
+    <Compile Include="Repositorios\Boletos\BoletoRepository.cs" />
+    <Compile Include="Repositorios\Boletos\CategoriaRepository.cs" />
+    <Compile Include="Repositorios\Aereopuertos\CiudadRepository.cs" />
+    <Compile Include="Repositorios\Boletos\ClienteRepository.cs" />
+    <Compile Include="Interfaces\ICRUDRepository.cs" />
+    <Compile Include="Repositorios\AdministradorRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\Vuelos\EstadoRepository.cs" />
+    <Compile Include="Repositorios\Aereopuertos\PaisRepository.cs" />
+    <Compile Include="Repositorios\Aereopuertos\RegionRepository.cs" />
+    <Compile Include="Repositorios\Vuelos\VueloRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entity\Entity.csproj">

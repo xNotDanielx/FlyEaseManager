@@ -3,87 +3,115 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Interfaces;
 using RestSharp;
 
-namespace BLL
+namespace DAL
 {
-    public class ApiClient
+    public class ApiClient : IServiceClient
     {
         private readonly RestClient client;
-        private readonly string URIbase;
+        private readonly string baseURI;
 
-        public ApiClient(string URIbase)
+        public ApiClient(string baseURI)
         {
-            client = new RestClient(URIbase);
-            this.URIbase = URIbase;
+            client = new RestClient(baseURI);
+            this.baseURI = baseURI;
         }
 
         public async Task<string> GetAsync(string endpoint)
         {
-            var request = new RestRequest(endpoint, Method.Get);
-            RestResponse response = await client.ExecuteAsync(request);
+            try
+            {
+                var request = new RestRequest(endpoint, Method.Get);
+                RestResponse response = await client.ExecuteAsync(request);
 
-            if (response.IsSuccessful)
-            {
-                return response.Content;
+                if (response.IsSuccessful)
+                {
+                    return response.Content;
+                }
+                else
+                {
+                    return $"Error en la solicitud Get: {response.ErrorMessage}";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception($"Error en la solicitud: {response.ErrorMessage}");
+                return ex.Message;
             }
         }
 
         public async Task<string> PostAsync(string endpoint, object data)
         {
-            var request = new RestRequest(endpoint, Method.Post);
-            request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(data);
-
-            RestResponse response = await client.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
+            try
             {
-                return response.Content;
+                var request = new RestRequest(endpoint, Method.Post);
+                request.RequestFormat = DataFormat.Json;
+                request.AddJsonBody(data);
+
+                RestResponse response = await client.ExecuteAsync(request);
+
+                if (response.IsSuccessful)
+                {
+                    return response.Content;
+                }
+                else
+                {
+                    return $"Error en la solicitud Post: {response.ErrorMessage}";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception($"Error en la solicitud: {response.ErrorMessage}");
+                return ex.Message;
             }
         }
 
         public async Task<string> PutAsync(string endpoint, object data) 
         {
-            var request = new RestRequest(endpoint, Method.Put); // Puede ser Patch
-            request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(data);
-
-            RestResponse response = await client.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
+            try
             {
-                return response.Content;
+                var request = new RestRequest(endpoint, Method.Put); // Puede ser Patch
+                request.RequestFormat = DataFormat.Json;
+                request.AddJsonBody(data);
+
+                RestResponse response = await client.ExecuteAsync(request);
+
+                if (response.IsSuccessful)
+                {
+                    return response.Content;
+                }
+                else
+                {
+                    return $"Error en la solicitud Put: {response.ErrorMessage}";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception($"Error en la solicitud: {response.ErrorMessage}");
+                return ex.Message;
             }
         }
 
         public async Task<string> DeleteAsync(string endpoint)
         {
-            var request = new RestRequest(endpoint);
-
-            RestResponse response = await client.ExecuteAsync(request);
-
-            if(response.IsSuccessful)
+            try
             {
-                return response.Content;
+                var request = new RestRequest(endpoint, Method.Delete);
+
+                RestResponse response = await client.ExecuteAsync(request);
+
+                if (response.IsSuccessful)
+                {
+                    return response.Content;
+                }
+                else
+                {
+                    return $"Error en la solicitud Delete: {response.ErrorMessage}";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception($"Error en la solicitud: {response.ErrorMessage}");
+                return ex.Message;
             }
         }
-
     }
 }
