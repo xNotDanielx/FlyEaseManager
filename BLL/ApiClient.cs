@@ -96,7 +96,6 @@ namespace DAL
             try
             {
                 var request = new RestRequest(endpoint, Method.Delete);
-
                 RestResponse response = await client.ExecuteAsync(request);
 
                 if (response.IsSuccessful)

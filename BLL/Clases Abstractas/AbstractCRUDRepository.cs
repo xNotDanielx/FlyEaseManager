@@ -18,26 +18,26 @@ namespace DAL.Clases_Abstractas
 
         public virtual async Task<string> Crear(T entity)
         {
-            string endpoint = $"{this.baseURI}/Post";
-            return await this.apiClient.PostAsync(endpoint, entity);
+            string endpoint = $"{baseURI}/Post";
+            return await apiClient.PostAsync(endpoint, entity);
         }
         
         public virtual async Task<string> Actualizar(string id, T entity)
         {
-            string endpoint = $"{this.baseURI}/Put/{id}";
+            string endpoint = $"{baseURI}/Put/{id}";
             return await apiClient.PutAsync(endpoint, entity);
         }
 
         public virtual async Task<string> EliminarTodos()
         {
-            string endpoint = $"{this.baseURI}/DeleteAll";
-            return await this.apiClient.DeleteAsync(endpoint);
+            string endpoint = $"{baseURI}/DeleteAll";
+            return await apiClient.DeleteAsync(endpoint);
         }
 
         public virtual async Task<string> EliminarPorId(string id)
         {
-            string endpoint = $"{this.baseURI}/Delete/{id}";
-            return await this.apiClient.DeleteAsync(endpoint);
+            string endpoint = $"{baseURI}/Delete/{id}";
+            return await apiClient.DeleteAsync(endpoint);
         }
     }
 }

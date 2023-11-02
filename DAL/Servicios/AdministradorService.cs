@@ -11,6 +11,8 @@ namespace BLL.Servicios
 {
     public class AdministradorService : AbstractLecturaService<Administrador>
     {
+        private readonly AdministradorRepository administradorRepository = new AdministradorRepository();
+
         public AdministradorService()
             : base(new AdministradorRepository())
         {
@@ -18,7 +20,14 @@ namespace BLL.Servicios
 
         public Administrador ObtenerPorNDocumento(string numeroDocumento)
         {
-            var administrador = this.lecturaRepository.ObtenerPorId(numeroDocumento);
+            var administrador = administradorRepository.ObtenerPorNDocumento(numeroDocumento);
+            return administrador;
+        }
+
+        public Administrador AutenticarAdministrador(string usuario, string clave)
+        {
+            List<Administrador> administradores = administradorRepository.ObtenerTodos();
+            Administrador administrador = administradores.Where(item => item.Usuario.Equals(usuario) && item.Clave.Equals(clave)).FirstOrDefault();
             return administrador;
         }
     }

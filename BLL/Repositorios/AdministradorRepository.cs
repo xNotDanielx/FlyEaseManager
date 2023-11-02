@@ -19,9 +19,8 @@ namespace DAL
 
         public Administrador ObtenerPorNDocumento(string numeroDocumento)
         {
-            
-            string endpoint = $"{this.baseURI}/GetByDocument/{numeroDocumento}";
-            string jsonResponse = this.apiClient.GetAsync(endpoint).Result;
+            string endpoint = $"{baseURI}/GetByDocument/{numeroDocumento}";
+            string jsonResponse = apiClient.GetAsync(endpoint).Result;
             var administrador = JsonConvert.DeserializeObject<Administrador>(jsonResponse);
             return administrador;
         }
