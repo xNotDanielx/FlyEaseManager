@@ -26,5 +26,10 @@ namespace WindowsFormsApp1
         {
             this.Close();
         }
+
+        private void BtnAgregarVuelo_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

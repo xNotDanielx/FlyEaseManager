@@ -46,7 +46,7 @@ namespace WindowsFormsApp1
             SendMessage(this.Handle, 0x112, 0xf012, 0); // Para poder mover la ventana
         }
 
-        private void Abrirformhijo( object FormHijo)
+        public void Abrirformhijo( object FormHijo)
         {
             if (this.PnPrincipal.Controls.Count > 0)          
                 this.PnPrincipal.Controls.RemoveAt(0);            

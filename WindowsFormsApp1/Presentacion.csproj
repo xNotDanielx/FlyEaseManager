@@ -52,6 +52,12 @@
     <Compile Include="FormIniciarSesion.Designer.cs">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros y Ediciones\FrmAgregarVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros y Ediciones\FrmAgregarVuelos.Designer.cs">
+      <DependentUpon>FrmAgregarVuelos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\FrmBienvenida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormIniciarSesion.resx">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros y Ediciones\FrmAgregarVuelos.resx">
+      <DependentUpon>FrmAgregarVuelos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmBienvenida.resx">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
@@ -168,8 +177,6 @@
       <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Registros\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

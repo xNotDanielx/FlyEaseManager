@@ -84,6 +84,7 @@
             this.BtnAgregarVuelo.TabIndex = 14;
             this.BtnAgregarVuelo.Text = "Agregar";
             this.BtnAgregarVuelo.UseVisualStyleBackColor = false;
+            this.BtnAgregarVuelo.Click += new System.EventHandler(this.BtnAgregarVuelo_Click);
             // 
             // dataGridView1
             // 
