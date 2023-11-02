@@ -44,7 +44,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(910, 155);
+            this.label2.Location = new System.Drawing.Point(892, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 42;
@@ -52,10 +52,10 @@
             // 
             // BtnGestionCategorias
             // 
-            this.BtnGestionCategorias.BackColor = System.Drawing.Color.White;
+            this.BtnGestionCategorias.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionCategorias.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionCategorias.Location = new System.Drawing.Point(880, 405);
+            this.BtnGestionCategorias.Location = new System.Drawing.Point(862, 315);
             this.BtnGestionCategorias.Name = "BtnGestionCategorias";
             this.BtnGestionCategorias.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionCategorias.TabIndex = 41;
@@ -64,10 +64,10 @@
             // 
             // BtnGestionAsientosAsientos
             // 
-            this.BtnGestionAsientosAsientos.BackColor = System.Drawing.Color.White;
+            this.BtnGestionAsientosAsientos.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionAsientosAsientos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionAsientosAsientos.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionAsientosAsientos.Location = new System.Drawing.Point(880, 303);
+            this.BtnGestionAsientosAsientos.Location = new System.Drawing.Point(862, 213);
             this.BtnGestionAsientosAsientos.Name = "BtnGestionAsientosAsientos";
             this.BtnGestionAsientosAsientos.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionAsientosAsientos.TabIndex = 40;
@@ -76,10 +76,10 @@
             // 
             // BtnGestionAerolineas
             // 
-            this.BtnGestionAerolineas.BackColor = System.Drawing.Color.White;
+            this.BtnGestionAerolineas.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionAerolineas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionAerolineas.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionAerolineas.Location = new System.Drawing.Point(880, 201);
+            this.BtnGestionAerolineas.Location = new System.Drawing.Point(862, 111);
             this.BtnGestionAerolineas.Name = "BtnGestionAerolineas";
             this.BtnGestionAerolineas.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionAerolineas.TabIndex = 38;
@@ -90,7 +90,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(381, 67);
+            this.label1.Location = new System.Drawing.Point(425, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 23);
             this.label1.TabIndex = 37;
@@ -98,36 +98,36 @@
             // 
             // BtnEliminarVuelo
             // 
-            this.BtnEliminarVuelo.BackColor = System.Drawing.Color.White;
+            this.BtnEliminarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnEliminarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminarVuelo.Location = new System.Drawing.Point(679, 517);
+            this.BtnEliminarVuelo.Location = new System.Drawing.Point(627, 438);
             this.BtnEliminarVuelo.Name = "BtnEliminarVuelo";
-            this.BtnEliminarVuelo.Size = new System.Drawing.Size(96, 31);
+            this.BtnEliminarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminarVuelo.TabIndex = 36;
             this.BtnEliminarVuelo.Text = "Eliminar";
             this.BtnEliminarVuelo.UseVisualStyleBackColor = false;
             // 
             // BtnEditarVuelo
             // 
-            this.BtnEditarVuelo.BackColor = System.Drawing.Color.White;
+            this.BtnEditarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnEditarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEditarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditarVuelo.Location = new System.Drawing.Point(416, 517);
+            this.BtnEditarVuelo.Location = new System.Drawing.Point(384, 438);
             this.BtnEditarVuelo.Name = "BtnEditarVuelo";
-            this.BtnEditarVuelo.Size = new System.Drawing.Size(96, 31);
+            this.BtnEditarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnEditarVuelo.TabIndex = 35;
             this.BtnEditarVuelo.Text = "Editar";
             this.BtnEditarVuelo.UseVisualStyleBackColor = false;
             // 
             // BtnAgregarVuelo
             // 
-            this.BtnAgregarVuelo.BackColor = System.Drawing.Color.White;
+            this.BtnAgregarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnAgregarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregarVuelo.Location = new System.Drawing.Point(119, 517);
+            this.BtnAgregarVuelo.Location = new System.Drawing.Point(133, 438);
             this.BtnAgregarVuelo.Name = "BtnAgregarVuelo";
-            this.BtnAgregarVuelo.Size = new System.Drawing.Size(96, 31);
+            this.BtnAgregarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregarVuelo.TabIndex = 34;
             this.BtnAgregarVuelo.Text = "Agregar";
             this.BtnAgregarVuelo.UseVisualStyleBackColor = false;
@@ -135,16 +135,16 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(100, 93);
+            this.dataGridView1.Location = new System.Drawing.Point(71, 48);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(691, 418);
+            this.dataGridView1.Size = new System.Drawing.Size(750, 384);
             this.dataGridView1.TabIndex = 33;
             // 
             // FrmModuloAviones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Red;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 615);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnGestionCategorias);
@@ -155,6 +155,7 @@
             this.Controls.Add(this.BtnEditarVuelo);
             this.Controls.Add(this.BtnAgregarVuelo);
             this.Controls.Add(this.dataGridView1);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModuloAviones";
             this.Text = "FrmModuloAviones";

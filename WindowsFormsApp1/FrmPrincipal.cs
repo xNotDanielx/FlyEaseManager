@@ -16,6 +16,8 @@ namespace WindowsFormsApp1
         public FrmPrincipal()
         {
             InitializeComponent();
+            TmrFechaYHora.Start();
+            Abrirformhijo(new FrmBienvenida());
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -74,7 +76,14 @@ namespace WindowsFormsApp1
 
         private void BtnEstadisticas_Click(object sender, EventArgs e)
         {
-            PnSubmenuEstadisticas.Visible = true;
+            if (PnSubmenuEstadisticas.Visible == false)
+            {
+                PnSubmenuEstadisticas.Visible = true;
+            }
+            else
+            {
+                PnSubmenuEstadisticas.Visible = false;
+            }
         }
 
         private void BtnBoletosVendidos_Click(object sender, EventArgs e)
@@ -105,6 +114,17 @@ namespace WindowsFormsApp1
         private void BtnDineroGenerado_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false;
+        }
+
+        private void TmrFechaYHora_Tick(object sender, EventArgs e)
+        {
+            LblHora.Text = DateTime.Now.ToString("hh:mm:ss");
+            LblFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void PbLogoPrincipal_Click(object sender, EventArgs e)
+        {
+            Abrirformhijo(new FrmBienvenida());
         }
     }
 }

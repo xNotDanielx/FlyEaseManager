@@ -45,7 +45,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(897, 76);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(939, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 32;
@@ -53,10 +54,10 @@
             // 
             // BtnGestionCoordenadas
             // 
-            this.BtnGestionCoordenadas.BackColor = System.Drawing.Color.White;
+            this.BtnGestionCoordenadas.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionCoordenadas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionCoordenadas.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionCoordenadas.Location = new System.Drawing.Point(867, 326);
+            this.BtnGestionCoordenadas.Location = new System.Drawing.Point(914, 285);
             this.BtnGestionCoordenadas.Name = "BtnGestionCoordenadas";
             this.BtnGestionCoordenadas.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionCoordenadas.TabIndex = 31;
@@ -65,10 +66,10 @@
             // 
             // BtnGestionRegiones
             // 
-            this.BtnGestionRegiones.BackColor = System.Drawing.Color.White;
+            this.BtnGestionRegiones.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionRegiones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionRegiones.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionRegiones.Location = new System.Drawing.Point(867, 224);
+            this.BtnGestionRegiones.Location = new System.Drawing.Point(914, 183);
             this.BtnGestionRegiones.Name = "BtnGestionRegiones";
             this.BtnGestionRegiones.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionRegiones.TabIndex = 30;
@@ -77,10 +78,10 @@
             // 
             // BtnGestionCiudades
             // 
-            this.BtnGestionCiudades.BackColor = System.Drawing.Color.White;
+            this.BtnGestionCiudades.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionCiudades.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionCiudades.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionCiudades.Location = new System.Drawing.Point(867, 428);
+            this.BtnGestionCiudades.Location = new System.Drawing.Point(914, 387);
             this.BtnGestionCiudades.Name = "BtnGestionCiudades";
             this.BtnGestionCiudades.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionCiudades.TabIndex = 29;
@@ -89,10 +90,10 @@
             // 
             // BtnGestionPaises
             // 
-            this.BtnGestionPaises.BackColor = System.Drawing.Color.White;
+            this.BtnGestionPaises.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionPaises.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionPaises.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionPaises.Location = new System.Drawing.Point(867, 122);
+            this.BtnGestionPaises.Location = new System.Drawing.Point(914, 81);
             this.BtnGestionPaises.Name = "BtnGestionPaises";
             this.BtnGestionPaises.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionPaises.TabIndex = 28;
@@ -103,7 +104,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(374, 62);
+            this.label1.Location = new System.Drawing.Point(414, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 23);
             this.label1.TabIndex = 27;
@@ -111,36 +112,36 @@
             // 
             // BtnEliminarVuelo
             // 
-            this.BtnEliminarVuelo.BackColor = System.Drawing.Color.White;
+            this.BtnEliminarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnEliminarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminarVuelo.Location = new System.Drawing.Point(672, 512);
+            this.BtnEliminarVuelo.Location = new System.Drawing.Point(627, 438);
             this.BtnEliminarVuelo.Name = "BtnEliminarVuelo";
-            this.BtnEliminarVuelo.Size = new System.Drawing.Size(96, 31);
+            this.BtnEliminarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminarVuelo.TabIndex = 26;
             this.BtnEliminarVuelo.Text = "Eliminar";
             this.BtnEliminarVuelo.UseVisualStyleBackColor = false;
             // 
             // BtnEditarVuelo
             // 
-            this.BtnEditarVuelo.BackColor = System.Drawing.Color.White;
+            this.BtnEditarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnEditarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEditarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditarVuelo.Location = new System.Drawing.Point(409, 512);
+            this.BtnEditarVuelo.Location = new System.Drawing.Point(384, 438);
             this.BtnEditarVuelo.Name = "BtnEditarVuelo";
-            this.BtnEditarVuelo.Size = new System.Drawing.Size(96, 31);
+            this.BtnEditarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnEditarVuelo.TabIndex = 25;
             this.BtnEditarVuelo.Text = "Editar";
             this.BtnEditarVuelo.UseVisualStyleBackColor = false;
             // 
             // BtnAgregarVuelo
             // 
-            this.BtnAgregarVuelo.BackColor = System.Drawing.Color.White;
+            this.BtnAgregarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnAgregarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregarVuelo.Location = new System.Drawing.Point(112, 512);
+            this.BtnAgregarVuelo.Location = new System.Drawing.Point(133, 438);
             this.BtnAgregarVuelo.Name = "BtnAgregarVuelo";
-            this.BtnAgregarVuelo.Size = new System.Drawing.Size(96, 31);
+            this.BtnAgregarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregarVuelo.TabIndex = 24;
             this.BtnAgregarVuelo.Text = "Agregar";
             this.BtnAgregarVuelo.UseVisualStyleBackColor = false;
@@ -148,17 +149,17 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(93, 88);
+            this.dataGridView1.Location = new System.Drawing.Point(71, 48);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(691, 418);
+            this.dataGridView1.Size = new System.Drawing.Size(750, 384);
             this.dataGridView1.TabIndex = 23;
             // 
             // FrmModuloAeropuertos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(1084, 576);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.ClientSize = new System.Drawing.Size(1100, 524);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnGestionCoordenadas);
             this.Controls.Add(this.BtnGestionRegiones);
@@ -169,6 +170,7 @@
             this.Controls.Add(this.BtnEditarVuelo);
             this.Controls.Add(this.BtnAgregarVuelo);
             this.Controls.Add(this.dataGridView1);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModuloAeropuertos";
             this.Text = "FrmModuloAeropuertos";

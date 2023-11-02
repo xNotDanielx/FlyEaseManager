@@ -52,22 +52,28 @@
     <Compile Include="FormIniciarSesion.Designer.cs">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmModuloVuelos.cs">
+    <Compile Include="Vistas\FrmBienvenida.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmModuloVuelos.Designer.cs">
+    <Compile Include="Vistas\FrmBienvenida.Designer.cs">
+      <DependentUpon>FrmBienvenida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FrmModuloVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmModuloVuelos.Designer.cs">
       <DependentUpon>FrmModuloVuelos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmModuloAeropuertos.cs">
+    <Compile Include="Vistas\FrmModuloAeropuertos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmModuloAeropuertos.Designer.cs">
+    <Compile Include="Vistas\FrmModuloAeropuertos.Designer.cs">
       <DependentUpon>FrmModuloAeropuertos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmModuloAviones.cs">
+    <Compile Include="Vistas\FrmModuloAviones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmModuloAviones.Designer.cs">
+    <Compile Include="Vistas\FrmModuloAviones.Designer.cs">
       <DependentUpon>FrmModuloAviones.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrincipal.cs">
@@ -81,13 +87,16 @@
     <EmbeddedResource Include="FormIniciarSesion.resx">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmModuloVuelos.resx">
+    <EmbeddedResource Include="Vistas\FrmBienvenida.resx">
+      <DependentUpon>FrmBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FrmModuloVuelos.resx">
       <DependentUpon>FrmModuloVuelos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmModuloAeropuertos.resx">
+    <EmbeddedResource Include="Vistas\FrmModuloAeropuertos.resx">
       <DependentUpon>FrmModuloAeropuertos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmModuloAviones.resx">
+    <EmbeddedResource Include="Vistas\FrmModuloAviones.resx">
       <DependentUpon>FrmModuloAviones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
@@ -158,6 +167,9 @@
       <Project>{8fbab5e7-ab64-48fb-97df-aa1645a06e88}</Project>
       <Name>Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Registros\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

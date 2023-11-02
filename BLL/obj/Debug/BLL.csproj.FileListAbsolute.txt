@@ -1,0 +1,11 @@
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\bin\Debug\BLL.dll
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\bin\Debug\BLL.pdb
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\bin\Debug\DAL.dll
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\bin\Debug\Entity.dll
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\bin\Debug\DAL.pdb
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\bin\Debug\Entity.pdb
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\obj\Debug\BLL.dll
+C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\BLL\obj\Debug\BLL.pdb
