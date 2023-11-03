@@ -16,3 +16,12 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\Entity\obj\Debug\Entity.csproj.CopyComplete
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\Entity\obj\Debug\Entity.dll
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\Entity\obj\Debug\Entity.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\bin\Debug\Entity.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\bin\Debug\Entity.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\obj\Debug\Entity.csproj.AssemblyReference.cache
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\obj\Debug\Entity.csproj.CopyComplete
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\obj\Debug\Entity.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\obj\Debug\Entity.pdb

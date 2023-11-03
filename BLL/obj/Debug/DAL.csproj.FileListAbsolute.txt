@@ -62,3 +62,35 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\BLL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\BLL\obj\Debug\DAL.dll
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\BLL\obj\Debug\DAL.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\DAL.dll.config
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\DAL.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\DAL.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\Entity.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\RestSharp.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Buffers.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Memory.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Text.Json.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.ValueTuple.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\Entity.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\RestSharp.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Buffers.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Memory.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Text.Json.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\bin\Debug\System.ValueTuple.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\obj\Debug\DAL.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\BLL\obj\Debug\DAL.pdb
