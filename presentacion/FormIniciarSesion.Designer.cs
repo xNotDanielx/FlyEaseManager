@@ -35,8 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BtnAcceder = new System.Windows.Forms.Button();
             this.TxtUsuario = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.BtnMinimizar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -88,6 +88,7 @@
             this.BtnAcceder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.BtnAcceder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAcceder.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAcceder.ForeColor = System.Drawing.Color.White;
             this.BtnAcceder.Location = new System.Drawing.Point(333, 235);
             this.BtnAcceder.Name = "BtnAcceder";
             this.BtnAcceder.Size = new System.Drawing.Size(296, 36);
@@ -108,29 +109,31 @@
             this.TxtUsuario.Enter += new System.EventHandler(this.TxtUsuario_Enter);
             this.TxtUsuario.Leave += new System.EventHandler(this.TxtUsuario_Leave);
             // 
-            // button1
+            // BtnCerrar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
-            this.button1.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_close_icon_135015;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(734, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 21);
-            this.button1.TabIndex = 20;
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BtnCerrar.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_close_icon_135015;
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnCerrar.Location = new System.Drawing.Point(734, 12);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(34, 21);
+            this.BtnCerrar.TabIndex = 20;
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // button2
+            // BtnMinimizar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
-            this.button2.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_minimize_icon_138009;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(694, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(34, 21);
-            this.button2.TabIndex = 19;
-            this.button2.UseVisualStyleBackColor = false;
+            this.BtnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BtnMinimizar.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_minimize_icon_138009;
+            this.BtnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnMinimizar.Location = new System.Drawing.Point(694, 12);
+            this.BtnMinimizar.Name = "BtnMinimizar";
+            this.BtnMinimizar.Size = new System.Drawing.Size(34, 21);
+            this.BtnMinimizar.TabIndex = 19;
+            this.BtnMinimizar.UseVisualStyleBackColor = false;
+            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click_1);
             // 
             // FormIniciarSesion
             // 
@@ -138,8 +141,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(780, 330);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BtnCerrar);
+            this.Controls.Add(this.BtnMinimizar);
             this.Controls.Add(this.TxtUsuario);
             this.Controls.Add(this.BtnAcceder);
             this.Controls.Add(this.label1);
@@ -166,8 +169,8 @@
         private System.Windows.Forms.Button BtnAcceder;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox TxtUsuario;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnCerrar;
+        private System.Windows.Forms.Button BtnMinimizar;
     }
 }
 

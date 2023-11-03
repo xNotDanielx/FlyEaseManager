@@ -112,9 +112,22 @@ namespace WindowsFormsApp1
 
         private void FormIniciarSesion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            TxtUsuario.Text = ""; // Se limpia la caja de texto de documento
-            TxtContrasena.Text = ""; // Se limpia la caja de texto de contraseña
+            TxtUsuario.Text = "Usuario";
+            TxtUsuario.ForeColor = Color.LightGray;
+            TxtContrasena.Text = "Contraseña";
+            TxtContrasena.ForeColor = Color.LightGray;
+            TxtContrasena.UseSystemPasswordChar = false;
             this.Show(); // Se muestra el login
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnMinimizar_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

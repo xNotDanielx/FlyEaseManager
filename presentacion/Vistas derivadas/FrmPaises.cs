@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.Servicios;
+using Entity;
 
 namespace WindowsFormsApp1
 {
@@ -25,6 +27,24 @@ namespace WindowsFormsApp1
 
             FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
             principal.OpenForms(vista);
+        }
+
+        private async void FrmPaises_Load(object sender, EventArgs e)
+        {            
+            PaisService service = new PaisService();
+
+            var lista = await service.ObtenerTodos();
+
+            CargarGrilla(lista);
+        }
+
+        void CargarGrilla(List<Pais> paises)
+        {
+            DgvPaises.Rows.Clear();
+            foreach (var item in paises)
+            {
+                DgvPaises.Rows.Add(item.IdPais, item.Nombre, item.FechaRegistro);
+            }
         }
     }
 }

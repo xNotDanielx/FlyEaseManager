@@ -173,6 +173,7 @@
             this.LblNombreUsuario.Size = new System.Drawing.Size(126, 16);
             this.LblNombreUsuario.TabIndex = 19;
             this.LblNombreUsuario.Text = "Nombre de usuario";
+            this.LblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PnSubmenuEstadisticas
             // 
