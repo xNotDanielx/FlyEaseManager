@@ -92,22 +92,22 @@ namespace WindowsFormsApp1
 
         private async void BtnAcceder_Click(object sender, EventArgs e)
         {
-            //await Task.Delay(200);
-            //AdministradorService administradorService = new AdministradorService();
-            //savar administrador = await administradorService.AutenticarAdministrador(TxtUsuario.Text, TxtContrasena.Text);
-            //if (administrador != null)
-            //{
-            //    FrmPrincipal principal = new FrmPrincipal(administrador);
+            await Task.Delay(200);
+            AdministradorService administradorService = new AdministradorService();
+            var administrador = await administradorService.AutenticarAdministrador(TxtUsuario.Text, TxtContrasena.Text);
+            if (administrador != null)
+            {
+                FrmPrincipal principal = new FrmPrincipal(administrador);
 
-            //    principal.Show(); // Le permitimos al nuevo formulario poder visualizarse
-            //    this.Hide(); // Escondemos el formulario de Login
+                principal.Show(); // Le permitimos al nuevo formulario poder visualizarse
+                this.Hide(); // Escondemos el formulario de Login
 
-            //    principal.FormClosing += FormIniciarSesion_FormClosing; // Cuando el formulario se esté cerrando se una al evento frm_closing
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No se encontró el usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+                principal.FormClosing += FormIniciarSesion_FormClosing; // Cuando el formulario se esté cerrando se una al evento frm_closing
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void FormIniciarSesion_FormClosing(object sender, FormClosingEventArgs e)

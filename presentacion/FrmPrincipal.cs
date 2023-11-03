@@ -16,11 +16,11 @@ namespace WindowsFormsApp1
     {
         private static Administrador administradorActual;
         private Form activo;
-        private FrmPrincipal principal;
-        public FrmPrincipal(/*Administrador administrador, FrmPrincipal principal*/)
+        
+        public FrmPrincipal(Administrador administrador)
         {
-            //administradorActual = administrador;
-            //this.principal = principal;
+            administradorActual = administrador;
+            
             InitializeComponent();
             TmrFechaYHora.Start();
             Abrirformhijo(new FrmBienvenida());
@@ -140,7 +140,7 @@ namespace WindowsFormsApp1
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            //LblNombreUsuario.Text = administradorActual.Nombres;
+            LblNombreUsuario.Text = administradorActual.Nombres + " " + administradorActual.Apellidos;
         }
 
         public void OpenForms(Form formHijo)
