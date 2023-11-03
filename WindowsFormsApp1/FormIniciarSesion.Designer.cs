@@ -88,6 +88,7 @@
             this.BtnAcceder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.BtnAcceder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAcceder.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAcceder.ForeColor = System.Drawing.Color.White;
             this.BtnAcceder.Location = new System.Drawing.Point(333, 235);
             this.BtnAcceder.Name = "BtnAcceder";
             this.BtnAcceder.Size = new System.Drawing.Size(296, 36);
@@ -144,6 +145,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtContrasena);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormIniciarSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

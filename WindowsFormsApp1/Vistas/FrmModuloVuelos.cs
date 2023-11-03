@@ -29,7 +29,8 @@ namespace WindowsFormsApp1
 
         private void BtnAgregarVuelo_Click(object sender, EventArgs e)
         {
-            
+            FrmPrincipal principal = new FrmPrincipal();
+            principal.Abrirformhijo(new FrmAgregarVuelos());
         }
     }
 }

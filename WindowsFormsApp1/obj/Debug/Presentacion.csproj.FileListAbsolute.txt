@@ -19,3 +19,24 @@ C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\WindowsFormsApp1\obj\Debug
 C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmBienvenida.resources
 C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmAgregarVuelos.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\bin\Debug\BLL.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\bin\Debug\Entity.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\bin\Debug\BLL.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\bin\Debug\Entity.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormIniciarSesion.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmAgregarVuelos.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmBienvenida.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmModuloVuelos.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmModuloAeropuertos.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmModuloAviones.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FrmPrincipal.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\Presentacion.csproj.GenerateResource.cache
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

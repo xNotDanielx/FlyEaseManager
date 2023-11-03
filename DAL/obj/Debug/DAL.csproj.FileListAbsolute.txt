@@ -7,3 +7,12 @@ C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\DAL\obj\Debug\DAL.csproj.C
 C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\DAL\obj\Debug\DAL.dll
 C:\Users\Daniel\Documents\Proyecto p3 2023-2\Proyecto\DAL\obj\Debug\DAL.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\DAL\bin\Debug\DAL.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\DAL\bin\Debug\DAL.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\DAL\bin\Debug\Entity.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\DAL\bin\Debug\Entity.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\DAL\obj\Debug\DAL.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\DAL\obj\Debug\DAL.pdb

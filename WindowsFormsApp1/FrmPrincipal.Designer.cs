@@ -31,10 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.PnTitulo = new System.Windows.Forms.Panel();
+            this.BtnCerrrar = new System.Windows.Forms.Button();
+            this.BtnMinimizar = new System.Windows.Forms.Button();
             this.PnMenu = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LblNombreUsuario = new System.Windows.Forms.Label();
             this.PnContenedorMenu = new System.Windows.Forms.Panel();
+            this.LblNombreUsuario = new System.Windows.Forms.Label();
             this.PnSubmenuEstadisticas = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -55,39 +56,38 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.BtnBoletosVendidos = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.PbLogoPrincipal = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.BtnAviones = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.BtnAeropuertos = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnVuelos = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.BtnEstadisticas = new System.Windows.Forms.Button();
             this.PnPrincipal = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.LblFecha = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.LblHora = new System.Windows.Forms.Label();
-            this.LblFecha = new System.Windows.Forms.Label();
             this.TmrFechaYHora = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.PbLogoPrincipal = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnCerrrar = new System.Windows.Forms.Button();
-            this.BtnMinimizar = new System.Windows.Forms.Button();
             this.PnTitulo.SuspendLayout();
             this.PnMenu.SuspendLayout();
             this.PnContenedorMenu.SuspendLayout();
             this.PnSubmenuEstadisticas.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogoPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnTitulo
@@ -102,6 +102,32 @@
             this.PnTitulo.TabIndex = 0;
             this.PnTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PnTitulo_MouseDown);
             // 
+            // BtnCerrrar
+            // 
+            this.BtnCerrrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BtnCerrrar.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_close_icon_135015;
+            this.BtnCerrrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnCerrrar.Location = new System.Drawing.Point(1263, 3);
+            this.BtnCerrrar.Name = "BtnCerrrar";
+            this.BtnCerrrar.Size = new System.Drawing.Size(34, 21);
+            this.BtnCerrrar.TabIndex = 18;
+            this.BtnCerrrar.UseVisualStyleBackColor = false;
+            this.BtnCerrrar.Click += new System.EventHandler(this.BtnCerrrar_Click);
+            // 
+            // BtnMinimizar
+            // 
+            this.BtnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BtnMinimizar.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_minimize_icon_138009;
+            this.BtnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnMinimizar.Location = new System.Drawing.Point(1223, 3);
+            this.BtnMinimizar.Name = "BtnMinimizar";
+            this.BtnMinimizar.Size = new System.Drawing.Size(34, 21);
+            this.BtnMinimizar.TabIndex = 17;
+            this.BtnMinimizar.UseVisualStyleBackColor = false;
+            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
+            // 
             // PnMenu
             // 
             this.PnMenu.BackColor = System.Drawing.Color.White;
@@ -111,26 +137,6 @@
             this.PnMenu.Name = "PnMenu";
             this.PnMenu.Size = new System.Drawing.Size(200, 615);
             this.PnMenu.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(57, 134);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 16);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "¡Bienvenido!";
-            // 
-            // LblNombreUsuario
-            // 
-            this.LblNombreUsuario.AutoSize = true;
-            this.LblNombreUsuario.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreUsuario.Location = new System.Drawing.Point(36, 160);
-            this.LblNombreUsuario.Name = "LblNombreUsuario";
-            this.LblNombreUsuario.Size = new System.Drawing.Size(126, 16);
-            this.LblNombreUsuario.TabIndex = 19;
-            this.LblNombreUsuario.Text = "Nombre de usuario";
             // 
             // PnContenedorMenu
             // 
@@ -156,6 +162,16 @@
             this.PnContenedorMenu.Name = "PnContenedorMenu";
             this.PnContenedorMenu.Size = new System.Drawing.Size(200, 615);
             this.PnContenedorMenu.TabIndex = 0;
+            // 
+            // LblNombreUsuario
+            // 
+            this.LblNombreUsuario.AutoSize = true;
+            this.LblNombreUsuario.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreUsuario.Location = new System.Drawing.Point(36, 160);
+            this.LblNombreUsuario.Name = "LblNombreUsuario";
+            this.LblNombreUsuario.Size = new System.Drawing.Size(126, 16);
+            this.LblNombreUsuario.TabIndex = 19;
+            this.LblNombreUsuario.Text = "Nombre de usuario";
             // 
             // PnSubmenuEstadisticas
             // 
@@ -378,6 +394,38 @@
             this.panel2.Size = new System.Drawing.Size(11, 21);
             this.panel2.TabIndex = 22;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(57, 134);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "¡Bienvenido!";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::WindowsFormsApp1.Properties.Resources.vueloPng1;
+            this.pictureBox7.Location = new System.Drawing.Point(12, 279);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(39, 44);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 21;
+            this.pictureBox7.TabStop = false;
+            // 
+            // PbLogoPrincipal
+            // 
+            this.PbLogoPrincipal.BackColor = System.Drawing.Color.White;
+            this.PbLogoPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("PbLogoPrincipal.Image")));
+            this.PbLogoPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.PbLogoPrincipal.Name = "PbLogoPrincipal";
+            this.PbLogoPrincipal.Size = new System.Drawing.Size(197, 121);
+            this.PbLogoPrincipal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbLogoPrincipal.TabIndex = 8;
+            this.PbLogoPrincipal.TabStop = false;
+            this.PbLogoPrincipal.Click += new System.EventHandler(this.PbLogoPrincipal_Click);
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
@@ -401,6 +449,16 @@
             this.BtnAviones.UseVisualStyleBackColor = false;
             this.BtnAviones.Click += new System.EventHandler(this.BtnAviones_Click);
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::WindowsFormsApp1.Properties.Resources.AeropertoPng;
+            this.pictureBox6.Location = new System.Drawing.Point(12, 229);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(39, 44);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 18;
+            this.pictureBox6.TabStop = false;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
@@ -423,6 +481,26 @@
             this.BtnAeropuertos.Text = "Aeropuertos";
             this.BtnAeropuertos.UseVisualStyleBackColor = false;
             this.BtnAeropuertos.Click += new System.EventHandler(this.BtnAeropuertos_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::WindowsFormsApp1.Properties.Resources.EstadisticasPng;
+            this.pictureBox5.Location = new System.Drawing.Point(12, 329);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(39, 44);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 15;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.R;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 179);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 44);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -490,6 +568,17 @@
             this.panel18.Size = new System.Drawing.Size(1100, 49);
             this.panel18.TabIndex = 3;
             // 
+            // LblFecha
+            // 
+            this.LblFecha.AutoSize = true;
+            this.LblFecha.Font = new System.Drawing.Font("Berlin Sans FB Demi", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFecha.ForeColor = System.Drawing.Color.White;
+            this.LblFecha.Location = new System.Drawing.Point(55, 4);
+            this.LblFecha.Name = "LblFecha";
+            this.LblFecha.Size = new System.Drawing.Size(89, 31);
+            this.LblFecha.TabIndex = 0;
+            this.LblFecha.Text = "label4";
+            // 
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -510,98 +599,9 @@
             this.LblHora.TabIndex = 0;
             this.LblHora.Text = "label3";
             // 
-            // LblFecha
-            // 
-            this.LblFecha.AutoSize = true;
-            this.LblFecha.Font = new System.Drawing.Font("Berlin Sans FB Demi", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFecha.ForeColor = System.Drawing.Color.White;
-            this.LblFecha.Location = new System.Drawing.Point(55, 4);
-            this.LblFecha.Name = "LblFecha";
-            this.LblFecha.Size = new System.Drawing.Size(89, 31);
-            this.LblFecha.TabIndex = 0;
-            this.LblFecha.Text = "label4";
-            // 
             // TmrFechaYHora
             // 
             this.TmrFechaYHora.Tick += new System.EventHandler(this.TmrFechaYHora_Tick);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::WindowsFormsApp1.Properties.Resources.vueloPng1;
-            this.pictureBox7.Location = new System.Drawing.Point(12, 279);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(39, 44);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 21;
-            this.pictureBox7.TabStop = false;
-            // 
-            // PbLogoPrincipal
-            // 
-            this.PbLogoPrincipal.BackColor = System.Drawing.Color.White;
-            this.PbLogoPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("PbLogoPrincipal.Image")));
-            this.PbLogoPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.PbLogoPrincipal.Name = "PbLogoPrincipal";
-            this.PbLogoPrincipal.Size = new System.Drawing.Size(197, 121);
-            this.PbLogoPrincipal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbLogoPrincipal.TabIndex = 8;
-            this.PbLogoPrincipal.TabStop = false;
-            this.PbLogoPrincipal.Click += new System.EventHandler(this.PbLogoPrincipal_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::WindowsFormsApp1.Properties.Resources.AeropertoPng;
-            this.pictureBox6.Location = new System.Drawing.Point(12, 229);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(39, 44);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 18;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::WindowsFormsApp1.Properties.Resources.EstadisticasPng;
-            this.pictureBox5.Location = new System.Drawing.Point(12, 329);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(39, 44);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 15;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.R;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 179);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 44);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // BtnCerrrar
-            // 
-            this.BtnCerrrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
-            this.BtnCerrrar.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_close_icon_135015;
-            this.BtnCerrrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnCerrrar.Location = new System.Drawing.Point(1263, 3);
-            this.BtnCerrrar.Name = "BtnCerrrar";
-            this.BtnCerrrar.Size = new System.Drawing.Size(34, 21);
-            this.BtnCerrrar.TabIndex = 18;
-            this.BtnCerrrar.UseVisualStyleBackColor = false;
-            this.BtnCerrrar.Click += new System.EventHandler(this.BtnCerrrar_Click);
-            // 
-            // BtnMinimizar
-            // 
-            this.BtnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
-            this.BtnMinimizar.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_minimize_icon_138009;
-            this.BtnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnMinimizar.Location = new System.Drawing.Point(1223, 3);
-            this.BtnMinimizar.Name = "BtnMinimizar";
-            this.BtnMinimizar.Size = new System.Drawing.Size(34, 21);
-            this.BtnMinimizar.TabIndex = 17;
-            this.BtnMinimizar.UseVisualStyleBackColor = false;
-            this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
             // 
             // FrmPrincipal
             // 
@@ -623,15 +623,15 @@
             this.PnContenedorMenu.PerformLayout();
             this.PnSubmenuEstadisticas.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogoPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
             this.ResumeLayout(false);
 
         }

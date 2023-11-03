@@ -99,6 +99,7 @@
             this.BtnGestionPaises.TabIndex = 28;
             this.BtnGestionPaises.Text = "Paises";
             this.BtnGestionPaises.UseVisualStyleBackColor = false;
+            this.BtnGestionPaises.Click += new System.EventHandler(this.BtnGestionPaises_Click);
             // 
             // label1
             // 
