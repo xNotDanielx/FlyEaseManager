@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
     public partial class FrmRegiones : Form
     {
         private FrmPrincipal principal;
+        private RegionService regionService = new RegionService();
         public FrmRegiones(FrmPrincipal principal)
         {
             InitializeComponent();
@@ -34,13 +35,29 @@ namespace WindowsFormsApp1
             CargarGrilla(await new RegionService().ObtenerTodos());
 
             CargarCombo(await new PaisService().ObtenerTodos());
+            ConfigurarBotones();
         }
+
+        void ConfigurarBotones()
+        {
+            if (DgvRegiones.RowCount == 1) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
+            {
+                BtnEliminar.Enabled = false;
+                BtnActualizar.Enabled = false;
+            }
+            else
+            {
+                BtnEliminar.Enabled = true;
+                BtnActualizar.Enabled = true;
+            }
+        }
+
         void CargarGrilla(List<Region> regiones)
         {
-            DgvPaises.Rows.Clear();
+            DgvRegiones.Rows.Clear();
             foreach (var item in regiones)
             {
-                DgvPaises.Rows.Add(item.IdRegion, item.Nombre, item.Pais.Nombre, item.FechaRegistro);
+                DgvRegiones.Rows.Add(item.IdRegion, item.Nombre, item.Pais.Nombre, item.FechaRegistro);
             }
         }
 
@@ -52,8 +69,8 @@ namespace WindowsFormsApp1
 
         private void DgvPaises_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            var fila = DgvPaises.Rows[e.RowIndex];
-            TxtNombre.Text = fila.Cells[1].Value.ToString();
+            var fila = DgvRegiones.Rows[e.RowIndex];
+            TxtNombre.Text = fila.Cells[1].Value.ToString(); // Hay que quitar la fila que sale vacia para que no de error por fila nula
             CbPaises.Text = fila.Cells[2].Value.ToString();
         }
 
@@ -68,18 +85,38 @@ namespace WindowsFormsApp1
             
             var ObtenerPais = await new PaisService().ObtenerTodos();
             var pais = ObtenerPais.Where(p => p.Nombre == CbPaises.Text).FirstOrDefault();
-            RegionService service = new RegionService();
+            RegionService regionService = new RegionService();
             Region region = new Region
             {
-                IdRegion = Convert.ToInt32(DgvPaises.CurrentRow.Cells[0].Value.ToString()),
+                IdRegion = Convert.ToInt32(DgvRegiones.CurrentRow.Cells[0].Value.ToString()),
                 Nombre = TxtNombre.Text,
                 Pais = pais,
-                FechaRegistro = DgvPaises.CurrentRow.Cells[3].Value.ToString()
+                FechaRegistro = DgvRegiones.CurrentRow.Cells[3].Value.ToString()
             };
-            var response = await service.Actualizar(DgvPaises.CurrentRow.Cells[0].Value.ToString(), region);
+            var response = await regionService.Actualizar(DgvRegiones.CurrentRow.Cells[0].Value.ToString(), region);
 
             MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+
+            // Se actualiza la lista
+            var lista = await regionService.ObtenerTodos();
+            CargarGrilla(lista);
+            ConfigurarBotones();
         }
+
+        private async void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar la region: {DgvRegiones.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
+            {
+                var response = await regionService.EliminarPorId($"{DgvRegiones.CurrentRow.Cells[0].Value}");
+                var lista = await regionService.ObtenerTodos();
+
+                CargarGrilla(lista);
+                MessageBox.Show(response);
+                ConfigurarBotones();
+            }
+        }
+
     }
 }

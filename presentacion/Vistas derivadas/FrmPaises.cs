@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
     public partial class FrmPaises : Form
     {
         private FrmPrincipal principal;
+        private PaisService paisService = new PaisService();
         public FrmPaises(FrmPrincipal principal)
         {
             InitializeComponent();
@@ -31,11 +32,23 @@ namespace WindowsFormsApp1
 
         private async void FrmPaises_Load(object sender, EventArgs e)
         {            
-            PaisService service = new PaisService();
-
-            var lista = await service.ObtenerTodos();
-
+            var lista = await paisService.ObtenerTodos();
             CargarGrilla(lista);
+            ConfigurarBotones();
+        }
+
+        void ConfigurarBotones()
+        {
+            if (DgvPaises.RowCount == 1) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
+            {
+                BtnEliminar.Enabled = false;
+                //BtnActualizar.Enabled = false; //Cuando se cree el boton actualizar en este form
+            }
+            else
+            {
+                BtnEliminar.Enabled = true;
+                //BtnActualizar.Enabled = true; //Cuando se cree el boton actualizar en este form
+            }
         }
 
         void CargarGrilla(List<Pais> paises)
@@ -45,6 +58,22 @@ namespace WindowsFormsApp1
             {
                 DgvPaises.Rows.Add(item.IdPais, item.Nombre, item.FechaRegistro);
             }
+        }
+
+        private async void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el país: {DgvPaises.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
+            {
+                var response = await paisService.EliminarPorId($"{DgvPaises.CurrentRow.Cells[0].Value}");
+                var lista = await paisService.ObtenerTodos();
+
+                CargarGrilla(lista);
+                MessageBox.Show(response);
+                ConfigurarBotones();
+            }
+
         }
     }
 }

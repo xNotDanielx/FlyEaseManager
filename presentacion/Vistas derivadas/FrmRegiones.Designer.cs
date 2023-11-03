@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DgvPaises = new System.Windows.Forms.DataGridView();
+            this.DgvRegiones = new System.Windows.Forms.DataGridView();
             this.IdRegion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreRegion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombrePais = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,22 +43,22 @@
             this.CbPaises = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.BtnActualizar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvPaises)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvRegiones)).BeginInit();
             this.SuspendLayout();
             // 
-            // DgvPaises
+            // DgvRegiones
             // 
-            this.DgvPaises.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvPaises.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvRegiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvRegiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdRegion,
             this.NombreRegion,
             this.NombrePais,
             this.FecchaRegistro});
-            this.DgvPaises.Location = new System.Drawing.Point(67, 49);
-            this.DgvPaises.Name = "DgvPaises";
-            this.DgvPaises.Size = new System.Drawing.Size(750, 384);
-            this.DgvPaises.TabIndex = 0;
-            this.DgvPaises.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvPaises_CellMouseClick);
+            this.DgvRegiones.Location = new System.Drawing.Point(67, 49);
+            this.DgvRegiones.Name = "DgvRegiones";
+            this.DgvRegiones.Size = new System.Drawing.Size(750, 384);
+            this.DgvRegiones.TabIndex = 0;
+            this.DgvRegiones.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvPaises_CellMouseClick);
             // 
             // IdRegion
             // 
@@ -113,6 +113,7 @@
             this.BtnEliminar.TabIndex = 39;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // label1
             // 
@@ -224,13 +225,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.DgvPaises);
+            this.Controls.Add(this.DgvRegiones);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRegiones";
             this.Text = "FrmRegiones";
             this.Load += new System.EventHandler(this.FrmRegiones_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DgvPaises)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvRegiones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,7 +239,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView DgvPaises;
+        private System.Windows.Forms.DataGridView DgvRegiones;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Label label1;
