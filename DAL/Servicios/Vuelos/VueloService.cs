@@ -17,15 +17,17 @@ namespace BLL.Servicios
         {
         }
 
-        public List<Vuelo> FiltrarPorEstado(string estado)
+        public async Task<List<Vuelo>> FiltrarPorEstado(string estado)
         {
-            List<Vuelo> vuelosFiltrados = lecturaRepository.ObtenerTodos().Where(item => item.Estado.Equals(estado)).ToList();
-            return vuelosFiltrados;
+            List<Vuelo> vuelosFiltrados = await lecturaRepository.ObtenerTodos();
+            return vuelosFiltrados.Where(item => item.Estado.Equals(estado)).ToList();
         }
 
-        public Dictionary<string, int> ContarVuelosPorCiudadDestino()
+        public async Task<Dictionary<string, int>> ContarVuelosPorCiudadDestino()
         {
-            List<Vuelo> vuelosRealizados = lecturaRepository.ObtenerTodos().Where(item => item.Estado.Equals("Realizado")).ToList();
+            List<Vuelo> vuelosRealizados = await lecturaRepository.ObtenerTodos();
+
+            vuelosRealizados = vuelosRealizados.Where(item => item.Estado.Equals("Realizado")).ToList();
 
             var conteoPorCiudad = new Dictionary<string, int>();
 

@@ -1,4 +1,4 @@
-﻿using DAL.Repositorios;
+﻿using BLL.Servicios;
 using Entity;
 using System;
 using System.Collections.Generic;
@@ -14,22 +14,8 @@ namespace Pruebas
         static void Main(string[] args)
         {
 
-            ClienteRepository clienteRepository = new ClienteRepository();
-
-            ////Cliente miCliente = new Cliente
-            ////{
-            ////    NumeroDocumento = "123",
-            ////    TipoDocumento = "123",
-            ////    Nombres = "123",
-            ////    Apellidos = "1",
-            ////    Celular = "1",
-            ////    Correo = "1",
-            ////    FechaRegistro = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")
-            ////};
-
             //1.Prueba Crear(Funciona)
-            ////Console.WriteLine(clienteRepository.Crear(miCliente));
-            ////Console.ReadKey();
+            /////PruebaPostCliente().Wait();
 
 
             // 2. Prueba Obtener por Id (Funciona)
@@ -38,13 +24,8 @@ namespace Pruebas
             ////Console.ReadKey();
 
             // 3. Prueba Obtener todos (Funciona)
-            ////var lista = clienteRepository.ObtenerTodos();
-            ////foreach (Cliente cliente in lista)
-            ////{
-            ////    Console.WriteLine($"Nombres: {cliente.Nombres}\nApellidos: {cliente.Apellidos}\nEmail: {cliente.Correo}\n");
-            ////}
-            ////Console.ReadKey();
-
+            PruebaObtenerTodos().Wait();
+            Console.ReadKey();
 
             // 4. Prueba Actualizar (Funciona)
             ////var respuesta = clienteRepository.Actualizar("1", miCliente);
@@ -65,6 +46,34 @@ namespace Pruebas
             ////Console.ReadKey();
 
             // Hay que mejorar las excepciones y respuestas de retorno en la capa de datos
+        }
+
+        public static async Task PruebaObtenerTodos()
+        {
+            ClienteService clienteService = new ClienteService();
+            await Task.Delay(200);
+            var lista = await clienteService.ObtenerTodos();
+            foreach (Cliente cliente in lista)
+            {
+                Console.WriteLine($"Nombres: {cliente.Nombres}\nApellidos: {cliente.Apellidos}\nEmail: {cliente.Correo}\n");
+            }
+        }
+
+        public static async Task PruebaPostCliente()
+        {
+            ClienteService clienteService = new ClienteService();
+            Cliente miCliente = new Cliente
+            {
+                NumeroDocumento = "123",
+                TipoDocumento = "123",
+                Nombres = "123",
+                Apellidos = "1",
+                Celular = "1",
+                Correo = "1",
+                FechaRegistro = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")
+            };
+
+            Console.WriteLine(await clienteService.Crear(miCliente));
         }
     }
 }

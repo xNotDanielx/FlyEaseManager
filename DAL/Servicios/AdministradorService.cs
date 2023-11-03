@@ -18,15 +18,15 @@ namespace BLL.Servicios
         {
         }
 
-        public Administrador ObtenerPorNDocumento(string numeroDocumento)
+        public Administrador ObtenerPorNDocumento(string numeroDocumento) // No se usará. Tiene posibles errores porque el método que está dentro es asíncrono
         {
             var administrador = administradorRepository.ObtenerPorNDocumento(numeroDocumento);
             return administrador;
         }
 
-        public Administrador AutenticarAdministrador(string usuario, string clave)
+        public async Task<Administrador> AutenticarAdministrador(string usuario, string clave)
         {
-            List<Administrador> administradores = administradorRepository.ObtenerTodos();
+            List<Administrador> administradores = await administradorRepository.ObtenerTodos();
             Administrador administrador = administradores.Where(item => item.Usuario.Equals(usuario) && item.Clave.Equals(clave)).FirstOrDefault();
             return administrador;
         }

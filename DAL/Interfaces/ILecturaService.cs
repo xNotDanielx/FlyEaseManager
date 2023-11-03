@@ -8,7 +8,7 @@ namespace BLL.Interfaces
 {
     public interface ILecturaService<T> where T : class
     {
-        List<T> ObtenerTodos();
-        T ObtenerPorId(string id);
+        Task<List<T>> ObtenerTodos();
+        Task<T> ObtenerPorId(string id);
     }
 }

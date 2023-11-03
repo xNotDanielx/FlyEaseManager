@@ -9,7 +9,7 @@ namespace DAL.Interfaces
 {
     public interface ILecturaRepository<T> where T : class
     {
-        List<T> ObtenerTodos();
-        T ObtenerPorId(string id);
+        Task<List<T>> ObtenerTodos();
+        Task<T> ObtenerPorId(string id);
     }
 }

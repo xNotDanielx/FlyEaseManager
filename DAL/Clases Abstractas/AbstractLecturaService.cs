@@ -17,11 +17,11 @@ namespace BLL.Clases_Abstractas
             this.lecturaRepository = lecturaRepository;
         }
 
-        public virtual List<T> ObtenerTodos()
+        public virtual async Task<List<T>> ObtenerTodos()
         {
             try
             {
-                return lecturaRepository.ObtenerTodos();
+                return await lecturaRepository.ObtenerTodos();
             }
             catch (Exception ex)
             {
@@ -29,11 +29,11 @@ namespace BLL.Clases_Abstractas
             }
         }
 
-        public virtual T ObtenerPorId(string id)
+        public virtual async Task<T> ObtenerPorId(string id)
         {
             try
             {
-                return lecturaRepository.ObtenerPorId(id);
+                return await lecturaRepository.ObtenerPorId(id);
             }
             catch (Exception ex)
             {

@@ -21,18 +21,17 @@ namespace DAL.Clases_Abstractas
             this.baseURI = baseURI; 
         }
 
-        public virtual List<T> ObtenerTodos()
+        public virtual async Task<List<T>> ObtenerTodos()
         {
             string endpoint = $"{baseURI}/GetAll";
-            string jsonResponse = apiClient.GetAsync(endpoint).Result;
+            string jsonResponse = await apiClient.GetAsync(endpoint);
             var response = JsonConvert.DeserializeObject<ResponseList<T>>(jsonResponse);
             return response.response;
         }
-
-        public virtual T ObtenerPorId(string id)
+        public virtual async Task<T> ObtenerPorId(string id)
         {
             string endpoint = $"{baseURI}/GetById/{id}";
-            string jsonResponse = apiClient.GetAsync(endpoint).Result;
+            string jsonResponse = await apiClient.GetAsync(endpoint);
             var response = JsonConvert.DeserializeObject<ResponseObject<T>>(jsonResponse);
             return response.response;
         }
