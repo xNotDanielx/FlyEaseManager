@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FrmAgregarVuelos : Form
+    public partial class FrmCiudades : Form
     {
         private FrmPrincipal principal;
-        public FrmAgregarVuelos(FrmPrincipal principal)
+        public FrmCiudades(FrmPrincipal principal)
         {
             this.principal = principal;
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         {
             await Task.Delay(190);
 
-            FrmModuloVuelos vista = new FrmModuloVuelos(principal);
+            FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
             principal.OpenForms(vista);
         }
     }

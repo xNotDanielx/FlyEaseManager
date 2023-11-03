@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.BtnGestionCoordenadas = new System.Windows.Forms.Button();
             this.BtnGestionRegiones = new System.Windows.Forms.Button();
             this.BtnGestionCiudades = new System.Windows.Forms.Button();
             this.BtnGestionPaises = new System.Windows.Forms.Button();
@@ -46,59 +45,50 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(939, 35);
+            this.label2.Location = new System.Drawing.Point(888, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 32;
             this.label2.Text = "Gestion";
-            // 
-            // BtnGestionCoordenadas
-            // 
-            this.BtnGestionCoordenadas.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnGestionCoordenadas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGestionCoordenadas.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionCoordenadas.Location = new System.Drawing.Point(914, 285);
-            this.BtnGestionCoordenadas.Name = "BtnGestionCoordenadas";
-            this.BtnGestionCoordenadas.Size = new System.Drawing.Size(127, 45);
-            this.BtnGestionCoordenadas.TabIndex = 31;
-            this.BtnGestionCoordenadas.Text = "Coordenadas";
-            this.BtnGestionCoordenadas.UseVisualStyleBackColor = false;
             // 
             // BtnGestionRegiones
             // 
             this.BtnGestionRegiones.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionRegiones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionRegiones.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionRegiones.Location = new System.Drawing.Point(914, 183);
+            this.BtnGestionRegiones.Location = new System.Drawing.Point(863, 197);
             this.BtnGestionRegiones.Name = "BtnGestionRegiones";
             this.BtnGestionRegiones.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionRegiones.TabIndex = 30;
             this.BtnGestionRegiones.Text = "Regiones";
             this.BtnGestionRegiones.UseVisualStyleBackColor = false;
+            this.BtnGestionRegiones.Click += new System.EventHandler(this.BtnGestionRegiones_Click);
             // 
             // BtnGestionCiudades
             // 
             this.BtnGestionCiudades.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionCiudades.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionCiudades.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionCiudades.Location = new System.Drawing.Point(914, 387);
+            this.BtnGestionCiudades.Location = new System.Drawing.Point(863, 281);
             this.BtnGestionCiudades.Name = "BtnGestionCiudades";
             this.BtnGestionCiudades.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionCiudades.TabIndex = 29;
             this.BtnGestionCiudades.Text = "Ciudades";
             this.BtnGestionCiudades.UseVisualStyleBackColor = false;
+            this.BtnGestionCiudades.Click += new System.EventHandler(this.BtnGestionCiudades_Click);
             // 
             // BtnGestionPaises
             // 
             this.BtnGestionPaises.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionPaises.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionPaises.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionPaises.Location = new System.Drawing.Point(914, 81);
+            this.BtnGestionPaises.Location = new System.Drawing.Point(863, 112);
             this.BtnGestionPaises.Name = "BtnGestionPaises";
             this.BtnGestionPaises.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionPaises.TabIndex = 28;
             this.BtnGestionPaises.Text = "Paises";
             this.BtnGestionPaises.UseVisualStyleBackColor = false;
+            this.BtnGestionPaises.Click += new System.EventHandler(this.BtnGestionPaises_Click);
             // 
             // label1
             // 
@@ -161,7 +151,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.BtnGestionCoordenadas);
             this.Controls.Add(this.BtnGestionRegiones);
             this.Controls.Add(this.BtnGestionCiudades);
             this.Controls.Add(this.BtnGestionPaises);
@@ -183,7 +172,6 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button BtnGestionCoordenadas;
         private System.Windows.Forms.Button BtnGestionRegiones;
         private System.Windows.Forms.Button BtnGestionCiudades;
         private System.Windows.Forms.Button BtnGestionPaises;

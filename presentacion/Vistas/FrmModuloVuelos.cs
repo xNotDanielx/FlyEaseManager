@@ -12,9 +12,12 @@ namespace WindowsFormsApp1
 {
     public partial class FrmModuloVuelos : Form
     {
-        public FrmModuloVuelos()
+
+        private FrmPrincipal principal;
+        public FrmModuloVuelos(FrmPrincipal principal)
         {
             InitializeComponent();
+            this.principal = principal;
         }
 
         private void BtnMinimizar_Click(object sender, EventArgs e)
@@ -27,9 +30,14 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
-        private void BtnAgregarVuelo_Click(object sender, EventArgs e)
+        private async void BtnAgregarVuelo_Click(object sender, EventArgs e)
         {
-            
+            await Task.Delay(190);
+
+            FrmAgregarVuelos vista = new FrmAgregarVuelos(principal);
+            vista.Dock = DockStyle.Fill;
+            principal.OpenForms(vista);
+
         }
     }
 }

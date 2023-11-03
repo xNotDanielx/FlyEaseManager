@@ -15,9 +15,12 @@ namespace WindowsFormsApp1
     public partial class FrmPrincipal : Form
     {
         private static Administrador administradorActual;
-        public FrmPrincipal(Administrador administrador)
+        private Form activo;
+        private FrmPrincipal principal;
+        public FrmPrincipal(/*Administrador administrador, FrmPrincipal principal*/)
         {
-            administradorActual = administrador;
+            //administradorActual = administrador;
+            //this.principal = principal;
             InitializeComponent();
             TmrFechaYHora.Start();
             Abrirformhijo(new FrmBienvenida());
@@ -36,11 +39,6 @@ namespace WindowsFormsApp1
         private void BtnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void BtnClientes_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void PnTitulo_MouseDown(object sender, MouseEventArgs e)
@@ -63,13 +61,13 @@ namespace WindowsFormsApp1
 
         private void BtnVuelos_Click(object sender, EventArgs e)
         {
-            Abrirformhijo(new FrmModuloVuelos());
+            Abrirformhijo(new FrmModuloVuelos(this));
         }
 
 
         private void BtnAeropuertos_Click(object sender, EventArgs e)
         {
-            Abrirformhijo(new FrmModuloAeropuertos());
+            Abrirformhijo(new FrmModuloAeropuertos(this));
         }
 
         private void BtnAviones_Click(object sender, EventArgs e)
@@ -125,9 +123,14 @@ namespace WindowsFormsApp1
             LblFecha.Text = DateTime.Now.ToLongDateString();
         }
 
-        private void PbLogoPrincipal_Click(object sender, EventArgs e)
+        private /*async*/ void PbLogoPrincipal_Click(object sender, EventArgs e)
         {
             Abrirformhijo(new FrmBienvenida());
+            //await Task.Delay(190);
+
+            //FrmBienvenida vista = new FrmBienvenida();
+            //vista.Dock = DockStyle.Fill;
+            //principal.OpenForms(vista);
         }
 
         private void PnTitulo_Paint(object sender, PaintEventArgs e)
@@ -137,7 +140,29 @@ namespace WindowsFormsApp1
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            LblNombreUsuario.Text = administradorActual.Nombres;
+            //LblNombreUsuario.Text = administradorActual.Nombres;
+        }
+
+        public void OpenForms(Form formHijo)
+        {
+            if (activo != null)
+            {
+                activo.Close();
+                activo = null;
+            }
+
+            if (formHijo != null)
+            {                
+                formHijo.TopLevel = false;
+                formHijo.FormBorderStyle = FormBorderStyle.None;
+                formHijo.Dock = DockStyle.Fill;
+                PnPrincipal.Controls.Add(formHijo);
+                PnPrincipal.Tag = formHijo;
+                formHijo.BringToFront();
+                formHijo.Show();
+
+                activo = formHijo;
+            }
         }
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)

@@ -25,3 +25,12 @@ C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\obj\Deb
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\obj\Debug\Entity.csproj.CopyComplete
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\obj\Debug\Entity.dll
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\Entity\obj\Debug\Entity.pdb
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\Entity\bin\Debug\Entity.dll
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\Entity\bin\Debug\Entity.pdb
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\Entity\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\Entity\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\Entity\obj\Debug\Entity.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\Entity\obj\Debug\Entity.csproj.CopyComplete
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\Entity\obj\Debug\Entity.dll
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\Entity\obj\Debug\Entity.pdb

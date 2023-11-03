@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FrmAgregarVuelos : Form
+    public partial class FrmPaises : Form
     {
         private FrmPrincipal principal;
-        public FrmAgregarVuelos(FrmPrincipal principal)
+        public FrmPaises(FrmPrincipal principal)
         {
-            this.principal = principal;
             InitializeComponent();
+            this.principal = principal;
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
         {
             await Task.Delay(190);
 
-            FrmModuloVuelos vista = new FrmModuloVuelos(principal);
+            FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
             principal.OpenForms(vista);
         }
     }
