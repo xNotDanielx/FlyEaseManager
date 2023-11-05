@@ -52,6 +52,12 @@
     <Compile Include="FormIniciarSesion.Designer.cs">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros y Ediciones\FrmEditarVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros y Ediciones\FrmEditarVuelos.Designer.cs">
+      <DependentUpon>FrmEditarVuelos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas derivadas\FrmCiudades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,10 +82,10 @@
     <Compile Include="Registros y Ediciones\FrmAgregarVuelos.Designer.cs">
       <DependentUpon>FrmAgregarVuelos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\FrmBienvenida.cs">
+    <Compile Include="FrmBienvenida.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\FrmBienvenida.Designer.cs">
+    <Compile Include="FrmBienvenida.Designer.cs">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmModuloVuelos.cs">
@@ -111,6 +117,9 @@
     <EmbeddedResource Include="FormIniciarSesion.resx">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registros y Ediciones\FrmEditarVuelos.resx">
+      <DependentUpon>FrmEditarVuelos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas derivadas\FrmCiudades.resx">
       <DependentUpon>FrmCiudades.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,7 +132,7 @@
     <EmbeddedResource Include="Registros y Ediciones\FrmAgregarVuelos.resx">
       <DependentUpon>FrmAgregarVuelos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas\FrmBienvenida.resx">
+    <EmbeddedResource Include="FrmBienvenida.resx">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmModuloVuelos.resx">

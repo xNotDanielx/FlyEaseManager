@@ -10,27 +10,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FrmAgregarVuelos : Form
+    public partial class FrmEditarVuelos : Form
     {
         private FrmPrincipal principal;
-        public FrmAgregarVuelos(FrmPrincipal principal)
+        private int IdVuelo;
+        public FrmEditarVuelos(FrmPrincipal principal, int IdVuelo)
         {
             this.principal = principal;
+            this.IdVuelo= IdVuelo;
             InitializeComponent();
         }
 
-        private async void BtnRegresar_Click(object sender, EventArgs e)
-        {
-            await Task.Delay(190);
-
-            FrmModuloVuelos vista = new FrmModuloVuelos(principal);
-            principal.OpenForms(vista);
-        }
-
-        private void FrmAgregarVuelos_Load(object sender, EventArgs e)
+        private void FrmEditarVuelos_Load(object sender, EventArgs e)
         {
             ConfigurarDateTimePickers();
-            
         }
 
         void ConfigurarDateTimePickers()
@@ -39,6 +32,14 @@ namespace WindowsFormsApp1
             DtpFechaSalida.Value = DateTime.Now;
             DtpFechaLlegada.MinDate = DateTime.Now;
             DtpFechaLlegada.Value = DateTime.Now;
+        }
+
+        private async void BtnRegresar_Click(object sender, EventArgs e)
+        {
+            await Task.Delay(190);
+            
+            FrmAgregarVuelos vista = new FrmAgregarVuelos(principal);
+            principal.OpenForms(vista);
         }
     }
 }

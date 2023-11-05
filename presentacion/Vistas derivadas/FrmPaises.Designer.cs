@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnRegresar = new System.Windows.Forms.Button();
-            this.TxtFecha = new System.Windows.Forms.TextBox();
             this.TxtNombre = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +39,7 @@
             this.IdPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombrePais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPaises)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,17 +57,6 @@
             this.BtnRegresar.UseVisualStyleBackColor = false;
             this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
             // 
-            // TxtFecha
-            // 
-            this.TxtFecha.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtFecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtFecha.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.TxtFecha.ForeColor = System.Drawing.Color.White;
-            this.TxtFecha.Location = new System.Drawing.Point(860, 236);
-            this.TxtFecha.Name = "TxtFecha";
-            this.TxtFecha.Size = new System.Drawing.Size(179, 24);
-            this.TxtFecha.TabIndex = 55;
-            // 
             // TxtNombre
             // 
             this.TxtNombre.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -79,17 +67,6 @@
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(179, 24);
             this.TxtNombre.TabIndex = 54;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(742, 238);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 18);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Fecha registro:";
             // 
             // label3
             // 
@@ -130,7 +107,7 @@
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(463, 438);
+            this.BtnEliminar.Location = new System.Drawing.Point(445, 438);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminar.TabIndex = 49;
@@ -144,7 +121,7 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(146, 438);
+            this.BtnAgregar.Location = new System.Drawing.Point(128, 438);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregar.TabIndex = 48;
@@ -161,8 +138,9 @@
             this.FechaRegistro});
             this.DgvPaises.Location = new System.Drawing.Point(67, 48);
             this.DgvPaises.Name = "DgvPaises";
-            this.DgvPaises.Size = new System.Drawing.Size(597, 384);
+            this.DgvPaises.Size = new System.Drawing.Size(594, 384);
             this.DgvPaises.TabIndex = 47;
+            this.DgvPaises.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvPaises_CellMouseClick);
             // 
             // IdPais
             // 
@@ -185,16 +163,29 @@
             this.FechaRegistro.ReadOnly = true;
             this.FechaRegistro.Width = 250;
             // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
+            this.BtnActualizar.Location = new System.Drawing.Point(819, 268);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
+            this.BtnActualizar.TabIndex = 57;
+            this.BtnActualizar.Text = "Actualizar";
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
             // FrmPaises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
+            this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.BtnRegresar);
-            this.Controls.Add(this.TxtFecha);
             this.Controls.Add(this.TxtNombre);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -214,9 +205,7 @@
         #endregion
 
         private System.Windows.Forms.Button BtnRegresar;
-        private System.Windows.Forms.TextBox TxtFecha;
         private System.Windows.Forms.TextBox TxtNombre;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -226,5 +215,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IdPais;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombrePais;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
+        private System.Windows.Forms.Button BtnActualizar;
     }
 }

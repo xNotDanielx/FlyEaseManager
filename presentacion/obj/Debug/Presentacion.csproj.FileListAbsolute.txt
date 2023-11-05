@@ -188,3 +188,4 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\System.Buffers.xml
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmEditarVuelos.resources

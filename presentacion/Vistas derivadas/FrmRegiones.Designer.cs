@@ -48,6 +48,7 @@
             // 
             // DgvRegiones
             // 
+            this.DgvRegiones.AllowUserToAddRows = false;
             this.DgvRegiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvRegiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdRegion,
@@ -56,7 +57,7 @@
             this.FecchaRegistro});
             this.DgvRegiones.Location = new System.Drawing.Point(67, 49);
             this.DgvRegiones.Name = "DgvRegiones";
-            this.DgvRegiones.Size = new System.Drawing.Size(750, 384);
+            this.DgvRegiones.Size = new System.Drawing.Size(743, 384);
             this.DgvRegiones.TabIndex = 0;
             this.DgvRegiones.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvPaises_CellMouseClick);
             // 
@@ -94,7 +95,7 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(226, 439);
+            this.BtnAgregar.Location = new System.Drawing.Point(207, 439);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregar.TabIndex = 37;
@@ -107,7 +108,7 @@
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(543, 439);
+            this.BtnEliminar.Location = new System.Drawing.Point(524, 439);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminar.TabIndex = 39;

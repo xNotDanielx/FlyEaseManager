@@ -75,5 +75,30 @@ namespace WindowsFormsApp1
             }
 
         }
+
+        private void DgvPaises_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var fila = DgvPaises.Rows[e.RowIndex];
+            TxtNombre.Text = fila.Cells[1].Value.ToString();
+        }
+
+        private async void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            //Toca editar el mensaje enviado al usuario            
+            Pais pais = new Pais
+            {
+                IdPais = Convert.ToInt32(DgvPaises.CurrentRow.Cells[0].Value.ToString()),
+                Nombre = TxtNombre.Text,
+                FechaRegistro = DgvPaises.CurrentRow.Cells[2].Value.ToString()
+            };
+            var response = await paisService.Actualizar(DgvPaises.CurrentRow.Cells[0].Value.ToString(), pais);
+
+            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Se actualiza la lista
+            var lista = await paisService.ObtenerTodos();
+            CargarGrilla(lista);
+        }
     }
 }

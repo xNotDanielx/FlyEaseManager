@@ -69,6 +69,7 @@ namespace WindowsFormsApp1
 
         private void DgvPaises_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (e.RowIndex == -1) return;
             var fila = DgvRegiones.Rows[e.RowIndex];
             TxtNombre.Text = fila.Cells[1].Value.ToString(); // Hay que quitar la fila que sale vacia para que no de error por fila nula
             CbPaises.Text = fila.Cells[2].Value.ToString();
@@ -76,13 +77,7 @@ namespace WindowsFormsApp1
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
-            //RegionService service = new RegionService();
-            //Region region = new Region
-            //{ 
-            //Nombre = TxtNombre.Text;
-            //Pais.Nombre = CbPaises.Text;
-            //};
-            
+            //Toca editar el mensaje enviado al usuario
             var ObtenerPais = await new PaisService().ObtenerTodos();
             var pais = ObtenerPais.Where(p => p.Nombre == CbPaises.Text).FirstOrDefault();
             RegionService regionService = new RegionService();

@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.BtnRegresar = new System.Windows.Forms.Button();
-            this.TxtFecha = new System.Windows.Forms.TextBox();
             this.TxtNombre = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.DgvCiudades = new System.Windows.Forms.DataGridView();
+            this.IdCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreRegion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CbRegiones = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.BtnActualizar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvCiudades)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnRegresar
@@ -48,6 +51,7 @@
             this.BtnRegresar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnRegresar.Font = new System.Drawing.Font("Microsoft Tai Le", 7F, System.Drawing.FontStyle.Bold);
+            this.BtnRegresar.ForeColor = System.Drawing.Color.White;
             this.BtnRegresar.Location = new System.Drawing.Point(12, 12);
             this.BtnRegresar.Name = "BtnRegresar";
             this.BtnRegresar.Size = new System.Drawing.Size(62, 23);
@@ -55,17 +59,6 @@
             this.BtnRegresar.Text = "<Regresar";
             this.BtnRegresar.UseVisualStyleBackColor = false;
             this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
-            // 
-            // TxtFecha
-            // 
-            this.TxtFecha.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtFecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtFecha.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.TxtFecha.ForeColor = System.Drawing.Color.White;
-            this.TxtFecha.Location = new System.Drawing.Point(941, 313);
-            this.TxtFecha.Name = "TxtFecha";
-            this.TxtFecha.Size = new System.Drawing.Size(156, 24);
-            this.TxtFecha.TabIndex = 55;
             // 
             // TxtNombre
             // 
@@ -77,17 +70,6 @@
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(156, 24);
             this.TxtNombre.TabIndex = 54;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(823, 315);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 18);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Fecha registro:";
             // 
             // label3
             // 
@@ -127,6 +109,7 @@
             this.BtnEliminar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminar.ForeColor = System.Drawing.Color.White;
             this.BtnEliminar.Location = new System.Drawing.Point(543, 438);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
@@ -139,6 +122,7 @@
             this.BtnAgregar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAgregar.ForeColor = System.Drawing.Color.White;
             this.BtnAgregar.Location = new System.Drawing.Point(226, 438);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
@@ -146,23 +130,58 @@
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // DgvCiudades
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(67, 48);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(750, 384);
-            this.dataGridView1.TabIndex = 47;
+            this.DgvCiudades.AllowUserToAddRows = false;
+            this.DgvCiudades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvCiudades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdCiudad,
+            this.NombreCiudad,
+            this.NombreRegion,
+            this.FechaRegistro});
+            this.DgvCiudades.Location = new System.Drawing.Point(67, 48);
+            this.DgvCiudades.Name = "DgvCiudades";
+            this.DgvCiudades.Size = new System.Drawing.Size(740, 384);
+            this.DgvCiudades.TabIndex = 47;
+            this.DgvCiudades.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCiudades_CellMouseClick);
             // 
-            // comboBox1
+            // IdCiudad
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(941, 253);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 60;
+            this.IdCiudad.HeaderText = "Id de la ciudad";
+            this.IdCiudad.Name = "IdCiudad";
+            this.IdCiudad.ReadOnly = true;
+            this.IdCiudad.Width = 150;
+            // 
+            // NombreCiudad
+            // 
+            this.NombreCiudad.HeaderText = "Nombre de la ciudad";
+            this.NombreCiudad.Name = "NombreCiudad";
+            this.NombreCiudad.ReadOnly = true;
+            this.NombreCiudad.Width = 150;
+            // 
+            // NombreRegion
+            // 
+            this.NombreRegion.HeaderText = "Nombre de la región";
+            this.NombreRegion.Name = "NombreRegion";
+            this.NombreRegion.ReadOnly = true;
+            this.NombreRegion.Width = 150;
+            // 
+            // FechaRegistro
+            // 
+            this.FechaRegistro.HeaderText = "Fecha de registro";
+            this.FechaRegistro.Name = "FechaRegistro";
+            this.FechaRegistro.ReadOnly = true;
+            this.FechaRegistro.Width = 250;
+            // 
+            // CbRegiones
+            // 
+            this.CbRegiones.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbRegiones.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.CbRegiones.FormattingEnabled = true;
+            this.CbRegiones.Location = new System.Drawing.Point(941, 253);
+            this.CbRegiones.Name = "CbRegiones";
+            this.CbRegiones.Size = new System.Drawing.Size(121, 24);
+            this.CbRegiones.TabIndex = 60;
             // 
             // label5
             // 
@@ -175,29 +194,42 @@
             this.label5.TabIndex = 59;
             this.label5.Text = "Región:";
             // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
+            this.BtnActualizar.Location = new System.Drawing.Point(896, 318);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
+            this.BtnActualizar.TabIndex = 61;
+            this.BtnActualizar.Text = "Actualizar";
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            // 
             // FrmCiudades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.BtnActualizar);
+            this.Controls.Add(this.CbRegiones);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnRegresar);
-            this.Controls.Add(this.TxtFecha);
             this.Controls.Add(this.TxtNombre);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.dataGridView1);
-            this.ForeColor = System.Drawing.Color.White;
+            this.Controls.Add(this.DgvCiudades);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCiudades";
             this.Text = "FrmCiudades";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmCiudades_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvCiudades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,16 +238,19 @@
         #endregion
 
         private System.Windows.Forms.Button BtnRegresar;
-        private System.Windows.Forms.TextBox TxtFecha;
         private System.Windows.Forms.TextBox TxtNombre;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView DgvCiudades;
+        private System.Windows.Forms.ComboBox CbRegiones;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button BtnActualizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCiudad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCiudad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreRegion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
     }
 }

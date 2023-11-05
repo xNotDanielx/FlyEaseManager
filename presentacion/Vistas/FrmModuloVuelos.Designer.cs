@@ -35,6 +35,18 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BtnGestionEstado = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.IdVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TarifaVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescuentoVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DistanciaRecorrida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaDespegue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AeropuertoDespegue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AeropuertoDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Avion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,10 +100,24 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(71, 48);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdVuelo,
+            this.PrecioVuelo,
+            this.TarifaVuelo,
+            this.DescuentoVuelo,
+            this.DistanciaRecorrida,
+            this.FechaDespegue,
+            this.FechaLlegada,
+            this.AeropuertoDespegue,
+            this.AeropuertoDestino,
+            this.Estado,
+            this.Avion,
+            this.FechaRegistro});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 48);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(750, 384);
+            this.dataGridView1.Size = new System.Drawing.Size(961, 384);
             this.dataGridView1.TabIndex = 13;
             // 
             // BtnGestionEstado
@@ -99,7 +125,7 @@
             this.BtnGestionEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionEstado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionEstado.Location = new System.Drawing.Point(893, 219);
+            this.BtnGestionEstado.Location = new System.Drawing.Point(967, 223);
             this.BtnGestionEstado.Name = "BtnGestionEstado";
             this.BtnGestionEstado.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionEstado.TabIndex = 20;
@@ -110,11 +136,92 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(912, 177);
+            this.label2.Location = new System.Drawing.Point(995, 182);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 22;
             this.label2.Text = "Gestion";
+            // 
+            // IdVuelo
+            // 
+            this.IdVuelo.HeaderText = "Id";
+            this.IdVuelo.Name = "IdVuelo";
+            this.IdVuelo.ReadOnly = true;
+            this.IdVuelo.Width = 50;
+            // 
+            // PrecioVuelo
+            // 
+            this.PrecioVuelo.HeaderText = "Precio";
+            this.PrecioVuelo.Name = "PrecioVuelo";
+            this.PrecioVuelo.ReadOnly = true;
+            this.PrecioVuelo.Width = 80;
+            // 
+            // TarifaVuelo
+            // 
+            this.TarifaVuelo.HeaderText = "Tarifa";
+            this.TarifaVuelo.Name = "TarifaVuelo";
+            this.TarifaVuelo.ReadOnly = true;
+            this.TarifaVuelo.Width = 80;
+            // 
+            // DescuentoVuelo
+            // 
+            this.DescuentoVuelo.HeaderText = "Descuento";
+            this.DescuentoVuelo.Name = "DescuentoVuelo";
+            this.DescuentoVuelo.ReadOnly = true;
+            this.DescuentoVuelo.Width = 80;
+            // 
+            // DistanciaRecorrida
+            // 
+            this.DistanciaRecorrida.HeaderText = "Distancia recorrida";
+            this.DistanciaRecorrida.Name = "DistanciaRecorrida";
+            this.DistanciaRecorrida.ReadOnly = true;
+            this.DistanciaRecorrida.Width = 80;
+            // 
+            // FechaDespegue
+            // 
+            this.FechaDespegue.HeaderText = "Fecha despegue";
+            this.FechaDespegue.Name = "FechaDespegue";
+            this.FechaDespegue.ReadOnly = true;
+            // 
+            // FechaLlegada
+            // 
+            this.FechaLlegada.HeaderText = "Fecha llegada";
+            this.FechaLlegada.Name = "FechaLlegada";
+            this.FechaLlegada.ReadOnly = true;
+            // 
+            // AeropuertoDespegue
+            // 
+            this.AeropuertoDespegue.HeaderText = "Despegue";
+            this.AeropuertoDespegue.Name = "AeropuertoDespegue";
+            this.AeropuertoDespegue.ReadOnly = true;
+            this.AeropuertoDespegue.Width = 80;
+            // 
+            // AeropuertoDestino
+            // 
+            this.AeropuertoDestino.HeaderText = "Destino";
+            this.AeropuertoDestino.Name = "AeropuertoDestino";
+            this.AeropuertoDestino.ReadOnly = true;
+            this.AeropuertoDestino.Width = 80;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 80;
+            // 
+            // Avion
+            // 
+            this.Avion.HeaderText = "Avion";
+            this.Avion.Name = "Avion";
+            this.Avion.ReadOnly = true;
+            this.Avion.Width = 80;
+            // 
+            // FechaRegistro
+            // 
+            this.FechaRegistro.HeaderText = "Fecha registro";
+            this.FechaRegistro.Name = "FechaRegistro";
+            this.FechaRegistro.ReadOnly = true;
             // 
             // FrmModuloVuelos
             // 
@@ -149,5 +256,17 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button BtnGestionEstado;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdVuelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVuelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TarifaVuelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescuentoVuelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DistanciaRecorrida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaDespegue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaLlegada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AeropuertoDespegue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AeropuertoDestino;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Avion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
     }
 }
