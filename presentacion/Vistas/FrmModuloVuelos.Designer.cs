@@ -32,9 +32,7 @@
             this.BtnEliminarVuelo = new System.Windows.Forms.Button();
             this.BtnEditarVuelo = new System.Windows.Forms.Button();
             this.BtnAgregarVuelo = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.BtnGestionEstado = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.DgvVuelos = new System.Windows.Forms.DataGridView();
             this.IdVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TarifaVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +45,9 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Avion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.BtnGestionEstado = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvVuelos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -84,6 +84,7 @@
             this.BtnEditarVuelo.TabIndex = 15;
             this.BtnEditarVuelo.Text = "Editar";
             this.BtnEditarVuelo.UseVisualStyleBackColor = false;
+            this.BtnEditarVuelo.Click += new System.EventHandler(this.BtnEditarVuelo_Click);
             // 
             // BtnAgregarVuelo
             // 
@@ -98,11 +99,11 @@
             this.BtnAgregarVuelo.UseVisualStyleBackColor = false;
             this.BtnAgregarVuelo.Click += new System.EventHandler(this.BtnAgregarVuelo_Click);
             // 
-            // dataGridView1
+            // DgvVuelos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvVuelos.AllowUserToAddRows = false;
+            this.DgvVuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvVuelos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdVuelo,
             this.PrecioVuelo,
             this.TarifaVuelo,
@@ -115,32 +116,10 @@
             this.Estado,
             this.Avion,
             this.FechaRegistro});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 48);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(961, 384);
-            this.dataGridView1.TabIndex = 13;
-            // 
-            // BtnGestionEstado
-            // 
-            this.BtnGestionEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnGestionEstado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGestionEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionEstado.Location = new System.Drawing.Point(967, 223);
-            this.BtnGestionEstado.Name = "BtnGestionEstado";
-            this.BtnGestionEstado.Size = new System.Drawing.Size(127, 45);
-            this.BtnGestionEstado.TabIndex = 20;
-            this.BtnGestionEstado.Text = "Estado vuelos";
-            this.BtnGestionEstado.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(995, 182);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 23);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Gestion";
+            this.DgvVuelos.Location = new System.Drawing.Point(0, 48);
+            this.DgvVuelos.Name = "DgvVuelos";
+            this.DgvVuelos.Size = new System.Drawing.Size(961, 384);
+            this.DgvVuelos.TabIndex = 13;
             // 
             // IdVuelo
             // 
@@ -223,6 +202,28 @@
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             // 
+            // BtnGestionEstado
+            // 
+            this.BtnGestionEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnGestionEstado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnGestionEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGestionEstado.Location = new System.Drawing.Point(967, 223);
+            this.BtnGestionEstado.Name = "BtnGestionEstado";
+            this.BtnGestionEstado.Size = new System.Drawing.Size(127, 45);
+            this.BtnGestionEstado.TabIndex = 20;
+            this.BtnGestionEstado.Text = "Estado vuelos";
+            this.BtnGestionEstado.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(995, 182);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 23);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Gestion";
+            // 
             // FrmModuloVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,13 +236,14 @@
             this.Controls.Add(this.BtnEliminarVuelo);
             this.Controls.Add(this.BtnEditarVuelo);
             this.Controls.Add(this.BtnAgregarVuelo);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DgvVuelos);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModuloVuelos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormModuloVuelos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmModuloVuelos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvVuelos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,7 +255,7 @@
         private System.Windows.Forms.Button BtnEliminarVuelo;
         private System.Windows.Forms.Button BtnEditarVuelo;
         private System.Windows.Forms.Button BtnAgregarVuelo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DgvVuelos;
         private System.Windows.Forms.Button BtnGestionEstado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdVuelo;

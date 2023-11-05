@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,12 @@ namespace WindowsFormsApp1
     public partial class FrmEditarVuelos : Form
     {
         private FrmPrincipal principal;
-        private int IdVuelo;
-        public FrmEditarVuelos(FrmPrincipal principal, int IdVuelo)
+        private string IdVuelo;
+        private VueloService vueloService = new VueloService();
+        public FrmEditarVuelos(FrmPrincipal principal, string IdVuelo)
         {
             this.principal = principal;
+            
             this.IdVuelo= IdVuelo;
             InitializeComponent();
         }
@@ -40,6 +43,19 @@ namespace WindowsFormsApp1
             
             FrmAgregarVuelos vista = new FrmAgregarVuelos(principal);
             principal.OpenForms(vista);
+        }
+
+        public async void CargarDatos()
+        {
+            var vuelo = await vueloService.ObtenerPorId(IdVuelo);
+            TxtPrecio.Text = vuelo.PrecioVuelo.ToString();
+            TxtDescuento.Text = vuelo.Descuento.ToString();
+            TxtTarifa.Text = vuelo.TarifaTemporada.ToString();
+            CbDespegue.Text = vuelo.ADespegue.ToString();
+            CbDestino.Text = vuelo.ADestino.ToString();
+            CbCupo.Text = vuelo.Cupo.ToString();
+            DtpFechaLlegada.Value = DateTime.Parse(vuelo.FechaYHoraLlegada);
+            DtpFechaSalida.Value = DateTime.Parse(vuelo.FechaYHoraDespegue);
         }
     }
 }
