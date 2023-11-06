@@ -72,6 +72,7 @@
             this.BtnEliminarVuelo.TabIndex = 16;
             this.BtnEliminarVuelo.Text = "Eliminar";
             this.BtnEliminarVuelo.UseVisualStyleBackColor = false;
+            this.BtnEliminarVuelo.Click += new System.EventHandler(this.BtnEliminarVuelo_Click);
             // 
             // BtnEditarVuelo
             // 
@@ -116,9 +117,9 @@
             this.Estado,
             this.Avion,
             this.FechaRegistro});
-            this.DgvVuelos.Location = new System.Drawing.Point(0, 48);
+            this.DgvVuelos.Location = new System.Drawing.Point(34, 48);
             this.DgvVuelos.Name = "DgvVuelos";
-            this.DgvVuelos.Size = new System.Drawing.Size(961, 384);
+            this.DgvVuelos.Size = new System.Drawing.Size(1034, 384);
             this.DgvVuelos.TabIndex = 13;
             // 
             // IdVuelo
@@ -207,18 +208,19 @@
             this.BtnGestionEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionEstado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionEstado.Location = new System.Drawing.Point(967, 223);
+            this.BtnGestionEstado.Location = new System.Drawing.Point(941, 467);
             this.BtnGestionEstado.Name = "BtnGestionEstado";
             this.BtnGestionEstado.Size = new System.Drawing.Size(127, 45);
             this.BtnGestionEstado.TabIndex = 20;
             this.BtnGestionEstado.Text = "Estado vuelos";
             this.BtnGestionEstado.UseVisualStyleBackColor = false;
+            this.BtnGestionEstado.Click += new System.EventHandler(this.BtnGestionEstado_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(995, 182);
+            this.label2.Location = new System.Drawing.Point(969, 439);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 22;

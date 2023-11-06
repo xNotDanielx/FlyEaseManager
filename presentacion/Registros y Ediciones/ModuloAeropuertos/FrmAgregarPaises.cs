@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FrmModuloAviones : Form
+    public partial class FrmAgregarPaises : Form
     {
-        public FrmModuloAviones()
+        public FrmAgregarPaises()
         {
             InitializeComponent();
-        }
-
-        private void BtnGestionAsientos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnGestionCategorias_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -86,5 +86,28 @@ namespace WindowsFormsApp1
                 return;
             }
         }
+
+        private async void BtnGestionEstado_Click(object sender, EventArgs e)
+        {
+            await Task.Delay(190);
+            FrmEstados vista = new FrmEstados(principal);
+            vista.Dock = DockStyle.Fill;
+            principal.OpenForms(vista);
+        }
+
+        private async void BtnEliminarVuelo_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el vuelo: {DgvVuelos.CurrentRow.Cells[0].Value}?\nSe eliminaran todos los boletos asociados!", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
+            {
+                var response = await vueloService.EliminarPorId($"{DgvVuelos.CurrentRow.Cells[0].Value}");
+                var lista = await vueloService.ObtenerTodos();
+
+                CargarGrilla(lista);
+                MessageBox.Show(response);
+                ConfigurarBotones();
+            }
+        }
     }
 }

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +29,12 @@ namespace WindowsFormsApp1
             principal.OpenForms(vista);
         }
 
+        void CargarCombo(List<Region> regiones)
+        {
+            CbRegiones.DataSource = regiones;
+            CbRegiones.DisplayMember = "Nombre";
+        }
+
         private void DgvCiudades_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if(e.RowIndex == -1) return;
@@ -39,9 +44,9 @@ namespace WindowsFormsApp1
         }
 
         private async void FrmCiudades_Load(object sender, EventArgs e)
-        {
-            var lista = await ciudadService.ObtenerTodos();
-            CargarGrilla(lista);
+        { 
+            CargarCombo(await new RegionService().ObtenerTodos());
+            CargarGrilla(await new CiudadService().ObtenerTodos());
             ConfigurarBotones();
         }
 
@@ -56,7 +61,7 @@ namespace WindowsFormsApp1
 
         void ConfigurarBotones()
         {
-            if (DgvCiudades.RowCount == 1) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
+            if (DgvCiudades.RowCount == 0) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
             {
                 BtnEliminar.Enabled = false;
                 BtnActualizar.Enabled = false;
@@ -66,6 +71,27 @@ namespace WindowsFormsApp1
                 BtnEliminar.Enabled = true;
                 BtnActualizar.Enabled = true;
             }
+        }
+
+        void limpiarCampos()
+        {
+            TxtNombre.Text = "";
+        }
+
+        private async void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            var obtenerRegion = await new RegionService().ObtenerTodos();
+            Ciudad ciudad = new Ciudad()
+            {
+                Nombre = TxtNombre.Text,
+                Region = obtenerRegion.Where(x => x.Nombre == CbRegiones.Text).FirstOrDefault()
+            };
+            var response = await ciudadService.Crear(ciudad);
+
+            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var lista = await ciudadService.ObtenerTodos();
+            CargarGrilla(lista);
+            limpiarCampos();
         }
     }
 }

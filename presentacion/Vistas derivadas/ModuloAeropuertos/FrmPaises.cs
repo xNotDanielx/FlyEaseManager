@@ -4,9 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using BLL.Servicios;
 using Entity;
 
@@ -39,7 +41,7 @@ namespace WindowsFormsApp1
 
         void ConfigurarBotones()
         {
-            if (DgvPaises.RowCount == 1) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
+            if (DgvPaises.RowCount == 0) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
             {
                 BtnEliminar.Enabled = false;
                 //BtnActualizar.Enabled = false; //Cuando se cree el boton actualizar en este form
@@ -72,6 +74,7 @@ namespace WindowsFormsApp1
                 CargarGrilla(lista);
                 MessageBox.Show(response);
                 ConfigurarBotones();
+                limpiarCampos();
             }
 
         }
@@ -83,9 +86,14 @@ namespace WindowsFormsApp1
             TxtNombre.Text = fila.Cells[1].Value.ToString();
         }
 
+        void limpiarCampos()
+        {
+            TxtNombre.Text = "";
+        }
+
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
-            //Toca editar el mensaje enviado al usuario            
+            //Toca editar el mensaje enviado al usuario           
             Pais pais = new Pais
             {
                 IdPais = Convert.ToInt32(DgvPaises.CurrentRow.Cells[0].Value.ToString()),
@@ -99,6 +107,22 @@ namespace WindowsFormsApp1
             // Se actualiza la lista
             var lista = await paisService.ObtenerTodos();
             CargarGrilla(lista);
+            limpiarCampos();
+        }
+
+        private async void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            Pais pais = new Pais
+            {
+                Nombre = TxtNombre.Text,
+            };
+            var response = await paisService.Crear(pais);
+
+            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            var lista = await paisService.ObtenerTodos();
+            CargarGrilla(lista);
+            limpiarCampos();
         }
     }
 }

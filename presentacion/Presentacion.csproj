@@ -52,34 +52,64 @@
     <Compile Include="FormIniciarSesion.Designer.cs">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registros y Ediciones\FrmEditarVuelos.cs">
+    <Compile Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarPaises.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registros y Ediciones\FrmEditarVuelos.Designer.cs">
+    <Compile Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarPaises.Designer.cs">
+      <DependentUpon>FrmAgregarPaises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas derivadas\ModuloAviones\FrmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas derivadas\ModuloAviones\FrmCategorias.Designer.cs">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas derivadas\ModuloAviones\FrmAsientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas derivadas\ModuloAviones\FrmAsientos.Designer.cs">
+      <DependentUpon>FrmAsientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas derivadas\ModuloAviones\FrmAerolineas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas derivadas\ModuloAviones\FrmAerolineas.Designer.cs">
+      <DependentUpon>FrmAerolineas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas derivadas\ModuloVuelos\FrmEstados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas derivadas\ModuloVuelos\FrmEstados.Designer.cs">
+      <DependentUpon>FrmEstados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros y Ediciones\ModuloVuelos\FrmEditarVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros y Ediciones\ModuloVuelos\FrmEditarVuelos.Designer.cs">
       <DependentUpon>FrmEditarVuelos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas derivadas\FrmCiudades.cs">
+    <Compile Include="Vistas derivadas\ModuloAeropuertos\FrmCiudades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas derivadas\FrmCiudades.Designer.cs">
+    <Compile Include="Vistas derivadas\ModuloAeropuertos\FrmCiudades.Designer.cs">
       <DependentUpon>FrmCiudades.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas derivadas\FrmPaises.cs">
+    <Compile Include="Vistas derivadas\ModuloAeropuertos\FrmPaises.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas derivadas\FrmPaises.Designer.cs">
+    <Compile Include="Vistas derivadas\ModuloAeropuertos\FrmPaises.Designer.cs">
       <DependentUpon>FrmPaises.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vistas derivadas\FrmRegiones.cs">
+    <Compile Include="Vistas derivadas\ModuloAeropuertos\FrmRegiones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas derivadas\FrmRegiones.Designer.cs">
+    <Compile Include="Vistas derivadas\ModuloAeropuertos\FrmRegiones.Designer.cs">
       <DependentUpon>FrmRegiones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registros y Ediciones\FrmAgregarVuelos.cs">
+    <Compile Include="Registros y Ediciones\ModuloVuelos\FrmAgregarVuelos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registros y Ediciones\FrmAgregarVuelos.Designer.cs">
+    <Compile Include="Registros y Ediciones\ModuloVuelos\FrmAgregarVuelos.Designer.cs">
       <DependentUpon>FrmAgregarVuelos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBienvenida.cs">
@@ -117,23 +147,38 @@
     <EmbeddedResource Include="FormIniciarSesion.resx">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registros y Ediciones\FrmEditarVuelos.resx">
+    <EmbeddedResource Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarPaises.resx">
+      <DependentUpon>FrmAgregarPaises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros y Ediciones\ModuloVuelos\FrmEditarVuelos.resx">
       <DependentUpon>FrmEditarVuelos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas derivadas\FrmCiudades.resx">
+    <EmbeddedResource Include="Vistas derivadas\ModuloAeropuertos\FrmCiudades.resx">
       <DependentUpon>FrmCiudades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas derivadas\FrmPaises.resx">
+    <EmbeddedResource Include="Vistas derivadas\ModuloAeropuertos\FrmPaises.resx">
       <DependentUpon>FrmPaises.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vistas derivadas\FrmRegiones.resx">
+    <EmbeddedResource Include="Vistas derivadas\ModuloAeropuertos\FrmRegiones.resx">
       <DependentUpon>FrmRegiones.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registros y Ediciones\FrmAgregarVuelos.resx">
+    <EmbeddedResource Include="Registros y Ediciones\ModuloVuelos\FrmAgregarVuelos.resx">
       <DependentUpon>FrmAgregarVuelos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBienvenida.resx">
       <DependentUpon>FrmBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas derivadas\ModuloAviones\FrmAerolineas.resx">
+      <DependentUpon>FrmAerolineas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas derivadas\ModuloAviones\FrmAsientos.resx">
+      <DependentUpon>FrmAsientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas derivadas\ModuloAviones\FrmCategorias.resx">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas derivadas\ModuloVuelos\FrmEstados.resx">
+      <DependentUpon>FrmEstados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmModuloVuelos.resx">
       <DependentUpon>FrmModuloVuelos.cs</DependentUpon>
@@ -213,6 +258,8 @@
       <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Registros y Ediciones\ModuloAviones\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

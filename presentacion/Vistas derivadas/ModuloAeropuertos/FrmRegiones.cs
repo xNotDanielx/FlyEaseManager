@@ -40,7 +40,7 @@ namespace WindowsFormsApp1
 
         void ConfigurarBotones()
         {
-            if (DgvRegiones.RowCount == 1) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
+            if (DgvRegiones.RowCount == 0) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
             {
                 BtnEliminar.Enabled = false;
                 BtnActualizar.Enabled = false;
@@ -113,5 +113,25 @@ namespace WindowsFormsApp1
             }
         }
 
+        void limpiarCampos()
+        {
+            TxtNombre.Text = "";          
+        }
+
+        private async void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            var obtenerPais = await new PaisService().ObtenerTodos();
+            Region region = new Region
+            {
+                Nombre = TxtNombre.Text,
+                Pais = obtenerPais.Where(P => P.Nombre == CbPaises.Text).FirstOrDefault(),
+            };
+            var response = await regionService.Crear(region);
+
+            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var lista = await regionService.ObtenerTodos();
+            CargarGrilla(lista);
+            limpiarCampos();
+        }
     }
 }

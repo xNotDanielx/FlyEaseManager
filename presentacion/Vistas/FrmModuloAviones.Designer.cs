@@ -30,7 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.BtnGestionCategorias = new System.Windows.Forms.Button();
-            this.BtnGestionAsientosAsientos = new System.Windows.Forms.Button();
+            this.BtnGestionAsientos = new System.Windows.Forms.Button();
             this.BtnGestionAerolineas = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnEliminarVuelo = new System.Windows.Forms.Button();
@@ -61,18 +61,20 @@
             this.BtnGestionCategorias.TabIndex = 41;
             this.BtnGestionCategorias.Text = "Categorias asientos";
             this.BtnGestionCategorias.UseVisualStyleBackColor = false;
+            this.BtnGestionCategorias.Click += new System.EventHandler(this.BtnGestionCategorias_Click);
             // 
-            // BtnGestionAsientosAsientos
+            // BtnGestionAsientos
             // 
-            this.BtnGestionAsientosAsientos.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnGestionAsientosAsientos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGestionAsientosAsientos.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionAsientosAsientos.Location = new System.Drawing.Point(862, 213);
-            this.BtnGestionAsientosAsientos.Name = "BtnGestionAsientosAsientos";
-            this.BtnGestionAsientosAsientos.Size = new System.Drawing.Size(127, 45);
-            this.BtnGestionAsientosAsientos.TabIndex = 40;
-            this.BtnGestionAsientosAsientos.Text = "Asientos";
-            this.BtnGestionAsientosAsientos.UseVisualStyleBackColor = false;
+            this.BtnGestionAsientos.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnGestionAsientos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnGestionAsientos.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGestionAsientos.Location = new System.Drawing.Point(862, 213);
+            this.BtnGestionAsientos.Name = "BtnGestionAsientos";
+            this.BtnGestionAsientos.Size = new System.Drawing.Size(127, 45);
+            this.BtnGestionAsientos.TabIndex = 40;
+            this.BtnGestionAsientos.Text = "Asientos";
+            this.BtnGestionAsientos.UseVisualStyleBackColor = false;
+            this.BtnGestionAsientos.Click += new System.EventHandler(this.BtnGestionAsientos_Click);
             // 
             // BtnGestionAerolineas
             // 
@@ -148,7 +150,7 @@
             this.ClientSize = new System.Drawing.Size(1100, 615);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnGestionCategorias);
-            this.Controls.Add(this.BtnGestionAsientosAsientos);
+            this.Controls.Add(this.BtnGestionAsientos);
             this.Controls.Add(this.BtnGestionAerolineas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnEliminarVuelo);
@@ -169,7 +171,7 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnGestionCategorias;
-        private System.Windows.Forms.Button BtnGestionAsientosAsientos;
+        private System.Windows.Forms.Button BtnGestionAsientos;
         private System.Windows.Forms.Button BtnGestionAerolineas;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnEliminarVuelo;
