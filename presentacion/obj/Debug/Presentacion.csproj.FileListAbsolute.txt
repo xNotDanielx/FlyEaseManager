@@ -193,4 +193,4 @@ C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAerolineas.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAsientos.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmCategorias.resources
-C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAgregarPaises.resources
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAgregarAereopuerto.resources

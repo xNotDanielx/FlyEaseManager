@@ -116,6 +116,7 @@
             this.BtnEliminar.TabIndex = 49;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnAgregar
             // 
@@ -208,6 +209,7 @@
             this.BtnActualizar.TabIndex = 61;
             this.BtnActualizar.Text = "Actualizar";
             this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // FrmCiudades
             // 

@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
 
         private async void FrmRegiones_Load(object sender, EventArgs e)
         {
-            CargarGrilla(await new RegionService().ObtenerTodos());
+            CargarGrilla(await regionService.ObtenerTodos());
 
             CargarCombo(await new PaisService().ObtenerTodos());
             ConfigurarBotones();
@@ -78,6 +78,7 @@ namespace WindowsFormsApp1
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
             //Toca editar el mensaje enviado al usuario
+            if(DgvRegiones.CurrentRow == null) return;
             var ObtenerPais = await new PaisService().ObtenerTodos();
             var pais = ObtenerPais.Where(p => p.Nombre == CbPaises.Text).FirstOrDefault();
             RegionService regionService = new RegionService();
@@ -92,7 +93,7 @@ namespace WindowsFormsApp1
 
             MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Se actualiza la lista
+            //Se actualiza la lista
             var lista = await regionService.ObtenerTodos();
             CargarGrilla(lista);
             ConfigurarBotones();
@@ -100,6 +101,7 @@ namespace WindowsFormsApp1
 
         private async void BtnEliminar_Click(object sender, EventArgs e)
         {
+            if (DgvRegiones.CurrentRow == null) return;
             DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar la region: {DgvRegiones.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (resultado == DialogResult.OK)

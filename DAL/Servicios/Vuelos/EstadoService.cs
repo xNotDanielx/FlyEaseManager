@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Servicios
 {
-    public class EstadoService : AbstractLecturaService<Estado>
+    public class EstadoService : AbstractCRUDService<Estado>
     {
         public EstadoService()
             : base(new EstadoRepository())

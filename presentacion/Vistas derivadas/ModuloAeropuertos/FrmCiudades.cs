@@ -93,5 +93,44 @@ namespace WindowsFormsApp1
             CargarGrilla(lista);
             limpiarCampos();
         }
+
+        private async void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            //Toca editar el mensaje enviado al usuario
+            if (DgvCiudades.SelectedCells.Count > 0)
+            {
+                var obtenerRegion = await new RegionService().ObtenerTodos();
+                var region = obtenerRegion.Where(p => p.Nombre == CbRegiones.Text).FirstOrDefault();
+                Ciudad ciudad = new Ciudad
+                {
+                    IdCiudad = Convert.ToInt32(DgvCiudades.CurrentRow.Cells[0].Value.ToString()),
+                    Nombre = TxtNombre.Text,
+                    Region = region,
+                    FechaRegistro = DgvCiudades.CurrentRow.Cells[3].Value.ToString()
+                };
+                var response = await ciudadService.Actualizar(DgvCiudades.CurrentRow.Cells[0].Value.ToString(), ciudad);
+
+                MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                var lista = await ciudadService.ObtenerTodos();
+                CargarGrilla(lista);
+            }
+        }
+
+        private async void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (DgvCiudades.CurrentRow == null) return;
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar la ciudad: {DgvCiudades.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
+            {
+                var response = await ciudadService.EliminarPorId($"{DgvCiudades.CurrentRow.Cells[0].Value}");
+                var lista = await ciudadService.ObtenerTodos();
+
+                CargarGrilla(lista);
+                MessageBox.Show(response);
+                ConfigurarBotones();
+            }
+        }
     }
 }

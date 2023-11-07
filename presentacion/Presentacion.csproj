@@ -52,11 +52,11 @@
     <Compile Include="FormIniciarSesion.Designer.cs">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarPaises.cs">
+    <Compile Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarAereopuerto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarPaises.Designer.cs">
-      <DependentUpon>FrmAgregarPaises.cs</DependentUpon>
+    <Compile Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarAereopuerto.Designer.cs">
+      <DependentUpon>FrmAgregarAereopuerto.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas derivadas\ModuloAviones\FrmCategorias.cs">
       <SubType>Form</SubType>
@@ -147,8 +147,8 @@
     <EmbeddedResource Include="FormIniciarSesion.resx">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarPaises.resx">
-      <DependentUpon>FrmAgregarPaises.cs</DependentUpon>
+    <EmbeddedResource Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarAereopuerto.resx">
+      <DependentUpon>FrmAgregarAereopuerto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros y Ediciones\ModuloVuelos\FrmEditarVuelos.resx">
       <DependentUpon>FrmEditarVuelos.cs</DependentUpon>

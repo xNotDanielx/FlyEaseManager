@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositorios
 {
-    public class EstadoRepository : AbstractLecturaRepository<Estado>
+    public class EstadoRepository : AbstractCRUDRepository<Estado>
     {
         public EstadoRepository()
             : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Estados"), "http://www.flyease.somee.com/FlyEaseApi/Estados")

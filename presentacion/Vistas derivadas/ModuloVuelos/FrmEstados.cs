@@ -60,7 +60,14 @@ namespace WindowsFormsApp1
             } 
         }
 
-        private async void BtnAgregarVuelo_Click(object sender, EventArgs e)
+        void limpiarCampos()
+        {
+            TxtNombre.Text = "";
+            TxtDescripcion.Text = "";
+            RbDetencion.Checked = true;
+        }
+
+        private async void BtnAgregar_Click(object sender, EventArgs e)
         {
             Estado estado = new Estado
             {
@@ -68,6 +75,50 @@ namespace WindowsFormsApp1
                 Descripcion = TxtDescripcion.Text,
                 Detencion = RbDetencion.Checked
             };
+
+            var response = await estadoService.Crear(estado);
+
+            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            var lista = await estadoService.ObtenerTodos();
+            CargarGrilla(lista);
+            limpiarCampos();
+        }
+
+        private async void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            if (DgvEstados.CurrentRow == null) return;
+            Estado estado = new Estado
+            {
+                IdEstado = Convert.ToInt32(DgvEstados.CurrentRow.Cells[0].Value.ToString()),
+                Nombre = TxtNombre.Text,
+                Descripcion = TxtDescripcion.Text,
+                Detencion = RbDetencion.Checked,
+                FechaRegistro = DgvEstados.CurrentRow.Cells[4].Value.ToString()
+            };
+            var response = await estadoService.Actualizar(DgvEstados.CurrentRow.Cells[0].Value.ToString(), estado);
+
+            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            var lista = await estadoService.ObtenerTodos();
+            CargarGrilla(lista);
+        }
+
+        private async void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (DgvEstados.CurrentRow == null) return;
+
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el estado: {DgvEstados.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
+            {
+                var response = await estadoService.EliminarPorId($"{DgvEstados.CurrentRow.Cells[0].Value}");
+                var lista = await estadoService.ObtenerTodos();
+
+                CargarGrilla(lista);
+                MessageBox.Show(response);
+            }
         }
     }
 }

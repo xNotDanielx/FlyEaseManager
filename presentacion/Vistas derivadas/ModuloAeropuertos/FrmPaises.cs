@@ -93,21 +93,24 @@ namespace WindowsFormsApp1
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
-            //Toca editar el mensaje enviado al usuario           
-            Pais pais = new Pais
+            //Toca editar el mensaje enviado al usuario
+
+            if (DgvPaises.SelectedCells.Count > 0)
             {
-                IdPais = Convert.ToInt32(DgvPaises.CurrentRow.Cells[0].Value.ToString()),
-                Nombre = TxtNombre.Text,
-                FechaRegistro = DgvPaises.CurrentRow.Cells[2].Value.ToString()
-            };
-            var response = await paisService.Actualizar(DgvPaises.CurrentRow.Cells[0].Value.ToString(), pais);
+                Pais pais = new Pais
+                {
+                    IdPais = Convert.ToInt32(DgvPaises.CurrentRow.Cells[0].Value.ToString()),
+                    Nombre = TxtNombre.Text,
+                    FechaRegistro = DgvPaises.CurrentRow.Cells[2].Value.ToString()
+                };
+                var response = await paisService.Actualizar(DgvPaises.CurrentRow.Cells[0].Value.ToString(), pais);
 
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Se actualiza la lista
-            var lista = await paisService.ObtenerTodos();
-            CargarGrilla(lista);
-            limpiarCampos();
+                // Se actualiza la lista
+                var lista = await paisService.ObtenerTodos();
+                CargarGrilla(lista);
+            }
         }
 
         private async void BtnAgregar_Click(object sender, EventArgs e)

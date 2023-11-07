@@ -33,11 +33,17 @@
             this.BtnGestionCiudades = new System.Windows.Forms.Button();
             this.BtnGestionPaises = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnEliminarVuelo = new System.Windows.Forms.Button();
-            this.BtnEditarVuelo = new System.Windows.Forms.Button();
-            this.BtnAgregarVuelo = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.BtnEliminar = new System.Windows.Forms.Button();
+            this.BtnEditar = new System.Windows.Forms.Button();
+            this.BtnAgregar = new System.Windows.Forms.Button();
+            this.DgvAeropuertos = new System.Windows.Forms.DataGridView();
+            this.IdAeropuerto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreAeropuerto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LatitudCoordenada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LongitudCoordeada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCiudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvAeropuertos)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -100,49 +106,98 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "Aeropuertos";
             // 
-            // BtnEliminarVuelo
+            // BtnEliminar
             // 
-            this.BtnEliminarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnEliminarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnEliminarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminarVuelo.Location = new System.Drawing.Point(627, 438);
-            this.BtnEliminarVuelo.Name = "BtnEliminarVuelo";
-            this.BtnEliminarVuelo.Size = new System.Drawing.Size(121, 46);
-            this.BtnEliminarVuelo.TabIndex = 26;
-            this.BtnEliminarVuelo.Text = "Eliminar";
-            this.BtnEliminarVuelo.UseVisualStyleBackColor = false;
+            this.BtnEliminar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminar.Location = new System.Drawing.Point(627, 438);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
+            this.BtnEliminar.TabIndex = 26;
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
-            // BtnEditarVuelo
+            // BtnEditar
             // 
-            this.BtnEditarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnEditarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnEditarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditarVuelo.Location = new System.Drawing.Point(384, 438);
-            this.BtnEditarVuelo.Name = "BtnEditarVuelo";
-            this.BtnEditarVuelo.Size = new System.Drawing.Size(121, 46);
-            this.BtnEditarVuelo.TabIndex = 25;
-            this.BtnEditarVuelo.Text = "Editar";
-            this.BtnEditarVuelo.UseVisualStyleBackColor = false;
+            this.BtnEditar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnEditar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditar.Location = new System.Drawing.Point(384, 438);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(121, 46);
+            this.BtnEditar.TabIndex = 25;
+            this.BtnEditar.Text = "Editar";
+            this.BtnEditar.UseVisualStyleBackColor = false;
             // 
-            // BtnAgregarVuelo
+            // BtnAgregar
             // 
-            this.BtnAgregarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnAgregarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnAgregarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregarVuelo.Location = new System.Drawing.Point(133, 438);
-            this.BtnAgregarVuelo.Name = "BtnAgregarVuelo";
-            this.BtnAgregarVuelo.Size = new System.Drawing.Size(121, 46);
-            this.BtnAgregarVuelo.TabIndex = 24;
-            this.BtnAgregarVuelo.Text = "Agregar";
-            this.BtnAgregarVuelo.UseVisualStyleBackColor = false;
+            this.BtnAgregar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAgregar.Location = new System.Drawing.Point(133, 438);
+            this.BtnAgregar.Name = "BtnAgregar";
+            this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
+            this.BtnAgregar.TabIndex = 24;
+            this.BtnAgregar.Text = "Agregar";
+            this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // dataGridView1
+            // DgvAeropuertos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(71, 48);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(750, 384);
-            this.dataGridView1.TabIndex = 23;
+            this.DgvAeropuertos.AllowUserToAddRows = false;
+            this.DgvAeropuertos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvAeropuertos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdAeropuerto,
+            this.NombreAeropuerto,
+            this.LatitudCoordenada,
+            this.LongitudCoordeada,
+            this.nombreCiudad,
+            this.FechaRegistro});
+            this.DgvAeropuertos.Location = new System.Drawing.Point(71, 48);
+            this.DgvAeropuertos.Name = "DgvAeropuertos";
+            this.DgvAeropuertos.Size = new System.Drawing.Size(733, 384);
+            this.DgvAeropuertos.TabIndex = 23;
+            // 
+            // IdAeropuerto
+            // 
+            this.IdAeropuerto.HeaderText = "Id";
+            this.IdAeropuerto.Name = "IdAeropuerto";
+            this.IdAeropuerto.ReadOnly = true;
+            // 
+            // NombreAeropuerto
+            // 
+            this.NombreAeropuerto.HeaderText = "Nombre";
+            this.NombreAeropuerto.Name = "NombreAeropuerto";
+            this.NombreAeropuerto.ReadOnly = true;
+            // 
+            // LatitudCoordenada
+            // 
+            this.LatitudCoordenada.HeaderText = "Latitud";
+            this.LatitudCoordenada.Name = "LatitudCoordenada";
+            this.LatitudCoordenada.ReadOnly = true;
+            this.LatitudCoordenada.Width = 70;
+            // 
+            // LongitudCoordeada
+            // 
+            this.LongitudCoordeada.HeaderText = "Longitud";
+            this.LongitudCoordeada.Name = "LongitudCoordeada";
+            this.LongitudCoordeada.ReadOnly = true;
+            this.LongitudCoordeada.Width = 70;
+            // 
+            // nombreCiudad
+            // 
+            this.nombreCiudad.HeaderText = "Ciudad";
+            this.nombreCiudad.Name = "nombreCiudad";
+            this.nombreCiudad.ReadOnly = true;
+            // 
+            // FechaRegistro
+            // 
+            this.FechaRegistro.HeaderText = "Fecha de registro";
+            this.FechaRegistro.Name = "FechaRegistro";
+            this.FechaRegistro.ReadOnly = true;
+            this.FechaRegistro.Width = 250;
             // 
             // FrmModuloAeropuertos
             // 
@@ -155,15 +210,16 @@
             this.Controls.Add(this.BtnGestionCiudades);
             this.Controls.Add(this.BtnGestionPaises);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BtnEliminarVuelo);
-            this.Controls.Add(this.BtnEditarVuelo);
-            this.Controls.Add(this.BtnAgregarVuelo);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.BtnEliminar);
+            this.Controls.Add(this.BtnEditar);
+            this.Controls.Add(this.BtnAgregar);
+            this.Controls.Add(this.DgvAeropuertos);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModuloAeropuertos";
             this.Text = "FrmModuloAeropuertos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmModuloAeropuertos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvAeropuertos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,9 +232,15 @@
         private System.Windows.Forms.Button BtnGestionCiudades;
         private System.Windows.Forms.Button BtnGestionPaises;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BtnEliminarVuelo;
-        private System.Windows.Forms.Button BtnEditarVuelo;
-        private System.Windows.Forms.Button BtnAgregarVuelo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button BtnEliminar;
+        private System.Windows.Forms.Button BtnEditar;
+        private System.Windows.Forms.Button BtnAgregar;
+        private System.Windows.Forms.DataGridView DgvAeropuertos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdAeropuerto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreAeropuerto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LatitudCoordenada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LongitudCoordeada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCiudad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
     }
 }

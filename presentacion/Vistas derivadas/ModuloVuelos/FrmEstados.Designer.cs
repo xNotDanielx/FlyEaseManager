@@ -36,9 +36,9 @@
             this.DescripcionEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DetencionEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnEliminarVuelo = new System.Windows.Forms.Button();
-            this.BtnEditarVuelo = new System.Windows.Forms.Button();
-            this.BtnAgregarVuelo = new System.Windows.Forms.Button();
+            this.BtnEliminar = new System.Windows.Forms.Button();
+            this.BtnActualizar = new System.Windows.Forms.Button();
+            this.BtnAgregar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -124,45 +124,47 @@
             this.FechaRegistro.ReadOnly = true;
             this.FechaRegistro.Width = 250;
             // 
-            // BtnEliminarVuelo
+            // BtnEliminar
             // 
-            this.BtnEliminarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnEliminarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnEliminarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminarVuelo.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminarVuelo.Location = new System.Drawing.Point(331, 438);
-            this.BtnEliminarVuelo.Name = "BtnEliminarVuelo";
-            this.BtnEliminarVuelo.Size = new System.Drawing.Size(121, 46);
-            this.BtnEliminarVuelo.TabIndex = 75;
-            this.BtnEliminarVuelo.Text = "Eliminar";
-            this.BtnEliminarVuelo.UseVisualStyleBackColor = false;
+            this.BtnEliminar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminar.ForeColor = System.Drawing.Color.White;
+            this.BtnEliminar.Location = new System.Drawing.Point(331, 438);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
+            this.BtnEliminar.TabIndex = 75;
+            this.BtnEliminar.Text = "Eliminar";
+            this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
-            // BtnEditarVuelo
+            // BtnActualizar
             // 
-            this.BtnEditarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnEditarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnEditarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditarVuelo.ForeColor = System.Drawing.Color.White;
-            this.BtnEditarVuelo.Location = new System.Drawing.Point(939, 328);
-            this.BtnEditarVuelo.Name = "BtnEditarVuelo";
-            this.BtnEditarVuelo.Size = new System.Drawing.Size(121, 46);
-            this.BtnEditarVuelo.TabIndex = 74;
-            this.BtnEditarVuelo.Text = "Actualizar";
-            this.BtnEditarVuelo.UseVisualStyleBackColor = false;
+            this.BtnActualizar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
+            this.BtnActualizar.Location = new System.Drawing.Point(939, 328);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
+            this.BtnActualizar.TabIndex = 74;
+            this.BtnActualizar.Text = "Actualizar";
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
-            // BtnAgregarVuelo
+            // BtnAgregar
             // 
-            this.BtnAgregarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnAgregarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnAgregarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregarVuelo.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregarVuelo.Location = new System.Drawing.Point(785, 328);
-            this.BtnAgregarVuelo.Name = "BtnAgregarVuelo";
-            this.BtnAgregarVuelo.Size = new System.Drawing.Size(121, 46);
-            this.BtnAgregarVuelo.TabIndex = 73;
-            this.BtnAgregarVuelo.Text = "Agregar";
-            this.BtnAgregarVuelo.UseVisualStyleBackColor = false;
-            this.BtnAgregarVuelo.Click += new System.EventHandler(this.BtnAgregarVuelo_Click);
+            this.BtnAgregar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAgregar.ForeColor = System.Drawing.Color.White;
+            this.BtnAgregar.Location = new System.Drawing.Point(785, 328);
+            this.BtnAgregar.Name = "BtnAgregar";
+            this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
+            this.BtnAgregar.TabIndex = 73;
+            this.BtnAgregar.Text = "Agregar";
+            this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // label5
             // 
@@ -253,9 +255,9 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TxtNombre);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.BtnEliminarVuelo);
-            this.Controls.Add(this.BtnEditarVuelo);
-            this.Controls.Add(this.BtnAgregarVuelo);
+            this.Controls.Add(this.BtnEliminar);
+            this.Controls.Add(this.BtnActualizar);
+            this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.BtnRegresar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DgvEstados);
@@ -273,9 +275,9 @@
         private System.Windows.Forms.Button BtnRegresar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DgvEstados;
-        private System.Windows.Forms.Button BtnEliminarVuelo;
-        private System.Windows.Forms.Button BtnEditarVuelo;
-        private System.Windows.Forms.Button BtnAgregarVuelo;
+        private System.Windows.Forms.Button BtnEliminar;
+        private System.Windows.Forms.Button BtnActualizar;
+        private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionEstado;
