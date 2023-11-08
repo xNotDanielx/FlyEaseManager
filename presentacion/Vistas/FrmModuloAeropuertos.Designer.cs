@@ -62,6 +62,7 @@
             this.BtnGestionRegiones.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionRegiones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionRegiones.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGestionRegiones.ForeColor = System.Drawing.Color.White;
             this.BtnGestionRegiones.Location = new System.Drawing.Point(863, 197);
             this.BtnGestionRegiones.Name = "BtnGestionRegiones";
             this.BtnGestionRegiones.Size = new System.Drawing.Size(127, 45);
@@ -75,6 +76,7 @@
             this.BtnGestionCiudades.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionCiudades.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionCiudades.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGestionCiudades.ForeColor = System.Drawing.Color.White;
             this.BtnGestionCiudades.Location = new System.Drawing.Point(863, 281);
             this.BtnGestionCiudades.Name = "BtnGestionCiudades";
             this.BtnGestionCiudades.Size = new System.Drawing.Size(127, 45);
@@ -88,6 +90,7 @@
             this.BtnGestionPaises.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGestionPaises.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGestionPaises.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGestionPaises.ForeColor = System.Drawing.Color.White;
             this.BtnGestionPaises.Location = new System.Drawing.Point(863, 112);
             this.BtnGestionPaises.Name = "BtnGestionPaises";
             this.BtnGestionPaises.Size = new System.Drawing.Size(127, 45);
@@ -100,6 +103,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(414, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 23);
@@ -111,7 +115,8 @@
             this.BtnEliminar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.Location = new System.Drawing.Point(627, 438);
+            this.BtnEliminar.ForeColor = System.Drawing.Color.White;
+            this.BtnEliminar.Location = new System.Drawing.Point(614, 438);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminar.TabIndex = 26;
@@ -124,7 +129,8 @@
             this.BtnEditar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEditar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditar.Location = new System.Drawing.Point(384, 438);
+            this.BtnEditar.ForeColor = System.Drawing.Color.White;
+            this.BtnEditar.Location = new System.Drawing.Point(371, 438);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(121, 46);
             this.BtnEditar.TabIndex = 25;
@@ -136,7 +142,8 @@
             this.BtnAgregar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregar.Location = new System.Drawing.Point(133, 438);
+            this.BtnAgregar.ForeColor = System.Drawing.Color.White;
+            this.BtnAgregar.Location = new System.Drawing.Point(120, 438);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregar.TabIndex = 24;
@@ -214,7 +221,7 @@
             this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.DgvAeropuertos);
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModuloAeropuertos";
             this.Text = "FrmModuloAeropuertos";

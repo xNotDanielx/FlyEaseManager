@@ -43,6 +43,7 @@ namespace WindowsFormsApp1
             
             FrmAgregarVuelos vista = new FrmAgregarVuelos(principal);
             principal.OpenForms(vista);
+            this.Close();
         }
 
         public async void CargarDatos()
@@ -61,11 +62,11 @@ namespace WindowsFormsApp1
             TxtCantidadAsietos.Text = obtenerNumeroAsientos.Count().ToString();
             if(vuelo.Cupo == true)
             {
-                RbCupo.Checked = true;
+                ChkCupo.Checked = true;
             }
             else
             {
-                RbCupo.Checked = false;
+                ChkCupo.Checked = false;
             }
             TxtAsientosPremium.Text = asientosPremium.ToString();
             CbAviones.Text = vuelo.Avion.Nombre.ToString();
@@ -89,7 +90,7 @@ namespace WindowsFormsApp1
                 DistanciaRecorrida = Vuelo.DistanciaRecorrida,
                 FechaYHoraDespegue = DtpFechaSalida.Value.ToString(),
                 //FechaYHoraLlegada = Vuelo.FechaYHoraLlegada,
-                Cupo = RbCupo.Checked,
+                Cupo = ChkCupo.Checked,
                 ADespegue = obtenerAereopuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
                 ADestino = obtenerAereopuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
                 Estado = obtenerEstado.Where(p => p.Nombre == CbEstados.Text).FirstOrDefault(),
@@ -99,7 +100,28 @@ namespace WindowsFormsApp1
             var response = await vueloService.Actualizar(this.idVuelo, vuelo);
 
             MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if(response.Equals("Vuelo actualizado correctamente"))
+            {
+                limpiarCampos();
+            }
             
+        }
+
+        void limpiarCampos()
+        {
+            TxtPrecio.Text = "";
+            TxtTarifa.Text = "";
+            TxtDescuento.Text = "";
+            CbDespegue.Text = "";
+            DtpFechaSalida.Value = DateTime.Now;
+            CbDestino.Text = "";
+            TxtCantidadAsietos.Text = "";
+            ChkCupo.Checked = true;
+            TxtAsientosPremium.Text = "";
+            CbAviones.Text = "";
+            TxtAsientosEconomicos.Text = "";
+            CbEstados.Text = "";
         }
     }
 }

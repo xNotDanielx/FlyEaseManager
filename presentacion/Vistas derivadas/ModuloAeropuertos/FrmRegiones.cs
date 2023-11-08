@@ -28,6 +28,7 @@ namespace WindowsFormsApp1
 
             FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
             principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void FrmRegiones_Load(object sender, EventArgs e)
@@ -110,8 +111,9 @@ namespace WindowsFormsApp1
                 var lista = await regionService.ObtenerTodos();
 
                 CargarGrilla(lista);
-                MessageBox.Show(response);
+                MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ConfigurarBotones();
+                limpiarCampos();
             }
         }
 

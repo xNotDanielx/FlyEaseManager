@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
         private async void BtnGuardar_Click(object sender, EventArgs e)
         {
             var obtenerCiudad = await ciudadService.ObtenerTodos();
-            Coordenada coordenada = new Coordenada
+            Coordenadas coordenada = new Coordenadas
             {
                 Latitud = double.Parse(TxtLatitud.Text),
                 Longitud = double.Parse(TxtLongitud.Text)
@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
             Aereopuerto aereopuerto = new Aereopuerto
             {
                 Nombre = TxtNombre.Text,
-                Coordenada = coordenada,
+                Coordenadas = coordenada,
                 Ciudad = obtenerCiudad.Where(p => p.Nombre == CbCiudades.Text).FirstOrDefault()
             };
 
@@ -47,10 +47,10 @@ namespace WindowsFormsApp1
             MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             var lista = await aereopuertoService.ObtenerTodos();            
 
-            if (response.Equals("Aereopuerto registrado correctamente"))
-            {
+            //if (response.Equals("Aereopuerto registrado correctamente"))
+            //{
                 limpiarCampos();
-            }
+            //}
         }
 
         private async void FrmAgregarAereopuerto_Load(object sender, EventArgs e)
@@ -78,6 +78,7 @@ namespace WindowsFormsApp1
 
             FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
             principal.OpenForms(vista);
+            this.Close();
         }
     }
 }

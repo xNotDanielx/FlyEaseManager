@@ -54,7 +54,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.CbAviones = new System.Windows.Forms.ComboBox();
             this.BtnActualizar = new System.Windows.Forms.Button();
-            this.RbCupo = new System.Windows.Forms.RadioButton();
+            this.ChkCupo = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label8
@@ -342,17 +342,19 @@
             this.BtnActualizar.UseVisualStyleBackColor = false;
             this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
-            // RbCupo
+            // ChkCupo
             // 
-            this.RbCupo.AutoSize = true;
-            this.RbCupo.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.RbCupo.Location = new System.Drawing.Point(837, 286);
-            this.RbCupo.Name = "RbCupo";
-            this.RbCupo.Size = new System.Drawing.Size(97, 22);
-            this.RbCupo.TabIndex = 124;
-            this.RbCupo.TabStop = true;
-            this.RbCupo.Text = "Disponible";
-            this.RbCupo.UseVisualStyleBackColor = true;
+            this.ChkCupo.AutoSize = true;
+            this.ChkCupo.Checked = true;
+            this.ChkCupo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkCupo.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.ChkCupo.ForeColor = System.Drawing.Color.White;
+            this.ChkCupo.Location = new System.Drawing.Point(837, 288);
+            this.ChkCupo.Name = "ChkCupo";
+            this.ChkCupo.Size = new System.Drawing.Size(98, 22);
+            this.ChkCupo.TabIndex = 125;
+            this.ChkCupo.Text = "Disponible";
+            this.ChkCupo.UseVisualStyleBackColor = true;
             // 
             // FrmEditarVuelos
             // 
@@ -360,7 +362,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
-            this.Controls.Add(this.RbCupo);
+            this.Controls.Add(this.ChkCupo);
             this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.CbEstados);
@@ -424,6 +426,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox CbAviones;
         private System.Windows.Forms.Button BtnActualizar;
-        private System.Windows.Forms.RadioButton RbCupo;
+        private System.Windows.Forms.CheckBox ChkCupo;
     }
 }

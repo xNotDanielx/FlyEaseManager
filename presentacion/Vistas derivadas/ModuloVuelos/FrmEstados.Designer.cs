@@ -45,7 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.RbDetencion = new System.Windows.Forms.RadioButton();
+            this.ChkDetencion = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEstados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -232,15 +232,18 @@
             this.label4.TabIndex = 82;
             this.label4.Text = "Detencion:";
             // 
-            // RbDetencion
+            // ChkDetencion
             // 
-            this.RbDetencion.AutoSize = true;
-            this.RbDetencion.Location = new System.Drawing.Point(902, 278);
-            this.RbDetencion.Name = "RbDetencion";
-            this.RbDetencion.Size = new System.Drawing.Size(14, 13);
-            this.RbDetencion.TabIndex = 83;
-            this.RbDetencion.TabStop = true;
-            this.RbDetencion.UseVisualStyleBackColor = true;
+            this.ChkDetencion.AutoSize = true;
+            this.ChkDetencion.Checked = true;
+            this.ChkDetencion.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkDetencion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.ChkDetencion.ForeColor = System.Drawing.Color.White;
+            this.ChkDetencion.Location = new System.Drawing.Point(902, 280);
+            this.ChkDetencion.Name = "ChkDetencion";
+            this.ChkDetencion.Size = new System.Drawing.Size(15, 14);
+            this.ChkDetencion.TabIndex = 114;
+            this.ChkDetencion.UseVisualStyleBackColor = true;
             // 
             // FrmEstados
             // 
@@ -248,7 +251,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
-            this.Controls.Add(this.RbDetencion);
+            this.Controls.Add(this.ChkDetencion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtDescripcion);
             this.Controls.Add(this.label2);
@@ -289,6 +292,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtDescripcion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton RbDetencion;
+        private System.Windows.Forms.CheckBox ChkDetencion;
     }
 }

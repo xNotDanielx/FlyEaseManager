@@ -10,7 +10,7 @@ namespace Entity
     {
         public int IdAereopuerto { get; set; }
         public string Nombre { get; set; }
-        public Coordenada Coordenada { get; set; }
+        public Coordenadas Coordenadas { get; set; }
         public Ciudad Ciudad { get; set; }
         public string FechaRegistro { get; set; }
 

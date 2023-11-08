@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
             FrmPaises vista = new FrmPaises(principal);
             vista.Dock = DockStyle.Fill;
             principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void BtnGestionRegiones_Click(object sender, EventArgs e)
@@ -38,6 +39,7 @@ namespace WindowsFormsApp1
             FrmRegiones vista = new FrmRegiones(principal);
             vista.Dock = DockStyle.Fill;
             principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void BtnGestionCiudades_Click(object sender, EventArgs e)
@@ -47,11 +49,12 @@ namespace WindowsFormsApp1
             FrmCiudades vista = new FrmCiudades(principal);
             vista.Dock = DockStyle.Fill;
             principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void FrmModuloAeropuertos_Load(object sender, EventArgs e)
         {
-            //CargarGrilla(await AereopuertoService.ObtenerTodos());
+            CargarGrilla(await AereopuertoService.ObtenerTodos());
         }
         
         void CargarGrilla(List<Aereopuerto> aeropuertos)
@@ -59,7 +62,7 @@ namespace WindowsFormsApp1
             DgvAeropuertos.Rows.Clear();
             foreach (var item in aeropuertos)
             {
-                DgvAeropuertos.Rows.Add(item.IdAereopuerto, item.Nombre, item.Coordenada.Latitud, item.Coordenada.Longitud, item.Ciudad, item.Ciudad.Nombre, item.FechaRegistro);
+                DgvAeropuertos.Rows.Add(item.IdAereopuerto, item.Nombre, item.Coordenadas.Latitud, item.Coordenadas.Longitud, item.Ciudad.Nombre, item.FechaRegistro);
             }
         }
 
@@ -70,6 +73,7 @@ namespace WindowsFormsApp1
             FrmAgregarAereopuerto vista = new FrmAgregarAereopuerto(principal);
             vista.Dock = DockStyle.Fill;
             principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void BtnEliminar_Click(object sender, EventArgs e)

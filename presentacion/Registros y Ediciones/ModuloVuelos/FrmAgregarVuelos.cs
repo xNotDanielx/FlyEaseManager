@@ -33,6 +33,7 @@ namespace WindowsFormsApp1
 
             FrmModuloVuelos vista = new FrmModuloVuelos(principal);
             principal.OpenForms(vista);
+            this.Close();
         }
 
         private void FrmAgregarVuelos_Load(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace WindowsFormsApp1
                 TarifaTemporada = double.Parse(TxtTarifa.Text),
                 Descuento = double.Parse(TxtDescuento.Text),
                 FechaYHoraDespegue = DtpFechaSalida.Value.ToString(),
-                Cupo = RbCupo.Checked,
+                Cupo = ChkCupo.Checked,
                 ADespegue = obtenerAeropuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
                 ADestino = obtenerAeropuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
                 Estado = obtenerEstado.Where(p => p.Nombre == CbEstado.Text).FirstOrDefault(),
@@ -119,7 +120,7 @@ namespace WindowsFormsApp1
             DtpFechaSalida.Value = DateTime.Now;
             CbDestino.Text = "";
             TxtCantidadAsietos.Text = "";
-            RbCupo.Checked = true;
+            ChkCupo.Checked = true;
             TxtAsientosPremium.Text = "";
             CbAvion.Text = "";      
             TxtAsientosEconomicos.Text = "";
@@ -127,22 +128,22 @@ namespace WindowsFormsApp1
 
         }
 
-        void CargarCombos()
+        async void CargarCombos()
         {
             //Despegue             
-            CbDespegue.DataSource = aereopuertoService.ObtenerTodos();
+            CbDespegue.DataSource = await aereopuertoService.ObtenerTodos();
             CbDespegue.DisplayMember = "Nombre";
 
             //Destino
-            CbDestino.DataSource = aereopuertoService.ObtenerTodos();
+            CbDestino.DataSource = await aereopuertoService.ObtenerTodos();
             CbDestino.DisplayMember = "Nombre";
 
             //Avion
-            CbAvion.DataSource = AvionService.ObtenerTodos();
+            CbAvion.DataSource = await AvionService.ObtenerTodos();
             CbAvion.DisplayMember = "Nombre";
 
             //Estado
-            CbEstado.DataSource = estadoService.ObtenerTodos();
+            CbEstado.DataSource = await estadoService.ObtenerTodos();
             CbEstado.DisplayMember = "Nombre";
         }
     }

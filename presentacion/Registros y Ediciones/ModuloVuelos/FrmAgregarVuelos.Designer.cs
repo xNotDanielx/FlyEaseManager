@@ -54,7 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtTarifa = new System.Windows.Forms.TextBox();
             this.BtnGuardar = new System.Windows.Forms.Button();
-            this.RbCupo = new System.Windows.Forms.RadioButton();
+            this.ChkCupo = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label3
@@ -85,7 +85,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(617, 423);
+            this.label10.Location = new System.Drawing.Point(612, 410);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 18);
             this.label10.TabIndex = 121;
@@ -98,7 +98,7 @@
             this.CbEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbEstado.ForeColor = System.Drawing.Color.White;
             this.CbEstado.FormattingEnabled = true;
-            this.CbEstado.Location = new System.Drawing.Point(833, 420);
+            this.CbEstado.Location = new System.Drawing.Point(828, 407);
             this.CbEstado.Name = "CbEstado";
             this.CbEstado.Size = new System.Drawing.Size(200, 24);
             this.CbEstado.TabIndex = 120;
@@ -107,7 +107,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(617, 352);
+            this.label9.Location = new System.Drawing.Point(612, 339);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 18);
             this.label9.TabIndex = 119;
@@ -120,7 +120,7 @@
             this.CbAvion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbAvion.ForeColor = System.Drawing.Color.White;
             this.CbAvion.FormattingEnabled = true;
-            this.CbAvion.Location = new System.Drawing.Point(833, 349);
+            this.CbAvion.Location = new System.Drawing.Point(828, 336);
             this.CbAvion.Name = "CbAvion";
             this.CbAvion.Size = new System.Drawing.Size(200, 24);
             this.CbAvion.TabIndex = 118;
@@ -131,7 +131,7 @@
             this.TxtAsientosPremium.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtAsientosPremium.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtAsientosPremium.ForeColor = System.Drawing.Color.White;
-            this.TxtAsientosPremium.Location = new System.Drawing.Point(308, 353);
+            this.TxtAsientosPremium.Location = new System.Drawing.Point(303, 340);
             this.TxtAsientosPremium.Name = "TxtAsientosPremium";
             this.TxtAsientosPremium.Size = new System.Drawing.Size(200, 24);
             this.TxtAsientosPremium.TabIndex = 117;
@@ -140,7 +140,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(77, 352);
+            this.label13.Location = new System.Drawing.Point(72, 339);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(190, 18);
             this.label13.TabIndex = 116;
@@ -152,7 +152,7 @@
             this.TxtAsientosEconomicos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtAsientosEconomicos.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtAsientosEconomicos.ForeColor = System.Drawing.Color.White;
-            this.TxtAsientosEconomicos.Location = new System.Drawing.Point(308, 421);
+            this.TxtAsientosEconomicos.Location = new System.Drawing.Point(303, 408);
             this.TxtAsientosEconomicos.Name = "TxtAsientosEconomicos";
             this.TxtAsientosEconomicos.Size = new System.Drawing.Size(200, 24);
             this.TxtAsientosEconomicos.TabIndex = 115;
@@ -163,7 +163,7 @@
             this.TxtCantidadAsietos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtCantidadAsietos.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtCantidadAsietos.ForeColor = System.Drawing.Color.White;
-            this.TxtCantidadAsietos.Location = new System.Drawing.Point(308, 285);
+            this.TxtCantidadAsietos.Location = new System.Drawing.Point(303, 272);
             this.TxtCantidadAsietos.Name = "TxtCantidadAsietos";
             this.TxtCantidadAsietos.Size = new System.Drawing.Size(200, 24);
             this.TxtCantidadAsietos.TabIndex = 114;
@@ -172,7 +172,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(77, 423);
+            this.label12.Location = new System.Drawing.Point(72, 410);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(208, 18);
             this.label12.TabIndex = 113;
@@ -182,7 +182,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(77, 282);
+            this.label11.Location = new System.Drawing.Point(72, 269);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(130, 18);
             this.label11.TabIndex = 112;
@@ -192,7 +192,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(621, 213);
+            this.label8.Location = new System.Drawing.Point(616, 200);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 18);
             this.label8.TabIndex = 111;
@@ -205,7 +205,7 @@
             this.CbDestino.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbDestino.ForeColor = System.Drawing.Color.White;
             this.CbDestino.FormattingEnabled = true;
-            this.CbDestino.Location = new System.Drawing.Point(833, 210);
+            this.CbDestino.Location = new System.Drawing.Point(828, 197);
             this.CbDestino.Name = "CbDestino";
             this.CbDestino.Size = new System.Drawing.Size(200, 24);
             this.CbDestino.TabIndex = 110;
@@ -214,7 +214,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(621, 137);
+            this.label5.Location = new System.Drawing.Point(616, 124);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 18);
             this.label5.TabIndex = 109;
@@ -227,7 +227,7 @@
             this.CbDespegue.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbDespegue.ForeColor = System.Drawing.Color.White;
             this.CbDespegue.FormattingEnabled = true;
-            this.CbDespegue.Location = new System.Drawing.Point(833, 134);
+            this.CbDespegue.Location = new System.Drawing.Point(828, 121);
             this.CbDespegue.Name = "CbDespegue";
             this.CbDespegue.Size = new System.Drawing.Size(200, 24);
             this.CbDespegue.TabIndex = 108;
@@ -236,7 +236,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(77, 64);
+            this.label2.Location = new System.Drawing.Point(72, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 18);
             this.label2.TabIndex = 107;
@@ -248,7 +248,7 @@
             this.TxtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtPrecio.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtPrecio.ForeColor = System.Drawing.Color.White;
-            this.TxtPrecio.Location = new System.Drawing.Point(308, 62);
+            this.TxtPrecio.Location = new System.Drawing.Point(303, 49);
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(200, 24);
             this.TxtPrecio.TabIndex = 106;
@@ -261,7 +261,7 @@
             this.DtpFechaSalida.CalendarTitleForeColor = System.Drawing.Color.White;
             this.DtpFechaSalida.CustomFormat = "d/MM/yyyy HH:mm";
             this.DtpFechaSalida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtpFechaSalida.Location = new System.Drawing.Point(308, 216);
+            this.DtpFechaSalida.Location = new System.Drawing.Point(303, 203);
             this.DtpFechaSalida.Name = "DtpFechaSalida";
             this.DtpFechaSalida.Size = new System.Drawing.Size(200, 20);
             this.DtpFechaSalida.TabIndex = 105;
@@ -271,7 +271,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(77, 218);
+            this.label7.Location = new System.Drawing.Point(72, 205);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(140, 18);
             this.label7.TabIndex = 104;
@@ -281,7 +281,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(621, 287);
+            this.label6.Location = new System.Drawing.Point(616, 274);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 18);
             this.label6.TabIndex = 103;
@@ -291,7 +291,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(77, 137);
+            this.label4.Location = new System.Drawing.Point(72, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 18);
             this.label4.TabIndex = 102;
@@ -303,7 +303,7 @@
             this.TxtDescuento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtDescuento.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtDescuento.ForeColor = System.Drawing.Color.White;
-            this.TxtDescuento.Location = new System.Drawing.Point(308, 135);
+            this.TxtDescuento.Location = new System.Drawing.Point(303, 122);
             this.TxtDescuento.Name = "TxtDescuento";
             this.TxtDescuento.Size = new System.Drawing.Size(200, 24);
             this.TxtDescuento.TabIndex = 101;
@@ -312,7 +312,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(621, 71);
+            this.label1.Location = new System.Drawing.Point(616, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 18);
             this.label1.TabIndex = 99;
@@ -324,7 +324,7 @@
             this.TxtTarifa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTarifa.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtTarifa.ForeColor = System.Drawing.Color.White;
-            this.TxtTarifa.Location = new System.Drawing.Point(833, 62);
+            this.TxtTarifa.Location = new System.Drawing.Point(828, 49);
             this.TxtTarifa.Name = "TxtTarifa";
             this.TxtTarifa.Size = new System.Drawing.Size(200, 24);
             this.TxtTarifa.TabIndex = 98;
@@ -334,7 +334,7 @@
             this.BtnGuardar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGuardar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar.Location = new System.Drawing.Point(500, 466);
+            this.BtnGuardar.Location = new System.Drawing.Point(498, 438);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(121, 46);
             this.BtnGuardar.TabIndex = 122;
@@ -342,17 +342,19 @@
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
-            // RbCupo
+            // ChkCupo
             // 
-            this.RbCupo.AutoSize = true;
-            this.RbCupo.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.RbCupo.Location = new System.Drawing.Point(833, 284);
-            this.RbCupo.Name = "RbCupo";
-            this.RbCupo.Size = new System.Drawing.Size(97, 22);
-            this.RbCupo.TabIndex = 125;
-            this.RbCupo.TabStop = true;
-            this.RbCupo.Text = "Disponible";
-            this.RbCupo.UseVisualStyleBackColor = true;
+            this.ChkCupo.AutoSize = true;
+            this.ChkCupo.Checked = true;
+            this.ChkCupo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkCupo.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.ChkCupo.ForeColor = System.Drawing.Color.White;
+            this.ChkCupo.Location = new System.Drawing.Point(828, 272);
+            this.ChkCupo.Name = "ChkCupo";
+            this.ChkCupo.Size = new System.Drawing.Size(98, 22);
+            this.ChkCupo.TabIndex = 126;
+            this.ChkCupo.Text = "Disponible";
+            this.ChkCupo.UseVisualStyleBackColor = true;
             // 
             // FrmAgregarVuelos
             // 
@@ -360,7 +362,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
-            this.Controls.Add(this.RbCupo);
+            this.Controls.Add(this.ChkCupo);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.CbEstado);
@@ -424,6 +426,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtTarifa;
         private System.Windows.Forms.Button BtnGuardar;
-        private System.Windows.Forms.RadioButton RbCupo;
+        private System.Windows.Forms.CheckBox ChkCupo;
     }
 }

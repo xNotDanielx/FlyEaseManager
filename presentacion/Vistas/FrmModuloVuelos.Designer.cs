@@ -45,8 +45,8 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Avion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnGestionEstado = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.BtnRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVuelos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(420, 22);
+            this.label1.Location = new System.Drawing.Point(509, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 23);
             this.label1.TabIndex = 17;
@@ -66,7 +66,8 @@
             this.BtnEliminarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnEliminarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminarVuelo.Location = new System.Drawing.Point(627, 438);
+            this.BtnEliminarVuelo.ForeColor = System.Drawing.Color.White;
+            this.BtnEliminarVuelo.Location = new System.Drawing.Point(726, 438);
             this.BtnEliminarVuelo.Name = "BtnEliminarVuelo";
             this.BtnEliminarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminarVuelo.TabIndex = 16;
@@ -79,7 +80,8 @@
             this.BtnEditarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnEditarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEditarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditarVuelo.Location = new System.Drawing.Point(384, 438);
+            this.BtnEditarVuelo.ForeColor = System.Drawing.Color.White;
+            this.BtnEditarVuelo.Location = new System.Drawing.Point(483, 438);
             this.BtnEditarVuelo.Name = "BtnEditarVuelo";
             this.BtnEditarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnEditarVuelo.TabIndex = 15;
@@ -92,7 +94,8 @@
             this.BtnAgregarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnAgregarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregarVuelo.Location = new System.Drawing.Point(133, 438);
+            this.BtnAgregarVuelo.ForeColor = System.Drawing.Color.White;
+            this.BtnAgregarVuelo.Location = new System.Drawing.Point(232, 438);
             this.BtnAgregarVuelo.Name = "BtnAgregarVuelo";
             this.BtnAgregarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregarVuelo.TabIndex = 14;
@@ -203,28 +206,30 @@
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             // 
-            // BtnGestionEstado
-            // 
-            this.BtnGestionEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnGestionEstado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGestionEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGestionEstado.Location = new System.Drawing.Point(941, 467);
-            this.BtnGestionEstado.Name = "BtnGestionEstado";
-            this.BtnGestionEstado.Size = new System.Drawing.Size(127, 45);
-            this.BtnGestionEstado.TabIndex = 20;
-            this.BtnGestionEstado.Text = "Estado vuelos";
-            this.BtnGestionEstado.UseVisualStyleBackColor = false;
-            this.BtnGestionEstado.Click += new System.EventHandler(this.BtnGestionEstado_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(969, 439);
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(962, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 23);
+            this.label2.Size = new System.Drawing.Size(58, 18);
             this.label2.TabIndex = 22;
             this.label2.Text = "Gestion";
+            // 
+            // BtnRegresar
+            // 
+            this.BtnRegresar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnRegresar.Font = new System.Drawing.Font("Microsoft Tai Le", 7F, System.Drawing.FontStyle.Bold);
+            this.BtnRegresar.ForeColor = System.Drawing.Color.White;
+            this.BtnRegresar.Location = new System.Drawing.Point(1026, 12);
+            this.BtnRegresar.Name = "BtnRegresar";
+            this.BtnRegresar.Size = new System.Drawing.Size(62, 23);
+            this.BtnRegresar.TabIndex = 58;
+            this.BtnRegresar.Text = "Estados >";
+            this.BtnRegresar.UseVisualStyleBackColor = false;
+            this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
             // 
             // FrmModuloVuelos
             // 
@@ -232,14 +237,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
+            this.Controls.Add(this.BtnRegresar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.BtnGestionEstado);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnEliminarVuelo);
             this.Controls.Add(this.BtnEditarVuelo);
             this.Controls.Add(this.BtnAgregarVuelo);
             this.Controls.Add(this.DgvVuelos);
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModuloVuelos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -258,7 +263,6 @@
         private System.Windows.Forms.Button BtnEditarVuelo;
         private System.Windows.Forms.Button BtnAgregarVuelo;
         private System.Windows.Forms.DataGridView DgvVuelos;
-        private System.Windows.Forms.Button BtnGestionEstado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdVuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVuelo;
@@ -272,5 +276,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Avion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
+        private System.Windows.Forms.Button BtnRegresar;
     }
 }

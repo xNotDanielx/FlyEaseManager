@@ -30,13 +30,13 @@ namespace WindowsFormsApp1
             FrmAgregarVuelos vista = new FrmAgregarVuelos(principal);
             vista.Dock = DockStyle.Fill;
             principal.OpenForms(vista);
-
+            this.Close();
         }
 
         private async void FrmModuloVuelos_Load(object sender, EventArgs e)
         {
             var lista = await vueloService.ObtenerTodos();
-            //CargarGrilla(lista);
+            CargarGrilla(lista);
             ConfigurarBotones();
         }
 
@@ -54,15 +54,22 @@ namespace WindowsFormsApp1
             }
         }
 
-        void CargarGrilla(List<Vuelo> vuelos)
+        async void CargarGrilla(List<Vuelo> vuelos)
         {
-            DgvVuelos.Rows.Clear();
-            foreach (var item in vuelos)
+            if (await vueloService.ObtenerTodos() == null)
             {
-                DgvVuelos.Rows.Add(item.IdVuelo, item.PrecioVuelo, item.TarifaTemporada, item.Descuento, item.DistanciaRecorrida, 
-                    item.FechaYHoraDespegue, item.FechaYHoraLlegada, item.Cupo, item.ADespegue.Nombre, item.ADestino.Nombre, 
-                    item.Estado.Nombre, item.Avion.Nombre, item.FechaRegistro);
+                return;
             }
+            else
+            {
+                DgvVuelos.Rows.Clear();
+                foreach (var item in vuelos)
+                {
+                    DgvVuelos.Rows.Add(item.IdVuelo, item.PrecioVuelo, item.TarifaTemporada, item.Descuento, item.DistanciaRecorrida,
+                        item.FechaYHoraDespegue, item.FechaYHoraLlegada, item.ADespegue.Nombre, item.ADestino.Nombre,
+                        item.Estado.Nombre, item.Avion.Nombre, item.FechaRegistro);
+                }
+            }            
         }
 
         private async void BtnEditarVuelo_Click(object sender, EventArgs e)
@@ -80,19 +87,12 @@ namespace WindowsFormsApp1
                 FrmEditarVuelos vista = new FrmEditarVuelos(principal, valorCelda);
                 vista.Dock = DockStyle.Fill;
                 principal.OpenForms(vista);
+                this.Close();
             }
             else
             {
                 return;
             }
-        }
-
-        private async void BtnGestionEstado_Click(object sender, EventArgs e)
-        {
-            await Task.Delay(190);
-            FrmEstados vista = new FrmEstados(principal);
-            vista.Dock = DockStyle.Fill;
-            principal.OpenForms(vista);
         }
 
         private async void BtnEliminarVuelo_Click(object sender, EventArgs e)
@@ -108,6 +108,16 @@ namespace WindowsFormsApp1
                 MessageBox.Show(response);
                 ConfigurarBotones();
             }
+        }
+
+        private async void BtnRegresar_Click(object sender, EventArgs e)
+        {
+            await Task.Delay(190);
+
+            FrmEstados vista = new FrmEstados(principal);
+            vista.Dock = DockStyle.Fill;
+            principal.OpenForms(vista);
+            this.Close();
         }
     }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public class Coordenada
+    public class Coordenadas
     {
         public int IdCoordenada { get; set; }
         public double Latitud { get; set; }
         public double Longitud { get; set; }
         public string FechaRegistro { get; set; }
 
-        public Coordenada()
+        public Coordenadas()
         {
         }
     }

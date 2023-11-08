@@ -52,6 +52,18 @@
     <Compile Include="FormIniciarSesion.Designer.cs">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros y Ediciones\ModuloAviones\FrmAgregarAvion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros y Ediciones\ModuloAviones\FrmAgregarAvion.Designer.cs">
+      <DependentUpon>FrmAgregarAvion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros y Ediciones\ModuloAviones\FrmEditarAvion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros y Ediciones\ModuloAviones\FrmEditarAvion.Designer.cs">
+      <DependentUpon>FrmEditarAvion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarAereopuerto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +161,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarAereopuerto.resx">
       <DependentUpon>FrmAgregarAereopuerto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros y Ediciones\ModuloAviones\FrmAgregarAvion.resx">
+      <DependentUpon>FrmAgregarAvion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros y Ediciones\ModuloAviones\FrmEditarAvion.resx">
+      <DependentUpon>FrmEditarAvion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros y Ediciones\ModuloVuelos\FrmEditarVuelos.resx">
       <DependentUpon>FrmEditarVuelos.cs</DependentUpon>
@@ -258,8 +276,6 @@
       <Name>Entity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Registros y Ediciones\ModuloAviones\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

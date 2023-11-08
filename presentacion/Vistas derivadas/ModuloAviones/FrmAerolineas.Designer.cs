@@ -36,7 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.DgvCiudades = new System.Windows.Forms.DataGridView();
+            this.DgvAerolineas = new System.Windows.Forms.DataGridView();
             this.IdAeolinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreAerolinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoIATA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +46,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TxtCodigoICAO = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvCiudades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvAerolineas)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnActualizar
@@ -55,12 +55,13 @@
             this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnActualizar.ForeColor = System.Drawing.Color.White;
-            this.BtnActualizar.Location = new System.Drawing.Point(864, 331);
+            this.BtnActualizar.Location = new System.Drawing.Point(944, 327);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
             this.BtnActualizar.TabIndex = 72;
             this.BtnActualizar.Text = "Actualizar";
             this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // BtnRegresar
             // 
@@ -126,12 +127,13 @@
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(540, 438);
+            this.BtnEliminar.Location = new System.Drawing.Point(384, 438);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminar.TabIndex = 64;
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnAgregar
             // 
@@ -139,27 +141,29 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(223, 438);
+            this.BtnAgregar.Location = new System.Drawing.Point(794, 327);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregar.TabIndex = 63;
             this.BtnAgregar.Text = "Agregar";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // DgvCiudades
+            // DgvAerolineas
             // 
-            this.DgvCiudades.AllowUserToAddRows = false;
-            this.DgvCiudades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvCiudades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvAerolineas.AllowUserToAddRows = false;
+            this.DgvAerolineas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvAerolineas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdAeolinea,
             this.NombreAerolinea,
             this.CodigoIATA,
             this.CodigoICAO,
             this.FechaRegistro});
-            this.DgvCiudades.Location = new System.Drawing.Point(147, 48);
-            this.DgvCiudades.Name = "DgvCiudades";
-            this.DgvCiudades.Size = new System.Drawing.Size(603, 384);
-            this.DgvCiudades.TabIndex = 62;
+            this.DgvAerolineas.Location = new System.Drawing.Point(147, 48);
+            this.DgvAerolineas.Name = "DgvAerolineas";
+            this.DgvAerolineas.Size = new System.Drawing.Size(603, 384);
+            this.DgvAerolineas.TabIndex = 62;
+            this.DgvAerolineas.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvAerolineas_CellMouseClick);
             // 
             // IdAeolinea
             // 
@@ -257,11 +261,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.DgvCiudades);
+            this.Controls.Add(this.DgvAerolineas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAerolineas";
             this.Text = "FrmAerolineas";
-            ((System.ComponentModel.ISupportInitialize)(this.DgvCiudades)).EndInit();
+            this.Load += new System.EventHandler(this.FrmAerolineas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvAerolineas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +282,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.DataGridView DgvCiudades;
+        private System.Windows.Forms.DataGridView DgvAerolineas;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdAeolinea;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreAerolinea;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoIATA;

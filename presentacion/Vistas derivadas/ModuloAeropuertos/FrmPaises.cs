@@ -30,6 +30,7 @@ namespace WindowsFormsApp1
 
             FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
             principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void FrmPaises_Load(object sender, EventArgs e)

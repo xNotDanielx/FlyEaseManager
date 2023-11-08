@@ -53,7 +53,7 @@
     <Compile Include="Boletos\Categoria.cs" />
     <Compile Include="Aereopuertos\Ciudad.cs" />
     <Compile Include="Boletos\Cliente.cs" />
-    <Compile Include="Aereopuertos\Coordenada.cs" />
+    <Compile Include="Aereopuertos\Coordenadas.cs" />
     <Compile Include="Vuelos\Estado.cs" />
     <Compile Include="Aereopuertos\Pais.cs" />
     <Compile Include="Persona.cs" />

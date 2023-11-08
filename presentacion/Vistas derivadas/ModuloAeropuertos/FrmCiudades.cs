@@ -27,6 +27,7 @@ namespace WindowsFormsApp1
 
             FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
             principal.OpenForms(vista);
+            this.Close();
         }
 
         void CargarCombo(List<Region> regiones)

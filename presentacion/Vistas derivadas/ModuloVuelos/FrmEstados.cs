@@ -28,6 +28,7 @@ namespace WindowsFormsApp1
 
             FrmModuloVuelos vista = new FrmModuloVuelos(principal);
             principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void FrmEstados_Load(object sender, EventArgs e)
@@ -52,11 +53,11 @@ namespace WindowsFormsApp1
             TxtDescripcion.Text = fila.Cells[2].Value.ToString();
             if (fila.Cells[3].Value.ToString() == "True")
             {
-                RbDetencion.Checked = true;
+                ChkDetencion.Checked = true;
             }
             else
             {
-                RbDetencion.Checked = false;
+                ChkDetencion.Checked = false;
             } 
         }
 
@@ -64,7 +65,7 @@ namespace WindowsFormsApp1
         {
             TxtNombre.Text = "";
             TxtDescripcion.Text = "";
-            RbDetencion.Checked = true;
+            ChkDetencion.Checked = true;
         }
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
@@ -73,7 +74,7 @@ namespace WindowsFormsApp1
             {
                 Nombre = TxtNombre.Text,
                 Descripcion = TxtDescripcion.Text,
-                Detencion = RbDetencion.Checked
+                Detencion = ChkDetencion.Checked
             };
 
             var response = await estadoService.Crear(estado);
@@ -94,7 +95,7 @@ namespace WindowsFormsApp1
                 IdEstado = Convert.ToInt32(DgvEstados.CurrentRow.Cells[0].Value.ToString()),
                 Nombre = TxtNombre.Text,
                 Descripcion = TxtDescripcion.Text,
-                Detencion = RbDetencion.Checked,
+                Detencion = ChkDetencion.Checked,
                 FechaRegistro = DgvEstados.CurrentRow.Cells[4].Value.ToString()
             };
             var response = await estadoService.Actualizar(DgvEstados.CurrentRow.Cells[0].Value.ToString(), estado);

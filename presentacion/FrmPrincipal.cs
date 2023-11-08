@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
 
         private void BtnAviones_Click(object sender, EventArgs e)
         {
-            Abrirformhijo(new FrmModuloAviones());
+            Abrirformhijo(new FrmModuloAviones(this));
         }
 
         private void BtnEstadisticas_Click(object sender, EventArgs e)

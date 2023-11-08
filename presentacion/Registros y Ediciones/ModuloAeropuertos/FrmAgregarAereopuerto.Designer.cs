@@ -183,7 +183,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAgregarAereopuerto";
-            this.Text = "FrmAgregarAereopuerto";
+            this.Text = "8";
             this.Load += new System.EventHandler(this.FrmAgregarAereopuerto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnActualizar = new System.Windows.Forms.Button();
             this.BtnRegresar = new System.Windows.Forms.Button();
@@ -36,34 +35,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnEliminar = new System.Windows.Forms.Button();
-            this.BtnAgregar = new System.Windows.Forms.Button();
-            this.DgvCiudades = new System.Windows.Forms.DataGridView();
+            this.DgvCategorias = new System.Windows.Forms.DataGridView();
             this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TarifaCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtDescripcion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtTarifa = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvCiudades)).BeginInit();
+            this.ChkEstado = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvCategorias)).BeginInit();
             this.SuspendLayout();
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(958, 286);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(97, 22);
-            this.radioButton1.TabIndex = 105;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Disponible";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -88,6 +73,7 @@
             this.BtnActualizar.TabIndex = 102;
             this.BtnActualizar.Text = "Actualizar";
             this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // BtnRegresar
             // 
@@ -147,47 +133,22 @@
             this.label1.TabIndex = 97;
             this.label1.Text = "Categorias";
             // 
-            // BtnEliminar
+            // DgvCategorias
             // 
-            this.BtnEliminar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(506, 437);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
-            this.BtnEliminar.TabIndex = 96;
-            this.BtnEliminar.Text = "Eliminar";
-            this.BtnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // BtnAgregar
-            // 
-            this.BtnAgregar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(189, 437);
-            this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
-            this.BtnAgregar.TabIndex = 95;
-            this.BtnAgregar.Text = "Agregar";
-            this.BtnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // DgvCiudades
-            // 
-            this.DgvCiudades.AllowUserToAddRows = false;
-            this.DgvCiudades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvCiudades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvCategorias.AllowUserToAddRows = false;
+            this.DgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvCategorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdCategoria,
             this.NombreCategoria,
             this.DescripcionCategoria,
             this.EstadoCategoria,
             this.TarifaCategoria,
             this.FechaRegistro});
-            this.DgvCiudades.Location = new System.Drawing.Point(23, 47);
-            this.DgvCiudades.Name = "DgvCiudades";
-            this.DgvCiudades.Size = new System.Drawing.Size(804, 384);
-            this.DgvCiudades.TabIndex = 94;
+            this.DgvCategorias.Location = new System.Drawing.Point(23, 47);
+            this.DgvCategorias.Name = "DgvCategorias";
+            this.DgvCategorias.Size = new System.Drawing.Size(804, 384);
+            this.DgvCategorias.TabIndex = 94;
+            this.DgvCategorias.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCategorias_CellMouseClick);
             // 
             // IdCategoria
             // 
@@ -229,16 +190,16 @@
             this.FechaRegistro.ReadOnly = true;
             this.FechaRegistro.Width = 250;
             // 
-            // textBox1
+            // TxtDescripcion
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(958, 185);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(124, 24);
-            this.textBox1.TabIndex = 110;
+            this.TxtDescripcion.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtDescripcion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.TxtDescripcion.ForeColor = System.Drawing.Color.White;
+            this.TxtDescripcion.Location = new System.Drawing.Point(958, 185);
+            this.TxtDescripcion.Name = "TxtDescripcion";
+            this.TxtDescripcion.Size = new System.Drawing.Size(124, 24);
+            this.TxtDescripcion.TabIndex = 110;
             // 
             // label7
             // 
@@ -251,16 +212,16 @@
             this.label7.TabIndex = 109;
             this.label7.Text = "Descripcion:";
             // 
-            // textBox2
+            // TxtTarifa
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(958, 235);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(124, 24);
-            this.textBox2.TabIndex = 112;
+            this.TxtTarifa.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtTarifa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtTarifa.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.TxtTarifa.ForeColor = System.Drawing.Color.White;
+            this.TxtTarifa.Location = new System.Drawing.Point(958, 235);
+            this.TxtTarifa.Name = "TxtTarifa";
+            this.TxtTarifa.Size = new System.Drawing.Size(124, 24);
+            this.TxtTarifa.TabIndex = 112;
             // 
             // label5
             // 
@@ -273,17 +234,31 @@
             this.label5.TabIndex = 111;
             this.label5.Text = "Tarifa: ";
             // 
+            // ChkEstado
+            // 
+            this.ChkEstado.AutoSize = true;
+            this.ChkEstado.Checked = true;
+            this.ChkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.ChkEstado.ForeColor = System.Drawing.Color.White;
+            this.ChkEstado.Location = new System.Drawing.Point(958, 290);
+            this.ChkEstado.Name = "ChkEstado";
+            this.ChkEstado.Size = new System.Drawing.Size(71, 22);
+            this.ChkEstado.TabIndex = 113;
+            this.ChkEstado.Text = "Estado";
+            this.ChkEstado.UseVisualStyleBackColor = true;
+            // 
             // FrmCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.ChkEstado);
+            this.Controls.Add(this.TxtTarifa);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtDescripcion);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.BtnRegresar);
@@ -291,20 +266,18 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BtnEliminar);
-            this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.DgvCiudades);
+            this.Controls.Add(this.DgvCategorias);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCategorias";
             this.Text = "Frm";
-            ((System.ComponentModel.ISupportInitialize)(this.DgvCiudades)).EndInit();
+            this.Load += new System.EventHandler(this.FrmCategorias_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvCategorias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnActualizar;
         private System.Windows.Forms.Button BtnRegresar;
@@ -312,18 +285,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BtnEliminar;
-        private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.DataGridView DgvCiudades;
+        private System.Windows.Forms.DataGridView DgvCategorias;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn TarifaCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtDescripcion;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtTarifa;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox ChkEstado;
     }
 }
