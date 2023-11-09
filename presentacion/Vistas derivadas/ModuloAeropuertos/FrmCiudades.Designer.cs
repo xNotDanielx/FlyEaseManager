@@ -43,7 +43,12 @@
             this.CbRegiones = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.BtnActualizar = new System.Windows.Forms.Button();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.btnSeleccionarImagen = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.ofdSeleccionarImagen = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCiudades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnRegresar
@@ -124,7 +129,7 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(826, 314);
+            this.BtnAgregar.Location = new System.Drawing.Point(826, 438);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregar.TabIndex = 48;
@@ -203,7 +208,7 @@
             this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnActualizar.ForeColor = System.Drawing.Color.White;
-            this.BtnActualizar.Location = new System.Drawing.Point(967, 314);
+            this.BtnActualizar.Location = new System.Drawing.Point(976, 438);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
             this.BtnActualizar.TabIndex = 61;
@@ -211,12 +216,49 @@
             this.BtnActualizar.UseVisualStyleBackColor = false;
             this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
+            // pbImagen
+            // 
+            this.pbImagen.Location = new System.Drawing.Point(826, 321);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(145, 95);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagen.TabIndex = 62;
+            this.pbImagen.TabStop = false;
+            // 
+            // btnSeleccionarImagen
+            // 
+            this.btnSeleccionarImagen.Location = new System.Drawing.Point(977, 357);
+            this.btnSeleccionarImagen.Name = "btnSeleccionarImagen";
+            this.btnSeleccionarImagen.Size = new System.Drawing.Size(112, 23);
+            this.btnSeleccionarImagen.TabIndex = 63;
+            this.btnSeleccionarImagen.Text = "Seleccionar imagen";
+            this.btnSeleccionarImagen.UseVisualStyleBackColor = true;
+            this.btnSeleccionarImagen.Click += new System.EventHandler(this.btnSeleccionarImagen_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(823, 292);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(148, 18);
+            this.label4.TabIndex = 64;
+            this.label4.Text = "Imagen de la ciudad:";
+            // 
+            // ofdSeleccionarImagen
+            // 
+            this.ofdSeleccionarImagen.FileName = "openFileDialog1";
+            // 
             // FrmCiudades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnSeleccionarImagen);
+            this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.CbRegiones);
             this.Controls.Add(this.label5);
@@ -234,6 +276,7 @@
             this.Text = "FrmCiudades";
             this.Load += new System.EventHandler(this.FrmCiudades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvCiudades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +299,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCiudad;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreRegion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
+        private System.Windows.Forms.PictureBox pbImagen;
+        private System.Windows.Forms.Button btnSeleccionarImagen;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.OpenFileDialog ofdSeleccionarImagen;
     }
 }

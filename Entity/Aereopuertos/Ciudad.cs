@@ -12,6 +12,7 @@ namespace Entity
         public string Nombre { get; set; }
         public Region Region { get; set; }
         public string FechaRegistro { get; set; }
+        public byte[] Imagen { get; set; }
 
         public Ciudad()
         {

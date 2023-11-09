@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,18 +33,40 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
-        void CargarCombo(List<Region> regiones)
+        void CargarCombo(List<Entity.Region> regiones)
         {
             CbRegiones.DataSource = regiones;
             CbRegiones.DisplayMember = "Nombre";
         }
 
-        private void DgvCiudades_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private async void DgvCiudades_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(e.RowIndex == -1) return;
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+
             var fila = DgvCiudades.Rows[e.RowIndex];
+
             TxtNombre.Text = fila.Cells[1].Value.ToString();
             CbRegiones.Text = fila.Cells[2].Value.ToString();
+
+            int idCiudad = int.Parse(fila.Cells[0].Value.ToString());
+
+            var ciudades = await ciudadService.ObtenerTodos();
+
+            var ciudad = ciudades.FirstOrDefault(item => item.IdCiudad == idCiudad);
+            if (ciudad.Imagen == null)
+            {
+                pbImagen.Image = null;
+            }
+            else
+            {
+                MemoryStream memoryStream = new MemoryStream(ciudad.Imagen);
+                Bitmap bitmap = new Bitmap(memoryStream);
+
+                pbImagen.Image = bitmap;
+            }
         }
 
         private async void FrmCiudades_Load(object sender, EventArgs e)
@@ -77,19 +102,32 @@ namespace WindowsFormsApp1
         void limpiarCampos()
         {
             TxtNombre.Text = "";
+            pbImagen.Image = null;
         }
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
             var obtenerRegion = await new RegionService().ObtenerTodos();
+
+            MemoryStream memoryStream = new MemoryStream();
+
+            // Validar que la imagen no sea nula a la hora de guardar
+
+            pbImagen.Image.Save(memoryStream, ImageFormat.Jpeg);
+            byte[] aByte= memoryStream.ToArray();
+
             Ciudad ciudad = new Ciudad()
             {
                 Nombre = TxtNombre.Text,
-                Region = obtenerRegion.Where(x => x.Nombre == CbRegiones.Text).FirstOrDefault()
+                Region = obtenerRegion.Where(x => x.Nombre == CbRegiones.Text).FirstOrDefault(),
+                Imagen = aByte
             };
             var response = await ciudadService.Crear(ciudad);
 
             MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //Validar si fue exitoso o no y luego si limpiar campos y recargar grilla
+
             var lista = await ciudadService.ObtenerTodos();
             CargarGrilla(lista);
             limpiarCampos();
@@ -102,12 +140,21 @@ namespace WindowsFormsApp1
             {
                 var obtenerRegion = await new RegionService().ObtenerTodos();
                 var region = obtenerRegion.Where(p => p.Nombre == CbRegiones.Text).FirstOrDefault();
+
+                MemoryStream memoryStream = new MemoryStream();
+
+                // Validar que la imagen no sea nula a la hora de guardar
+
+                pbImagen.Image.Save(memoryStream, ImageFormat.Jpeg);
+                byte[] aByte = memoryStream.ToArray();
+
                 Ciudad ciudad = new Ciudad
                 {
                     IdCiudad = Convert.ToInt32(DgvCiudades.CurrentRow.Cells[0].Value.ToString()),
                     Nombre = TxtNombre.Text,
                     Region = region,
-                    FechaRegistro = DgvCiudades.CurrentRow.Cells[3].Value.ToString()
+                    FechaRegistro = DgvCiudades.CurrentRow.Cells[3].Value.ToString(),
+                    Imagen = aByte
                 };
                 var response = await ciudadService.Actualizar(DgvCiudades.CurrentRow.Cells[0].Value.ToString(), ciudad);
 
@@ -131,6 +178,19 @@ namespace WindowsFormsApp1
                 CargarGrilla(lista);
                 MessageBox.Show(response);
                 ConfigurarBotones();
+            }
+        }
+
+        private void btnSeleccionarImagen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofdSeleccionarImagen = new OpenFileDialog();
+            ofdSeleccionarImagen.Filter = "Imagenes|*.jpg; *.png; *.jpeg";
+            ofdSeleccionarImagen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            ofdSeleccionarImagen.Title = "Seleccionar Imagen";
+
+            if (ofdSeleccionarImagen.ShowDialog() == DialogResult.OK)
+            {
+                pbImagen.Image = Image.FromFile(ofdSeleccionarImagen.FileName);
             }
         }
     }
