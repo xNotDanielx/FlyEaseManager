@@ -97,27 +97,16 @@ namespace WindowsFormsApp1
             var administrador = await administradorService.AutenticarAdministrador(TxtUsuario.Text, TxtContrasena.Text);
             if (administrador != null)
             {
-                FrmPrincipal principal = new FrmPrincipal(administrador);
+                FrmPrincipal principal = new FrmPrincipal(administrador, this);
 
                 principal.Show(); // Le permitimos al nuevo formulario poder visualizarse
-                this.Hide(); // Escondemos el formulario de Login
-
-                principal.FormClosing += FormIniciarSesion_FormClosing; // Cuando el formulario se esté cerrando se una al evento frm_closing
+                this.Hide(); // Ocultamos el formulario actual
+                
             }
             else
             {
                 MessageBox.Show("No se encontró el usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-        }
-
-        private void FormIniciarSesion_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            TxtUsuario.Text = "Usuario";
-            TxtUsuario.ForeColor = Color.LightGray;
-            TxtContrasena.Text = "Contraseña";
-            TxtContrasena.ForeColor = Color.LightGray;
-            TxtContrasena.UseSystemPasswordChar = false;
-            this.Show(); // Se muestra el login
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -128,6 +117,23 @@ namespace WindowsFormsApp1
         private void BtnMinimizar_Click_1(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void TxtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                BtnAcceder.PerformClick();
+            }
+        }
+
+        public void FormIniciarSesion_Load(object sender, EventArgs e)
+        {
+            TxtUsuario.Text = "Usuario";
+            TxtUsuario.ForeColor = Color.LightGray;
+            TxtContrasena.Text = "Contraseña";
+            TxtContrasena.ForeColor = Color.LightGray;
+            TxtContrasena.UseSystemPasswordChar = false;
         }
     }
 }

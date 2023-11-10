@@ -12,32 +12,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FrmAgregarAereopuerto : Form
+    public partial class FrmEditarAereopuerto : Form
     {
         private FrmPrincipal principal;
+        private string idAereopuerto;
         private CiudadService ciudadService = new CiudadService();
         private AereopuertoService aereopuertoService = new AereopuertoService();
-        public FrmAgregarAereopuerto(FrmPrincipal principal)
+        public FrmEditarAereopuerto(FrmPrincipal principal, string idAereopuerto)
         {
-            InitializeComponent();
             this.principal = principal;
+            InitializeComponent();
+            this.idAereopuerto = idAereopuerto;
         }
 
-        private async void FrmAgregarAereopuerto_Load(object sender, EventArgs e)
-        {
-            CargarCombo(await ciudadService.ObtenerTodos());
-        }
-
-        private async void BtnRegresar_Click(object sender, EventArgs e)
-        {
-            await Task.Delay(190);
-
-            FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
-            principal.OpenForms(vista);
-            this.Close();
-        }
-
-        private async void BtnGuardar_Click(object sender, EventArgs e)
+        private async void BtnActualizar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -49,29 +37,35 @@ namespace WindowsFormsApp1
                     Longitud = double.Parse(TxtLongitud.Text)
                 };
 
-                Aereopuerto aereopuerto = new Aereopuerto
+                Aereopuerto aeropuerto = new Aereopuerto
                 {
                     Nombre = TxtNombre.Text,
                     Coordenadas = coordenada,
                     Ciudad = obtenerCiudad.Where(p => p.Nombre == CbCiudades.Text).FirstOrDefault()
                 };
 
-                var response = await aereopuertoService.Crear(aereopuerto);
+                var response = await aereopuertoService.Actualizar(idAereopuerto, aeropuerto);
 
                 if (response != "Error en la solicitud Post: ")
-                { 
+                {
                     limpiarCampos();
-                    MessageBox.Show("Se ha creado correctamente el aeropuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Se ha actualizado correctamente el aeropuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se ha podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al crear el aeropuerto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al actualizar el aeropuerto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        void CargarCombo(List<Ciudad> ciudades)
+        {
+            CbCiudades.DataSource = ciudades;
+            CbCiudades.DisplayMember = "Nombre";
         }
 
         private void limpiarCampos()
@@ -82,10 +76,18 @@ namespace WindowsFormsApp1
             CbCiudades.Text = "";
         }
 
-        void CargarCombo(List<Ciudad> ciudades)
+        private async void FrmEditarAereopuerto_Load(object sender, EventArgs e)
         {
-            CbCiudades.DataSource = ciudades;
-            CbCiudades.DisplayMember = "Nombre";
+            CargarCombo(await ciudadService.ObtenerTodos());
+        }
+
+        private async void BtnRegresar_Click(object sender, EventArgs e)
+        {
+            await Task.Delay(190);
+
+            FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
+            principal.OpenForms(vista);
+            this.Close();
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)

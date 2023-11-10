@@ -114,5 +114,13 @@ namespace WindowsFormsApp1
                 limpiarCampos();
             }
         }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
     }    
 }

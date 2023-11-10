@@ -71,6 +71,7 @@
             this.TxtContrasena.TabIndex = 1;
             this.TxtContrasena.Text = "Contraseña";
             this.TxtContrasena.Enter += new System.EventHandler(this.TxtContrasena_Enter);
+            this.TxtContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtContrasena_KeyDown);
             this.TxtContrasena.Leave += new System.EventHandler(this.TxtContrasena_Leave);
             // 
             // label1
@@ -152,7 +153,7 @@
             this.Name = "FormIniciarSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormIniciarSesion_FormClosing);
+            this.Load += new System.EventHandler(this.FormIniciarSesion_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormIniciarSesion_MouseDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

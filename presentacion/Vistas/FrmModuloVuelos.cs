@@ -76,23 +76,11 @@ namespace WindowsFormsApp1
         {
             await Task.Delay(190);
             // Verifica si hay al menos una fila seleccionada
-            if (DgvVuelos.SelectedRows.Count > 0)
-            {
-                // Obtén la fila seleccionada
-                DataGridViewRow filaSeleccionada = DgvVuelos.SelectedRows[0]; // Obtenemos la primera fila seleccionada
-
-
-                string valorCelda = filaSeleccionada.Cells[0].Value.ToString();
-
-                FrmEditarVuelos vista = new FrmEditarVuelos(principal, valorCelda);
-                vista.Dock = DockStyle.Fill;
-                principal.OpenForms(vista);
-                this.Close();
-            }
-            else
-            {
-                return;
-            }
+            if (DgvVuelos.CurrentRow == null) return;
+            FrmEditarVuelos vista = new FrmEditarVuelos(principal, $"{DgvVuelos.CurrentRow.Cells[0].Value}");
+            vista.Dock = DockStyle.Fill;
+            principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void BtnEliminarVuelo_Click(object sender, EventArgs e)

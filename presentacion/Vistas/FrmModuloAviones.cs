@@ -70,24 +70,11 @@ namespace WindowsFormsApp1
         private async void BtnEditar_Click(object sender, EventArgs e)
         {
             await Task.Delay(190);
-
-            if (DgvAviones.SelectedRows.Count > 0)
-            {
-                // Obtén la fila seleccionada
-                DataGridViewRow filaSeleccionada = DgvAviones.SelectedRows[0]; // Obtenemos la primera fila seleccionada
-
-
-                string valorCelda = filaSeleccionada.Cells[0].Value.ToString();
-
-                FrmEditarAvion vista = new FrmEditarAvion(principal, valorCelda);
-                vista.Dock = DockStyle.Fill;
-                principal.OpenForms(vista);
-                this.Close();
-            }
-            else
-            {
-                return;
-            }
+            if (DgvAviones.CurrentRow == null) return;            
+            FrmEditarAvion vista = new FrmEditarAvion(principal, $"{DgvAviones.CurrentRow.Cells[0].Value}");
+            vista.Dock = DockStyle.Fill;
+            principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void BtnAgregar_Click(object sender, EventArgs e)

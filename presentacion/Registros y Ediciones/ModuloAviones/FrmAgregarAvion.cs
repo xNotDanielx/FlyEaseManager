@@ -45,31 +45,6 @@ namespace WindowsFormsApp1
             CbAerolinea.Text = "";
         }
 
-        private async void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            var obtenerAerolinea = await AereolineaService.ObtenerTodos();
-            Avion avion = new Avion
-            {
-                IdAvion = TxtId.Text,
-                Nombre = TxtNombre.Text,
-                Modelo = TxtModelo.Text,
-                Fabricante = TxtFabricante.Text,
-                VelocidadPromedio = double.Parse(TxtVelocidad.Text),
-                CantidadPasajeros = int.Parse(TxtCantidadPasajeros.Text),
-                CantidadCarga = double.Parse(TxtCatidadCarga.Text),
-                Aereolinea = obtenerAerolinea.Where(x => x.Nombre == CbAerolinea.Text).FirstOrDefault(),
-            };
-
-            var response = await avionService.Crear(avion);
-
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (response.Equals("Avion registrado correctamente"))
-            {
-                limpiarCampos();
-            }
-        }
-
         private async void BtnRegresar_Click(object sender, EventArgs e)
         {
             await Task.Delay(190);
@@ -77,6 +52,80 @@ namespace WindowsFormsApp1
             FrmModuloAviones vista = new FrmModuloAviones(principal);
             principal.OpenForms(vista);
             this.Close();
+        }
+
+        private async void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var obtenerAerolinea = await AereolineaService.ObtenerTodos();
+                Avion avion = new Avion
+                {
+                    IdAvion = TxtId.Text,
+                    Nombre = TxtNombre.Text,
+                    Modelo = TxtModelo.Text,
+                    Fabricante = TxtFabricante.Text,
+                    VelocidadPromedio = double.Parse(TxtVelocidad.Text),
+                    CantidadPasajeros = int.Parse(TxtCantidadPasajeros.Text),
+                    CantidadCarga = double.Parse(TxtCatidadCarga.Text),
+                    Aereolinea = obtenerAerolinea.Where(x => x.Nombre == CbAerolinea.Text).FirstOrDefault(),
+                };
+
+                var response = await avionService.Crear(avion);
+
+                
+
+                if (response != "Error en la solicitud Post: ")
+                {
+                    limpiarCampos();
+                    MessageBox.Show("Se ha creado correctamente el avión", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear el avión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtVelocidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtCatidadCarga_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtCantidadPasajeros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

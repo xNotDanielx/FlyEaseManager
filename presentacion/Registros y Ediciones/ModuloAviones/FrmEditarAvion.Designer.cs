@@ -75,6 +75,7 @@
             // CbAerolinea
             // 
             this.CbAerolinea.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbAerolinea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbAerolinea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CbAerolinea.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbAerolinea.ForeColor = System.Drawing.Color.White;
@@ -94,6 +95,7 @@
             this.TxtCantidadPasajeros.Name = "TxtCantidadPasajeros";
             this.TxtCantidadPasajeros.Size = new System.Drawing.Size(200, 24);
             this.TxtCantidadPasajeros.TabIndex = 165;
+            this.TxtCantidadPasajeros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidadPasajeros_KeyPress);
             // 
             // label8
             // 
@@ -135,6 +137,7 @@
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(200, 24);
             this.TxtNombre.TabIndex = 161;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // label7
             // 
@@ -188,6 +191,7 @@
             this.TxtCatidadCarga.Name = "TxtCatidadCarga";
             this.TxtCatidadCarga.Size = new System.Drawing.Size(200, 24);
             this.TxtCatidadCarga.TabIndex = 156;
+            this.TxtCatidadCarga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCatidadCarga_KeyPress);
             // 
             // TxtModelo
             // 
@@ -210,6 +214,7 @@
             this.TxtVelocidad.Name = "TxtVelocidad";
             this.TxtVelocidad.Size = new System.Drawing.Size(200, 24);
             this.TxtVelocidad.TabIndex = 154;
+            this.TxtVelocidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtVelocidad_KeyPress);
             // 
             // BtnRegresar
             // 

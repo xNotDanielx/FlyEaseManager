@@ -27,31 +27,52 @@ namespace WindowsFormsApp1
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
-            var obtenerAerolinea = await AereolineaService.ObtenerTodos();
-            Avion avion = new Avion
+            try
             {
-                IdAvion = TxtId.Text,
-                Nombre = TxtNombre.Text,
-                Modelo = TxtModelo.Text,
-                Fabricante = TxtFabricante.Text,
-                VelocidadPromedio = double.Parse(TxtVelocidad.Text),
-                CantidadPasajeros = int.Parse(TxtCantidadPasajeros.Text),
-                CantidadCarga = double.Parse(TxtCatidadCarga.Text),
-                Aereolinea = obtenerAerolinea.Where(p => p.Nombre == CbAerolinea.Text).FirstOrDefault(),
-            };
-            var response = await avionService.Actualizar(idAvion, avion);
-
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if(response.Equals("Avion actualizado correctamente"))
+                var obtenerAerolinea = await AereolineaService.ObtenerTodos();
+                Avion avion = new Avion
+                {
+                    IdAvion = TxtId.Text,
+                    Nombre = TxtNombre.Text,
+                    Modelo = TxtModelo.Text,
+                    Fabricante = TxtFabricante.Text,
+                    VelocidadPromedio = double.Parse(TxtVelocidad.Text),
+                    CantidadPasajeros = int.Parse(TxtCantidadPasajeros.Text),
+                    CantidadCarga = double.Parse(TxtCatidadCarga.Text),
+                    Aereolinea = obtenerAerolinea.Where(p => p.Nombre == CbAerolinea.Text).FirstOrDefault(),
+                };
+                var response = await avionService.Actualizar(idAvion, avion);
+                if (response != "Error en la solicitud Put: ")
+                {
+                    limpiarCampos();
+                    MessageBox.Show("Se ha actualizado correctamente el avion", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
             {
-                limpiarCampos();
+                MessageBox.Show($"Error al actualizar el avion: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void FrmEditarAvion_Load(object sender, EventArgs e)
         {
             CargarCombo();
+        }
+
+        private void cargarCampos(Avion avion)
+        {
+            TxtId.Text = avion.IdAvion;
+            TxtNombre.Text = avion.Nombre;
+            TxtModelo.Text = avion.Modelo;
+            TxtFabricante.Text = avion.Fabricante;
+            TxtVelocidad.Text = avion.VelocidadPromedio.ToString();
+            TxtCantidadPasajeros.Text = avion.CantidadPasajeros.ToString();
+            TxtCatidadCarga.Text = avion.CantidadCarga.ToString();
+            CbAerolinea.Text = avion.Aereolinea.Nombre;
         }
 
         void limpiarCampos()
@@ -65,9 +86,9 @@ namespace WindowsFormsApp1
             CbAerolinea.Text = "";
         }
 
-        void CargarCombo()
+        async void CargarCombo()
         {
-            CbAerolinea.DataSource = AereolineaService.ObtenerTodos();
+            CbAerolinea.DataSource = await AereolineaService.ObtenerTodos();
             CbAerolinea.DisplayMember = "Nombre";
         }
 
@@ -78,6 +99,43 @@ namespace WindowsFormsApp1
             FrmModuloAviones vista = new FrmModuloAviones(principal);
             principal.OpenForms(vista);
             this.Close();
+        }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtCantidadPasajeros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtCatidadCarga_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtVelocidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

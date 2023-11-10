@@ -135,6 +135,7 @@
             this.TxtAsientosPremium.Name = "TxtAsientosPremium";
             this.TxtAsientosPremium.Size = new System.Drawing.Size(200, 24);
             this.TxtAsientosPremium.TabIndex = 117;
+            this.TxtAsientosPremium.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAsientosPremium_KeyPress);
             // 
             // label13
             // 
@@ -156,6 +157,7 @@
             this.TxtAsientosEconomicos.Name = "TxtAsientosEconomicos";
             this.TxtAsientosEconomicos.Size = new System.Drawing.Size(200, 24);
             this.TxtAsientosEconomicos.TabIndex = 115;
+            this.TxtAsientosEconomicos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAsientosEconomicos_KeyPress);
             // 
             // TxtCantidadAsietos
             // 
@@ -167,6 +169,7 @@
             this.TxtCantidadAsietos.Name = "TxtCantidadAsietos";
             this.TxtCantidadAsietos.Size = new System.Drawing.Size(200, 24);
             this.TxtCantidadAsietos.TabIndex = 114;
+            this.TxtCantidadAsietos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidadAsietos_KeyPress);
             // 
             // label12
             // 
@@ -252,6 +255,7 @@
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(200, 24);
             this.TxtPrecio.TabIndex = 106;
+            this.TxtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
             // 
             // DtpFechaSalida
             // 
@@ -307,6 +311,7 @@
             this.TxtDescuento.Name = "TxtDescuento";
             this.TxtDescuento.Size = new System.Drawing.Size(200, 24);
             this.TxtDescuento.TabIndex = 101;
+            this.TxtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDescuento_KeyPress);
             // 
             // label1
             // 
@@ -328,6 +333,7 @@
             this.TxtTarifa.Name = "TxtTarifa";
             this.TxtTarifa.Size = new System.Drawing.Size(200, 24);
             this.TxtTarifa.TabIndex = 98;
+            this.TxtTarifa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTarifa_KeyPress);
             // 
             // BtnGuardar
             // 

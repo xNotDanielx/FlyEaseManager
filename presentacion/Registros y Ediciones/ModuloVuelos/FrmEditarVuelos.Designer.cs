@@ -50,9 +50,9 @@
             this.TxtAsientosPremium = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.CbEstados = new System.Windows.Forms.ComboBox();
+            this.CbEstado = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.CbAviones = new System.Windows.Forms.ComboBox();
+            this.CbAvion = new System.Windows.Forms.ComboBox();
             this.BtnActualizar = new System.Windows.Forms.Button();
             this.ChkCupo = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -70,6 +70,7 @@
             // CbDestino
             // 
             this.CbDestino.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CbDestino.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbDestino.ForeColor = System.Drawing.Color.White;
@@ -121,6 +122,7 @@
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(200, 24);
             this.TxtPrecio.TabIndex = 76;
+            this.TxtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
             // 
             // BtnRegresar
             // 
@@ -189,6 +191,7 @@
             this.TxtDescuento.Name = "TxtDescuento";
             this.TxtDescuento.Size = new System.Drawing.Size(200, 24);
             this.TxtDescuento.TabIndex = 70;
+            this.TxtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDescuento_KeyPress);
             // 
             // label3
             // 
@@ -220,6 +223,7 @@
             this.TxtTarifa.Name = "TxtTarifa";
             this.TxtTarifa.Size = new System.Drawing.Size(200, 24);
             this.TxtTarifa.TabIndex = 66;
+            this.TxtTarifa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTarifa_KeyPress);
             // 
             // label11
             // 
@@ -251,6 +255,7 @@
             this.TxtCantidadAsietos.Name = "TxtCantidadAsietos";
             this.TxtCantidadAsietos.Size = new System.Drawing.Size(200, 24);
             this.TxtCantidadAsietos.TabIndex = 90;
+            this.TxtCantidadAsietos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidadAsietos_KeyPress);
             // 
             // TxtAsientosEconomicos
             // 
@@ -262,6 +267,7 @@
             this.TxtAsientosEconomicos.Name = "TxtAsientosEconomicos";
             this.TxtAsientosEconomicos.Size = new System.Drawing.Size(200, 24);
             this.TxtAsientosEconomicos.TabIndex = 91;
+            this.TxtAsientosEconomicos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAsientosEconomicos_KeyPress);
             // 
             // TxtAsientosPremium
             // 
@@ -273,6 +279,7 @@
             this.TxtAsientosPremium.Name = "TxtAsientosPremium";
             this.TxtAsientosPremium.Size = new System.Drawing.Size(200, 24);
             this.TxtAsientosPremium.TabIndex = 93;
+            this.TxtAsientosPremium.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAsientosPremium_KeyPress);
             // 
             // label13
             // 
@@ -295,17 +302,17 @@
             this.label10.TabIndex = 97;
             this.label10.Text = "Estado";
             // 
-            // CbEstados
+            // CbEstado
             // 
-            this.CbEstados.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbEstados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CbEstados.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.CbEstados.ForeColor = System.Drawing.Color.White;
-            this.CbEstados.FormattingEnabled = true;
-            this.CbEstados.Location = new System.Drawing.Point(837, 419);
-            this.CbEstados.Name = "CbEstados";
-            this.CbEstados.Size = new System.Drawing.Size(200, 24);
-            this.CbEstados.TabIndex = 96;
+            this.CbEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.CbEstado.ForeColor = System.Drawing.Color.White;
+            this.CbEstado.FormattingEnabled = true;
+            this.CbEstado.Location = new System.Drawing.Point(837, 419);
+            this.CbEstado.Name = "CbEstado";
+            this.CbEstado.Size = new System.Drawing.Size(200, 24);
+            this.CbEstado.TabIndex = 96;
             // 
             // label9
             // 
@@ -317,17 +324,17 @@
             this.label9.TabIndex = 95;
             this.label9.Text = "Avion:";
             // 
-            // CbAviones
+            // CbAvion
             // 
-            this.CbAviones.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbAviones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CbAviones.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.CbAviones.ForeColor = System.Drawing.Color.White;
-            this.CbAviones.FormattingEnabled = true;
-            this.CbAviones.Location = new System.Drawing.Point(837, 348);
-            this.CbAviones.Name = "CbAviones";
-            this.CbAviones.Size = new System.Drawing.Size(200, 24);
-            this.CbAviones.TabIndex = 94;
+            this.CbAvion.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbAvion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbAvion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.CbAvion.ForeColor = System.Drawing.Color.White;
+            this.CbAvion.FormattingEnabled = true;
+            this.CbAvion.Location = new System.Drawing.Point(837, 348);
+            this.CbAvion.Name = "CbAvion";
+            this.CbAvion.Size = new System.Drawing.Size(200, 24);
+            this.CbAvion.TabIndex = 94;
             // 
             // BtnActualizar
             // 
@@ -365,9 +372,9 @@
             this.Controls.Add(this.ChkCupo);
             this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.CbEstados);
+            this.Controls.Add(this.CbEstado);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.CbAviones);
+            this.Controls.Add(this.CbAvion);
             this.Controls.Add(this.TxtAsientosPremium);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.TxtAsientosEconomicos);
@@ -422,9 +429,9 @@
         private System.Windows.Forms.TextBox TxtAsientosPremium;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox CbEstados;
+        private System.Windows.Forms.ComboBox CbEstado;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox CbAviones;
+        private System.Windows.Forms.ComboBox CbAvion;
         private System.Windows.Forms.Button BtnActualizar;
         private System.Windows.Forms.CheckBox ChkCupo;
     }

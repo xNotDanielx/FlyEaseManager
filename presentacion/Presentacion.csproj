@@ -52,6 +52,12 @@
     <Compile Include="FormIniciarSesion.Designer.cs">
       <DependentUpon>FormIniciarSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros y Ediciones\ModuloAeropuertos\FrmEditarAereopuerto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros y Ediciones\ModuloAeropuertos\FrmEditarAereopuerto.Designer.cs">
+      <DependentUpon>FrmEditarAereopuerto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros y Ediciones\ModuloAviones\FrmAgregarAvion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarAereopuerto.resx">
       <DependentUpon>FrmAgregarAereopuerto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros y Ediciones\ModuloAeropuertos\FrmEditarAereopuerto.resx">
+      <DependentUpon>FrmEditarAereopuerto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros y Ediciones\ModuloAviones\FrmAgregarAvion.resx">
       <DependentUpon>FrmAgregarAvion.cs</DependentUpon>

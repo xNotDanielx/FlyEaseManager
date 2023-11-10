@@ -75,6 +75,7 @@
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(200, 24);
             this.TxtNombre.TabIndex = 134;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // label1
             // 
@@ -96,6 +97,7 @@
             this.TxtLatitud.Name = "TxtLatitud";
             this.TxtLatitud.Size = new System.Drawing.Size(200, 24);
             this.TxtLatitud.TabIndex = 127;
+            this.TxtLatitud.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtLatitud_KeyPress);
             // 
             // label3
             // 
@@ -127,6 +129,7 @@
             this.TxtLongitud.Name = "TxtLongitud";
             this.TxtLongitud.Size = new System.Drawing.Size(200, 24);
             this.TxtLongitud.TabIndex = 136;
+            this.TxtLongitud.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtLongitud_KeyPress);
             // 
             // label5
             // 

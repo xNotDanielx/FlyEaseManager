@@ -112,6 +112,7 @@
             this.TxtPosicion.Name = "TxtPosicion";
             this.TxtPosicion.Size = new System.Drawing.Size(156, 24);
             this.TxtPosicion.TabIndex = 83;
+            this.TxtPosicion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPosicion_KeyPress);
             // 
             // label3
             // 

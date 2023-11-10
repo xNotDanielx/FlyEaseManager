@@ -189,5 +189,13 @@ namespace WindowsFormsApp1
             CbPaises.DataSource = paises;
             CbPaises.DisplayMember = "Nombre";
         }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -204,3 +204,4 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAsientos.resources
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmCategorias.resources
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmEstados.resources
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmEditarAereopuerto.resources

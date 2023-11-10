@@ -179,5 +179,13 @@ namespace WindowsFormsApp1
         {
             TxtNombre.Text = "";
         }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // No permite que el carácter ingresado sea procesado
+            }
+        }
     }
 }

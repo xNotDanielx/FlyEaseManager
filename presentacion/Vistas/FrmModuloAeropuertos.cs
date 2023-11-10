@@ -57,9 +57,15 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void BtnEditar_Click(object sender, EventArgs e)
+        private async void BtnEditar_Click(object sender, EventArgs e)
         {
+            if (DgvAeropuertos.CurrentRow == null) return;
+            await Task.Delay(190);
 
+            FrmEditarAereopuerto vista = new FrmEditarAereopuerto(principal, $"{DgvAeropuertos.CurrentRow.Cells[0].Value}");
+            vista.Dock = DockStyle.Fill;
+            principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void BtnAgregar_Click(object sender, EventArgs e)

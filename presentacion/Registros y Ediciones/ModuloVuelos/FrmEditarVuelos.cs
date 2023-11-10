@@ -18,6 +18,9 @@ namespace WindowsFormsApp1
         private string idVuelo;
         private VueloService vueloService = new VueloService();
         private AsientoService AsientoService = new AsientoService();
+        private AereopuertoService aereopuertoService = new AereopuertoService();
+        private AvionService AvionService = new AvionService();
+        private EstadoService estadoService = new EstadoService();
         public FrmEditarVuelos(FrmPrincipal principal, string IdVuelo)
         {
             this.principal = principal;
@@ -26,22 +29,62 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void FrmEditarVuelos_Load(object sender, EventArgs e)
+        private async void FrmEditarVuelos_Load(object sender, EventArgs e)
         {
-            ConfigurarDateTimePickers();
+            CargarCombos();
+            CargarCampos(ObtenerVuelo(await vueloService.ObtenerTodos()));
         }
 
-        void ConfigurarDateTimePickers()
+        public Vuelo ObtenerVuelo(List<Vuelo> vuelos)
         {
-            DtpFechaSalida.MinDate = DateTime.Now;
-            DtpFechaSalida.Value = DateTime.Now;
+            Vuelo vuelo = null;
+            foreach (var item in vuelos)
+            {
+                if(item.IdVuelo.ToString() == idVuelo)
+                {
+                    vuelo = item;
+                }
+            }
+            return vuelo;
+        }
+
+        async void CargarCombos()
+        {
+            //Despegue             
+            CbDespegue.DataSource = await aereopuertoService.ObtenerTodos();
+            CbDespegue.DisplayMember = "Nombre";
+
+            //Destino
+            CbDestino.DataSource = await aereopuertoService.ObtenerTodos();
+            CbDestino.DisplayMember = "Nombre";
+
+            //Avion
+            CbAvion.DataSource = await AvionService.ObtenerTodos();
+            CbAvion.DisplayMember = "Nombre";
+
+            //Estado
+            CbEstado.DataSource = await estadoService.ObtenerTodos();
+            CbEstado.DisplayMember = "Nombre";
+        }
+
+        void CargarCampos(Vuelo vuelo)
+        {
+            TxtPrecio.Text = vuelo.PrecioVuelo.ToString();
+            TxtTarifa.Text = vuelo.TarifaTemporada.ToString();
+            TxtDescuento.Text = vuelo.Descuento.ToString();
+            CbDespegue.Text = vuelo.aereopuerto_Despegue.ToString();
+            DtpFechaSalida.Value = DateTime.Parse(vuelo.FechaYHoraDeSalida);
+            CbDestino.Text = vuelo.aereopuerto_Destino.ToString();
+            ChkCupo.Checked = vuelo.Cupo;
+            CbAvion.Text = vuelo.Avion.Nombre.ToString();
+            CbEstado.Text = vuelo.Estado.Nombre.ToString();
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
         {
             await Task.Delay(190);
             
-            FrmAgregarVuelos vista = new FrmAgregarVuelos(principal);
+            FrmModuloVuelos vista = new FrmModuloVuelos(principal);
             principal.OpenForms(vista);
             this.Close();
         }
@@ -69,9 +112,9 @@ namespace WindowsFormsApp1
                 ChkCupo.Checked = false;
             }
             TxtAsientosPremium.Text = asientosPremium.ToString();
-            CbAviones.Text = vuelo.Avion.Nombre.ToString();
+            CbAvion.Text = vuelo.Avion.Nombre.ToString();
             TxtAsientosEconomicos.Text = asientosEconomicos.ToString();
-            CbEstados.Text = vuelo.Estado.Nombre.ToString();
+            CbEstado.Text = vuelo.Estado.Nombre.ToString();
         }
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
@@ -93,8 +136,8 @@ namespace WindowsFormsApp1
                 Cupo = ChkCupo.Checked,
                 aereopuerto_Despegue = obtenerAereopuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
                 aereopuerto_Destino = obtenerAereopuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
-                Estado = obtenerEstado.Where(p => p.Nombre == CbEstados.Text).FirstOrDefault(),
-                Avion = obtenerAvvion.Where(p => p.Nombre == CbAviones.Text).FirstOrDefault(),
+                Estado = obtenerEstado.Where(p => p.Nombre == CbEstado.Text).FirstOrDefault(),
+                Avion = obtenerAvvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault(),
                 FechaRegistro = Vuelo.FechaRegistro
             };
             var response = await vueloService.Actualizar(this.idVuelo, vuelo);
@@ -119,9 +162,57 @@ namespace WindowsFormsApp1
             TxtCantidadAsietos.Text = "";
             ChkCupo.Checked = true;
             TxtAsientosPremium.Text = "";
-            CbAviones.Text = "";
+            CbAvion.Text = "";
             TxtAsientosEconomicos.Text = "";
-            CbEstados.Text = "";
+            CbEstado.Text = "";
+        }
+
+        private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtTarifa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtCantidadAsietos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtAsientosPremium_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtAsientosEconomicos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

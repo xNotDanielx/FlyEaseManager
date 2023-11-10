@@ -16,11 +16,12 @@ namespace WindowsFormsApp1
     {
         private static Administrador administradorActual;
         private Form activo;
+        private FormIniciarSesion vuelta;
         
-        public FrmPrincipal(Administrador administrador)
+        public FrmPrincipal(Administrador administrador, FormIniciarSesion vuelta)
         {
             administradorActual = administrador;
-            
+            this.vuelta = vuelta;
             InitializeComponent();
             TmrFechaYHora.Start();
             Abrirformhijo(new FrmBienvenida());
@@ -33,7 +34,14 @@ namespace WindowsFormsApp1
 
         private void BtnCerrrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                vuelta.FormIniciarSesion_Load(sender, e);
+                vuelta.Show();
+                this.Close();
+            }
         }
 
         private void BtnMinimizar_Click(object sender, EventArgs e)
@@ -123,14 +131,9 @@ namespace WindowsFormsApp1
             LblFecha.Text = DateTime.Now.ToLongDateString();
         }
 
-        private /*async*/ void PbLogoPrincipal_Click(object sender, EventArgs e)
+        private void PbLogoPrincipal_Click(object sender, EventArgs e)
         {
             Abrirformhijo(new FrmBienvenida());
-            //await Task.Delay(190);
-
-            //FrmBienvenida vista = new FrmBienvenida();
-            //vista.Dock = DockStyle.Fill;
-            //principal.OpenForms(vista);
         }
 
         private void PnTitulo_Paint(object sender, PaintEventArgs e)
@@ -165,9 +168,5 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
     }
 }
