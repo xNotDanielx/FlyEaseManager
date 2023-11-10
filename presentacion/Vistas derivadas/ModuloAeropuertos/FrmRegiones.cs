@@ -21,27 +21,144 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.principal = principal;
         }
+        private async void FrmRegiones_Load(object sender, EventArgs e)
+        {
+            await CargarDatos();
+        }
+
+        private void DgvPaises_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var fila = DgvRegiones.Rows[e.RowIndex];
+            TxtNombre.Text = fila.Cells[1].Value.ToString();
+            CbPaises.Text = fila.Cells[2].Value.ToString();
+        }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
         {
             await Task.Delay(190);
+            IrAModuloAereopuertos();
+        }
 
+        private async void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (DgvRegiones.CurrentRow == null) return;
+
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar la region: {DgvRegiones.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
+            {
+                try
+                {
+                    var response = await regionService.EliminarPorId($"{DgvRegiones.CurrentRow.Cells[0].Value}");
+
+                    if (response != "Error en la solicitud Delete: ")
+                    {
+                        await CargarDatos();
+                        limpiarCampos();
+                        MessageBox.Show("Se ha eliminado correctamente la region", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar la region: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            if (DgvRegiones.CurrentRow == null) return;
+
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar la región: {DgvRegiones.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
+            {
+                try
+                {
+                    var paises = await new PaisService().ObtenerTodos();
+                    var pais = paises.Where(p => p.Nombre == CbPaises.Text).FirstOrDefault();
+
+                    Region region = new Region
+                    {
+                        IdRegion = Convert.ToInt32(DgvRegiones.CurrentRow.Cells[0].Value.ToString()),
+                        Nombre = TxtNombre.Text,
+                        Pais = pais,
+                        FechaRegistro = DgvRegiones.CurrentRow.Cells[3].Value.ToString()
+                    };
+
+                    var response = await regionService.Actualizar(DgvRegiones.CurrentRow.Cells[0].Value.ToString(), region);
+
+                    if (response != "Error en la solicitud Put: ")
+                    {
+                        await CargarDatos();
+                        limpiarCampos();
+                        MessageBox.Show("Se ha actualizado correctamente la region", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al actualizar la region: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var obtenerPais = await new PaisService().ObtenerTodos();
+
+                Region region = new Region
+                {
+                    Nombre = TxtNombre.Text,
+                    Pais = obtenerPais.Where(P => P.Nombre == CbPaises.Text).FirstOrDefault(),
+                };
+
+                var response = await regionService.Crear(region);
+
+                if (response != "Error en la solicitud Post: ")
+                {
+                    await CargarDatos();
+                    limpiarCampos();
+                    MessageBox.Show("Se creado correctamente la region", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear la region: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void IrAModuloAereopuertos()
+        {
             FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
             principal.OpenForms(vista);
             this.Close();
         }
 
-        private async void FrmRegiones_Load(object sender, EventArgs e)
+        private async Task CargarDatos()
         {
             CargarGrilla(await regionService.ObtenerTodos());
-
             CargarCombo(await new PaisService().ObtenerTodos());
             ConfigurarBotones();
         }
 
-        void ConfigurarBotones()
+        private void ConfigurarBotones()
         {
-            if (DgvRegiones.RowCount == 0) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
+            if (DgvRegiones.RowCount == 0)
             {
                 BtnEliminar.Enabled = false;
                 BtnActualizar.Enabled = false;
@@ -53,7 +170,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        void CargarGrilla(List<Region> regiones)
+        private void CargarGrilla(List<Region> regiones)
         {
             DgvRegiones.Rows.Clear();
             foreach (var item in regiones)
@@ -62,80 +179,15 @@ namespace WindowsFormsApp1
             }
         }
 
-        void CargarCombo(List<Pais> paises)
+        private void limpiarCampos()
         {
-                CbPaises.DataSource = paises;
-                CbPaises.DisplayMember = "Nombre";
+            TxtNombre.Text = "";
         }
 
-        private void DgvPaises_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void CargarCombo(List<Pais> paises)
         {
-            if (e.RowIndex == -1) return;
-            var fila = DgvRegiones.Rows[e.RowIndex];
-            TxtNombre.Text = fila.Cells[1].Value.ToString(); // Hay que quitar la fila que sale vacia para que no de error por fila nula
-            CbPaises.Text = fila.Cells[2].Value.ToString();
-        }
-
-        private async void BtnActualizar_Click(object sender, EventArgs e)
-        {
-            //Toca editar el mensaje enviado al usuario
-            if(DgvRegiones.CurrentRow == null) return;
-            var ObtenerPais = await new PaisService().ObtenerTodos();
-            var pais = ObtenerPais.Where(p => p.Nombre == CbPaises.Text).FirstOrDefault();
-            RegionService regionService = new RegionService();
-            Region region = new Region
-            {
-                IdRegion = Convert.ToInt32(DgvRegiones.CurrentRow.Cells[0].Value.ToString()),
-                Nombre = TxtNombre.Text,
-                Pais = pais,
-                FechaRegistro = DgvRegiones.CurrentRow.Cells[3].Value.ToString()
-            };
-            var response = await regionService.Actualizar(DgvRegiones.CurrentRow.Cells[0].Value.ToString(), region);
-
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //Se actualiza la lista
-            var lista = await regionService.ObtenerTodos();
-            CargarGrilla(lista);
-            ConfigurarBotones();
-        }
-
-        private async void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            if (DgvRegiones.CurrentRow == null) return;
-            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar la region: {DgvRegiones.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-
-            if (resultado == DialogResult.OK)
-            {
-                var response = await regionService.EliminarPorId($"{DgvRegiones.CurrentRow.Cells[0].Value}");
-                var lista = await regionService.ObtenerTodos();
-
-                CargarGrilla(lista);
-                MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ConfigurarBotones();
-                limpiarCampos();
-            }
-        }
-
-        void limpiarCampos()
-        {
-            TxtNombre.Text = "";          
-        }
-
-        private async void BtnAgregar_Click(object sender, EventArgs e)
-        {
-            var obtenerPais = await new PaisService().ObtenerTodos();
-            Region region = new Region
-            {
-                Nombre = TxtNombre.Text,
-                Pais = obtenerPais.Where(P => P.Nombre == CbPaises.Text).FirstOrDefault(),
-            };
-            var response = await regionService.Crear(region);
-
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            var lista = await regionService.ObtenerTodos();
-            CargarGrilla(lista);
-            limpiarCampos();
+            CbPaises.DataSource = paises;
+            CbPaises.DisplayMember = "Nombre";
         }
     }
 }
