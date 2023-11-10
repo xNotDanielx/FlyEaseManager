@@ -33,7 +33,7 @@ namespace BLL.Servicios
 
             foreach (Vuelo vuelo in vuelosRealizados)
             {
-                string ciudadDestino = vuelo.ADestino.Ciudad.Nombre;
+                string ciudadDestino = vuelo.aereopuerto_Destino.Ciudad.Nombre;
 
                 if (conteoPorCiudad.ContainsKey(ciudadDestino))
                 {

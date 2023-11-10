@@ -56,9 +56,9 @@ namespace WindowsFormsApp1
             TxtPrecio.Text = vuelo.PrecioVuelo.ToString();
             TxtTarifa.Text = vuelo.TarifaTemporada.ToString();
             TxtDescuento.Text = vuelo.Descuento.ToString();            
-            CbDespegue.Text = vuelo.ADespegue.ToString();
-            DtpFechaSalida.Value = DateTime.Parse(vuelo.FechaYHoraDespegue);
-            CbDestino.Text = vuelo.ADestino.ToString();
+            CbDespegue.Text = vuelo.aereopuerto_Despegue.ToString();
+            DtpFechaSalida.Value = DateTime.Parse(vuelo.FechaYHoraDeSalida);
+            CbDestino.Text = vuelo.aereopuerto_Destino.ToString();
             TxtCantidadAsietos.Text = obtenerNumeroAsientos.Count().ToString();
             if(vuelo.Cupo == true)
             {
@@ -88,11 +88,11 @@ namespace WindowsFormsApp1
                 TarifaTemporada = double.Parse(TxtTarifa.Text),
                 Descuento = double.Parse(TxtDescuento.Text),
                 DistanciaRecorrida = Vuelo.DistanciaRecorrida,
-                FechaYHoraDespegue = DtpFechaSalida.Value.ToString(),
+                FechaYHoraDeSalida = DtpFechaSalida.Value.ToString(),
                 //FechaYHoraLlegada = Vuelo.FechaYHoraLlegada,
                 Cupo = ChkCupo.Checked,
-                ADespegue = obtenerAereopuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
-                ADestino = obtenerAereopuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
+                aereopuerto_Despegue = obtenerAereopuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
+                aereopuerto_Destino = obtenerAereopuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
                 Estado = obtenerEstado.Where(p => p.Nombre == CbEstados.Text).FirstOrDefault(),
                 Avion = obtenerAvvion.Where(p => p.Nombre == CbAviones.Text).FirstOrDefault(),
                 FechaRegistro = Vuelo.FechaRegistro
