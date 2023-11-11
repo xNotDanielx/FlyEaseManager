@@ -51,6 +51,7 @@ namespace WindowsFormsApp1
                 {
                     estado = "Inactivo";
                 }
+
                 DgvCategorias.Rows.Add(item.IdCategoria, item.Nombre, item.Descripcion, estado, item.Tarifa,  item.FechaRegistro);
             }
         }
@@ -62,14 +63,7 @@ namespace WindowsFormsApp1
             TxtNombre.Text = fila.Cells[1].Value.ToString();
             TxtDescripcion.Text = fila.Cells[2].Value.ToString();
             TxtTarifa.Text = fila.Cells[4].Value.ToString();
-            if (fila.Cells[3].Value.ToString() == "True")
-            {
-                ChkEstado.Checked = true;
-            }
-            else
-            {
-                ChkEstado.Checked = false;
-            }
+            ChkEstado.Checked = bool.Parse(fila.Cells[3].Value.ToString());
         }
 
         private async void BtnActualizar_Click(object sender, EventArgs e)

@@ -46,7 +46,7 @@ namespace WindowsFormsApp1
 
                 var response = await aereopuertoService.Actualizar(idAereopuerto, aeropuerto);
 
-                if (response != "Error en la solicitud Post: ")
+                if (response != "Error en la solicitud Put: ")
                 {
                     limpiarCampos();
                     MessageBox.Show("Se ha actualizado correctamente el aeropuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

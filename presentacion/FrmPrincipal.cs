@@ -18,9 +18,9 @@ namespace WindowsFormsApp1
         private Form activo;
         private FormIniciarSesion vuelta;
         
-        public FrmPrincipal(Administrador administrador, FormIniciarSesion vuelta)
+        public FrmPrincipal(/*Administrador administrador, FormIniciarSesion vuelta*/)
         {
-            administradorActual = administrador;
+            //administradorActual = administrador;
             this.vuelta = vuelta;
             InitializeComponent();
             TmrFechaYHora.Start();
@@ -95,16 +95,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void BtnBoletosVendidos_Click(object sender, EventArgs e)
-        {
-            PnSubmenuEstadisticas.Visible = false;
-        }
-
-        private void BtnClientes_Click_1(object sender, EventArgs e)
-        {
-            PnSubmenuEstadisticas.Visible = false;
-        }
-
         private void BtnEstadoVuelos_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false;
@@ -143,7 +133,7 @@ namespace WindowsFormsApp1
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            LblNombreUsuario.Text = administradorActual.Nombres + " " + administradorActual.Apellidos;
+            //LblNombreUsuario.Text = administradorActual.Nombres + " " + administradorActual.Apellidos;
         }
 
         public void OpenForms(Form formHijo)
@@ -168,5 +158,14 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void BtnClientes_Click(object sender, EventArgs e)
+        {
+            Abrirformhijo(new FrmClientes(this));
+        }
+
+        private void BtnBoletosVendidos_Click_1(object sender, EventArgs e)
+        {
+            Abrirformhijo(new FrmBoletos(this));
+        }
     }
 }
