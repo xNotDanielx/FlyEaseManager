@@ -18,9 +18,9 @@ namespace WindowsFormsApp1
         private Form activo;
         private FormIniciarSesion vuelta;
         
-        public FrmPrincipal(/*Administrador administrador, FormIniciarSesion vuelta*/)
+        public FrmPrincipal(Administrador administrador, FormIniciarSesion vuelta)
         {
-            //administradorActual = administrador;
+            administradorActual = administrador;
             this.vuelta = vuelta;
             InitializeComponent();
             TmrFechaYHora.Start();
@@ -133,7 +133,7 @@ namespace WindowsFormsApp1
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            //LblNombreUsuario.Text = administradorActual.Nombres + " " + administradorActual.Apellidos;
+            LblNombreUsuario.Text = administradorActual.Nombres + " " + administradorActual.Apellidos;
         }
 
         public void OpenForms(Form formHijo)

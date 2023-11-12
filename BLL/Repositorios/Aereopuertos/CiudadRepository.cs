@@ -1,5 +1,6 @@
 ﻿using DAL.Clases_Abstractas;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DAL.Repositorios
     public class CiudadRepository : AbstractCRUDRepository<Ciudad>
     {
         public CiudadRepository()
-            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Ciudades"), "http://www.flyease.somee.com/FlyEaseApi/Ciudades")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Ciudades", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Ciudades")
         {
         }
     }

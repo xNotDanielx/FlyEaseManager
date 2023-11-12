@@ -82,7 +82,7 @@ namespace WindowsFormsApp1
             CbCiudades.Text = "";
         }
 
-        void CargarCombo(List<Ciudad> ciudades)
+        private void CargarCombo(List<Ciudad> ciudades)
         {
             CbCiudades.DataSource = ciudades;
             CbCiudades.DisplayMember = "Nombre";
@@ -90,7 +90,7 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
             {
                 e.Handled = true;
             }

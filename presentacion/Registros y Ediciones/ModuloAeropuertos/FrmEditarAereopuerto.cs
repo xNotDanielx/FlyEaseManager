@@ -15,14 +15,31 @@ namespace WindowsFormsApp1
     public partial class FrmEditarAereopuerto : Form
     {
         private FrmPrincipal principal;
-        private string idAereopuerto;
+        private Aereopuerto aereopuerto;
         private CiudadService ciudadService = new CiudadService();
         private AereopuertoService aereopuertoService = new AereopuertoService();
-        public FrmEditarAereopuerto(FrmPrincipal principal, string idAereopuerto)
+        public FrmEditarAereopuerto(FrmPrincipal principal, Aereopuerto aereopuerto)
         {
             this.principal = principal;
             InitializeComponent();
-            this.idAereopuerto = idAereopuerto;
+            this.aereopuerto = aereopuerto;
+        }
+
+        private async void FrmEditarAereopuerto_Load(object sender, EventArgs e)
+        {
+            TxtNombre.Text = aereopuerto.Nombre;
+            TxtLatitud.Text = aereopuerto.Coordenadas.Latitud.ToString();
+            TxtLongitud.Text = aereopuerto.Coordenadas.Longitud.ToString();
+            CargarCombo(await ciudadService.ObtenerTodos());
+        }
+
+        private async void BtnRegresar_Click(object sender, EventArgs e)
+        {
+            await Task.Delay(190);
+
+            FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
+            principal.OpenForms(vista);
+            this.Close();
         }
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
@@ -39,14 +56,16 @@ namespace WindowsFormsApp1
 
                 Aereopuerto aeropuerto = new Aereopuerto
                 {
+                    IdAereopuerto = aereopuerto.IdAereopuerto,
                     Nombre = TxtNombre.Text,
                     Coordenadas = coordenada,
-                    Ciudad = obtenerCiudad.Where(p => p.Nombre == CbCiudades.Text).FirstOrDefault()
+                    Ciudad = obtenerCiudad.Where(p => p.Nombre == CbCiudades.Text).FirstOrDefault(),
+                    FechaRegistro = aereopuerto.FechaRegistro
                 };
 
-                var response = await aereopuertoService.Actualizar(idAereopuerto, aeropuerto);
+                var response = await aereopuertoService.Actualizar(aereopuerto.IdAereopuerto.ToString(), aeropuerto);
 
-                if (response != "Error en la solicitud Put: ")
+                if (response != "Error en la solicitud Put")
                 {
                     limpiarCampos();
                     MessageBox.Show("Se ha actualizado correctamente el aeropuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -62,7 +81,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        void CargarCombo(List<Ciudad> ciudades)
+        private void CargarCombo(List<Ciudad> ciudades)
         {
             CbCiudades.DataSource = ciudades;
             CbCiudades.DisplayMember = "Nombre";
@@ -76,23 +95,9 @@ namespace WindowsFormsApp1
             CbCiudades.Text = "";
         }
 
-        private async void FrmEditarAereopuerto_Load(object sender, EventArgs e)
-        {
-            CargarCombo(await ciudadService.ObtenerTodos());
-        }
-
-        private async void BtnRegresar_Click(object sender, EventArgs e)
-        {
-            await Task.Delay(190);
-
-            FrmModuloAeropuertos vista = new FrmModuloAeropuertos(principal);
-            principal.OpenForms(vista);
-            this.Close();
-        }
-
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
             {
                 e.Handled = true;
             }

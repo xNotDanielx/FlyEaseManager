@@ -1,6 +1,7 @@
 ﻿using BLL.Clases_Abstractas;
 using DAL;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,16 @@ namespace BLL.Servicios
         {
         }
 
-        public Administrador ObtenerPorNDocumento(string numeroDocumento) // No se usará. Tiene posibles errores porque el método que está dentro es asíncrono
+        public async Task<string> Autenticar(string username, string clave)
         {
-            var administrador = administradorRepository.ObtenerPorNDocumento(numeroDocumento);
-            return administrador;
-        }
+            Administrador administrador = new Administrador()
+            {
+                Usuario = username,
+                Clave = clave
+            };
 
-        public async Task<Administrador> AutenticarAdministrador(string usuario, string clave)
-        {
-            List<Administrador> administradores = await administradorRepository.ObtenerTodos();
-            Administrador administrador = administradores.Where(item => item.Usuario.Equals(usuario) && item.Clave.Equals(clave)).FirstOrDefault();
-            return administrador;
+            var tokenManager = TokenManager.Instance;
+            return tokenManager._token = await administradorRepository.Autenticar(administrador); ;
         }
     }
 }

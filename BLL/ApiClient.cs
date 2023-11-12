@@ -12,11 +12,21 @@ namespace DAL
     {
         private readonly RestClient client;
         private readonly string baseURI;
+        private readonly string authToken;
 
-        public ApiClient(string baseURI)
+        public ApiClient(string baseURI, string authToken)
         {
             client = new RestClient(baseURI);
             this.baseURI = baseURI;
+            this.authToken = authToken;
+        }
+
+        private void AddAuthorizationHeader(RestRequest request)
+        {
+            if (!string.IsNullOrEmpty(authToken))
+            {
+                request.AddHeader("Authorization", $"Bearer {authToken}");
+            }
         }
 
         public async Task<string> GetAsync(string endpoint)
@@ -24,6 +34,7 @@ namespace DAL
             try
             {
                 var request = new RestRequest(endpoint, Method.Get);
+                AddAuthorizationHeader(request);
                 RestResponse response = await client.ExecuteAsync(request);
 
                 if (response.IsSuccessful)
@@ -32,7 +43,7 @@ namespace DAL
                 }
                 else
                 {
-                    return $"Error en la solicitud Get: {response.ErrorMessage}";
+                    return "Error en la solicitud Get";
                 }
             }
             catch (Exception ex)
@@ -46,6 +57,7 @@ namespace DAL
             try
             {
                 var request = new RestRequest(endpoint, Method.Post);
+                AddAuthorizationHeader(request);
                 request.RequestFormat = DataFormat.Json;
                 request.AddJsonBody(data);
 
@@ -57,7 +69,7 @@ namespace DAL
                 }
                 else
                 {
-                    return $"Error en la solicitud Post: {response.ErrorMessage}";
+                    return "Error en la solicitud Post";
                 }
             }
             catch (Exception ex)
@@ -71,6 +83,7 @@ namespace DAL
             try
             {
                 var request = new RestRequest(endpoint, Method.Put); // Puede ser Patch
+                AddAuthorizationHeader(request);
                 request.RequestFormat = DataFormat.Json;
                 request.AddJsonBody(data);
 
@@ -82,7 +95,7 @@ namespace DAL
                 }
                 else
                 {
-                    return $"Error en la solicitud Put: {response.ErrorMessage}";
+                    return "Error en la solicitud Put";
                 }
             }
             catch (Exception ex)
@@ -96,6 +109,7 @@ namespace DAL
             try
             {
                 var request = new RestRequest(endpoint, Method.Delete);
+                AddAuthorizationHeader(request);
                 RestResponse response = await client.ExecuteAsync(request);
 
                 if (response.IsSuccessful)
@@ -104,7 +118,7 @@ namespace DAL
                 }
                 else
                 {
-                    return $"Error en la solicitud Delete: {response.ErrorMessage}";
+                    return "Error en la solicitud Delete";
                 }
             }
             catch (Exception ex)

@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
     public partial class FrmModuloAeropuertos : Form
     {
         private FrmPrincipal principal;
-        private AereopuertoService AereopuertoService = new AereopuertoService();
+        private AereopuertoService aereopuertoService = new AereopuertoService();
 
         public FrmModuloAeropuertos(FrmPrincipal principal)
         {
@@ -38,7 +38,7 @@ namespace WindowsFormsApp1
             {
                 try
                 {
-                    var response = await AereopuertoService.EliminarPorId($"{DgvAeropuertos.CurrentRow.Cells[0].Value}");
+                    var response = await aereopuertoService.EliminarPorId($"{DgvAeropuertos.CurrentRow.Cells[0].Value}");
 
                     if (response != "Error en la solicitud Delete: ")
                     {
@@ -62,7 +62,8 @@ namespace WindowsFormsApp1
             if (DgvAeropuertos.CurrentRow == null) return;
             await Task.Delay(190);
 
-            FrmEditarAereopuerto vista = new FrmEditarAereopuerto(principal, $"{DgvAeropuertos.CurrentRow.Cells[0].Value}");
+            var aereopuerto = await aereopuertoService.ObtenerPorId($"{DgvAeropuertos.CurrentRow.Cells[0].Value}");
+            FrmEditarAereopuerto vista = new FrmEditarAereopuerto(principal, aereopuerto);
             vista.Dock = DockStyle.Fill;
             principal.OpenForms(vista);
             this.Close();
@@ -110,7 +111,7 @@ namespace WindowsFormsApp1
         
         private async Task CargarDatos()
         {
-            CargarGrilla(await AereopuertoService.ObtenerTodos());
+            CargarGrilla(await aereopuertoService.ObtenerTodos());
         }
 
         private void CargarGrilla(List<Aereopuerto> aeropuertos)

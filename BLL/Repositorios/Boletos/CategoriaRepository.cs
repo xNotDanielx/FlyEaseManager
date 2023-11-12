@@ -1,5 +1,6 @@
 ﻿using DAL.Clases_Abstractas;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DAL.Repositorios
     public class CategoriaRepository : AbstractCRUDRepository<Categoria>
     {
         public CategoriaRepository()
-            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Categorias"), "http://www.flyease.somee.com/FlyEaseApi/Categorias")
+            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Categorias", TokenManager.Instance._token), "http://www.flyease.somee.com/FlyEaseApi/Categorias")
         {
         }
     }

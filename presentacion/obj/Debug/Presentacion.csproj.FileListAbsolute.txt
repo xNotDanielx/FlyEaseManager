@@ -207,3 +207,8 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmEditarAereopuerto.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmClientes.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmBoletos.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmEditarAereopuerto.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmBoletos.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmClientes.resources
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\Imazen.WebP.dll
+C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\Imazen.WebP.xml

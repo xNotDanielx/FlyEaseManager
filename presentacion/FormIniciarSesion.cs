@@ -15,6 +15,8 @@ namespace WindowsFormsApp1
 {
     public partial class FormIniciarSesion : Form
     {
+       
+
         public FormIniciarSesion()
         {
             InitializeComponent();
@@ -92,21 +94,24 @@ namespace WindowsFormsApp1
 
         private async void BtnAcceder_Click(object sender, EventArgs e)
         {
-            //await Task.Delay(200);
-            //AdministradorService administradorService = new AdministradorService();
-            //var administrador = await administradorService.AutenticarAdministrador(TxtUsuario.Text, TxtContrasena.Text);
-            //if (administrador != null)
-            //{
-            //    FrmPrincipal principal = new FrmPrincipal(administrador, this);
+            await Task.Delay(200);
+            AdministradorService administradorService = new AdministradorService();
+            var token = await administradorService.Autenticar(TxtUsuario.Text, TxtContrasena.Text);
+            if (token != null)
+            {
+                AdministradorService administradorService2 = new AdministradorService();
+                var administradores = await administradorService2.ObtenerTodos();
+                var administrador = administradores.Where(item => item.Usuario == TxtUsuario.Text && item.Clave == TxtContrasena.Text).FirstOrDefault();
+                FrmPrincipal principal = new FrmPrincipal(administrador, this);
 
-            //    principal.Show(); // Le permitimos al nuevo formulario poder visualizarse
-            //    this.Hide(); // Ocultamos el formulario actual
-                
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No se encontró el usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+                principal.Show(); // Le permitimos al nuevo formulario poder visualizarse
+                this.Hide(); // Ocultamos el formulario actual
+
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)

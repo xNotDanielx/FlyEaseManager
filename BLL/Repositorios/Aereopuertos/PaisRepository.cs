@@ -1,5 +1,6 @@
 ﻿using DAL.Clases_Abstractas;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DAL.Repositorios
     public class PaisRepository : AbstractCRUDRepository<Pais>
     {
         public PaisRepository()
-            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Paises"), "http://www.flyease.somee.com/FlyEaseApi/Paises")
+            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Paises", TokenManager.Instance._token), "http://www.flyease.somee.com/FlyEaseApi/Paises")
         {
         }
     }

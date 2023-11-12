@@ -1,5 +1,6 @@
 ﻿using DAL.Clases_Abstractas;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DAL.Repositorios
     public class RegionRepository : AbstractCRUDRepository<Region>
     {
         public RegionRepository()
-            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Regiones"), "http://www.flyease.somee.com/FlyEaseApi/Regiones")
+            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Regiones", TokenManager.Instance._token), "http://www.flyease.somee.com/FlyEaseApi/Regiones")
         {
         }
     }
