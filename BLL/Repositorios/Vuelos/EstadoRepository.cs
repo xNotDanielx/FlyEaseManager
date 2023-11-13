@@ -12,7 +12,7 @@ namespace DAL.Repositorios
     public class EstadoRepository : AbstractCRUDRepository<Estado>
     {
         public EstadoRepository()
-            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Estados", TokenManager.Instance._token), "http://www.flyease.somee.com/FlyEaseApi/Estados")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Estados", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Estados")
         {
         }
     }

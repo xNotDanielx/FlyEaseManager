@@ -95,7 +95,7 @@ namespace WindowsFormsApp1
 
                 var response = await clienteService.Crear(cliente);
 
-                if (response == "Error en la solicitud Post:")
+                if (response == "Error en la solicitud Post")
                 {
                     MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -112,7 +112,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        void limpiarCampos()
+        private void limpiarCampos()
         {
             TxtDocumento.Text = "";
             CbTipoDocumento.Text = "";
@@ -162,7 +162,7 @@ namespace WindowsFormsApp1
 
                     var response = await clienteService.Actualizar(DgvClientes.CurrentRow.Cells[0].Value.ToString(), cliente);
 
-                    if (response == "Error en la solicitud Put:")
+                    if (response == "Error en la solicitud Put")
                     {
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -192,7 +192,7 @@ namespace WindowsFormsApp1
                 {
                     var response = await clienteService.EliminarPorId($"{DgvClientes.CurrentRow.Cells[0].Value}");
 
-                    if (response == "Error en la solicitud Delete:")
+                    if (response == "Error en la solicitud Delete")
                     {
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

@@ -52,7 +52,7 @@ namespace WindowsFormsApp1
                 {
                     var response = await regionService.EliminarPorId($"{DgvRegiones.CurrentRow.Cells[0].Value}");
 
-                    if (response != "Error en la solicitud Delete: ")
+                    if (response != "Error en la solicitud Delete")
                     {
                         await CargarDatos();
                         limpiarCampos();
@@ -93,7 +93,7 @@ namespace WindowsFormsApp1
 
                     var response = await regionService.Actualizar(DgvRegiones.CurrentRow.Cells[0].Value.ToString(), region);
 
-                    if (response != "Error en la solicitud Put: ")
+                    if (response != "Error en la solicitud Put")
                     {
                         await CargarDatos();
                         limpiarCampos();
@@ -125,7 +125,7 @@ namespace WindowsFormsApp1
 
                 var response = await regionService.Crear(region);
 
-                if (response != "Error en la solicitud Post: ")
+                if (response != "Error en la solicitud Post")
                 {
                     await CargarDatos();
                     limpiarCampos();

@@ -50,43 +50,51 @@ namespace WindowsFormsApp1
 
         private async void BtnGuardar_Click(object sender, EventArgs e)
         {
-            var obtenerAeropuerto = await aereopuertoService.ObtenerTodos();
-            var obtenerEstado = await estadoService.ObtenerTodos();
-            var obtenerAvion = await AvionService.ObtenerTodos();
-            Vuelo vuelo = new Vuelo
+            try
             {
-                PrecioVuelo = double.Parse(TxtPrecio.Text),
-                TarifaTemporada = double.Parse(TxtTarifa.Text),
-                Descuento = double.Parse(TxtDescuento.Text),
-                FechaYHoraDeSalida = DtpFechaSalida.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffffff"),
-                FechaYHoraLlegada = "2023-11-12T20:43:18.719323",
-                Cupo = ChkCupo.Checked,
-                aereopuerto_Despegue = obtenerAeropuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
-                aereopuerto_Destino = obtenerAeropuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
-                Estado = obtenerEstado.Where(p => p.Nombre == CbEstado.Text).FirstOrDefault(),
-                Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
-                //ADespegue = (Aereopuerto)CbDespegue.SelectedItem,
-                //ADestino = (Aereopuerto)CbDestino.SelectedItem,
-                //Estado = (Estado)CbEstado.SelectedItem,
-                //Avion = (Avion)CbAvion.SelectedItem
-            };
+                var obtenerAeropuerto = await aereopuertoService.ObtenerTodos();
+                var obtenerEstado = await estadoService.ObtenerTodos();
+                var obtenerAvion = await AvionService.ObtenerTodos();
 
-            var response = await VueloService.Crear(vuelo);
+                Vuelo vuelo = new Vuelo
+                {
+                    PrecioVuelo = double.Parse(TxtPrecio.Text),
+                    TarifaTemporada = double.Parse(TxtTarifa.Text),
+                    Descuento = double.Parse(TxtDescuento.Text),
+                    FechaYHoraDeSalida = DtpFechaSalida.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffffff"),
+                    FechaYHoraLlegada = "2023-12-12T20:43:18.719323",
+                    Cupo = ChkCupo.Checked,
+                    aereopuerto_Despegue = obtenerAeropuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
+                    aereopuerto_Destino = obtenerAeropuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
+                    Estado = obtenerEstado.Where(p => p.Nombre == CbEstado.Text).FirstOrDefault(),
+                    Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
+                };
 
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var response = await VueloService.Crear(vuelo);
 
-            if (response.Equals("Vuelo registrado correctamente"))//AjustarMensaje
+                if (response != "Error en la solicitud Post")
+                {
+                    await GuardarAsientos();
+                    LimpiarCampos();
+                    MessageBox.Show("Se ha creado correctamente el vuelo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
             {
-                GuardarAsientos();
-                LimpiarCampos();
+                MessageBox.Show($"Error al crear el vuelo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        async void GuardarAsientos()
+        private async Task GuardarAsientos()
         {
             int contadorAsiento = 0;
             var obtenerCategoria = await CategoriaService.ObtenerTodos();
             var obtenerAvion = await AvionService.ObtenerTodos();
+
             for (int i = 1; i <= int.Parse(TxtAsientosPremium.Text); i++)
             {                
                 Asiento asiento = new Asiento
@@ -97,10 +105,10 @@ namespace WindowsFormsApp1
                     Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
                 };
                 await AsientoService.Crear(asiento);
-                contadorAsiento++;
+                contadorAsiento = i;
             }
 
-            for (int i = contadorAsiento + 1; i < int.Parse(TxtAsientosEconomicos.Text); i++)
+            for (int i = (contadorAsiento + 1); i <= (int.Parse(TxtAsientosEconomicos.Text) + contadorAsiento); i++)
             {
                 Asiento asiento = new Asiento
                 {
@@ -109,6 +117,7 @@ namespace WindowsFormsApp1
                     Categoria = obtenerCategoria.Where(p => p.Nombre == "Economico").FirstOrDefault(),
                     Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
                 };
+                await AsientoService.Crear(asiento);
             }
         }
 

@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
 
         private FrmPrincipal principal;
         private VueloService vueloService = new VueloService();
+        private AsientoService asientoService = new AsientoService();
         public FrmModuloVuelos(FrmPrincipal principal)
         {
             InitializeComponent();
@@ -36,13 +37,13 @@ namespace WindowsFormsApp1
         private async void FrmModuloVuelos_Load(object sender, EventArgs e)
         {
             var lista = await vueloService.ObtenerTodos();
-            CargarGrilla(lista);
+            await CargarGrilla(lista);
             ConfigurarBotones();
         }
 
-        void ConfigurarBotones()
+        private void ConfigurarBotones()
         {
-            if (DgvVuelos.RowCount == 1) // igual a 1 porque hay una fila vacia, poner 0 si se elimina esa linea
+            if (DgvVuelos.RowCount == 0)
             {
                 BtnEliminarVuelo.Enabled = false;
                 BtnEditarVuelo.Enabled = false;
@@ -54,7 +55,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        async void CargarGrilla(List<Vuelo> vuelos)
+        private async Task CargarGrilla(List<Vuelo> vuelos)
         {
             if (await vueloService.ObtenerTodos() == null)
             {
@@ -75,9 +76,11 @@ namespace WindowsFormsApp1
         private async void BtnEditarVuelo_Click(object sender, EventArgs e)
         {
             await Task.Delay(190);
-            // Verifica si hay al menos una fila seleccionada
             if (DgvVuelos.CurrentRow == null) return;
-            FrmEditarVuelos vista = new FrmEditarVuelos(principal, $"{DgvVuelos.CurrentRow.Cells[0].Value}");
+
+            var vuelos = await vueloService.ObtenerTodos();
+            var vuelo = vuelos.Where(item => item.IdVuelo == int.Parse(DgvVuelos.CurrentRow.Cells[0].Value.ToString())).FirstOrDefault();
+            FrmEditarVuelos vista = new FrmEditarVuelos(principal, vuelo);
             vista.Dock = DockStyle.Fill;
             principal.OpenForms(vista);
             this.Close();
@@ -85,17 +88,45 @@ namespace WindowsFormsApp1
 
         private async void BtnEliminarVuelo_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el vuelo: {DgvVuelos.CurrentRow.Cells[0].Value}?\nSe eliminaran todos los boletos asociados!", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el vuelo: {DgvVuelos.CurrentRow.Cells[0].Value}?\nSe eliminaran todos los boletos y asientos asociados!", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (resultado == DialogResult.OK)
             {
-                var response = await vueloService.EliminarPorId($"{DgvVuelos.CurrentRow.Cells[0].Value}");
-                var lista = await vueloService.ObtenerTodos();
+                try
+                {
+                    var asientos = await asientoService.ObtenerTodos();
+                    var vuelos = await vueloService.ObtenerTodos();
+                    var vuelo = vuelos.Where(item => item.IdVuelo == int.Parse(DgvVuelos.CurrentRow.Cells[0].Value.ToString())).FirstOrDefault(); 
+                    var asientosEliminar = asientos.Where(item => item.Avion.IdAvion == vuelo.Avion.IdAvion);
 
-                CargarGrilla(lista);
-                MessageBox.Show(response);
-                ConfigurarBotones();
+                    var response = await vueloService.EliminarPorId($"{DgvVuelos.CurrentRow.Cells[0].Value}");
+
+                    if (response != "Error en la solicitud Delete")
+                    {
+                        foreach (var item in asientosEliminar)
+                        {
+                            await asientoService.EliminarPorId(item.IdAsiento.ToString());
+                        }
+
+                        await CargarDatos();
+                        MessageBox.Show("Se ha eliminado correctamente el vuelo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar el vuelo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+        }
+
+        private async Task CargarDatos()
+        {
+            await CargarGrilla(await vueloService.ObtenerTodos());
+            ConfigurarBotones();
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e) // ??

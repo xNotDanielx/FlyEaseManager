@@ -15,13 +15,14 @@ namespace WindowsFormsApp1
     public partial class FrmEditarAvion : Form
     {
         private FrmPrincipal principal;
-        private string idAvion;
-        private AereolineaService AereolineaService = new AereolineaService();
+        private Avion avion;
+        private AereolineaService aereolineaService = new AereolineaService();
         private AvionService avionService = new AvionService();
-        public FrmEditarAvion(FrmPrincipal principal, string IdAvion)
+
+        public FrmEditarAvion(FrmPrincipal principal, Avion avion)
         {
             this.principal = principal;
-            this.idAvion = IdAvion;
+            this.avion = avion;
             InitializeComponent();
         }
 
@@ -29,7 +30,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                var obtenerAerolinea = await AereolineaService.ObtenerTodos();
+                var obtenerAerolinea = await aereolineaService.ObtenerTodos();
                 Avion avion = new Avion
                 {
                     IdAvion = TxtId.Text,
@@ -39,10 +40,12 @@ namespace WindowsFormsApp1
                     VelocidadPromedio = double.Parse(TxtVelocidad.Text),
                     CantidadPasajeros = int.Parse(TxtCantidadPasajeros.Text),
                     CantidadCarga = double.Parse(TxtCatidadCarga.Text),
-                    Aereolinea = obtenerAerolinea.Where(p => p.Nombre == CbAerolinea.Text).FirstOrDefault(),
+                    Aereolinea = obtenerAerolinea.Where(p => p.Nombre == CbAerolinea.Text).FirstOrDefault()
                 };
-                var response = await avionService.Actualizar(idAvion, avion);
-                if (response != "Error en la solicitud Put: ")
+
+                var response = await avionService.Actualizar(avion.IdAvion, avion);
+
+                if (response != "Error en la solicitud Put")
                 {
                     limpiarCampos();
                     MessageBox.Show("Se ha actualizado correctamente el avion", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -60,6 +63,7 @@ namespace WindowsFormsApp1
 
         private void FrmEditarAvion_Load(object sender, EventArgs e)
         {
+            cargarCampos(avion);
             CargarCombo();
         }
 
@@ -88,7 +92,7 @@ namespace WindowsFormsApp1
 
         async void CargarCombo()
         {
-            CbAerolinea.DataSource = await AereolineaService.ObtenerTodos();
+            CbAerolinea.DataSource = await aereolineaService.ObtenerTodos();
             CbAerolinea.DisplayMember = "Nombre";
         }
 

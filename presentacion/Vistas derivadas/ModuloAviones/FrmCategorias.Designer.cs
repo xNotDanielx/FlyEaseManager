@@ -246,9 +246,9 @@
             this.ChkEstado.ForeColor = System.Drawing.Color.White;
             this.ChkEstado.Location = new System.Drawing.Point(958, 290);
             this.ChkEstado.Name = "ChkEstado";
-            this.ChkEstado.Size = new System.Drawing.Size(71, 22);
+            this.ChkEstado.Size = new System.Drawing.Size(70, 22);
             this.ChkEstado.TabIndex = 113;
-            this.ChkEstado.Text = "Estado";
+            this.ChkEstado.Text = "Activo";
             this.ChkEstado.UseVisualStyleBackColor = true;
             // 
             // FrmCategorias

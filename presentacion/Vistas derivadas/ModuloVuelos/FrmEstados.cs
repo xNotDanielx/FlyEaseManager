@@ -45,97 +45,128 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void DgvEstados_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex == -1) return;
-            var fila = DgvEstados.Rows[e.RowIndex];
-            TxtNombre.Text = fila.Cells[1].Value.ToString(); 
-            TxtDescripcion.Text = fila.Cells[2].Value.ToString();
-            if (fila.Cells[3].Value.ToString() == "True")
-            {
-                ChkDetencion.Checked = true;
-            }
-            else
-            {
-                ChkDetencion.Checked = false;
-            } 
-        }
+    //    private void DgvEstados_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+    //    {
+    //        if (e.RowIndex == -1) return;
+    //        var fila = DgvEstados.Rows[e.RowIndex];
+    //        TxtNombre.Text = fila.Cells[1].Value.ToString();
+    //        TxtDescripcion.Text = fila.Cells[2].Value.ToString();
+    //        if (fila.Cells[3].Value.ToString() == "True")
+    //        {
+    //            ChkDetencion.Checked = true;
+    //        }
+    //        else
+    //        {
+    //            ChkDetencion.Checked = false;
+    //        }
+    //    }
 
-        void limpiarCampos()
-        {
-            TxtNombre.Text = "";
-            TxtDescripcion.Text = "";
-            ChkDetencion.Checked = true;
-        }
+    //    private void limpiarCampos()
+    //    {
+    //        TxtNombre.Text = "";
+    //        TxtDescripcion.Text = "";
+    //        ChkDetencion.Checked = true;
+    //    }
 
-        private async void BtnAgregar_Click(object sender, EventArgs e)
-        {
-            Estado estado = new Estado
-            {
-                Nombre = TxtNombre.Text,
-                Descripcion = TxtDescripcion.Text,
-                Detencion = ChkDetencion.Checked
-            };
+    //    private async void BtnAgregar_Click(object sender, EventArgs e)
+    //    {
+    //        try
+    //        {
+    //            Estado estado = new Estado
+    //            {
+    //                Nombre = TxtNombre.Text,
+    //                Descripcion = TxtDescripcion.Text,
+    //                Detencion = ChkDetencion.Checked
+    //            };
 
-            var response = await estadoService.Crear(estado);
+    //            var response = await estadoService.Crear(estado);
 
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    //            if (response != "Error en la solicitud Post")
+    //            {
+    //                await CargarDatos();
+    //                limpiarCampos();
+    //                MessageBox.Show("Se creado correctamente el estado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    //            }
+    //            else
+    //            {
+    //                MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    //            }
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            MessageBox.Show($"Error al crear el estado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    //        }
+    //    }
 
+    //    private async Task CargarDatos()
+    //    {
+    //        CargarGrilla(await estadoService.ObtenerTodos());
+    //        ConfigurarBotones();
+    //    }
 
-            var lista = await estadoService.ObtenerTodos();
-            CargarGrilla(lista);
-            limpiarCampos();
-        }
+    //    private void ConfigurarBotones()
+    //    {
+    //        if (DgvEstados.RowCount == 0)
+    //        {
+    //            BtnEliminar.Enabled = false;
+    //            BtnActualizar.Enabled = false;
+    //        }
+    //        else
+    //        {
+    //            BtnEliminar.Enabled = true;
+    //            BtnActualizar.Enabled = true;
+    //        }
+    //    }
 
-        private async void BtnActualizar_Click(object sender, EventArgs e)
-        {
-            if (DgvEstados.CurrentRow == null) return;
-            Estado estado = new Estado
-            {
-                IdEstado = Convert.ToInt32(DgvEstados.CurrentRow.Cells[0].Value.ToString()),
-                Nombre = TxtNombre.Text,
-                Descripcion = TxtDescripcion.Text,
-                Detencion = ChkDetencion.Checked,
-                FechaRegistro = DgvEstados.CurrentRow.Cells[4].Value.ToString()
-            };
-            var response = await estadoService.Actualizar(DgvEstados.CurrentRow.Cells[0].Value.ToString(), estado);
+    //    private async void BtnActualizar_Click(object sender, EventArgs e)
+    //    {
+    //        if (DgvEstados.CurrentRow == null) return;
+    //        Estado estado = new Estado
+    //        {
+    //            IdEstado = Convert.ToInt32(DgvEstados.CurrentRow.Cells[0].Value.ToString()),
+    //            Nombre = TxtNombre.Text,
+    //            Descripcion = TxtDescripcion.Text,
+    //            Detencion = ChkDetencion.Checked,
+    //            FechaRegistro = DgvEstados.CurrentRow.Cells[4].Value.ToString()
+    //        };
+    //        var response = await estadoService.Actualizar(DgvEstados.CurrentRow.Cells[0].Value.ToString(), estado);
 
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    //        MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            var lista = await estadoService.ObtenerTodos();
-            CargarGrilla(lista);
-        }
+    //        var lista = await estadoService.ObtenerTodos();
+    //        CargarGrilla(lista);
+    //    }
 
-        private async void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            if (DgvEstados.CurrentRow == null) return;
+    //    private async void BtnEliminar_Click(object sender, EventArgs e)
+    //    {
+    //        if (DgvEstados.CurrentRow == null) return;
 
-            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el estado: {DgvEstados.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+    //        DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el estado: {DgvEstados.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-            if (resultado == DialogResult.OK)
-            {
-                var response = await estadoService.EliminarPorId($"{DgvEstados.CurrentRow.Cells[0].Value}");
-                var lista = await estadoService.ObtenerTodos();
+    //        if (resultado == DialogResult.OK)
+    //        {
+    //            var response = await estadoService.EliminarPorId($"{DgvEstados.CurrentRow.Cells[0].Value}");
+    //            var lista = await estadoService.ObtenerTodos();
 
-                CargarGrilla(lista);
-                MessageBox.Show(response);
-            }
-        }
+    //            CargarGrilla(lista);
+    //            MessageBox.Show(response);
+    //        }
+    //    }
 
-        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
+    //    private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+    //    {
+    //        if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+    //        {
+    //            e.Handled = true;
+    //        }
+    //    }
 
-        private void TxtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
+    //    private void TxtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+    //    {
+    //        if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+    //        {
+    //            e.Handled = true;
+    //        }
+    //    }
     }
 }

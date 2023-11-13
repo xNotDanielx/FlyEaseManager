@@ -35,8 +35,7 @@ namespace WindowsFormsApp1
 
         private async void FrmAsientos_Load(object sender, EventArgs e)
         {
-            CargarGrilla(await asientoService.ObtenerTodos());
-            CargarCombos();
+            await CargarDatos();
         }
 
         void CargarGrilla(List<Asiento> asientos)
@@ -70,15 +69,41 @@ namespace WindowsFormsApp1
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
-            var obtenerCategoria = await categoriaService.ObtenerTodos();
-            var obtenerAvion = await avionService.ObtenerTodos();
-            Asiento asiento = new Asiento
+            try
             {
-                Posicion = int.Parse(TxtPosicion.Text),
-                Disponibilidad = ChkDisponibilidad.Checked,
-                Categoria = obtenerCategoria.Where(p=>p.Nombre == CbCategorias.Text).FirstOrDefault(),
-                Avion = obtenerAvion.Where(p=>p.Nombre == CbAviones.Text).FirstOrDefault(),
-            };
+                var obtenerCategoria = await categoriaService.ObtenerTodos();
+                var obtenerAvion = await avionService.ObtenerTodos();
+                Asiento asiento = new Asiento
+                {
+                    Posicion = int.Parse(TxtPosicion.Text),
+                    Disponibilidad = ChkDisponibilidad.Checked,
+                    Categoria = obtenerCategoria.Where(p => p.Nombre == CbCategorias.Text).FirstOrDefault(),
+                    Avion = obtenerAvion.Where(p => p.Nombre == CbAviones.Text).FirstOrDefault(),
+                };
+
+                var response = await asientoService.Crear(asiento);
+
+                if (response != "Error en la solicitud Post")
+                {
+                    await CargarDatos();
+                    limpiarCampos();
+                    MessageBox.Show("Se ha creado correctamente el asiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear el asiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task CargarDatos()
+        {
+            CargarGrilla(await asientoService.ObtenerTodos());
+            CargarCombos();
         }
 
         private void DgvAsientos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

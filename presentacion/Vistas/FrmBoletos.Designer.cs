@@ -102,9 +102,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(350, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 23);
+            this.label1.Size = new System.Drawing.Size(76, 23);
             this.label1.TabIndex = 86;
-            this.label1.Text = "Clientes";
+            this.label1.Text = "Boletos";
             // 
             // DgvBoletos
             // 

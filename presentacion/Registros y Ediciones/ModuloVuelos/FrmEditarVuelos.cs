@@ -15,40 +15,28 @@ namespace WindowsFormsApp1
     public partial class FrmEditarVuelos : Form
     {
         private FrmPrincipal principal;
-        private string idVuelo;
+        private Vuelo vuelo;
         private VueloService vueloService = new VueloService();
         private AsientoService AsientoService = new AsientoService();
         private AereopuertoService aereopuertoService = new AereopuertoService();
         private AvionService AvionService = new AvionService();
         private EstadoService estadoService = new EstadoService();
-        public FrmEditarVuelos(FrmPrincipal principal, string IdVuelo)
+
+        public FrmEditarVuelos(FrmPrincipal principal, Vuelo vuelo)
         {
             this.principal = principal;
             
-            this.idVuelo= IdVuelo;
+            this.vuelo= vuelo;
             InitializeComponent();
         }
 
-        private async void FrmEditarVuelos_Load(object sender, EventArgs e)
+        private void FrmEditarVuelos_Load(object sender, EventArgs e)
         {
             CargarCombos();
-            CargarCampos(ObtenerVuelo(await vueloService.ObtenerTodos()));
+            CargarCampos(vuelo);
         }
 
-        public Vuelo ObtenerVuelo(List<Vuelo> vuelos)
-        {
-            Vuelo vuelo = null;
-            foreach (var item in vuelos)
-            {
-                if(item.IdVuelo.ToString() == idVuelo)
-                {
-                    vuelo = item;
-                }
-            }
-            return vuelo;
-        }
-
-        async void CargarCombos()
+        private async void CargarCombos()
         {
             //Despegue             
             CbDespegue.DataSource = await aereopuertoService.ObtenerTodos();
@@ -67,7 +55,7 @@ namespace WindowsFormsApp1
             CbEstado.DisplayMember = "Nombre";
         }
 
-        void CargarCampos(Vuelo vuelo)
+        private void CargarCampos(Vuelo vuelo)
         {
             TxtPrecio.Text = vuelo.PrecioVuelo.ToString();
             TxtTarifa.Text = vuelo.TarifaTemporada.ToString();
@@ -89,69 +77,54 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
-        public async void CargarDatos()
-        {
-            var vuelo = await vueloService.ObtenerPorId(this.idVuelo);
-            var listaAsientos = await AsientoService.ObtenerTodos();
-            var obtenerNumeroAsientos = listaAsientos.Where(x => x.Avion.IdAvion == vuelo.Avion.IdAvion).ToList();
-            var asientosPremium = obtenerNumeroAsientos.Where(x => x.Categoria.Nombre == "Premium").Count();
-            var asientosEconomicos = obtenerNumeroAsientos.Where(x => x.Categoria.Nombre == "Economico").Count();
-            TxtPrecio.Text = vuelo.PrecioVuelo.ToString();
-            TxtTarifa.Text = vuelo.TarifaTemporada.ToString();
-            TxtDescuento.Text = vuelo.Descuento.ToString();            
-            CbDespegue.Text = vuelo.aereopuerto_Despegue.ToString();
-            DtpFechaSalida.Value = DateTime.Parse(vuelo.FechaYHoraDeSalida);
-            CbDestino.Text = vuelo.aereopuerto_Destino.ToString();
-            TxtCantidadAsietos.Text = obtenerNumeroAsientos.Count().ToString();
-            if(vuelo.Cupo == true)
-            {
-                ChkCupo.Checked = true;
-            }
-            else
-            {
-                ChkCupo.Checked = false;
-            }
-            TxtAsientosPremium.Text = asientosPremium.ToString();
-            CbAvion.Text = vuelo.Avion.Nombre.ToString();
-            TxtAsientosEconomicos.Text = asientosEconomicos.ToString();
-            CbEstado.Text = vuelo.Estado.Nombre.ToString();
-        }
-
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
-            var obtenerVuelo = await new VueloService().ObtenerTodos();
-            var obtenerAereopuerto = await new AereopuertoService().ObtenerTodos();
-            var obtenerEstado = await new EstadoService().ObtenerTodos();
-            var obtenerAvvion = await new AvionService().ObtenerTodos();
-            var Vuelo = obtenerVuelo.Where(p => p.IdVuelo == int.Parse(idVuelo)).FirstOrDefault();
-            Vuelo vuelo = new Vuelo
+            try
             {
-                IdVuelo = Vuelo.IdVuelo,
-                PrecioVuelo = double.Parse(TxtPrecio.Text),
-                TarifaTemporada = double.Parse(TxtTarifa.Text),
-                Descuento = double.Parse(TxtDescuento.Text),
-                DistanciaRecorrida = Vuelo.DistanciaRecorrida,
-                FechaYHoraDeSalida = DtpFechaSalida.Value.ToString(),
-                //FechaYHoraLlegada = Vuelo.FechaYHoraLlegada,
-                Cupo = ChkCupo.Checked,
-                aereopuerto_Despegue = obtenerAereopuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
-                aereopuerto_Destino = obtenerAereopuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
-                Estado = obtenerEstado.Where(p => p.Nombre == CbEstado.Text).FirstOrDefault(),
-                Avion = obtenerAvvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault(),
-                FechaRegistro = Vuelo.FechaRegistro
-            };
-            var response = await vueloService.Actualizar(this.idVuelo, vuelo);
+                var obtenerVuelo = await new VueloService().ObtenerTodos();
+                var obtenerAereopuerto = await new AereopuertoService().ObtenerTodos();
+                var obtenerEstado = await new EstadoService().ObtenerTodos();
+                var obtenerAvvion = await new AvionService().ObtenerTodos();
 
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Vuelo vuelo = new Vuelo
+                {
+                    IdVuelo = this.vuelo.IdVuelo,
+                    PrecioVuelo = double.Parse(TxtPrecio.Text),
+                    TarifaTemporada = double.Parse(TxtTarifa.Text),
+                    Descuento = double.Parse(TxtDescuento.Text),
+                    DistanciaRecorrida = this.vuelo.DistanciaRecorrida, //Se calcula y sobreescribe en la bd
+                    FechaYHoraDeSalida = DtpFechaSalida.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffffff"),
+                    FechaYHoraLlegada = this.vuelo.FechaYHoraLlegada, //Se calcula y sobreescribe en la bd
+                    Cupo = true, ////Se calcula y sobreescribe en la bd
+                    aereopuerto_Despegue = obtenerAereopuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
+                    aereopuerto_Destino = obtenerAereopuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
+                    Estado = obtenerEstado.Where(p => p.Nombre == CbEstado.Text).FirstOrDefault(),
+                    Avion = obtenerAvvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault(),
+                    FechaRegistro = this.vuelo.FechaRegistro
+                };
 
-            if(response.Equals("Vuelo actualizado correctamente"))
-            {
-                limpiarCampos();
+                var response = await vueloService.Actualizar(this.vuelo.IdVuelo.ToString(), vuelo);
+
+                MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (response != "Error en la solicitud Put")
+                {
+                    limpiarCampos();
+                    MessageBox.Show("Se ha actualizado correctamente el vuelo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar el vuelo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
-        void limpiarCampos()
+        private void limpiarCampos()
         {
             TxtPrecio.Text = "";
             TxtTarifa.Text = "";

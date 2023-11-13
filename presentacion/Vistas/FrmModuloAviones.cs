@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
     {
         private FrmPrincipal principal;
         private AvionService avionService = new AvionService();
+
         public FrmModuloAviones(FrmPrincipal principal)
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace WindowsFormsApp1
 
         private async void FrmModuloAviones_Load(object sender, EventArgs e)
         {
-            CargarGrilla(await avionService.ObtenerTodos());
+            await CargarDatos();
         }
 
         void CargarGrilla(List<Avion> aviones)
@@ -69,9 +70,11 @@ namespace WindowsFormsApp1
 
         private async void BtnEditar_Click(object sender, EventArgs e)
         {
+            if (DgvAviones.CurrentRow == null) return;
             await Task.Delay(190);
-            if (DgvAviones.CurrentRow == null) return;            
-            FrmEditarAvion vista = new FrmEditarAvion(principal, $"{DgvAviones.CurrentRow.Cells[0].Value}");
+
+            var avion= await avionService.ObtenerPorId($"{DgvAviones.CurrentRow.Cells[0].Value}");
+            FrmEditarAvion vista = new FrmEditarAvion(principal, avion);
             vista.Dock = DockStyle.Fill;
             principal.OpenForms(vista);
             this.Close();
@@ -85,6 +88,40 @@ namespace WindowsFormsApp1
             frmAgregarAvion.Dock = DockStyle.Fill;
             principal.OpenForms(frmAgregarAvion);
             this.Close();
+        }
+
+        private async void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (DgvAviones.CurrentRow == null) return;
+
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el avión: {DgvAviones.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
+            {
+                try
+                {
+                    var response = await avionService.EliminarPorId($"{DgvAviones.CurrentRow.Cells[0].Value}");
+
+                    if (response != "Error en la solicitud Delete")
+                    {
+                        await CargarDatos();
+                        MessageBox.Show("Se ha eliminado correctamente el avion", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar el avion: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async Task CargarDatos()
+        {
+            CargarGrilla(await avionService.ObtenerTodos());
         }
     }
 }

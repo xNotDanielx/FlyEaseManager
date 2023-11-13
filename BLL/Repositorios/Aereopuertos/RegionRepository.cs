@@ -12,7 +12,7 @@ namespace DAL.Repositorios
     public class RegionRepository : AbstractCRUDRepository<Region>
     {
         public RegionRepository()
-            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Regiones", TokenManager.Instance._token), "http://www.flyease.somee.com/FlyEaseApi/Regiones")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Regiones", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Regiones")
         {
         }
     }

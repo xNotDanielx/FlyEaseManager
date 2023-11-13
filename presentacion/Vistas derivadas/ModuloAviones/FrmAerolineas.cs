@@ -21,6 +21,19 @@ namespace WindowsFormsApp1
             InitializeComponent();
             this.principal = principal;
         }
+        private async void FrmAerolineas_Load(object sender, EventArgs e)
+        {
+            CargarGrilla(await AereolineaService.ObtenerTodos());
+        }
+
+        private void DgvAerolineas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var fila = DgvAerolineas.Rows[e.RowIndex];
+            TxtNombre.Text = fila.Cells[1].Value.ToString();
+            TxtCodigoIATA.Text = fila.Cells[2].Value.ToString();
+            TxtCodigoICAO.Text = fila.Cells[3].Value.ToString();
+        }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
         {
@@ -29,11 +42,6 @@ namespace WindowsFormsApp1
             FrmModuloAviones vista = new FrmModuloAviones(principal);
             principal.OpenForms(vista);
             this.Close();
-        }
-
-        private async void FrmAerolineas_Load(object sender, EventArgs e)
-        {
-            CargarGrilla(await AereolineaService.ObtenerTodos());
         }
 
         void CargarGrilla(List<Aereolinea> aerolineas)
@@ -47,71 +55,128 @@ namespace WindowsFormsApp1
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
-            Aereolinea aereolinea = new Aereolinea
+            try
             {
-                Nombre = TxtNombre.Text,
-                CodigoIATA = TxtCodigoIATA.Text,
-                CodigoICAO = TxtCodigoICAO.Text,
-            };
-            var response = await AereolineaService.Crear(aereolinea);
+                Aereolinea aereolinea = new Aereolinea
+                {
+                    Nombre = TxtNombre.Text,
+                    CodigoIATA = TxtCodigoIATA.Text,
+                    CodigoICAO = TxtCodigoICAO.Text,
+                };
+                var response = await AereolineaService.Crear(aereolinea);
 
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            var lista = await AereolineaService.ObtenerTodos();
-            CargarGrilla(lista);
-            limpiarCampos();
+                if (response != "Error en la solicitud Post")
+                {
+                    await CargarDatos();
+                    limpiarCampos();
+                    MessageBox.Show("Se ha creado correctamente la aerolinea", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear la aerolinea: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        void limpiarCampos()
+        private async Task CargarDatos()
+        {
+            var lista = await AereolineaService.ObtenerTodos();
+            CargarGrilla(lista);
+            ConfigurarBotones();
+        }
+
+        private void limpiarCampos()
         {
             TxtNombre.Text = "";
             TxtCodigoIATA.Text = "";
             TxtCodigoICAO.Text = "";
         }
 
-        private void DgvAerolineas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void ConfigurarBotones()
         {
-            if (e.RowIndex == -1) return;
-            var fila = DgvAerolineas.Rows[e.RowIndex];
-            TxtNombre.Text = fila.Cells[1].Value.ToString();
-            TxtCodigoIATA.Text = fila.Cells[2].Value.ToString();
-            TxtCodigoICAO.Text = fila.Cells[3].Value.ToString();
+            if (DgvAerolineas.RowCount == 0)
+            {
+                BtnEliminar.Enabled = false;
+                BtnActualizar.Enabled = false;
+            }
+            else
+            {
+                BtnEliminar.Enabled = true;
+                BtnActualizar.Enabled = true;
+            }
         }
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
-            //Toca editar el mensaje enviado al usuario
             if (DgvAerolineas.CurrentRow == null) return;
-            Aereolinea aereolinea = new Aereolinea
+
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar la región: {DgvAerolineas.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
             {
-                IdAereolinea = Convert.ToInt32(DgvAerolineas.CurrentRow.Cells[0].Value.ToString()),
-                Nombre = TxtNombre.Text,
-                CodigoIATA = TxtCodigoIATA.Text,
-                CodigoICAO = TxtCodigoICAO.Text,    
-                FechaRegistro = DgvAerolineas.CurrentRow.Cells[4].Value.ToString()
-            };
-            var response = await AereolineaService.Actualizar(DgvAerolineas.CurrentRow.Cells[0].Value.ToString(), aereolinea);
+                try
+                {
 
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Aereolinea aereolinea = new Aereolinea
+                    {
+                        IdAereolinea = Convert.ToInt32(DgvAerolineas.CurrentRow.Cells[0].Value.ToString()),
+                        Nombre = TxtNombre.Text,
+                        CodigoIATA = TxtCodigoIATA.Text,
+                        CodigoICAO = TxtCodigoICAO.Text,
+                        FechaRegistro = DgvAerolineas.CurrentRow.Cells[4].Value.ToString()
+                    };
 
-            var lista = await AereolineaService.ObtenerTodos();
-            CargarGrilla(lista);
-            limpiarCampos();
+                    var response = await AereolineaService.Actualizar(DgvAerolineas.CurrentRow.Cells[0].Value.ToString(), aereolinea);
+
+                    if (response != "Error en la solicitud Put")
+                    {
+                        await CargarDatos();
+                        limpiarCampos();
+                        MessageBox.Show("Se ha actualizado correctamente la aereolinea", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al actualizar la aereolinea: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private async void BtnEliminar_Click(object sender, EventArgs e)
         {
             if (DgvAerolineas.CurrentRow == null) return;
+
             DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar la aerolínea: {DgvAerolineas.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if(resultado == DialogResult.OK)
             {
-                var response = await AereolineaService.EliminarPorId($"{DgvAerolineas.CurrentRow.Cells[0].Value}");
-                var lista = await AereolineaService.ObtenerTodos();
+                try
+                {
+                    var response = await AereolineaService.EliminarPorId($"{DgvAerolineas.CurrentRow.Cells[0].Value}");
 
-                CargarGrilla(lista);
-                MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                limpiarCampos();
+                    if (response != "Error en la solicitud Delete")
+                    {
+                        await CargarDatos();
+                        limpiarCampos();
+                        MessageBox.Show("Se ha eliminado correctamente la region", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar la areolinea: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

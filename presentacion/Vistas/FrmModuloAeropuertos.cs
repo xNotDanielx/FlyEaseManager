@@ -40,7 +40,7 @@ namespace WindowsFormsApp1
                 {
                     var response = await aereopuertoService.EliminarPorId($"{DgvAeropuertos.CurrentRow.Cells[0].Value}");
 
-                    if (response != "Error en la solicitud Delete: ")
+                    if (response != "Error en la solicitud Delete")
                     {
                         await CargarDatos();
                         MessageBox.Show("Se ha eliminado correctamente el aereopuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

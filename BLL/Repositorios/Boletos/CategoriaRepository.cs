@@ -12,7 +12,7 @@ namespace DAL.Repositorios
     public class CategoriaRepository : AbstractCRUDRepository<Categoria>
     {
         public CategoriaRepository()
-            : base(new ApiClient("http://www.flyease.somee.com/FlyEaseApi/Categorias", TokenManager.Instance._token), "http://www.flyease.somee.com/FlyEaseApi/Categorias")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Categorias", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Categorias")
         {
         }
     }

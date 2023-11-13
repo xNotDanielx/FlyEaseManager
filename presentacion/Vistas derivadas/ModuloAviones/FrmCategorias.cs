@@ -60,10 +60,19 @@ namespace WindowsFormsApp1
         {
             if (e.RowIndex == -1) return;
             var fila = DgvCategorias.Rows[e.RowIndex];
+
             TxtNombre.Text = fila.Cells[1].Value.ToString();
             TxtDescripcion.Text = fila.Cells[2].Value.ToString();
             TxtTarifa.Text = fila.Cells[4].Value.ToString();
-            ChkEstado.Checked = bool.Parse(fila.Cells[3].Value.ToString());
+
+            if (fila.Cells[3].Value.ToString().Equals("Activo"))
+            {
+                ChkEstado.Checked = true;
+            }
+            else
+            {
+                ChkEstado.Checked = false;
+            }
         }
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
