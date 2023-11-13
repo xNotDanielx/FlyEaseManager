@@ -34,12 +34,6 @@
             this.CbEstado = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.CbAvion = new System.Windows.Forms.ComboBox();
-            this.TxtAsientosPremium = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.TxtAsientosEconomicos = new System.Windows.Forms.TextBox();
-            this.TxtCantidadAsietos = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.CbDestino = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -124,72 +118,6 @@
             this.CbAvion.Name = "CbAvion";
             this.CbAvion.Size = new System.Drawing.Size(200, 24);
             this.CbAvion.TabIndex = 118;
-            // 
-            // TxtAsientosPremium
-            // 
-            this.TxtAsientosPremium.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtAsientosPremium.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtAsientosPremium.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.TxtAsientosPremium.ForeColor = System.Drawing.Color.White;
-            this.TxtAsientosPremium.Location = new System.Drawing.Point(303, 340);
-            this.TxtAsientosPremium.Name = "TxtAsientosPremium";
-            this.TxtAsientosPremium.Size = new System.Drawing.Size(200, 24);
-            this.TxtAsientosPremium.TabIndex = 117;
-            this.TxtAsientosPremium.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAsientosPremium_KeyPress);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(72, 339);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(190, 18);
-            this.label13.TabIndex = 116;
-            this.label13.Text = "Numero asientos Premium:";
-            // 
-            // TxtAsientosEconomicos
-            // 
-            this.TxtAsientosEconomicos.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtAsientosEconomicos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtAsientosEconomicos.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.TxtAsientosEconomicos.ForeColor = System.Drawing.Color.White;
-            this.TxtAsientosEconomicos.Location = new System.Drawing.Point(303, 408);
-            this.TxtAsientosEconomicos.Name = "TxtAsientosEconomicos";
-            this.TxtAsientosEconomicos.Size = new System.Drawing.Size(200, 24);
-            this.TxtAsientosEconomicos.TabIndex = 115;
-            this.TxtAsientosEconomicos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAsientosEconomicos_KeyPress);
-            // 
-            // TxtCantidadAsietos
-            // 
-            this.TxtCantidadAsietos.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtCantidadAsietos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtCantidadAsietos.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.TxtCantidadAsietos.ForeColor = System.Drawing.Color.White;
-            this.TxtCantidadAsietos.Location = new System.Drawing.Point(303, 272);
-            this.TxtCantidadAsietos.Name = "TxtCantidadAsietos";
-            this.TxtCantidadAsietos.Size = new System.Drawing.Size(200, 24);
-            this.TxtCantidadAsietos.TabIndex = 114;
-            this.TxtCantidadAsietos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidadAsietos_KeyPress);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(72, 410);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(208, 18);
-            this.label12.TabIndex = 113;
-            this.label12.Text = "Numero asientos Economicos:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(72, 269);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(130, 18);
-            this.label11.TabIndex = 112;
-            this.label11.Text = "Cantidad asientos:";
             // 
             // label8
             // 
@@ -340,7 +268,7 @@
             this.BtnGuardar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGuardar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar.Location = new System.Drawing.Point(498, 438);
+            this.BtnGuardar.Location = new System.Drawing.Point(536, 453);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(121, 46);
             this.BtnGuardar.TabIndex = 122;
@@ -374,12 +302,6 @@
             this.Controls.Add(this.CbEstado);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.CbAvion);
-            this.Controls.Add(this.TxtAsientosPremium);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.TxtAsientosEconomicos);
-            this.Controls.Add(this.TxtCantidadAsietos);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.CbDestino);
             this.Controls.Add(this.label5);
@@ -412,12 +334,6 @@
         private System.Windows.Forms.ComboBox CbEstado;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox CbAvion;
-        private System.Windows.Forms.TextBox TxtAsientosPremium;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox TxtAsientosEconomicos;
-        private System.Windows.Forms.TextBox TxtCantidadAsietos;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox CbDestino;
         private System.Windows.Forms.Label label5;

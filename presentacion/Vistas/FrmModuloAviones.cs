@@ -94,7 +94,7 @@ namespace WindowsFormsApp1
         {
             if (DgvAviones.CurrentRow == null) return;
 
-            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el avión: {DgvAviones.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el avión: {DgvAviones.CurrentRow.Cells[1].Value}?\nSe eliminaran todos los asientos asociados!", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (resultado == DialogResult.OK)
             {

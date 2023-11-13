@@ -14,7 +14,7 @@ namespace Entity.Utilidades
 
         public class Respuesta
         {
-            [JsonProperty("token")]
+            [JsonProperty("tokens")]
             public Token Token { get; set; }
 
             [JsonProperty("succes")]
@@ -26,7 +26,7 @@ namespace Entity.Utilidades
 
         public class Token
         {
-            [JsonProperty("token")]
+            [JsonProperty("Primarytoken")]
             public string TokenString { get; set; }
 
             [JsonProperty("refreshToken")]

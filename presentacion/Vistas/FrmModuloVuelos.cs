@@ -88,7 +88,7 @@ namespace WindowsFormsApp1
 
         private async void BtnEliminarVuelo_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el vuelo: {DgvVuelos.CurrentRow.Cells[0].Value}?\nSe eliminaran todos los boletos y asientos asociados!", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el vuelo: {DgvVuelos.CurrentRow.Cells[0].Value}?\nSe eliminaran todos los boletos asociados!", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (resultado == DialogResult.OK)
             {

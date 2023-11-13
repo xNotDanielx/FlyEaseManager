@@ -182,9 +182,9 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
         }
     }    

@@ -19,8 +19,6 @@ namespace WindowsFormsApp1
         private AvionService AvionService = new AvionService();
         private EstadoService estadoService = new EstadoService();
         private VueloService VueloService = new VueloService();
-        private CategoriaService CategoriaService = new CategoriaService();
-        private AsientoService AsientoService = new AsientoService();
         public FrmAgregarVuelos(FrmPrincipal principal)
         {
             this.principal = principal;
@@ -74,7 +72,6 @@ namespace WindowsFormsApp1
 
                 if (response != "Error en la solicitud Post")
                 {
-                    await GuardarAsientos();
                     LimpiarCampos();
                     MessageBox.Show("Se ha creado correctamente el vuelo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -89,39 +86,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private async Task GuardarAsientos()
-        {
-            int contadorAsiento = 0;
-            var obtenerCategoria = await CategoriaService.ObtenerTodos();
-            var obtenerAvion = await AvionService.ObtenerTodos();
-
-            for (int i = 1; i <= int.Parse(TxtAsientosPremium.Text); i++)
-            {                
-                Asiento asiento = new Asiento
-                {
-                    Posicion = i,
-                    Disponibilidad = true,
-                    Categoria = obtenerCategoria.Where(p => p.Nombre == "Premium").FirstOrDefault(),
-                    Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
-                };
-                await AsientoService.Crear(asiento);
-                contadorAsiento = i;
-            }
-
-            for (int i = (contadorAsiento + 1); i <= (int.Parse(TxtAsientosEconomicos.Text) + contadorAsiento); i++)
-            {
-                Asiento asiento = new Asiento
-                {
-                    Posicion = i,
-                    Disponibilidad = true,
-                    Categoria = obtenerCategoria.Where(p => p.Nombre == "Economico").FirstOrDefault(),
-                    Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
-                };
-                await AsientoService.Crear(asiento);
-            }
-        }
-
-        void LimpiarCampos()
+        private void LimpiarCampos()
         {
             TxtPrecio.Text = "";
             TxtTarifa.Text = "";
@@ -129,16 +94,12 @@ namespace WindowsFormsApp1
             CbDespegue.Text = "";
             DtpFechaSalida.Value = DateTime.Now;
             CbDestino.Text = "";
-            TxtCantidadAsietos.Text = "";
             ChkCupo.Checked = true;
-            TxtAsientosPremium.Text = "";
             CbAvion.Text = "";      
-            TxtAsientosEconomicos.Text = "";
             CbEstado.Text = "";
-
         }
 
-        async void CargarCombos()
+        private async void CargarCombos()
         {
             //Despegue             
             CbDespegue.DataSource = await aereopuertoService.ObtenerTodos();
@@ -159,7 +120,12 @@ namespace WindowsFormsApp1
 
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && TxtPrecio.Text.Contains("."))
             {
                 e.Handled = true;
             }

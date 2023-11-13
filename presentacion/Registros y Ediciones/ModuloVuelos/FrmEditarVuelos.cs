@@ -132,11 +132,8 @@ namespace WindowsFormsApp1
             CbDespegue.Text = "";
             DtpFechaSalida.Value = DateTime.Now;
             CbDestino.Text = "";
-            TxtCantidadAsietos.Text = "";
             ChkCupo.Checked = true;
-            TxtAsientosPremium.Text = "";
             CbAvion.Text = "";
-            TxtAsientosEconomicos.Text = "";
             CbEstado.Text = "";
         }
 

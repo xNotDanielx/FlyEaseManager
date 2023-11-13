@@ -15,8 +15,12 @@ namespace WindowsFormsApp1
     public partial class FrmAgregarAvion : Form
     {
         private FrmPrincipal principal;
-        private AereolineaService AereolineaService = new AereolineaService();
+        private AereolineaService aereolineaService = new AereolineaService();
         private AvionService avionService = new AvionService();
+        private CategoriaService categoriaService = new CategoriaService();
+        private AsientoService asientoService = new AsientoService();
+        private Avion avionActual = null;
+
         public FrmAgregarAvion(FrmPrincipal principal)
         {
             this.principal = principal;
@@ -30,19 +34,21 @@ namespace WindowsFormsApp1
 
         async void CargarCombo()
         {
-            CbAerolinea.DataSource = await AereolineaService.ObtenerTodos();
+            CbAerolinea.DataSource = await aereolineaService.ObtenerTodos();
             CbAerolinea.DisplayMember = "Nombre";
         }
 
-        void limpiarCampos()
+        private void limpiarCampos()
         {
             TxtNombre.Text = "";
             TxtModelo.Text = "";
             TxtFabricante.Text = "";
             TxtVelocidad.Text = "";
-            TxtCantidadPasajeros.Text = "";
             TxtCatidadCarga.Text = "";
             CbAerolinea.Text = "";
+            TxtCantidadAsietos.Text = "";
+            TxtAsientosPremium.Text = "";
+            TxtAsientosEconomicos.Text = "";
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
@@ -58,7 +64,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                var obtenerAerolinea = await AereolineaService.ObtenerTodos();
+                var obtenerAerolinea = await aereolineaService.ObtenerTodos();
                 Avion avion = new Avion
                 {
                     IdAvion = TxtId.Text,
@@ -66,17 +72,17 @@ namespace WindowsFormsApp1
                     Modelo = TxtModelo.Text,
                     Fabricante = TxtFabricante.Text,
                     VelocidadPromedio = double.Parse(TxtVelocidad.Text),
-                    CantidadPasajeros = int.Parse(TxtCantidadPasajeros.Text),
+                    CantidadPasajeros = int.Parse(TxtCantidadAsietos.Text),
                     CantidadCarga = double.Parse(TxtCatidadCarga.Text),
                     Aereolinea = obtenerAerolinea.Where(x => x.Nombre == CbAerolinea.Text).FirstOrDefault(),
                 };
 
                 var response = await avionService.Crear(avion);
+                avionActual = avion;
 
-                
-
-                if (response != "Error en la solicitud Post: ")
+                if (response != "Error en la solicitud Post")
                 {
+                    await GuardarAsientos();
                     limpiarCampos();
                     MessageBox.Show("Se ha creado correctamente el avión", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -89,6 +95,45 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show($"Error al crear el avión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async Task GuardarAsientos()
+        {
+            try
+            {
+                var categorias = await categoriaService.ObtenerTodos();
+                int contadorGeneral = 1;
+
+                contadorGeneral = await CrearAsientos("Primera clase", int.Parse(TxtAsientosPremium.Text), true, avionActual, categorias, contadorGeneral);
+                contadorGeneral = await CrearAsientos("Turista", int.Parse(TxtAsientosEconomicos.Text), true, avionActual, categorias, contadorGeneral);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear los asientos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task<int> CrearAsientos(string categoriaNombre, int cantidad, bool disponibilidad, Avion avion, List<Categoria> categorias, int contador)
+        {
+            var categoria = categorias.FirstOrDefault(c => c.Nombre == categoriaNombre);
+
+            if (categoria != null)
+            {
+                for (int i = 1; i <= cantidad; i++)
+                {
+                    Asiento asiento = new Asiento
+                    {
+                        Posicion = contador++,
+                        Disponibilidad = disponibilidad,
+                        Categoria = categoria,
+                        Avion = avion
+                    };
+
+                    await asientoService.Crear(asiento);
+                }
+            }
+
+            return contador;
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
