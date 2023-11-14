@@ -184,6 +184,7 @@
             // CbRegiones
             // 
             this.CbRegiones.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbRegiones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbRegiones.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbRegiones.ForeColor = System.Drawing.Color.White;
             this.CbRegiones.FormattingEnabled = true;
@@ -219,6 +220,7 @@
             // 
             // pbImagen
             // 
+            this.pbImagen.BackColor = System.Drawing.Color.Gray;
             this.pbImagen.Location = new System.Drawing.Point(826, 321);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(145, 95);

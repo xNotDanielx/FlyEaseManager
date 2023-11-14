@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 
 namespace WindowsFormsApp1
 {
@@ -53,7 +54,7 @@ namespace WindowsFormsApp1
                 try
                 {
                     var response = await paisService.EliminarPorId(DgvPaises.CurrentRow.Cells[0].Value.ToString());
-                    
+
                     if (response != "Error en la solicitud Delete: ")
                     {
                         await CargarDatos();
@@ -76,6 +77,14 @@ namespace WindowsFormsApp1
         {
             if (DgvPaises.CurrentRow == null) return;
 
+            string nombre = TxtNombre.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre))
+            {
+                MessageBox.Show("El nombre del país no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar el país: {DgvPaises.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (resultado == DialogResult.OK)
@@ -85,12 +94,12 @@ namespace WindowsFormsApp1
                     var pais = new Pais
                     {
                         IdPais = Convert.ToInt32(DgvPaises.CurrentRow.Cells[0].Value),
-                        Nombre = TxtNombre.Text,
+                        Nombre = nombre,
                         FechaRegistro = DgvPaises.CurrentRow.Cells[2].Value.ToString()
                     };
 
                     var response = await paisService.Actualizar(DgvPaises.CurrentRow.Cells[0].Value.ToString(), pais);
-                   
+
                     if (response != "Error en la solicitud Put: ")
                     {
                         await CargarDatos();
@@ -112,11 +121,19 @@ namespace WindowsFormsApp1
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
+            string nombre = TxtNombre.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre))
+            {
+                MessageBox.Show("El nombre del país no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 var pais = new Pais
                 {
-                    Nombre = TxtNombre.Text,
+                    Nombre = nombre
                 };
 
                 var response = await paisService.Crear(pais);
@@ -182,9 +199,13 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (TxtNombre.Text.Length > 60 && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // No permite que el carácter ingresado sea procesado
+                e.Handled = true;
+            }
+            else if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

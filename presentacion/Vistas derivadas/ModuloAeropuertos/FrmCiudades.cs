@@ -1,5 +1,6 @@
 ﻿using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,6 +92,19 @@ namespace WindowsFormsApp1
         {
             if (DgvCiudades.CurrentRow == null) return;
 
+            string nombre = TxtNombre.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre))
+            {
+                MessageBox.Show("El nombre de la región no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!Validacion.EsTamañoImagenValido((Bitmap)pbImagen.Image, 100))
+            {
+                MessageBox.Show("Debe agregar una imagen valida (MAX 100KB).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar la ciudad: {DgvCiudades.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (resultado == DialogResult.OK)
@@ -103,7 +117,7 @@ namespace WindowsFormsApp1
                     Ciudad ciudad = new Ciudad
                     {
                         IdCiudad = Convert.ToInt32(DgvCiudades.CurrentRow.Cells[0].Value.ToString()),
-                        Nombre = TxtNombre.Text,
+                        Nombre = nombre,
                         Region = region,
                         FechaRegistro = DgvCiudades.CurrentRow.Cells[3].Value.ToString(),
                         Imagen = ObtenerImagen()
@@ -131,13 +145,26 @@ namespace WindowsFormsApp1
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
+            string nombre = TxtNombre.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre))
+            {
+                MessageBox.Show("El nombre de la región no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!Validacion.EsTamañoImagenValido((Bitmap)pbImagen.Image, 100))
+            {
+                MessageBox.Show("Debe guardar una imagen valida (MAX 100KB).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 var obtenerRegion = await new RegionService().ObtenerTodos();
 
                 Ciudad ciudad = new Ciudad()
                 {
-                    Nombre = TxtNombre.Text,
+                    Nombre = nombre,
                     Region = obtenerRegion.Where(x => x.Nombre == CbRegiones.Text).FirstOrDefault(),
                     Imagen = ObtenerImagen()
                 };
@@ -232,7 +259,11 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (TxtNombre.Text.Length > 60 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

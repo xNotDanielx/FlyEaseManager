@@ -48,6 +48,7 @@
     <Compile Include="Administrador.cs" />
     <Compile Include="Utilidades\RespuestaAutenticacion.cs" />
     <Compile Include="Utilidades\TokenManager.cs" />
+    <Compile Include="Utilidades\Validacion.cs" />
     <Compile Include="Vuelos\Aereolinea.cs" />
     <Compile Include="Aereopuertos\Aereopuerto.cs" />
     <Compile Include="Vuelos\Asiento.cs" />

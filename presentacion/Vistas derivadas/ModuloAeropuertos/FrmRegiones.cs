@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entity;
 using System.CodeDom;
+using Entity.Utilidades;
 
 namespace WindowsFormsApp1
 {
@@ -74,6 +75,14 @@ namespace WindowsFormsApp1
         {
             if (DgvRegiones.CurrentRow == null) return;
 
+            string nombre = TxtNombre.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre))
+            {
+                MessageBox.Show("El nombre de la región no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar la región: {DgvRegiones.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (resultado == DialogResult.OK)
@@ -86,7 +95,7 @@ namespace WindowsFormsApp1
                     Region region = new Region
                     {
                         IdRegion = Convert.ToInt32(DgvRegiones.CurrentRow.Cells[0].Value.ToString()),
-                        Nombre = TxtNombre.Text,
+                        Nombre = nombre,
                         Pais = pais,
                         FechaRegistro = DgvRegiones.CurrentRow.Cells[3].Value.ToString()
                     };
@@ -113,13 +122,21 @@ namespace WindowsFormsApp1
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
+            string nombre = TxtNombre.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre))
+            {
+                MessageBox.Show("El nombre de la región no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 var obtenerPais = await new PaisService().ObtenerTodos();
 
                 Region region = new Region
                 {
-                    Nombre = TxtNombre.Text,
+                    Nombre = nombre,
                     Pais = obtenerPais.Where(P => P.Nombre == CbPaises.Text).FirstOrDefault(),
                 };
 
@@ -192,7 +209,11 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (TxtNombre.Text.Length > 60 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

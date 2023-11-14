@@ -179,6 +179,7 @@
             // CbPaises
             // 
             this.CbPaises.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbPaises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbPaises.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbPaises.ForeColor = System.Drawing.Color.White;
             this.CbPaises.FormattingEnabled = true;
