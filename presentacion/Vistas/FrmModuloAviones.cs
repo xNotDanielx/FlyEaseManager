@@ -54,7 +54,7 @@ namespace WindowsFormsApp1
             foreach (var item in aviones)
             {
                 DgvAviones.Rows.Add(item.IdAvion, item.Nombre, item.Modelo, item.Fabricante, item.VelocidadPromedio,
-                    item.CantidadPasajeros, item.CantidadCarga, item.Aereolinea.Nombre, item.FechaRegistro);
+                    item.CantidadPasajeros, item.CantidadCarga, item.Aereolinea.Nombre, item.FechaRegistro.ToString());
             }
         }
 

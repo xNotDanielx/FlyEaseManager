@@ -15,7 +15,7 @@ namespace Entity
         public Cliente Cliente { get; set; }
         public Asiento Asiento { get; set; }
         public Vuelo Vuelo { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Boleto()
         {

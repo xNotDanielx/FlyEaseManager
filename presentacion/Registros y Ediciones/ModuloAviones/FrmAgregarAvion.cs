@@ -45,6 +45,7 @@ namespace WindowsFormsApp1
             TxtCantidadAsietos.ShortcutsEnabled = false;
             TxtAsientosPremium.ShortcutsEnabled = false;
             TxtAsientosEconomicos.ShortcutsEnabled = false;
+            txtAsientosNoComerciales.ShortcutsEnabled = false;
         }
 
         private async void CargarCombo()
@@ -65,6 +66,7 @@ namespace WindowsFormsApp1
             TxtCantidadAsietos.Text = "";
             TxtAsientosPremium.Text = "";
             TxtAsientosEconomicos.Text = "";
+            txtAsientosNoComerciales.Text = "";
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
@@ -143,6 +145,7 @@ namespace WindowsFormsApp1
                 var categorias = await categoriaService.ObtenerTodos();
                 int contadorGeneral = 1;
 
+                contadorGeneral = await CrearAsientos("No comercial", int.Parse(txtAsientosNoComerciales.Text), true, avionActual, categorias, contadorGeneral);
                 contadorGeneral = await CrearAsientos("Primera clase", int.Parse(TxtAsientosPremium.Text), true, avionActual, categorias, contadorGeneral);
                 contadorGeneral = await CrearAsientos("Turista", int.Parse(TxtAsientosEconomicos.Text), true, avionActual, categorias, contadorGeneral);
             }

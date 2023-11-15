@@ -97,7 +97,7 @@ namespace WindowsFormsApp1
                         IdRegion = Convert.ToInt32(DgvRegiones.CurrentRow.Cells[0].Value.ToString()),
                         Nombre = nombre,
                         Pais = pais,
-                        FechaRegistro = DgvRegiones.CurrentRow.Cells[3].Value.ToString()
+                        FechaRegistro = DateTime.Parse(DgvRegiones.CurrentRow.Cells[3].Value.ToString())
                     };
 
                     var response = await regionService.Actualizar(DgvRegiones.CurrentRow.Cells[0].Value.ToString(), region);
@@ -193,7 +193,7 @@ namespace WindowsFormsApp1
             DgvRegiones.Rows.Clear();
             foreach (var item in regiones)
             {
-                DgvRegiones.Rows.Add(item.IdRegion, item.Nombre, item.Pais.Nombre, item.FechaRegistro);
+                DgvRegiones.Rows.Add(item.IdRegion, item.Nombre, item.Pais.Nombre, item.FechaRegistro.ToString());
             }
         }
 

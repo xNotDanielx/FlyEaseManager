@@ -55,7 +55,8 @@ namespace WindowsFormsApp1
                     VelocidadPromedio = double.Parse(TxtVelocidad.Text),
                     CantidadPasajeros = int.Parse(TxtCantidadPasajeros.Text),
                     CantidadCarga = double.Parse(TxtCatidadCarga.Text),
-                    Aereolinea = obtenerAerolinea.Where(p => p.Nombre == CbAerolinea.Text).FirstOrDefault()
+                    Aereolinea = obtenerAerolinea.Where(p => p.Nombre == CbAerolinea.Text).FirstOrDefault(),
+                    FechaRegistro = this.avion.FechaRegistro
                 };
 
                 var response = await avionService.Actualizar(avion.IdAvion, avion);

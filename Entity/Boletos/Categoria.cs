@@ -13,7 +13,8 @@ namespace Entity
         public string Descripcion { get; set; }
         public bool EstadoCategoria { get; set; }
         public double Tarifa { get; set; }
-        public string FechaRegistro { get; set; }
+        public bool Comercial { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Categoria()
         {

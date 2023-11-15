@@ -16,7 +16,7 @@ namespace Entity
         public int CantidadPasajeros { get; set; }
         public double CantidadCarga { get; set; }
         public Aereolinea Aereolinea { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Avion()
         {

@@ -8,7 +8,7 @@ namespace Entity
 {
     public class Cliente : Persona
     {
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Cliente()
         {

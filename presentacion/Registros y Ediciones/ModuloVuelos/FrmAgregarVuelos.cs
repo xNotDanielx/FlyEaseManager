@@ -40,6 +40,9 @@ namespace WindowsFormsApp1
         {
             ConfigurarDateTimePickers();
             CargarCombos();
+            TxtPrecio.ShortcutsEnabled = false;
+            TxtDescuento.ShortcutsEnabled = false;
+            TxtTarifa.ShortcutsEnabled = false;
         }
 
         void ConfigurarDateTimePickers()
@@ -62,26 +65,19 @@ namespace WindowsFormsApp1
 
             if (CbDespegue.Text.Equals(CbDestino.Text))
             {
-                MessageBox.Show("EL areopuerto de descpegue no puede ser el mismo de destino", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("EL areopuerto de despegue no puede ser el mismo de destino", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var vuelos = await VueloService.ObtenerTodos();
             var vuelosDelAvion = vuelos.Where(item => item.Avion.Nombre.Equals(CbAvion.Text)).ToList();
 
-            DateTime fechaYHoraSalidaVuelo;
-            DateTime fechaYHoraLlegadaVuelo;
-
             foreach (var item in vuelosDelAvion)
             {
-                if (DateTime.TryParseExact(item.FechaYHoraDeSalida, "yyyy-MM-ddTHH:mm:ss.ffffff", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaYHoraSalidaVuelo) &&
-                    DateTime.TryParseExact(item.FechaYHoraLlegada, "yyyy-MM-ddTHH:mm:ss.ffffff", CultureInfo.InvariantCulture, DateTimeStyles.None, out fechaYHoraLlegadaVuelo))
+                if (DtpFechaSalida.Value >= item.FechaYHoraDeSalida && DtpFechaSalida.Value <= item.FechaYHoraLlegada)
                 {
-                    if (DtpFechaSalida.Value >= fechaYHoraSalidaVuelo && DtpFechaSalida.Value <= fechaYHoraLlegadaVuelo)
-                    {
-                        MessageBox.Show("La fecha de salida del avión seleccionado no debe interferir en la fecha de sus vuelos ya programados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
+                    MessageBox.Show("La fecha de salida del avión seleccionado no debe interferir en la fecha de sus vuelos ya programados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
 
@@ -96,8 +92,8 @@ namespace WindowsFormsApp1
                     PrecioVuelo = double.Parse(TxtPrecio.Text),
                     TarifaTemporada = double.Parse(TxtTarifa.Text),
                     Descuento = double.Parse(TxtDescuento.Text),
-                    FechaYHoraDeSalida = DtpFechaSalida.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffffff"),
-                    FechaYHoraLlegada = "2023-12-12T20:43:18.719323",
+                    FechaYHoraDeSalida = DtpFechaSalida.Value,
+                    FechaYHoraLlegada = DateTime.Parse("2023-12-12T20:43:18.719323"),
                     Cupo = true,
                     aereopuerto_Despegue = obtenerAeropuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
                     aereopuerto_Destino = obtenerAeropuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
@@ -122,7 +118,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show($"Error al crear el vuelo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+    
         private void LimpiarCampos()
         {
             TxtPrecio.Text = "";

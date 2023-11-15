@@ -1,5 +1,6 @@
 ﻿using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,11 @@ namespace WindowsFormsApp1
         private async void FrmClientes_Load(object sender, EventArgs e)
         {
             CargarGrilla(await clienteService.ObtenerTodos());
+            TxtDocumento.ShortcutsEnabled = false;
+            TxtNombres.ShortcutsEnabled = false;
+            TxtApellidos.ShortcutsEnabled = false;
+            TxtCelular.ShortcutsEnabled = false;
+            TxtCorreo.ShortcutsEnabled = false;
         }      
 
         void CargarGrilla(List<Cliente> clientes)
@@ -32,7 +38,7 @@ namespace WindowsFormsApp1
             DgvClientes.Rows.Clear();
             foreach (var item in clientes)
             {                
-                DgvClientes.Rows.Add(item.NumeroDocumento, item.TipoDocumento, item.Nombres, item.Apellidos, item.Celular, item.Correo, item.FechaRegistro);
+                DgvClientes.Rows.Add(item.NumeroDocumento, item.TipoDocumento, item.Nombres, item.Apellidos, item.Celular, item.Correo, item.FechaRegistro.ToString());
             }
         }
 
@@ -65,6 +71,18 @@ namespace WindowsFormsApp1
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
+            string documento = TxtDocumento.Text.Trim();
+            string nombres = TxtNombres.Text.Trim();
+            string apellidos = TxtApellidos.Text.Trim();
+            string celular = TxtCelular.Text.Trim();
+            string correo = TxtCorreo.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(documento) || Validacion.EsNuloOVacio(nombres) || Validacion.EsNuloOVacio(apellidos) || Validacion.EsNuloOVacio(celular) || Validacion.EsNuloOVacio(correo))
+            {
+                MessageBox.Show("No pueden quedar campos vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 var tipoDocumento = "";
@@ -127,6 +145,7 @@ namespace WindowsFormsApp1
             if (DgvClientes.CurrentRow == null) return;
 
             DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar el cliente: {DgvClientes.CurrentRow.Cells[2].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            
             if (resultado == DialogResult.OK)
             {
                 try
@@ -157,7 +176,7 @@ namespace WindowsFormsApp1
                         Apellidos = TxtApellidos.Text,
                         Celular = TxtCelular.Text,
                         Correo = TxtCorreo.Text,
-                        FechaRegistro = DgvClientes.CurrentRow.Cells[6].Value.ToString()
+                        FechaRegistro = DateTime.Parse(DgvClientes.CurrentRow.Cells[6].Value.ToString())
                     };
 
                     var response = await clienteService.Actualizar(DgvClientes.CurrentRow.Cells[0].Value.ToString(), cliente);
@@ -207,6 +226,30 @@ namespace WindowsFormsApp1
                 {
                     MessageBox.Show($"Error al eliminar el cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void TxtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtDocumento.Text.Length > 9 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtCelular_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtCelular.Text.Length > 9 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

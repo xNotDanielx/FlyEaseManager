@@ -11,7 +11,7 @@ namespace Entity
         public int IdCiudad { get; set; }
         public string Nombre { get; set; }
         public Region Region { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
         public byte[] Imagen { get; set; }
 
         public Ciudad()

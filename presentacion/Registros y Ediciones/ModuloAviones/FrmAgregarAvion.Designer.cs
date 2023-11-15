@@ -51,6 +51,8 @@
             this.TxtCantidadAsietos = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.txtAsientosNoComerciales = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label6
@@ -92,7 +94,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(675, 303);
+            this.label9.Location = new System.Drawing.Point(675, 362);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 18);
             this.label9.TabIndex = 186;
@@ -106,7 +108,7 @@
             this.CbAerolinea.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbAerolinea.ForeColor = System.Drawing.Color.White;
             this.CbAerolinea.FormattingEnabled = true;
-            this.CbAerolinea.Location = new System.Drawing.Point(775, 297);
+            this.CbAerolinea.Location = new System.Drawing.Point(775, 356);
             this.CbAerolinea.Name = "CbAerolinea";
             this.CbAerolinea.Size = new System.Drawing.Size(200, 24);
             this.CbAerolinea.TabIndex = 185;
@@ -264,7 +266,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(190, 18);
             this.label13.TabIndex = 194;
-            this.label13.Text = "Numero asientos Premium:";
+            this.label13.Text = "Número asientos Premium:";
             // 
             // TxtAsientosEconomicos
             // 
@@ -298,17 +300,38 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(208, 18);
             this.label12.TabIndex = 191;
-            this.label12.Text = "Numero asientos Economicos:";
+            this.label12.Text = "Número asientos Economicos:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(579, 101);
+            this.label11.Location = new System.Drawing.Point(538, 101);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(173, 18);
+            this.label11.Size = new System.Drawing.Size(214, 18);
             this.label11.TabIndex = 190;
-            this.label11.Text = "Cantidad asiento totales:";
+            this.label11.Text = "Cantidad asientos comerciales:";
+            // 
+            // txtAsientosNoComerciales
+            // 
+            this.txtAsientosNoComerciales.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.txtAsientosNoComerciales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAsientosNoComerciales.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.txtAsientosNoComerciales.ForeColor = System.Drawing.Color.White;
+            this.txtAsientosNoComerciales.Location = new System.Drawing.Point(775, 293);
+            this.txtAsientosNoComerciales.Name = "txtAsientosNoComerciales";
+            this.txtAsientosNoComerciales.Size = new System.Drawing.Size(200, 24);
+            this.txtAsientosNoComerciales.TabIndex = 196;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(522, 299);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(230, 18);
+            this.label7.TabIndex = 197;
+            this.label7.Text = "Número asientos no comerciales:";
             // 
             // FrmAgregarAvion
             // 
@@ -316,6 +339,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtAsientosNoComerciales);
             this.Controls.Add(this.TxtAsientosPremium);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.TxtAsientosEconomicos);
@@ -374,5 +399,7 @@
         private System.Windows.Forms.TextBox TxtCantidadAsietos;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtAsientosNoComerciales;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -12,7 +12,7 @@ namespace Entity
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public bool Detencion { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Estado()
         {

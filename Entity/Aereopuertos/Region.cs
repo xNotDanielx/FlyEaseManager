@@ -11,7 +11,7 @@ namespace Entity
         public int IdRegion { get; set; }
         public string Nombre { get; set; }
         public Pais Pais { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Region()
         {

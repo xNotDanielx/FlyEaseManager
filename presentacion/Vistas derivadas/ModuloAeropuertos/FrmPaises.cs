@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
                 {
                     var response = await paisService.EliminarPorId(DgvPaises.CurrentRow.Cells[0].Value.ToString());
 
-                    if (response != "Error en la solicitud Delete: ")
+                    if (response != "Error en la solicitud Delete")
                     {
                         await CargarDatos();
                         limpiarCampos();
@@ -95,12 +95,12 @@ namespace WindowsFormsApp1
                     {
                         IdPais = Convert.ToInt32(DgvPaises.CurrentRow.Cells[0].Value),
                         Nombre = nombre,
-                        FechaRegistro = DgvPaises.CurrentRow.Cells[2].Value.ToString()
+                        FechaRegistro = DateTime.Parse(DgvPaises.CurrentRow.Cells[2].Value.ToString())
                     };
 
                     var response = await paisService.Actualizar(DgvPaises.CurrentRow.Cells[0].Value.ToString(), pais);
 
-                    if (response != "Error en la solicitud Put: ")
+                    if (response != "Error en la solicitud Put")
                     {
                         await CargarDatos();
                         limpiarCampos();
@@ -138,7 +138,7 @@ namespace WindowsFormsApp1
 
                 var response = await paisService.Crear(pais);
 
-                if (response != "Error en la solicitud Post: ")
+                if (response != "Error en la solicitud Post")
                 {
 
                     await CargarDatos();
@@ -189,7 +189,7 @@ namespace WindowsFormsApp1
             DgvPaises.Rows.Clear();
             foreach (var item in paises)
             {
-                DgvPaises.Rows.Add(item.IdPais, item.Nombre, item.FechaRegistro);
+                DgvPaises.Rows.Add(item.IdPais, item.Nombre, item.FechaRegistro.ToString());
             }
         }
 

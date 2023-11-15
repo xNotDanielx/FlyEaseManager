@@ -119,7 +119,7 @@ namespace WindowsFormsApp1
                         IdCiudad = Convert.ToInt32(DgvCiudades.CurrentRow.Cells[0].Value.ToString()),
                         Nombre = nombre,
                         Region = region,
-                        FechaRegistro = DgvCiudades.CurrentRow.Cells[3].Value.ToString(),
+                        FechaRegistro = DateTime.Parse(DgvCiudades.CurrentRow.Cells[3].Value.ToString()),
                         Imagen = ObtenerImagen()
                     };
 
@@ -235,7 +235,7 @@ namespace WindowsFormsApp1
             DgvCiudades.Rows.Clear();
             foreach (var item in ciudades)
             {
-                DgvCiudades.Rows.Add(item.IdCiudad, item.Nombre, item.Region.Nombre, item.FechaRegistro);
+                DgvCiudades.Rows.Add(item.IdCiudad, item.Nombre, item.Region.Nombre, item.FechaRegistro.ToString());
             }
         }
 

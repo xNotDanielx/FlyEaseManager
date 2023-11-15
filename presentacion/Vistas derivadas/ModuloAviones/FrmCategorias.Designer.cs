@@ -36,17 +36,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DgvCategorias = new System.Windows.Forms.DataGridView();
-            this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripcionCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TarifaCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtTarifa = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ChkEstado = new System.Windows.Forms.CheckBox();
+            this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TarifaCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCategorias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,52 +145,13 @@
             this.DescripcionCategoria,
             this.EstadoCategoria,
             this.TarifaCategoria,
+            this.Comercial,
             this.FechaRegistro});
             this.DgvCategorias.Location = new System.Drawing.Point(23, 47);
             this.DgvCategorias.Name = "DgvCategorias";
             this.DgvCategorias.Size = new System.Drawing.Size(804, 384);
             this.DgvCategorias.TabIndex = 94;
             this.DgvCategorias.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCategorias_CellMouseClick);
-            // 
-            // IdCategoria
-            // 
-            this.IdCategoria.HeaderText = "Id";
-            this.IdCategoria.Name = "IdCategoria";
-            this.IdCategoria.ReadOnly = true;
-            this.IdCategoria.Width = 50;
-            // 
-            // NombreCategoria
-            // 
-            this.NombreCategoria.HeaderText = "Nombre";
-            this.NombreCategoria.Name = "NombreCategoria";
-            this.NombreCategoria.ReadOnly = true;
-            // 
-            // DescripcionCategoria
-            // 
-            this.DescripcionCategoria.HeaderText = "Descripcion";
-            this.DescripcionCategoria.Name = "DescripcionCategoria";
-            this.DescripcionCategoria.ReadOnly = true;
-            this.DescripcionCategoria.Width = 200;
-            // 
-            // EstadoCategoria
-            // 
-            this.EstadoCategoria.HeaderText = "Estado";
-            this.EstadoCategoria.Name = "EstadoCategoria";
-            this.EstadoCategoria.ReadOnly = true;
-            this.EstadoCategoria.Width = 60;
-            // 
-            // TarifaCategoria
-            // 
-            this.TarifaCategoria.HeaderText = "Tarifa";
-            this.TarifaCategoria.Name = "TarifaCategoria";
-            this.TarifaCategoria.ReadOnly = true;
-            // 
-            // FechaRegistro
-            // 
-            this.FechaRegistro.HeaderText = "Fecha de registro";
-            this.FechaRegistro.Name = "FechaRegistro";
-            this.FechaRegistro.ReadOnly = true;
-            this.FechaRegistro.Width = 250;
             // 
             // TxtDescripcion
             // 
@@ -251,6 +213,51 @@
             this.ChkEstado.Text = "Activo";
             this.ChkEstado.UseVisualStyleBackColor = true;
             // 
+            // IdCategoria
+            // 
+            this.IdCategoria.HeaderText = "Id";
+            this.IdCategoria.Name = "IdCategoria";
+            this.IdCategoria.ReadOnly = true;
+            this.IdCategoria.Width = 50;
+            // 
+            // NombreCategoria
+            // 
+            this.NombreCategoria.HeaderText = "Nombre";
+            this.NombreCategoria.Name = "NombreCategoria";
+            this.NombreCategoria.ReadOnly = true;
+            // 
+            // DescripcionCategoria
+            // 
+            this.DescripcionCategoria.HeaderText = "Descripcion";
+            this.DescripcionCategoria.Name = "DescripcionCategoria";
+            this.DescripcionCategoria.ReadOnly = true;
+            this.DescripcionCategoria.Width = 200;
+            // 
+            // EstadoCategoria
+            // 
+            this.EstadoCategoria.HeaderText = "Estado";
+            this.EstadoCategoria.Name = "EstadoCategoria";
+            this.EstadoCategoria.ReadOnly = true;
+            this.EstadoCategoria.Width = 60;
+            // 
+            // TarifaCategoria
+            // 
+            this.TarifaCategoria.HeaderText = "Tarifa";
+            this.TarifaCategoria.Name = "TarifaCategoria";
+            this.TarifaCategoria.ReadOnly = true;
+            // 
+            // Comercial
+            // 
+            this.Comercial.HeaderText = "Comercial";
+            this.Comercial.Name = "Comercial";
+            // 
+            // FechaRegistro
+            // 
+            this.FechaRegistro.HeaderText = "Fecha de registro";
+            this.FechaRegistro.Name = "FechaRegistro";
+            this.FechaRegistro.ReadOnly = true;
+            this.FechaRegistro.Width = 250;
+            // 
             // FrmCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,16 +296,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DgvCategorias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TarifaCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
         private System.Windows.Forms.TextBox TxtDescripcion;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtTarifa;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox ChkEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TarifaCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comercial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
     }
 }

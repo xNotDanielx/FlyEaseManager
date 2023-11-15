@@ -12,7 +12,7 @@ namespace Entity
         public string Nombre { get; set; }
         public string CodigoIATA { get; set; }
         public string CodigoICAO { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Aereolinea()
         {

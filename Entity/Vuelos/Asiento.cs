@@ -13,7 +13,7 @@ namespace Entity
         public bool Disponibilidad { get; set; }
         public Categoria Categoria { get; set; }
         public Avion Avion { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Asiento()
         {

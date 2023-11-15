@@ -10,7 +10,7 @@ namespace Entity
     {
         public int IdPais { get; set; }
         public string Nombre { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Pais()
         {

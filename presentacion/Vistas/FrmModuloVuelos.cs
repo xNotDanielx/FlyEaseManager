@@ -66,9 +66,9 @@ namespace WindowsFormsApp1
                 DgvVuelos.Rows.Clear();
                 foreach (var item in vuelos)
                 {
-                    DgvVuelos.Rows.Add(item.IdVuelo, item.PrecioVuelo, item.TarifaTemporada, item.Descuento, item.DistanciaRecorrida,
-                        item.FechaYHoraDeSalida, item.FechaYHoraLlegada, item.aereopuerto_Despegue.Nombre, item.aereopuerto_Destino.Nombre,
-                        item.Estado.Nombre, item.Avion.Nombre, item.FechaRegistro);
+                    DgvVuelos.Rows.Add(item.IdVuelo.ToString(), item.PrecioVuelo.ToString(), item.TarifaTemporada.ToString(), item.Descuento.ToString(), item.DistanciaRecorrida.ToString(),
+                        item.FechaYHoraDeSalida.ToString(), item.FechaYHoraLlegada.ToString(), item.aereopuerto_Despegue.Nombre, item.aereopuerto_Destino.Nombre,
+                        item.Estado.Nombre, item.Avion.Nombre, item.FechaRegistro.ToString());
                 }
             }            
         }

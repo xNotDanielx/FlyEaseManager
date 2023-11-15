@@ -128,6 +128,8 @@ namespace WindowsFormsApp1
         {
             if(e.KeyCode == Keys.Enter)
             {
+                e.Handled = true;
+                BtnAcceder.Focus();
                 BtnAcceder.PerformClick();
             }
         }

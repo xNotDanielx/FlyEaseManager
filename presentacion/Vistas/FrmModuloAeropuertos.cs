@@ -116,10 +116,15 @@ namespace WindowsFormsApp1
 
         private void CargarGrilla(List<Aereopuerto> aeropuertos)
         {
+            if (DgvAeropuertos == null)
+            {
+                return;
+            }
+
             DgvAeropuertos.Rows.Clear();
             foreach (var item in aeropuertos)
             {
-                DgvAeropuertos.Rows.Add(item.IdAereopuerto, item.Nombre, item.Coordenadas.Latitud, item.Coordenadas.Longitud, item.Ciudad.Nombre, item.FechaRegistro);
+                DgvAeropuertos.Rows.Add(item.IdAereopuerto, item.Nombre, item.Coordenadas.Latitud, item.Coordenadas.Longitud, item.Ciudad.Nombre, item.FechaRegistro.ToString());
             }
         }
     }

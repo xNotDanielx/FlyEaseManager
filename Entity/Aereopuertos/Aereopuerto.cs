@@ -12,7 +12,7 @@ namespace Entity
         public string Nombre { get; set; }
         public Coordenadas Coordenadas { get; set; }
         public Ciudad Ciudad { get; set; }
-        public string FechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Aereopuerto()
         {

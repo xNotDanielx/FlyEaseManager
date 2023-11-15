@@ -50,7 +50,7 @@ namespace WindowsFormsApp1
             DgvAerolineas.Rows.Clear();
             foreach (var item in aerolineas)
             {
-                DgvAerolineas.Rows.Add(item.IdAereolinea, item.Nombre, item.CodigoIATA,item.CodigoICAO, item.FechaRegistro);
+                DgvAerolineas.Rows.Add(item.IdAereolinea, item.Nombre, item.CodigoIATA,item.CodigoICAO, item.FechaRegistro.ToString());
             }
         }
 
@@ -151,7 +151,7 @@ namespace WindowsFormsApp1
                         Nombre = nombre,
                         CodigoIATA = codigoIATA,
                         CodigoICAO = codigoICAO,
-                        FechaRegistro = DgvAerolineas.CurrentRow.Cells[4].Value.ToString()
+                        FechaRegistro = DateTime.Parse(DgvAerolineas.CurrentRow.Cells[4].Value.ToString())
                     };
 
                     var response = await AereolineaService.Actualizar(DgvAerolineas.CurrentRow.Cells[0].Value.ToString(), aereolinea);

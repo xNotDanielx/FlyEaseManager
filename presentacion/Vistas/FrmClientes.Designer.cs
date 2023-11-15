@@ -264,6 +264,7 @@
             this.TxtDocumento.Name = "TxtDocumento";
             this.TxtDocumento.Size = new System.Drawing.Size(168, 24);
             this.TxtDocumento.TabIndex = 1;
+            this.TxtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDocumento_KeyPress);
             // 
             // label6
             // 
@@ -286,6 +287,7 @@
             this.TxtCelular.Name = "TxtCelular";
             this.TxtCelular.Size = new System.Drawing.Size(168, 24);
             this.TxtCelular.TabIndex = 5;
+            this.TxtCelular.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCelular_KeyPress);
             // 
             // label7
             // 

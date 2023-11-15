@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
             DgvEstados.Rows.Clear();
             foreach (var item in estados)
             {
-                DgvEstados.Rows.Add(item.IdEstado, item.Nombre, item.Descripcion, item.Detencion, item.FechaRegistro);
+                DgvEstados.Rows.Add(item.IdEstado, item.Nombre, item.Descripcion, item.Detencion, item.FechaRegistro.ToString());
             }
         }
 

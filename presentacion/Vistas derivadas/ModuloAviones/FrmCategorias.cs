@@ -50,6 +50,7 @@ namespace WindowsFormsApp1
         void CargarGrilla(List<Categoria> categorias)
         {
             var estado = "";
+            var categoria = "";
             DgvCategorias.Rows.Clear();
             foreach (var item in categorias)
             {
@@ -62,7 +63,16 @@ namespace WindowsFormsApp1
                     estado = "Inactivo";
                 }
 
-                DgvCategorias.Rows.Add(item.IdCategoria, item.Nombre, item.Descripcion, estado, item.Tarifa,  item.FechaRegistro);
+                if (item.Comercial == true)
+                {
+                    categoria = "Sí";
+                }
+                else
+                {
+                    categoria = "No";
+                }
+
+                DgvCategorias.Rows.Add(item.IdCategoria, item.Nombre, item.Descripcion, estado, item.Tarifa, categoria,  item.FechaRegistro.ToString());
             }
         }
 
@@ -112,7 +122,7 @@ namespace WindowsFormsApp1
                         Descripcion = descripcion,
                         EstadoCategoria = ChkEstado.Checked,
                         Tarifa = double.Parse(tarifa),
-                        FechaRegistro = DgvCategorias.CurrentRow.Cells[5].Value.ToString(),
+                        FechaRegistro = DateTime.Parse(DgvCategorias.CurrentRow.Cells[5].Value.ToString()),
                     };
 
                     var response = await categoriaService.Actualizar(DgvCategorias.CurrentRow.Cells[0].Value.ToString(), categoria);

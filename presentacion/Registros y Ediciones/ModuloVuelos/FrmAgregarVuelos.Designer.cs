@@ -86,7 +86,8 @@
             // CbEstado
             // 
             this.CbEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbEstado.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CbEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbEstado.ForeColor = System.Drawing.Color.White;
             this.CbEstado.FormattingEnabled = true;
@@ -108,7 +109,8 @@
             // CbAvion
             // 
             this.CbAvion.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbAvion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbAvion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAvion.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CbAvion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbAvion.ForeColor = System.Drawing.Color.White;
             this.CbAvion.FormattingEnabled = true;
@@ -130,7 +132,8 @@
             // CbDestino
             // 
             this.CbDestino.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbDestino.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CbDestino.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbDestino.ForeColor = System.Drawing.Color.White;
             this.CbDestino.FormattingEnabled = true;
@@ -152,7 +155,8 @@
             // CbDespegue
             // 
             this.CbDespegue.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbDespegue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbDespegue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbDespegue.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CbDespegue.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbDespegue.ForeColor = System.Drawing.Color.White;
             this.CbDespegue.FormattingEnabled = true;

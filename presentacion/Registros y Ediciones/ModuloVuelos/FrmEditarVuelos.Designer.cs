@@ -53,21 +53,21 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(625, 212);
+            this.label8.Location = new System.Drawing.Point(634, 136);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 18);
+            this.label8.Size = new System.Drawing.Size(165, 18);
             this.label8.TabIndex = 81;
-            this.label8.Text = "Destino:";
+            this.label8.Text = "Aeropuerto de Destino:";
             // 
             // CbDestino
             // 
             this.CbDestino.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.CbDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbDestino.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbDestino.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CbDestino.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbDestino.ForeColor = System.Drawing.Color.White;
             this.CbDestino.FormattingEnabled = true;
-            this.CbDestino.Location = new System.Drawing.Point(837, 209);
+            this.CbDestino.Location = new System.Drawing.Point(830, 130);
             this.CbDestino.Name = "CbDestino";
             this.CbDestino.Size = new System.Drawing.Size(200, 24);
             this.CbDestino.TabIndex = 80;
@@ -76,20 +76,21 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(625, 136);
+            this.label5.Location = new System.Drawing.Point(618, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 18);
+            this.label5.Size = new System.Drawing.Size(181, 18);
             this.label5.TabIndex = 79;
-            this.label5.Text = "Despegue:";
+            this.label5.Text = "Aeropuerto de Despegue:";
             // 
             // CbDespegue
             // 
             this.CbDespegue.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbDespegue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbDespegue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbDespegue.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CbDespegue.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbDespegue.ForeColor = System.Drawing.Color.White;
             this.CbDespegue.FormattingEnabled = true;
-            this.CbDespegue.Location = new System.Drawing.Point(837, 133);
+            this.CbDespegue.Location = new System.Drawing.Point(830, 57);
             this.CbDespegue.Name = "CbDespegue";
             this.CbDespegue.Size = new System.Drawing.Size(200, 24);
             this.CbDespegue.TabIndex = 78;
@@ -189,7 +190,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(625, 70);
+            this.label1.Location = new System.Drawing.Point(100, 302);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 18);
             this.label1.TabIndex = 67;
@@ -201,7 +202,7 @@
             this.TxtTarifa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTarifa.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtTarifa.ForeColor = System.Drawing.Color.White;
-            this.TxtTarifa.Location = new System.Drawing.Point(837, 61);
+            this.TxtTarifa.Location = new System.Drawing.Point(312, 293);
             this.TxtTarifa.Name = "TxtTarifa";
             this.TxtTarifa.Size = new System.Drawing.Size(200, 24);
             this.TxtTarifa.TabIndex = 66;
@@ -212,20 +213,21 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(621, 347);
+            this.label10.Location = new System.Drawing.Point(747, 298);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 18);
+            this.label10.Size = new System.Drawing.Size(56, 18);
             this.label10.TabIndex = 97;
-            this.label10.Text = "Estado";
+            this.label10.Text = "Estado:";
             // 
             // CbEstado
             // 
             this.CbEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbEstado.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CbEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbEstado.ForeColor = System.Drawing.Color.White;
             this.CbEstado.FormattingEnabled = true;
-            this.CbEstado.Location = new System.Drawing.Point(837, 344);
+            this.CbEstado.Location = new System.Drawing.Point(830, 292);
             this.CbEstado.Name = "CbEstado";
             this.CbEstado.Size = new System.Drawing.Size(200, 24);
             this.CbEstado.TabIndex = 96;
@@ -234,7 +236,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(621, 276);
+            this.label9.Location = new System.Drawing.Point(748, 215);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 18);
             this.label9.TabIndex = 95;
@@ -243,11 +245,12 @@
             // CbAvion
             // 
             this.CbAvion.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbAvion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbAvion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAvion.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CbAvion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbAvion.ForeColor = System.Drawing.Color.White;
             this.CbAvion.FormattingEnabled = true;
-            this.CbAvion.Location = new System.Drawing.Point(837, 273);
+            this.CbAvion.Location = new System.Drawing.Point(830, 211);
             this.CbAvion.Name = "CbAvion";
             this.CbAvion.Size = new System.Drawing.Size(200, 24);
             this.CbAvion.TabIndex = 94;

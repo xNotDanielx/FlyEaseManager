@@ -13,10 +13,10 @@ namespace Entity
         public double TarifaTemporada { get; set; }
         public double Descuento { get; set; }
         public double DistanciaRecorrida { get; set; }
-        public string FechaYHoraLlegada { get; set; }
+        public DateTime FechaYHoraLlegada { get; set; }
         public bool Cupo { get; set; }
-        public string FechaRegistro { get; set; }
-        public string FechaYHoraDeSalida { get; set; }
+        public DateTime FechaRegistro { get; set; }
+        public DateTime FechaYHoraDeSalida { get; set; }
         public Aereopuerto aereopuerto_Despegue { get; set; }
         public Aereopuerto aereopuerto_Destino { get; set; }
         public Estado Estado { get; set; }

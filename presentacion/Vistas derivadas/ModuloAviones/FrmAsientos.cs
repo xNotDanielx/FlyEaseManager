@@ -53,7 +53,7 @@ namespace WindowsFormsApp1
                 {
                     disponibilidad = "Inactivo";
                 }
-                DgvAsientos.Rows.Add(item.IdAsiento, item.Posicion, disponibilidad, item.Categoria.Nombre, item.Avion.Nombre, item.FechaRegistro);
+                DgvAsientos.Rows.Add(item.IdAsiento, item.Posicion, disponibilidad, item.Categoria.Nombre, item.Avion.Nombre, item.FechaRegistro.ToString());
             }
         }
 
@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
             var asientos = await asientoService.ObtenerTodos();
             foreach (var item in asientos)
             {
-                if (item.Avion.IdAvion == avion.IdAvion)
+                if (item.Avion.IdAvion == avion.IdAvion && item.Categoria.Comercial == true)
                 {
                     cantidadAsientos++;
                 }
@@ -141,7 +141,7 @@ namespace WindowsFormsApp1
                         Disponibilidad = ChkDisponibilidad.Checked,
                         Categoria = obtenerCategoria.Where(p => p.Nombre == CbCategorias.Text).FirstOrDefault(),
                         Avion = avion,
-                        FechaRegistro = DgvAsientos.CurrentRow.Cells[5].Value.ToString()
+                        FechaRegistro = DateTime.Parse(DgvAsientos.CurrentRow.Cells[5].Value.ToString())
                     };
 
                     var response = await asientoService.Actualizar(DgvAsientos.CurrentRow.Cells[0].Value.ToString(), asiento);
