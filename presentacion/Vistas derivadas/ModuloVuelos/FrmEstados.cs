@@ -36,12 +36,19 @@ namespace WindowsFormsApp1
             CargarGrilla(await new EstadoService().ObtenerTodos());
         }
 
-        void CargarGrilla(List<Estado> estados)
+        private void CargarGrilla(List<Estado> estados)
         {
-            DgvEstados.Rows.Clear();
-            foreach (var item in estados)
+            try
+            { 
+                DgvEstados.Rows.Clear();
+                foreach (var item in estados)
+                {
+                    DgvEstados.Rows.Add(item.IdEstado, item.Nombre, item.Descripcion, item.Detencion, item.FechaRegistro.ToString());
+                }
+            }
+            catch (Exception ex)
             {
-                DgvEstados.Rows.Add(item.IdEstado, item.Nombre, item.Descripcion, item.Detencion, item.FechaRegistro.ToString());
+                return;
             }
         }
 

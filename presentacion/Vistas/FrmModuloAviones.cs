@@ -48,13 +48,20 @@ namespace WindowsFormsApp1
             await CargarDatos();
         }
 
-        void CargarGrilla(List<Avion> aviones)
+        private void CargarGrilla(List<Avion> aviones)
         {
-            DgvAviones.Rows.Clear();
-            foreach (var item in aviones)
+            try
             {
-                DgvAviones.Rows.Add(item.IdAvion, item.Nombre, item.Modelo, item.Fabricante, item.VelocidadPromedio,
-                    item.CantidadPasajeros, item.CantidadCarga, item.Aereolinea.Nombre, item.FechaRegistro.ToString());
+                DgvAviones.Rows.Clear();
+                foreach (var item in aviones)
+                {
+                    DgvAviones.Rows.Add(item.IdAvion, item.Nombre, item.Modelo, item.Fabricante, item.VelocidadPromedio,
+                        item.CantidadPasajeros, item.CantidadCarga, item.Aereolinea.Nombre, item.FechaRegistro.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
 

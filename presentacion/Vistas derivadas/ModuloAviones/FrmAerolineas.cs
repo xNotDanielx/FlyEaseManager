@@ -47,10 +47,17 @@ namespace WindowsFormsApp1
 
         void CargarGrilla(List<Aereolinea> aerolineas)
         {
-            DgvAerolineas.Rows.Clear();
-            foreach (var item in aerolineas)
+            try
+            { 
+                DgvAerolineas.Rows.Clear();
+                foreach (var item in aerolineas)
+                {
+                    DgvAerolineas.Rows.Add(item.IdAereolinea, item.Nombre, item.CodigoIATA,item.CodigoICAO, item.FechaRegistro.ToString());
+                }
+            }
+            catch (Exception ex)
             {
-                DgvAerolineas.Rows.Add(item.IdAereolinea, item.Nombre, item.CodigoIATA,item.CodigoICAO, item.FechaRegistro.ToString());
+                return;
             }
         }
 

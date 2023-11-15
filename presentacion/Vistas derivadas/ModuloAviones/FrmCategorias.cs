@@ -51,28 +51,35 @@ namespace WindowsFormsApp1
         {
             var estado = "";
             var categoria = "";
-            DgvCategorias.Rows.Clear();
-            foreach (var item in categorias)
+            try
             {
-                if (item.EstadoCategoria == true)
+                DgvCategorias.Rows.Clear();
+                foreach (var item in categorias)
                 {
-                    estado = "Activo";
-                }
-                else
-                {
-                    estado = "Inactivo";
-                }
+                    if (item.EstadoCategoria == true)
+                    {
+                        estado = "Activo";
+                    }
+                    else
+                    {
+                        estado = "Inactivo";
+                    }
 
-                if (item.Comercial == true)
-                {
-                    categoria = "Sí";
-                }
-                else
-                {
-                    categoria = "No";
-                }
+                    if (item.Comercial == true)
+                    {
+                        categoria = "Sí";
+                    }
+                    else
+                    {
+                        categoria = "No";
+                    }
 
-                DgvCategorias.Rows.Add(item.IdCategoria, item.Nombre, item.Descripcion, estado, item.Tarifa, categoria,  item.FechaRegistro.ToString());
+                    DgvCategorias.Rows.Add(item.IdCategoria, item.Nombre, item.Descripcion, estado, item.Tarifa, categoria,  item.FechaRegistro.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
 

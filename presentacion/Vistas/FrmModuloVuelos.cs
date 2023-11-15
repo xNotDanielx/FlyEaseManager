@@ -37,7 +37,7 @@ namespace WindowsFormsApp1
         private async void FrmModuloVuelos_Load(object sender, EventArgs e)
         {
             var lista = await vueloService.ObtenerTodos();
-            await CargarGrilla(lista);
+            CargarGrilla(lista);
             ConfigurarBotones();
         }
 
@@ -55,14 +55,10 @@ namespace WindowsFormsApp1
             }
         }
 
-        private async Task CargarGrilla(List<Vuelo> vuelos)
+        private void CargarGrilla(List<Vuelo> vuelos)
         {
-            if (await vueloService.ObtenerTodos() == null)
-            {
-                return;
-            }
-            else
-            {
+            try
+            { 
                 DgvVuelos.Rows.Clear();
                 foreach (var item in vuelos)
                 {
@@ -70,7 +66,11 @@ namespace WindowsFormsApp1
                         item.FechaYHoraDeSalida.ToString(), item.FechaYHoraLlegada.ToString(), item.aereopuerto_Despegue.Nombre, item.aereopuerto_Destino.Nombre,
                         item.Estado.Nombre, item.Avion.Nombre, item.FechaRegistro.ToString());
                 }
-            }            
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
         }
 
         private async void BtnEditarVuelo_Click(object sender, EventArgs e)
@@ -125,7 +125,7 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            await CargarGrilla(await vueloService.ObtenerTodos());
+            CargarGrilla(await vueloService.ObtenerTodos());
             ConfigurarBotones();
         }
 

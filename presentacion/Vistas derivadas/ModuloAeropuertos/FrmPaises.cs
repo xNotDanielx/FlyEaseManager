@@ -186,10 +186,17 @@ namespace WindowsFormsApp1
 
         private void CargarGrilla(List<Pais> paises)
         {
-            DgvPaises.Rows.Clear();
-            foreach (var item in paises)
+            try
+            {           
+                DgvPaises.Rows.Clear();
+                foreach (var item in paises)
+                {
+                    DgvPaises.Rows.Add(item.IdPais, item.Nombre, item.FechaRegistro.ToString());
+                }
+            }
+            catch (Exception ex)
             {
-                DgvPaises.Rows.Add(item.IdPais, item.Nombre, item.FechaRegistro.ToString());
+                return;
             }
         }
 

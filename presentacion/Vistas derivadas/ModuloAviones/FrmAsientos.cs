@@ -42,18 +42,25 @@ namespace WindowsFormsApp1
         void CargarGrilla(List<Asiento> asientos)
         {
             var disponibilidad = "";
-            DgvAsientos.Rows.Clear();
-            foreach (var item in asientos)
+            try
             {
-                if (item.Disponibilidad == true)
+                DgvAsientos.Rows.Clear();
+                foreach (var item in asientos)
                 {
-                    disponibilidad = "Activo";
+                    if (item.Disponibilidad == true)
+                    {
+                        disponibilidad = "Activo";
+                    }
+                    else
+                    {
+                        disponibilidad = "Inactivo";
+                    }
+                    DgvAsientos.Rows.Add(item.IdAsiento, item.Posicion, disponibilidad, item.Categoria.Nombre, item.Avion.Nombre, item.FechaRegistro.ToString());
                 }
-                else
-                {
-                    disponibilidad = "Inactivo";
-                }
-                DgvAsientos.Rows.Add(item.IdAsiento, item.Posicion, disponibilidad, item.Categoria.Nombre, item.Avion.Nombre, item.FechaRegistro.ToString());
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
 

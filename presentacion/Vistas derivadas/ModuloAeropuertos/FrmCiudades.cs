@@ -232,10 +232,17 @@ namespace WindowsFormsApp1
 
         private void CargarGrilla(List<Ciudad> ciudades)
         {
-            DgvCiudades.Rows.Clear();
-            foreach (var item in ciudades)
+            try
             {
-                DgvCiudades.Rows.Add(item.IdCiudad, item.Nombre, item.Region.Nombre, item.FechaRegistro.ToString());
+                DgvCiudades.Rows.Clear();
+                foreach (var item in ciudades)
+                {
+                    DgvCiudades.Rows.Add(item.IdCiudad, item.Nombre, item.Region.Nombre, item.FechaRegistro.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
 

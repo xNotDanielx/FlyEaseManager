@@ -33,12 +33,19 @@ namespace WindowsFormsApp1
             TxtCorreo.ShortcutsEnabled = false;
         }      
 
-        void CargarGrilla(List<Cliente> clientes)
+        private void CargarGrilla(List<Cliente> clientes)
         {
-            DgvClientes.Rows.Clear();
-            foreach (var item in clientes)
-            {                
-                DgvClientes.Rows.Add(item.NumeroDocumento, item.TipoDocumento, item.Nombres, item.Apellidos, item.Celular, item.Correo, item.FechaRegistro.ToString());
+            try
+            {
+                DgvClientes.Rows.Clear();
+                foreach (var item in clientes)
+                {                
+                    DgvClientes.Rows.Add(item.NumeroDocumento, item.TipoDocumento, item.Nombres, item.Apellidos, item.Celular, item.Correo, item.FechaRegistro.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
 
