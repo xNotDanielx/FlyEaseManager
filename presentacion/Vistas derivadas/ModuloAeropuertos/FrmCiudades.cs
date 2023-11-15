@@ -101,7 +101,7 @@ namespace WindowsFormsApp1
             }
             else if (!Validacion.EsTamañoImagenValido((Bitmap)pbImagen.Image, 100))
             {
-                MessageBox.Show("Debe agregar una imagen valida (MAX 100KB).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe agregar una imagen válida (MÁX 100KB).", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -213,6 +213,7 @@ namespace WindowsFormsApp1
             CargarGrilla(await ciudadService.ObtenerTodos());
             CargarCombo(await new RegionService().ObtenerTodos());
             ConfigurarBotones();
+            TxtNombre.ShortcutsEnabled = false;
         }
 
         private void ConfigurarBotones()
@@ -259,7 +260,7 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (TxtNombre.Text.Length > 60 && !char.IsControl(e.KeyChar))
+            if (TxtNombre.Text.Length > 59 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

@@ -1,5 +1,6 @@
 ﻿using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,10 +28,19 @@ namespace WindowsFormsApp1
 
         private async void FrmEditarAereopuerto_Load(object sender, EventArgs e)
         {
+            await CargarDatos();
+            TxtNombre.Focus();
+        }
+
+        private async Task CargarDatos()
+        {
             TxtNombre.Text = aereopuerto.Nombre;
             TxtLatitud.Text = aereopuerto.Coordenadas.Latitud.ToString();
             TxtLongitud.Text = aereopuerto.Coordenadas.Longitud.ToString();
             CargarCombo(await ciudadService.ObtenerTodos());
+            TxtNombre.ShortcutsEnabled = false;
+            TxtLongitud.ShortcutsEnabled = false;
+            TxtLatitud.ShortcutsEnabled = false;
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
@@ -44,20 +54,30 @@ namespace WindowsFormsApp1
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
+            string nombre = TxtNombre.Text.Trim();
+            string latitud = TxtLatitud.Text.Trim();
+            string longitud = TxtLongitud.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre) || Validacion.EsNuloOVacio(latitud) || Validacion.EsNuloOVacio(longitud))
+            {
+                MessageBox.Show("No pueden quedar campos vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 var obtenerCiudad = await ciudadService.ObtenerTodos();
 
                 Coordenadas coordenada = new Coordenadas
                 {
-                    Latitud = double.Parse(TxtLatitud.Text),
-                    Longitud = double.Parse(TxtLongitud.Text)
+                    Latitud = double.Parse(latitud),
+                    Longitud = double.Parse(longitud)
                 };
 
                 Aereopuerto aeropuerto = new Aereopuerto
                 {
                     IdAereopuerto = aereopuerto.IdAereopuerto,
-                    Nombre = TxtNombre.Text,
+                    Nombre = nombre,
                     Coordenadas = coordenada,
                     Ciudad = obtenerCiudad.Where(p => p.Nombre == CbCiudades.Text).FirstOrDefault(),
                     FechaRegistro = aereopuerto.FechaRegistro
@@ -97,9 +117,19 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            if (TxtNombre.Text.Length > 50 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+            else if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtLatitud.Focus();
             }
         }
 
@@ -113,6 +143,12 @@ namespace WindowsFormsApp1
             if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
             {
                 e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtLongitud.Focus();
             }
         }
 

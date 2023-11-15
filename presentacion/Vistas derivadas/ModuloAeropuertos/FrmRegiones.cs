@@ -171,6 +171,7 @@ namespace WindowsFormsApp1
             CargarGrilla(await regionService.ObtenerTodos());
             CargarCombo(await new PaisService().ObtenerTodos());
             ConfigurarBotones();
+            TxtNombre.ShortcutsEnabled = false;
         }
 
         private void ConfigurarBotones()
@@ -209,7 +210,7 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (TxtNombre.Text.Length > 60 && !char.IsControl(e.KeyChar))
+            if (TxtNombre.Text.Length > 59 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

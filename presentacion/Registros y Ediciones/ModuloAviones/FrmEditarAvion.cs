@@ -1,5 +1,6 @@
 ﻿using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
@@ -28,6 +30,19 @@ namespace WindowsFormsApp1
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
+            string idAvion = TxtId.Text.Trim();
+            string nombre = TxtNombre.Text.Trim();
+            string modelo = TxtModelo.Text.Trim();
+            string fabricante = TxtFabricante.Text.Trim();
+            string velocidadPromedio = TxtVelocidad.Text.Trim();
+            string cantidadCarga = TxtCatidadCarga.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(idAvion) || Validacion.EsNuloOVacio(nombre) || Validacion.EsNuloOVacio(modelo) || Validacion.EsNuloOVacio(fabricante) || Validacion.EsNuloOVacio(velocidadPromedio) || Validacion.EsNuloOVacio(cantidadCarga))
+            {
+                MessageBox.Show("No pueden quedar campos vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 var obtenerAerolinea = await aereolineaService.ObtenerTodos();
@@ -63,8 +78,22 @@ namespace WindowsFormsApp1
 
         private void FrmEditarAvion_Load(object sender, EventArgs e)
         {
+            CargarDatos();
+        }
+
+        private void CargarDatos()
+        {
             cargarCampos(avion);
             CargarCombo();
+            TxtId.ShortcutsEnabled = false;
+            TxtNombre.ShortcutsEnabled = false;
+            TxtModelo.ShortcutsEnabled = false;
+            TxtFabricante.ShortcutsEnabled = false;
+            TxtVelocidad.ShortcutsEnabled = false;
+            TxtCatidadCarga.ShortcutsEnabled = false;
+            TxtCantidadPasajeros.Enabled = false;
+            TxtCantidadPasajeros.BackColor = Color.White;
+            TxtCantidadPasajeros.ForeColor = Color.Black;
         }
 
         private void cargarCampos(Avion avion)
@@ -107,9 +136,19 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (TxtId.Text.Length > 49 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+            else if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtModelo.Focus();
             }
         }
 
@@ -127,6 +166,11 @@ namespace WindowsFormsApp1
             {
                 e.Handled = true;
             }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+            }
         }
 
         private void TxtVelocidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -136,9 +180,69 @@ namespace WindowsFormsApp1
                 e.Handled = true;
             }
 
-            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            if (e.KeyChar == '.' && (sender as System.Windows.Forms.TextBox).Text.Contains("."))
             {
                 e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtCatidadCarga.Focus();
+            }
+        }
+
+        private void TxtId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtId.Text.Length > 9 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtNombre.Focus();
+            }
+        }
+
+        private void TxtModelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtId.Text.Length > 19 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtFabricante.Focus();
+            }
+        }
+
+        private void TxtFabricante_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtId.Text.Length > 39 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtVelocidad.Focus();
             }
         }
     }

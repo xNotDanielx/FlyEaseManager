@@ -210,6 +210,7 @@
             this.TxtCodigoIATA.Name = "TxtCodigoIATA";
             this.TxtCodigoIATA.Size = new System.Drawing.Size(156, 24);
             this.TxtCodigoIATA.TabIndex = 74;
+            this.TxtCodigoIATA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoIATA_KeyPress);
             // 
             // label4
             // 
@@ -232,6 +233,7 @@
             this.TxtCodigoICAO.Name = "TxtCodigoICAO";
             this.TxtCodigoICAO.Size = new System.Drawing.Size(156, 24);
             this.TxtCodigoICAO.TabIndex = 76;
+            this.TxtCodigoICAO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoICAO_KeyPress);
             // 
             // label5
             // 

@@ -1,5 +1,6 @@
 ﻿using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,56 +63,52 @@ namespace WindowsFormsApp1
             CbCategorias.DataSource = await categoriaService.ObtenerTodos();
             CbCategorias.DisplayMember = "Nombre";
 
-            //Aviones
-            CbAviones.DataSource = await avionService.ObtenerTodos();
-            CbAviones.DisplayMember = "Nombre";
         }
 
-        private async void BtnAgregar_Click(object sender, EventArgs e)
+        private async Task ActualizarPasajerosAvion(Avion avion)
         {
-            try
+            int cantidadAsientos = 0;
+
+            var asientos = await asientoService.ObtenerTodos();
+            foreach (var item in asientos)
             {
-                var obtenerCategoria = await categoriaService.ObtenerTodos();
-                var obtenerAvion = await avionService.ObtenerTodos();
-                Asiento asiento = new Asiento
+                if (item.Avion.IdAvion == avion.IdAvion)
                 {
-                    Posicion = int.Parse(TxtPosicion.Text),
-                    Disponibilidad = ChkDisponibilidad.Checked,
-                    Categoria = obtenerCategoria.Where(p => p.Nombre == CbCategorias.Text).FirstOrDefault(),
-                    Avion = obtenerAvion.Where(p => p.Nombre == CbAviones.Text).FirstOrDefault(),
-                };
-
-                var response = await asientoService.Crear(asiento);
-
-                if (response != "Error en la solicitud Post")
-                {
-                    await CargarDatos();
-                    limpiarCampos();
-                    MessageBox.Show("Se ha creado correctamente el asiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cantidadAsientos++;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al crear el asiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            avion.CantidadPasajeros = cantidadAsientos;
+
+            await avionService.Actualizar(avion.IdAvion, avion);
         }
 
         private async Task CargarDatos()
         {
             CargarGrilla(await asientoService.ObtenerTodos());
             CargarCombos();
+            ConfigurarBotones();
+        }
+
+        private void ConfigurarBotones()
+        {
+            if (DgvAsientos.RowCount == 0)
+            {
+                BtnEliminar.Enabled = false;
+                BtnActualizar.Enabled = false;
+            }
+            else
+            {
+                BtnEliminar.Enabled = true;
+                BtnActualizar.Enabled = true;
+            }
         }
 
         private void DgvAsientos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex == -1) return;
             var fila = DgvAsientos.Rows[e.RowIndex];
-            TxtPosicion.Text = fila.Cells[1].Value.ToString();
-            if (fila.Cells[2].Value.ToString() == "True")
+            if (fila.Cells[2].Value.ToString() == "Activo")
             {
                 ChkDisponibilidad.Checked = true;
             }
@@ -120,63 +117,96 @@ namespace WindowsFormsApp1
                 ChkDisponibilidad.Checked = false;
             }
             CbCategorias.Text = fila.Cells[3].Value.ToString();
-            CbAviones.Text = fila.Cells[4].Value.ToString();
         }
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
-            //Toca editar el mensaje enviado al usuario
             if (DgvAsientos.CurrentRow == null) return;
-            var obtenerCategoria = await categoriaService.ObtenerTodos();
-            var obtenerAvion = await avionService.ObtenerTodos();
-            Asiento asiento = new Asiento
+
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar el asiento de id: {DgvAsientos.CurrentRow.Cells[0].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (resultado == DialogResult.OK)
             {
-                IdAsiento = Convert.ToInt32(DgvAsientos.CurrentRow.Cells[0].Value.ToString()),
-                Posicion = int.Parse(TxtPosicion.Text),
-                Disponibilidad = ChkDisponibilidad.Checked,
-                Categoria = obtenerCategoria.Where(p => p.Nombre == CbCategorias.Text).FirstOrDefault(),
-                Avion = obtenerAvion.Where(p => p.Nombre == CbAviones.Text).FirstOrDefault(),
-                FechaRegistro = DgvAsientos.CurrentRow.Cells[5].Value.ToString()
-            };
+                try
+                {
+                    var obtenerCategoria = await categoriaService.ObtenerTodos();
 
-            var response = await asientoService.Actualizar(DgvAsientos.CurrentRow.Cells[0].Value.ToString(), asiento);
+                    var aviones = await avionService.ObtenerTodos();
+                    var avion = aviones.Where(p => p.Nombre == DgvAsientos.CurrentRow.Cells[4].Value.ToString()).FirstOrDefault();
 
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Asiento asiento = new Asiento
+                    {
+                        IdAsiento = Convert.ToInt32(DgvAsientos.CurrentRow.Cells[0].Value.ToString()),
+                        Posicion = int.Parse(DgvAsientos.CurrentRow.Cells[1].Value.ToString()),
+                        Disponibilidad = ChkDisponibilidad.Checked,
+                        Categoria = obtenerCategoria.Where(p => p.Nombre == CbCategorias.Text).FirstOrDefault(),
+                        Avion = avion,
+                        FechaRegistro = DgvAsientos.CurrentRow.Cells[5].Value.ToString()
+                    };
 
-            var lista = await asientoService.ObtenerTodos();
-            CargarGrilla(lista);
-            limpiarCampos();
+                    var response = await asientoService.Actualizar(DgvAsientos.CurrentRow.Cells[0].Value.ToString(), asiento);
+
+                    if (response != "Error en la solicitud Put")
+                    {
+                        await CargarDatos();
+                        await ActualizarPasajerosAvion(avion);
+                        limpiarCampos();
+                        MessageBox.Show("Se ha actualizado correctamente el asiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al actualizar el asiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
-        void limpiarCampos()
+        private void limpiarCampos()
         {
-            TxtPosicion.Text = "";
             ChkDisponibilidad.Checked = true;
             CbCategorias.Text = "";
-            CbAviones.Text = "";
         }
 
         private async void BtnEliminar_Click(object sender, EventArgs e)
         {
             if (DgvAsientos.CurrentRow == null) return;
-            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el asiento?: {DgvAsientos.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if(resultado == DialogResult.OK)
-            {
-                var response = await asientoService.EliminarPorId($"{DgvAsientos.CurrentRow.Cells[0].Value}");
-                var lista = await asientoService.ObtenerTodos();
 
-                CargarGrilla(lista);
-                MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                limpiarCampos();
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el asiento? Se elminará el último asiento del avión {DgvAsientos.CurrentRow.Cells[4].Value}", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            
+            try
+            {
+                if (resultado == DialogResult.OK)
+                {
+                    var aviones = await avionService.ObtenerTodos();
+                    var avion = aviones.Where(p => p.Nombre == DgvAsientos.CurrentRow.Cells[4].Value.ToString()).FirstOrDefault();
+                    var asientos = await asientoService.ObtenerTodos();
+                    var asientosFiltrados = asientos.Where(item => item.Avion.Nombre.Equals(avion.Nombre)).ToList();
+                    var asiento = asientosFiltrados.Where(item => item.Posicion == asientosFiltrados.Count()).FirstOrDefault();
+                    var response = await asientoService.EliminarPorId(asiento.IdAsiento.ToString());
+
+                    if (response != "Error en la solicitud Delete")
+                    {
+                        await CargarDatos();
+                        await ActualizarPasajerosAvion(avion);
+                        limpiarCampos();
+                        MessageBox.Show("Se ha aliminado correctamente el asiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar el asiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void TxtPosicion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
     }    
 }

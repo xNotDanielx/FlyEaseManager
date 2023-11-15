@@ -233,9 +233,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(840, 237);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 18);
+            this.label5.Size = new System.Drawing.Size(81, 18);
             this.label5.TabIndex = 111;
-            this.label5.Text = "Tarifa: ";
+            this.label5.Text = "Tarifa (%): ";
             // 
             // ChkEstado
             // 

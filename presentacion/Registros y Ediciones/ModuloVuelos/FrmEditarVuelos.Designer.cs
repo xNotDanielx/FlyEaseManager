@@ -37,7 +37,6 @@
             this.BtnRegresar = new System.Windows.Forms.Button();
             this.DtpFechaSalida = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtDescuento = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,7 +47,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.CbAvion = new System.Windows.Forms.ComboBox();
             this.BtnActualizar = new System.Windows.Forms.Button();
-            this.ChkCupo = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label8
@@ -155,16 +153,6 @@
             this.label7.TabIndex = 73;
             this.label7.Text = "Fecha y hora salida:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(625, 286);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 18);
-            this.label6.TabIndex = 72;
-            this.label6.Text = "Cupo:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -224,7 +212,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(621, 422);
+            this.label10.Location = new System.Drawing.Point(621, 347);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 18);
             this.label10.TabIndex = 97;
@@ -237,7 +225,7 @@
             this.CbEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbEstado.ForeColor = System.Drawing.Color.White;
             this.CbEstado.FormattingEnabled = true;
-            this.CbEstado.Location = new System.Drawing.Point(837, 419);
+            this.CbEstado.Location = new System.Drawing.Point(837, 344);
             this.CbEstado.Name = "CbEstado";
             this.CbEstado.Size = new System.Drawing.Size(200, 24);
             this.CbEstado.TabIndex = 96;
@@ -246,7 +234,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(621, 351);
+            this.label9.Location = new System.Drawing.Point(621, 276);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 18);
             this.label9.TabIndex = 95;
@@ -259,7 +247,7 @@
             this.CbAvion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbAvion.ForeColor = System.Drawing.Color.White;
             this.CbAvion.FormattingEnabled = true;
-            this.CbAvion.Location = new System.Drawing.Point(837, 348);
+            this.CbAvion.Location = new System.Drawing.Point(837, 273);
             this.CbAvion.Name = "CbAvion";
             this.CbAvion.Size = new System.Drawing.Size(200, 24);
             this.CbAvion.TabIndex = 94;
@@ -277,27 +265,12 @@
             this.BtnActualizar.UseVisualStyleBackColor = false;
             this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
-            // ChkCupo
-            // 
-            this.ChkCupo.AutoSize = true;
-            this.ChkCupo.Checked = true;
-            this.ChkCupo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkCupo.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.ChkCupo.ForeColor = System.Drawing.Color.White;
-            this.ChkCupo.Location = new System.Drawing.Point(837, 288);
-            this.ChkCupo.Name = "ChkCupo";
-            this.ChkCupo.Size = new System.Drawing.Size(98, 22);
-            this.ChkCupo.TabIndex = 125;
-            this.ChkCupo.Text = "Disponible";
-            this.ChkCupo.UseVisualStyleBackColor = true;
-            // 
             // FrmEditarVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
-            this.Controls.Add(this.ChkCupo);
             this.Controls.Add(this.BtnActualizar);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.CbEstado);
@@ -312,7 +285,6 @@
             this.Controls.Add(this.BtnRegresar);
             this.Controls.Add(this.DtpFechaSalida);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtDescuento);
             this.Controls.Add(this.label3);
@@ -338,7 +310,6 @@
         private System.Windows.Forms.Button BtnRegresar;
         private System.Windows.Forms.DateTimePicker DtpFechaSalida;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtDescuento;
         private System.Windows.Forms.Label label3;
@@ -349,6 +320,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox CbAvion;
         private System.Windows.Forms.Button BtnActualizar;
-        private System.Windows.Forms.CheckBox ChkCupo;
     }
 }

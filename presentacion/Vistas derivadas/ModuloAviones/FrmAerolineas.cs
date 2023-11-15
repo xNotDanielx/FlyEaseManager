@@ -1,5 +1,6 @@
 ﻿using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,7 +24,7 @@ namespace WindowsFormsApp1
         }
         private async void FrmAerolineas_Load(object sender, EventArgs e)
         {
-            CargarGrilla(await AereolineaService.ObtenerTodos());
+            await CargarDatos();
         }
 
         private void DgvAerolineas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -55,13 +56,23 @@ namespace WindowsFormsApp1
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
+            string nombre = TxtNombre.Text.Trim();
+            string codigoIATA = TxtCodigoIATA.Text.Trim();
+            string codigoICAO = TxtCodigoICAO.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre) || Validacion.EsNuloOVacio(codigoIATA) || Validacion.EsNuloOVacio(codigoICAO))
+            {
+                MessageBox.Show("No pueden quedar campos vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 Aereolinea aereolinea = new Aereolinea
                 {
-                    Nombre = TxtNombre.Text,
-                    CodigoIATA = TxtCodigoIATA.Text,
-                    CodigoICAO = TxtCodigoICAO.Text,
+                    Nombre = nombre,
+                    CodigoIATA = codigoIATA,
+                    CodigoICAO = codigoICAO,
                 };
                 var response = await AereolineaService.Crear(aereolinea);
 
@@ -87,6 +98,9 @@ namespace WindowsFormsApp1
             var lista = await AereolineaService.ObtenerTodos();
             CargarGrilla(lista);
             ConfigurarBotones();
+            TxtNombre.ShortcutsEnabled = false;
+            TxtCodigoIATA.ShortcutsEnabled = false;
+            TxtCodigoICAO.ShortcutsEnabled = false;
         }
 
         private void limpiarCampos()
@@ -114,6 +128,16 @@ namespace WindowsFormsApp1
         {
             if (DgvAerolineas.CurrentRow == null) return;
 
+            string nombre = TxtNombre.Text.Trim();
+            string codigoIATA = TxtCodigoIATA.Text.Trim();
+            string codigoICAO = TxtCodigoICAO.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre) || Validacion.EsNuloOVacio(codigoIATA) || Validacion.EsNuloOVacio(codigoICAO))
+            {
+                MessageBox.Show("No pueden quedar campos vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar la región: {DgvAerolineas.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (resultado == DialogResult.OK)
@@ -124,9 +148,9 @@ namespace WindowsFormsApp1
                     Aereolinea aereolinea = new Aereolinea
                     {
                         IdAereolinea = Convert.ToInt32(DgvAerolineas.CurrentRow.Cells[0].Value.ToString()),
-                        Nombre = TxtNombre.Text,
-                        CodigoIATA = TxtCodigoIATA.Text,
-                        CodigoICAO = TxtCodigoICAO.Text,
+                        Nombre = nombre,
+                        CodigoIATA = codigoIATA,
+                        CodigoICAO = codigoICAO,
                         FechaRegistro = DgvAerolineas.CurrentRow.Cells[4].Value.ToString()
                     };
 
@@ -182,7 +206,47 @@ namespace WindowsFormsApp1
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            if (TxtNombre.Text.Length > 49 && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtCodigoIATA.Focus();
+            }
+        }
+
+        private void TxtCodigoIATA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtCodigoIATA.Text.Length > 1 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtCodigoICAO.Focus();
+            }
+        }
+
+        private void TxtCodigoICAO_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtCodigoICAO.Text.Length > 2 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }

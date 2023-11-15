@@ -144,7 +144,7 @@
             // CbCiudades
             // 
             this.CbCiudades.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbCiudades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbCiudades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbCiudades.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbCiudades.ForeColor = System.Drawing.Color.White;
             this.CbCiudades.FormattingEnabled = true;

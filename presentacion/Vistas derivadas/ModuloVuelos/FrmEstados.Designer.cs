@@ -78,7 +78,6 @@
             this.DgvEstados.Name = "DgvEstados";
             this.DgvEstados.Size = new System.Drawing.Size(704, 384);
             this.DgvEstados.TabIndex = 62;
-            
             // 
             // IdEstado
             // 

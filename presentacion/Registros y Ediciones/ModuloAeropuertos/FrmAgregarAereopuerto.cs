@@ -1,5 +1,6 @@
 ﻿using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,8 @@ namespace WindowsFormsApp1
 
         private async void FrmAgregarAereopuerto_Load(object sender, EventArgs e)
         {
-            CargarCombo(await ciudadService.ObtenerTodos());
+            await CargarDatos();
+            TxtNombre.Focus();
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
@@ -39,26 +41,36 @@ namespace WindowsFormsApp1
 
         private async void BtnGuardar_Click(object sender, EventArgs e)
         {
+            string nombre = TxtNombre.Text.Trim();
+            string latitud = TxtLatitud.Text.Trim();
+            string longitud = TxtLongitud.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre) || Validacion.EsNuloOVacio(latitud) || Validacion.EsNuloOVacio(longitud))
+            {
+                MessageBox.Show("No pueden quedar campos vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 var obtenerCiudad = await ciudadService.ObtenerTodos();
 
                 Coordenadas coordenada = new Coordenadas
                 {
-                    Latitud = double.Parse(TxtLatitud.Text),
-                    Longitud = double.Parse(TxtLongitud.Text)
+                    Latitud = double.Parse(latitud),
+                    Longitud = double.Parse(longitud)
                 };
 
                 Aereopuerto aereopuerto = new Aereopuerto
                 {
-                    Nombre = TxtNombre.Text,
+                    Nombre = nombre,
                     Coordenadas = coordenada,
                     Ciudad = obtenerCiudad.Where(p => p.Nombre == CbCiudades.Text).FirstOrDefault()
                 };
 
                 var response = await aereopuertoService.Crear(aereopuerto);
 
-                if (response != "Error en la solicitud Post: ")
+                if (response != "Error en la solicitud Post")
                 { 
                     limpiarCampos();
                     MessageBox.Show("Se ha creado correctamente el aeropuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -88,11 +100,29 @@ namespace WindowsFormsApp1
             CbCiudades.DisplayMember = "Nombre";
         }
 
+        private async Task CargarDatos()
+        {
+            CargarCombo(await ciudadService.ObtenerTodos());
+            TxtNombre.ShortcutsEnabled = false;
+            TxtLongitud.ShortcutsEnabled = false;
+            TxtLatitud.ShortcutsEnabled = false;
+        }
+
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            if (TxtNombre.Text.Length > 49 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+            else if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtLatitud.Focus();
             }
         }
 
@@ -107,6 +137,12 @@ namespace WindowsFormsApp1
             {
                 e.Handled = true;
             }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtLongitud.Focus();
+            }
         }
 
         private void TxtLongitud_KeyPress(object sender, KeyPressEventArgs e)
@@ -120,6 +156,7 @@ namespace WindowsFormsApp1
             {
                 e.Handled = true;
             }
+
         }
     }
 }

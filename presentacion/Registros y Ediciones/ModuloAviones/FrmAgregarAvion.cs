@@ -1,5 +1,6 @@
 ﻿using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,10 +30,24 @@ namespace WindowsFormsApp1
 
         private void FrmAgregarAvion_Load(object sender, EventArgs e)
         {
-            CargarCombo();
+            CargarDatos();
         }
 
-        async void CargarCombo()
+        private void CargarDatos()
+        {
+            CargarCombo();
+            TxtId.ShortcutsEnabled = false;
+            TxtNombre.ShortcutsEnabled = false;
+            TxtModelo.ShortcutsEnabled = false;
+            TxtFabricante.ShortcutsEnabled = false;
+            TxtVelocidad.ShortcutsEnabled = false;
+            TxtCatidadCarga.ShortcutsEnabled = false;
+            TxtCantidadAsietos.ShortcutsEnabled = false;
+            TxtAsientosPremium.ShortcutsEnabled = false;
+            TxtAsientosEconomicos.ShortcutsEnabled = false;
+        }
+
+        private async void CargarCombo()
         {
             CbAerolinea.DataSource = await aereolineaService.ObtenerTodos();
             CbAerolinea.DisplayMember = "Nombre";
@@ -40,6 +55,7 @@ namespace WindowsFormsApp1
 
         private void limpiarCampos()
         {
+            TxtId.Text = "";
             TxtNombre.Text = "";
             TxtModelo.Text = "";
             TxtFabricante.Text = "";
@@ -62,6 +78,29 @@ namespace WindowsFormsApp1
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
+            string idAvion = TxtId.Text.Trim();
+            string nombre = TxtNombre.Text.Trim();
+            string modelo = TxtModelo.Text.Trim();
+            string fabricante = TxtFabricante.Text.Trim();
+            string velocidadPromedio = TxtVelocidad.Text.Trim();
+            string cantidadCarga = TxtCatidadCarga.Text.Trim();
+            string cantidadAsientos = TxtCantidadAsietos.Text.Trim();
+            string asientosPremium = TxtAsientosPremium.Text.Trim();
+            string asientosEconomicos = TxtAsientosEconomicos.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(idAvion) || Validacion.EsNuloOVacio(nombre) || Validacion.EsNuloOVacio(modelo) || Validacion.EsNuloOVacio(fabricante) || Validacion.EsNuloOVacio(velocidadPromedio) || Validacion.EsNuloOVacio(cantidadCarga) || Validacion.EsNuloOVacio(cantidadAsientos) || Validacion.EsNuloOVacio(asientosPremium) || Validacion.EsNuloOVacio(asientosEconomicos))
+            {
+                MessageBox.Show("No pueden quedar campos vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if ((int.Parse(asientosPremium) + int.Parse(asientosEconomicos)) > int.Parse(cantidadAsientos) )
+            {
+                MessageBox.Show("La suma de asientos premium y económicos no puede ser mayor a la cantidad de asientos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TxtCantidadAsietos.Focus();
+                return;
+            }
+
             try
             {
                 var obtenerAerolinea = await aereolineaService.ObtenerTodos();
@@ -136,11 +175,57 @@ namespace WindowsFormsApp1
             return contador;
         }
 
-        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtId_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (TxtId.Text.Length > 9 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+            else if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '-' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtNombre.Focus();
+            }
+        }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtId.Text.Length > 49 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtModelo.Focus();
+            }
+        }
+
+        private void TxtModelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtId.Text.Length > 19 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtFabricante.Focus();
             }
         }
 
@@ -155,6 +240,12 @@ namespace WindowsFormsApp1
             {
                 e.Handled = true;
             }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtCatidadCarga.Focus();
+            }
         }
 
         private void TxtCatidadCarga_KeyPress(object sender, KeyPressEventArgs e)
@@ -163,9 +254,61 @@ namespace WindowsFormsApp1
             {
                 e.Handled = true;
             }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtCantidadAsietos.Focus();
+            }
         }
 
-        private void TxtCantidadPasajeros_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtFabricante_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtId.Text.Length > 39 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtVelocidad.Focus();
+            }
+        }
+
+        private void TxtCantidadAsietos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtAsientosPremium.Focus();
+            }
+        }
+
+        private void TxtAsientosPremium_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                e.Handled = true;
+                TxtAsientosEconomicos.Focus();
+            }
+        }
+
+        private void TxtAsientosEconomicos_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {

@@ -1,5 +1,6 @@
 ﻿using BLL.Servicios;
 using Entity;
+using Entity.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,8 +34,17 @@ namespace WindowsFormsApp1
 
         private async void FrmCategorias_Load(object sender, EventArgs e)
         {
-            
+            await CargarDatos();
+        }
+
+        private async Task CargarDatos()
+        {
             CargarGrilla(await categoriaService.ObtenerTodos());
+            TxtDescripcion.ShortcutsEnabled = false;
+            TxtTarifa.ShortcutsEnabled = false;
+            TxtNombre.Enabled = false;
+            TxtNombre.BackColor = Color.White;
+            TxtNombre.ForeColor = Color.Black;
         }
 
         void CargarGrilla(List<Categoria> categorias)
@@ -78,22 +88,51 @@ namespace WindowsFormsApp1
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
             if (DgvCategorias.CurrentRow == null) return;
-            Categoria categoria = new Categoria
+
+            string nombre = TxtNombre.Text.Trim();
+            string descripcion = TxtDescripcion.Text.Trim();
+            string tarifa = TxtTarifa.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(nombre) || Validacion.EsNuloOVacio(descripcion) || Validacion.EsNuloOVacio(tarifa))
             {
-                IdCategoria = int.Parse(DgvCategorias.CurrentRow.Cells[0].Value.ToString()),
-                Nombre = TxtNombre.Text,
-                Descripcion = TxtDescripcion.Text,
-                EstadoCategoria = ChkEstado.Checked,
-                Tarifa = double.Parse(TxtTarifa.Text),
-                FechaRegistro = DgvCategorias.CurrentRow.Cells[5].Value.ToString(),
-            };
+                MessageBox.Show("No pueden quedar campos vacios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            var response = await categoriaService.Actualizar(DgvCategorias.CurrentRow.Cells[0].Value.ToString(), categoria);
+            DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar categoria: {DgvCategorias.CurrentRow.Cells[1].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-            MessageBox.Show(response, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            var lista = await categoriaService.ObtenerTodos();
-            CargarGrilla(lista);
-            limpiarCampos();
+            if (resultado == DialogResult.OK)
+            {
+                try
+                {
+                    Categoria categoria = new Categoria
+                    {
+                        IdCategoria = int.Parse(DgvCategorias.CurrentRow.Cells[0].Value.ToString()),
+                        Nombre = nombre,
+                        Descripcion = descripcion,
+                        EstadoCategoria = ChkEstado.Checked,
+                        Tarifa = double.Parse(tarifa),
+                        FechaRegistro = DgvCategorias.CurrentRow.Cells[5].Value.ToString(),
+                    };
+
+                    var response = await categoriaService.Actualizar(DgvCategorias.CurrentRow.Cells[0].Value.ToString(), categoria);
+
+                    if (response != "Error en la solicitud Put")
+                    {
+                        await CargarDatos();
+                        limpiarCampos();
+                        MessageBox.Show("Se ha actualizado correctamente la categoria", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                MessageBox.Show($"Error al actualizar la categoria: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         }
 
         void limpiarCampos()
@@ -114,11 +153,16 @@ namespace WindowsFormsApp1
 
         private void TxtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            if (TxtNombre.Text.Length > 199 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
+    
 
         private void TxtTarifa_KeyPress(object sender, KeyPressEventArgs e)
         {
