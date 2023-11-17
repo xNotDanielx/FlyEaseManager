@@ -20,28 +20,46 @@ namespace BLL.Servicios
         public async Task<List<Vuelo>> FiltrarPorEstado(string estado)
         {
             List<Vuelo> vuelosFiltrados = await lecturaRepository.ObtenerTodos();
-            return vuelosFiltrados.Where(item => item.Estado.Equals(estado)).ToList();
+            return vuelosFiltrados.Where(item => String.Equals(item.Estado.Nombre, estado, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         public async Task<Dictionary<string, int>> ContarVuelosPorCiudadDestino()
         {
+            //List<Vuelo> vuelosRealizados = await lecturaRepository.ObtenerTodos();
+
+            //vuelosRealizados = vuelosRealizados.Where(item => item.Estado.Nombre.Equals("Realizado")).ToList();
+
+            //var conteoPorCiudad = new Dictionary<string, int>();
+
+            //foreach (Vuelo vuelo in vuelosRealizados)
+            //{
+            //    string ciudadDestino = vuelo.aeropuerto_Destino.Ciudad.Nombre;
+
+            //    if (conteoPorCiudad.ContainsKey(ciudadDestino))
+            //    {
+            //        conteoPorCiudad[ciudadDestino]++;
+            //    }
+            //    else
+            //    {
+            //        conteoPorCiudad[ciudadDestino] = 1;
+            //    }
+            //}
+            //return conteoPorCiudad;
+
             List<Vuelo> vuelosRealizados = await lecturaRepository.ObtenerTodos();
+            List<string> ciudades = vuelosRealizados.Select(vuelo => vuelo.aeropuerto_Destino.Ciudad.Nombre).ToList();
 
-            vuelosRealizados = vuelosRealizados.Where(item => item.Estado.Equals("Realizado")).ToList();
+            Dictionary<string, int> conteoPorCiudad = new Dictionary<string, int>();
 
-            var conteoPorCiudad = new Dictionary<string, int>();
-
-            foreach (Vuelo vuelo in vuelosRealizados)
+            foreach (string ciudad in ciudades)
             {
-                string ciudadDestino = vuelo.aereopuerto_Destino.Ciudad.Nombre;
-
-                if (conteoPorCiudad.ContainsKey(ciudadDestino))
+                if (conteoPorCiudad.ContainsKey(ciudad))
                 {
-                    conteoPorCiudad[ciudadDestino]++;
+                    conteoPorCiudad[ciudad]++;
                 }
                 else
                 {
-                    conteoPorCiudad[ciudadDestino] = 1;
+                    conteoPorCiudad[ciudad] = 1;
                 }
             }
             return conteoPorCiudad;

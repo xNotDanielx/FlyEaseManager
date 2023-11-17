@@ -13,11 +13,11 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormIniciarSesion : Form
+    public partial class FrmIniciarSesion : Form
     {
        
 
-        public FormIniciarSesion()
+        public FrmIniciarSesion()
         {
             InitializeComponent();
         }

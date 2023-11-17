@@ -17,8 +17,8 @@ namespace WindowsFormsApp1
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormIniciarSesion());
-            //Application.Run(new FrmPrincipal());
+            Application.Run(new FrmIniciarSesion());
+            //Application.Run(new FrmFiltroVuelos());
             //Application.Run(new FrmClientes());
         }
     }

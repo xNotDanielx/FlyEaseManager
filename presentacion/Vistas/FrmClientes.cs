@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
             TxtCelular.ShortcutsEnabled = false;
             TxtCorreo.ShortcutsEnabled = false;
         }      
-
+        
         private void CargarGrilla(List<Cliente> clientes)
         {
             try

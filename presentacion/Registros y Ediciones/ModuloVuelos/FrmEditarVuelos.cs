@@ -65,9 +65,9 @@ namespace WindowsFormsApp1
             TxtPrecio.Text = vuelo.PrecioVuelo.ToString();
             TxtTarifa.Text = vuelo.TarifaTemporada.ToString();
             TxtDescuento.Text = vuelo.Descuento.ToString();
-            CbDespegue.Text = vuelo.aereopuerto_Despegue.ToString();
+            CbDespegue.Text = vuelo.aeropuerto_Despegue.ToString();
             DtpFechaSalida.Value = vuelo.FechaYHoraDeSalida;
-            CbDestino.Text = vuelo.aereopuerto_Destino.ToString();
+            CbDestino.Text = vuelo.aeropuerto_Destino.ToString();
             CbAvion.Text = vuelo.Avion.Nombre.ToString();
             CbEstado.Text = vuelo.Estado.Nombre.ToString();
         }
@@ -128,8 +128,8 @@ namespace WindowsFormsApp1
                     FechaYHoraDeSalida = DtpFechaSalida.Value,
                     FechaYHoraLlegada = DateTime.Parse("2023-12-12T20:43:18.719323"), //Se calcula y sobreescribe en la bd
                     Cupo = true, ////Se calcula y sobreescribe en la bd
-                    aereopuerto_Despegue = obtenerAereopuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
-                    aereopuerto_Destino = obtenerAereopuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
+                    aeropuerto_Despegue = obtenerAereopuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
+                    aeropuerto_Destino = obtenerAereopuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
                     Estado = obtenerEstado.Where(p => p.Nombre == CbEstado.Text).FirstOrDefault(),
                     Avion = obtenerAvvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault(),
                     FechaRegistro = this.vuelo.FechaRegistro

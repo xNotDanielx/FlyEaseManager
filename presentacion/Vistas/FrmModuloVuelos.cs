@@ -36,8 +36,7 @@ namespace WindowsFormsApp1
 
         private async void FrmModuloVuelos_Load(object sender, EventArgs e)
         {
-            var lista = await vueloService.ObtenerTodos();
-            CargarGrilla(lista);
+            CargarGrilla(await vueloService.ObtenerTodos());
             ConfigurarBotones();
         }
 
@@ -63,7 +62,7 @@ namespace WindowsFormsApp1
                 foreach (var item in vuelos)
                 {
                     DgvVuelos.Rows.Add(item.IdVuelo.ToString(), item.PrecioVuelo.ToString(), item.TarifaTemporada.ToString(), item.Descuento.ToString(), item.DistanciaRecorrida.ToString(),
-                        item.FechaYHoraDeSalida.ToString(), item.FechaYHoraLlegada.ToString(), item.aereopuerto_Despegue.Nombre, item.aereopuerto_Destino.Nombre,
+                        item.FechaYHoraDeSalida.ToString(), item.FechaYHoraLlegada.ToString(), item.aeropuerto_Despegue.Nombre, item.aeropuerto_Destino.Nombre,
                         item.Estado.Nombre, item.Avion.Nombre, item.FechaRegistro.ToString());
                 }
             }

@@ -16,9 +16,9 @@ namespace WindowsFormsApp1
     {
         private static Administrador administradorActual;
         private Form activo;
-        private FormIniciarSesion vuelta;
+        private FrmIniciarSesion vuelta;
         
-        public FrmPrincipal(Administrador administrador, FormIniciarSesion vuelta)
+        public FrmPrincipal(Administrador administrador, FrmIniciarSesion vuelta)
         {
             administradorActual = administrador;
             this.vuelta = vuelta;
@@ -98,11 +98,13 @@ namespace WindowsFormsApp1
         private void BtnEstadoVuelos_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false;
+            Abrirformhijo(new FrmFiltroVuelos());
         }
 
         private void BtnDestinosPopulares_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false;
+            Abrirformhijo(new FrmDestinosPopulares());
         }
 
         private void BtnTiempoxMeses_Click(object sender, EventArgs e)

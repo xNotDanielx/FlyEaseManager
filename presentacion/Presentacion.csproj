@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,11 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormIniciarSesion.cs">
+    <Compile Include="FrmIniciarSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormIniciarSesion.Designer.cs">
-      <DependentUpon>FormIniciarSesion.cs</DependentUpon>
+    <Compile Include="FrmIniciarSesion.Designer.cs">
+      <DependentUpon>FrmIniciarSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadísticas\FrmFiltroVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadísticas\FrmFiltroVuelos.Designer.cs">
+      <DependentUpon>FrmFiltroVuelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estadísticas\FrmDestinosPopulares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadísticas\FrmDestinosPopulares.Designer.cs">
+      <DependentUpon>FrmDestinosPopulares.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmBoletos.cs">
       <SubType>Form</SubType>
@@ -179,8 +192,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormIniciarSesion.resx">
-      <DependentUpon>FormIniciarSesion.cs</DependentUpon>
+    <EmbeddedResource Include="Estadísticas\FrmFiltroVuelos.resx">
+      <DependentUpon>FrmFiltroVuelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIniciarSesion.resx">
+      <DependentUpon>FrmIniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadísticas\FrmDestinosPopulares.resx">
+      <DependentUpon>FrmDestinosPopulares.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros y Ediciones\ModuloAeropuertos\FrmAgregarAereopuerto.resx">
       <DependentUpon>FrmAgregarAereopuerto.cs</DependentUpon>

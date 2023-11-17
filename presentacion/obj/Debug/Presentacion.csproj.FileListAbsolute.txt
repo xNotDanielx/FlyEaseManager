@@ -91,7 +91,6 @@ C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\o
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.exe
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
-C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FormIniciarSesion.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAgregarVuelos.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmBienvenida.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmModuloVuelos.resources
@@ -212,3 +211,8 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmClientes.resources
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\Imazen.WebP.dll
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\Imazen.WebP.xml
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\Imazen.WebP.dll
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\Imazen.WebP.xml
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmFiltroVuelos.resources
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmDestinosPopulares.resources
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmIniciarSesion.resources

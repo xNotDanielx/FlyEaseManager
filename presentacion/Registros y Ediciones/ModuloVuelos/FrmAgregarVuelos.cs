@@ -95,8 +95,8 @@ namespace WindowsFormsApp1
                     FechaYHoraDeSalida = DtpFechaSalida.Value,
                     FechaYHoraLlegada = DateTime.Parse("2023-12-12T20:43:18.719323"),
                     Cupo = true,
-                    aereopuerto_Despegue = obtenerAeropuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
-                    aereopuerto_Destino = obtenerAeropuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
+                    aeropuerto_Despegue = obtenerAeropuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
+                    aeropuerto_Destino = obtenerAeropuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
                     Estado = obtenerEstado.Where(p => p.Nombre == CbEstado.Text).FirstOrDefault(),
                     Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
                 };

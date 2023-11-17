@@ -17,10 +17,11 @@ namespace Entity
         public bool Cupo { get; set; }
         public DateTime FechaRegistro { get; set; }
         public DateTime FechaYHoraDeSalida { get; set; }
-        public Aereopuerto aereopuerto_Despegue { get; set; }
-        public Aereopuerto aereopuerto_Destino { get; set; }
-        public Estado Estado { get; set; }
         public Avion Avion { get; set; }
+        public Aereopuerto aeropuerto_Despegue { get; set; }
+        public Aereopuerto aeropuerto_Destino { get; set; }
+        public Estado Estado { get; set; }
+        
         
 
         public Vuelo()
