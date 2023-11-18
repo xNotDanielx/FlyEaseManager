@@ -99,7 +99,7 @@ namespace WindowsFormsApp1
             var loading = CrearLoading();
             try
             {
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 AdministradorService administradorService = new AdministradorService();
                 var token = await administradorService.Autenticar(TxtUsuario.Text, TxtContrasena.Text);
                 if (token != null)
@@ -128,9 +128,9 @@ namespace WindowsFormsApp1
            
         }
 
-        private FormLoading CrearLoading()
+        private FrmLoading CrearLoading()
         {
-            FormLoading loadingForm = new FormLoading(this);
+            FrmLoading loadingForm = new FrmLoading(this);
             return loadingForm;
         }
 
@@ -161,6 +161,25 @@ namespace WindowsFormsApp1
             TxtContrasena.Text = "Contraseña";
             TxtContrasena.ForeColor = Color.LightGray;
             TxtContrasena.UseSystemPasswordChar = false;
+        }
+
+        private void TxtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                BtnAcceder.Focus();
+                BtnAcceder.PerformClick();
+            }
+        }
+
+        private void TxtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // Si no es una letra ni un número, suprimir el carácter
+                e.Handled = true;
+            }
         }
     }
 }

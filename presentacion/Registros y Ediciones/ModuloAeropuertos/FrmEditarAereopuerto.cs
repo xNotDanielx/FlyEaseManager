@@ -32,9 +32,9 @@ namespace WindowsFormsApp1
             TxtNombre.Focus();
         }
 
-        private FormLoading CrearLoading()
+        private FrmLoading CrearLoading()
         {
-            FormLoading loadingForm = new FormLoading(principal);
+            FrmLoading loadingForm = new FrmLoading(principal);
             return loadingForm;
         }
 
@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
             var loading = CrearLoading();
             try
             {
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 TxtNombre.Text = aereopuerto.Nombre;
                 TxtLatitud.Text = aereopuerto.Coordenadas.Latitud.ToString();
                 TxtLongitud.Text = aereopuerto.Coordenadas.Longitud.ToString();
@@ -115,7 +115,7 @@ namespace WindowsFormsApp1
                 };
 
                 
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 var response = await aereopuertoService.Actualizar(aereopuerto.IdAereopuerto.ToString(), aeropuerto);
                 loading.HideLoading();
 

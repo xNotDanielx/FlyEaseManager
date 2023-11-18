@@ -1,4 +1,5 @@
 ﻿using BLL.Servicios;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,17 @@ namespace WindowsFormsApp1
 
         private async void FrmDestinosPopulares_Load(object sender, EventArgs e)
         {
-            configurarGrafica(await vueloService.ContarVuelosPorCiudadDestino());           
+            cargarCombo(await vueloService.ObtenerTodos());
+            if (CbAno.Text != "")
+            {                
+                
+                configurarGrafica(await vueloService.ContarVuelosPorCiudadDestino(int.Parse(CbAno.Text)));
+            }      
         } 
         
         void configurarGrafica(Dictionary<string, int> conteo)
         {
-
+            ChartDestinosPopulares.ForeColor = Color.White;
             foreach (var kvp in conteo)
             {
                 string leyenda = $"{kvp.Value} veces";
@@ -38,6 +44,22 @@ namespace WindowsFormsApp1
             // Ajusta otras propiedades según tus preferencias
             ChartDestinosPopulares.Legends.Add(new Legend("Leyenda"));
             ChartDestinosPopulares.Legends["Leyenda"].Docking = Docking.Bottom;
+        }
+
+        void cargarCombo(List<Vuelo> vuelos)
+        {
+            foreach (var item in vuelos)
+            {
+                if (CbAno.Items.Contains(item.FechaRegistro.Year.ToString()) == false)
+                {
+                    CbAno.Items.Add(item.FechaRegistro.Year.ToString());
+                }                
+            }
+        }
+
+        private async void CbAno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            configurarGrafica(await vueloService.ContarVuelosPorCiudadDestino(int.Parse(CbAno.Text)));
         }
     }
 }

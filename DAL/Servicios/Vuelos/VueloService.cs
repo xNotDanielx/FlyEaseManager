@@ -23,22 +23,26 @@ namespace BLL.Servicios
             return vuelosFiltrados.Where(item => String.Equals(item.Estado.Nombre, estado, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
-        public async Task<Dictionary<string, int>> ContarVuelosPorCiudadDestino()
+        public async Task<Dictionary<string, int>> ContarVuelosPorCiudadDestino(int anoVuelo)
         {
-            List<Vuelo> vuelosRealizados = await lecturaRepository.ObtenerTodos();
-            List<string> ciudadesCompletadas = vuelosRealizados.Where(vuelo => vuelo.Estado.Nombre == "Completado").Select(vuelo => vuelo.aeropuerto_Destino.Ciudad.Nombre).ToList();
+            List<Vuelo> Vuelos = await lecturaRepository.ObtenerTodos();
+
+            List<Vuelo> vuelosFiltradosPorAno = Vuelos.Where(vuelo => vuelo.FechaYHoraDeSalida.Year == anoVuelo).ToList();
 
             Dictionary<string, int> conteoPorCiudad = new Dictionary<string, int>();
 
-            foreach (string ciudad in ciudadesCompletadas)
+            foreach (Vuelo vuelo in vuelosFiltradosPorAno)
             {
-                if (conteoPorCiudad.ContainsKey(ciudad))
+                if (vuelo.Estado.Nombre == "Completado")
                 {
-                    conteoPorCiudad[ciudad]++;
-                }
-                else
-                {
-                    conteoPorCiudad[ciudad] = 1;
+                    if (conteoPorCiudad.ContainsKey(vuelo.aeropuerto_Destino.Ciudad.Nombre.ToString()))
+                    {
+                        conteoPorCiudad[vuelo.aeropuerto_Destino.Ciudad.Nombre.ToString()]++;
+                    }
+                    else
+                    {
+                        conteoPorCiudad[vuelo.aeropuerto_Destino.Ciudad.Nombre.ToString()] = 1;
+                    }
                 }
             }
 
@@ -47,28 +51,31 @@ namespace BLL.Servicios
             return ciudadesTop10;
         }
 
-        public async Task<Dictionary<int, int>> ContarVuelosPorMes(int AñoVuelo)
+        public async Task<Dictionary<int, int>> ContarVuelosPorMes(int anoVuelo)
         {
-            List<Vuelo> vuelosRealizados = await lecturaRepository.ObtenerTodos();
+            List<Vuelo> Vuelos = await lecturaRepository.ObtenerTodos();
 
-            List<Vuelo> vuelosFiltrrados = vuelosRealizados.Where(vuelo => vuelo.FechaRegistro.Year == AñoVuelo).ToList();
+            List<Vuelo> vuelosFiltradosPorAno = Vuelos.Where(vuelo => vuelo.FechaYHoraDeSalida.Year == anoVuelo).ToList();
 
             Dictionary<int, int> vuelosPorMes = new Dictionary<int, int>();
 
-            foreach (var vuelo in vuelosRealizados)
+            foreach (var vuelo in vuelosFiltradosPorAno)
             {
                 int mes = vuelo.FechaRegistro.Month;
 
-                if (vuelosPorMes.ContainsKey(mes))
+                if (vuelo.Estado.Nombre == "Completado")
                 {
-                    vuelosPorMes[mes]++;
-                }
-                else
-                {
-                    vuelosPorMes[mes] = 1;
-                }
+                    if (vuelosPorMes.ContainsKey(mes))
+                    {
+                        vuelosPorMes[mes]++;
+                    }
+                    else
+                    {
+                        vuelosPorMes[mes] = 1;
+                    }
+                }                
             }
             return vuelosPorMes;
-        }        
+        }                
     }
 }

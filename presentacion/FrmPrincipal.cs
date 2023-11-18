@@ -116,6 +116,7 @@ namespace WindowsFormsApp1
         private void BtnDineroGenerado_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false;
+            Abrirformhijo(new FrmDineroGeneradoXVuelos());
         }
 
         private void TmrFechaYHora_Tick(object sender, EventArgs e)
@@ -127,11 +128,6 @@ namespace WindowsFormsApp1
         private void PbLogoPrincipal_Click(object sender, EventArgs e)
         {
             Abrirformhijo(new FrmBienvenida());
-        }
-
-        private void PnTitulo_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)

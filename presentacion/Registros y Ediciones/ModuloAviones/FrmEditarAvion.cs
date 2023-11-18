@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
                     FechaRegistro = this.avion.FechaRegistro
                 };
 
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 var response = await avionService.Actualizar(avion.IdAvion, avion);
                 loading.HideLoading();
 
@@ -87,9 +87,9 @@ namespace WindowsFormsApp1
             await CargarDatos();
         }
 
-        private FormLoading CrearLoading()
+        private FrmLoading CrearLoading()
         {
-            FormLoading loadingForm = new FormLoading(principal);
+            FrmLoading loadingForm = new FrmLoading(principal);
             return loadingForm;
         }
 
@@ -98,7 +98,7 @@ namespace WindowsFormsApp1
             var loading = CrearLoading();
             try
             {
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 cargarCampos(avion);
                 await CargarCombo();
                 TxtId.ShortcutsEnabled = false;

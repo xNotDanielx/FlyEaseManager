@@ -34,9 +34,9 @@ namespace WindowsFormsApp1
             await CargarDatos();
         }
 
-        private FormLoading CrearLoading()
+        private FrmLoading CrearLoading()
         {
-            FormLoading loadingForm = new FormLoading(principal);
+            FrmLoading loadingForm = new FrmLoading(principal);
             return loadingForm;
         }
 
@@ -45,7 +45,7 @@ namespace WindowsFormsApp1
             var loading = CrearLoading();
             try
             {
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 await CargarCombo();
                 TxtId.ShortcutsEnabled = false;
                 TxtNombre.ShortcutsEnabled = false;
@@ -139,7 +139,7 @@ namespace WindowsFormsApp1
                 };
 
                 
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 var response = await avionService.Crear(avion);
                 avionActual = avion;
 

@@ -84,7 +84,7 @@ namespace WindowsFormsApp1
                 };
 
                
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 var response = await aereopuertoService.Crear(aereopuerto);
                 loading.HideLoading();
 
@@ -120,9 +120,9 @@ namespace WindowsFormsApp1
             CbCiudades.DisplayMember = "Nombre";
         }
 
-        private FormLoading CrearLoading()
+        private FrmLoading CrearLoading()
         {
-            FormLoading loadingForm = new FormLoading(principal);
+            FrmLoading loadingForm = new FrmLoading(principal);
             return loadingForm;
         }
 
@@ -131,7 +131,7 @@ namespace WindowsFormsApp1
             var loading = CrearLoading();
             try
             {
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 CargarCombo(await ciudadService.ObtenerTodos());
                 TxtNombre.ShortcutsEnabled = false;
                 TxtLongitud.ShortcutsEnabled = false;

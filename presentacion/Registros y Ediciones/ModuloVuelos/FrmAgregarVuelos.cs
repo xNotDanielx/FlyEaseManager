@@ -41,9 +41,9 @@ namespace WindowsFormsApp1
             await CargarDatos();
         }
 
-        private FormLoading CrearLoading()
+        private FrmLoading CrearLoading()
         {
-            FormLoading loadingForm = new FormLoading(principal);
+            FrmLoading loadingForm = new FrmLoading(principal);
             return loadingForm;
         }
 
@@ -52,7 +52,7 @@ namespace WindowsFormsApp1
             var loading = CrearLoading();
             try
             {
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 ConfigurarDateTimePickers();
                 await CargarCombos();
                 TxtPrecio.ShortcutsEnabled = false;
@@ -134,7 +134,7 @@ namespace WindowsFormsApp1
                     Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
                 };
 
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 var response = await VueloService.Crear(vuelo);
                 loading.HideLoading();
 

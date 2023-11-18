@@ -32,6 +32,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.ChartDestinosPopulares = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.CbAno = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ChartDestinosPopulares)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +57,38 @@
             this.ChartDestinosPopulares.Size = new System.Drawing.Size(641, 500);
             this.ChartDestinosPopulares.TabIndex = 0;
             // 
+            // CbAno
+            // 
+            this.CbAno.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbAno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAno.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.CbAno.ForeColor = System.Drawing.Color.White;
+            this.CbAno.FormattingEnabled = true;
+            this.CbAno.Location = new System.Drawing.Point(32, 37);
+            this.CbAno.Name = "CbAno";
+            this.CbAno.Size = new System.Drawing.Size(176, 24);
+            this.CbAno.TabIndex = 3;
+            this.CbAno.SelectedIndexChanged += new System.EventHandler(this.CbAno_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(28, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(180, 23);
+            this.label2.TabIndex = 90;
+            this.label2.Text = "Destinos populares";
+            // 
             // FrmDestinosPopulares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 524);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.CbAno);
             this.Controls.Add(this.ChartDestinosPopulares);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmDestinosPopulares";
@@ -68,10 +96,13 @@
             this.Load += new System.EventHandler(this.FrmDestinosPopulares_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ChartDestinosPopulares)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.DataVisualization.Charting.Chart ChartDestinosPopulares;
+        private System.Windows.Forms.ComboBox CbAno;
+        private System.Windows.Forms.Label label2;
     }
 }

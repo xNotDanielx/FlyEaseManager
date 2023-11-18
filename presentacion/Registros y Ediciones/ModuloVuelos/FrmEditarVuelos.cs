@@ -42,7 +42,7 @@ namespace WindowsFormsApp1
             var loading = CrearLoading();
             try
             {
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 await CargarCombos();
                 CargarCampos(vuelo);
                 TxtPrecio.ShortcutsEnabled = false;
@@ -57,9 +57,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        private FormLoading CrearLoading()
+        private FrmLoading CrearLoading()
         {
-            FormLoading loadingForm = new FormLoading(principal);
+            FrmLoading loadingForm = new FrmLoading(principal);
             return loadingForm;
         }
 
@@ -168,7 +168,7 @@ namespace WindowsFormsApp1
                     FechaRegistro = this.vuelo.FechaRegistro
                 };
 
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 var response = await vueloService.Actualizar(this.vuelo.IdVuelo.ToString(), vuelo);
                 loading.HideLoading();
 

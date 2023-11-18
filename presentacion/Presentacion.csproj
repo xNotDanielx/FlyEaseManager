@@ -52,11 +52,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormLoading.cs">
+    <Compile Include="Estadísticas\FrmDineroGeneradoXVuelos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLoading.Designer.cs">
-      <DependentUpon>FormLoading.cs</DependentUpon>
+    <Compile Include="Estadísticas\FrmDineroGeneradoXVuelos.Designer.cs">
+      <DependentUpon>FrmDineroGeneradoXVuelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLoading.Designer.cs">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
     </Compile>
     <Compile Include="Estadísticas\FrmHistograma.cs">
       <SubType>Form</SubType>
@@ -207,8 +213,11 @@
     <EmbeddedResource Include="Estadísticas\FrmFiltroVuelos.resx">
       <DependentUpon>FrmFiltroVuelos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLoading.resx">
-      <DependentUpon>FormLoading.cs</DependentUpon>
+    <EmbeddedResource Include="Estadísticas\FrmDineroGeneradoXVuelos.resx">
+      <DependentUpon>FrmDineroGeneradoXVuelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLoading.resx">
+      <DependentUpon>FrmLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Estadísticas\FrmHistograma.resx">
       <DependentUpon>FrmHistograma.cs</DependentUpon>

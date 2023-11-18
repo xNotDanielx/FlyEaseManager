@@ -108,6 +108,8 @@
             this.TxtUsuario.TabIndex = 0;
             this.TxtUsuario.Text = "Usuario";
             this.TxtUsuario.Enter += new System.EventHandler(this.TxtUsuario_Enter);
+            this.TxtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUsuario_KeyDown);
+            this.TxtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuario_KeyPress);
             this.TxtUsuario.Leave += new System.EventHandler(this.TxtUsuario_Leave);
             // 
             // BtnCerrar
@@ -136,7 +138,7 @@
             this.BtnMinimizar.UseVisualStyleBackColor = false;
             this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click_1);
             // 
-            // FormIniciarSesion
+            // FrmIniciarSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,7 +152,7 @@
             this.Controls.Add(this.TxtContrasena);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormIniciarSesion";
+            this.Name = "FrmIniciarSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormIniciarSesion_Load);

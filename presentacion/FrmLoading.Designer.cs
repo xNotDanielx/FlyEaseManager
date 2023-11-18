@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class FormLoading
+    partial class FrmLoading
     {
         /// <summary>
         /// Required designer variable.

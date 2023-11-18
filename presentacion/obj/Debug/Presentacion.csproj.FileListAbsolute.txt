@@ -221,5 +221,6 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FormLoading.resources
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\Resources\loading.gif
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\Resources\loading.gif
-C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FormLoading.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmHistograma.resources
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmLoading.resources
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmDineroGeneradoXVuelos.resources

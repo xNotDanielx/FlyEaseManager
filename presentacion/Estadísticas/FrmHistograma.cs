@@ -25,9 +25,9 @@ namespace WindowsFormsApp1
         private async void FrmHistograma_Load(object sender, EventArgs e)
         {
             cargarCombo(await vueloService.ObtenerTodos());
-            if (CbAño.Text != "")
+            if (CbAno.Text != "")
             {
-                configurarGrafica(await vueloService.ContarVuelosPorMes(int.Parse(CbAño.Text)));
+                configurarGrafica(await vueloService.ContarVuelosPorMes(int.Parse(CbAno.Text)));
             }
         }
 
@@ -63,16 +63,16 @@ namespace WindowsFormsApp1
         {
             foreach (var item in vuelos)
             {
-                if (CbAño.Items.Contains(item.FechaRegistro.Year.ToString()) == false)
+                if (CbAno.Items.Contains(item.FechaYHoraDeSalida.Year.ToString()) == false)
                 {
-                    CbAño.Items.Add(item.FechaRegistro.Year.ToString());
+                    CbAno.Items.Add(item.FechaYHoraDeSalida.Year.ToString());
                 }                
             }
         }
 
         private async void CbAño_SelectedIndexChanged(object sender, EventArgs e)
         {
-            configurarGrafica(await vueloService.ContarVuelosPorMes(int.Parse(CbAño.Text)));
+            configurarGrafica(await vueloService.ContarVuelosPorMes(int.Parse(CbAno.Text)));
         }
     }
 }

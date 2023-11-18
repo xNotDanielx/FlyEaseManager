@@ -4,16 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormLoading : Form
+    public partial class FrmLoading : Form
     {
         public Form formulario;
-        public FormLoading(Form formulario)
+        public FrmLoading(Form formulario)
         {
             InitializeComponent();
             this.formulario = formulario;
@@ -36,13 +37,10 @@ namespace WindowsFormsApp1
             pbGif.Location = new Point((formulario.Width - tamaño) / 2, (formulario.Height - tamaño) / 2);
         }
 
-        public void ShowLoading()
+        public void ShowLoading(FrmLoading loadingForm)
         {
-            FormLoading loadingForm = new FormLoading(formulario);
-
             loadingForm.Size = formulario.Size;
             loadingForm.StartPosition = formulario.StartPosition;
-
             loadingForm.Show(formulario);
             loadingForm.BringToFront();
             loadingForm.Refresh();
@@ -54,7 +52,7 @@ namespace WindowsFormsApp1
 
             foreach (Form form in Application.OpenForms)
             {
-                if (form.Owner == formulario && form is FormLoading loadingForm)
+                if (form.Owner == formulario && form is FrmLoading loadingForm)
                 {
                     formsToClose.Add(loadingForm);
                 }

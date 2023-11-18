@@ -28,41 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.ChartTiempoVsVuelos = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.CbAño = new System.Windows.Forms.ComboBox();
+            this.CbAno = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ChartTiempoVsVuelos)).BeginInit();
             this.SuspendLayout();
             // 
             // ChartTiempoVsVuelos
             // 
-            chartArea2.Name = "ChartArea1";
-            this.ChartTiempoVsVuelos.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.ChartTiempoVsVuelos.Legends.Add(legend2);
-            this.ChartTiempoVsVuelos.Location = new System.Drawing.Point(365, 85);
+            chartArea1.Name = "ChartArea1";
+            this.ChartTiempoVsVuelos.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.ChartTiempoVsVuelos.Legends.Add(legend1);
+            this.ChartTiempoVsVuelos.Location = new System.Drawing.Point(65, 79);
             this.ChartTiempoVsVuelos.Name = "ChartTiempoVsVuelos";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.ChartTiempoVsVuelos.Series.Add(series2);
-            this.ChartTiempoVsVuelos.Size = new System.Drawing.Size(300, 300);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.ChartTiempoVsVuelos.Series.Add(series1);
+            this.ChartTiempoVsVuelos.Size = new System.Drawing.Size(937, 390);
             this.ChartTiempoVsVuelos.TabIndex = 0;
             // 
-            // CbAño
+            // CbAno
             // 
-            this.CbAño.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbAño.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.CbAño.ForeColor = System.Drawing.Color.White;
-            this.CbAño.FormattingEnabled = true;
-            this.CbAño.Location = new System.Drawing.Point(430, 36);
-            this.CbAño.Name = "CbAño";
-            this.CbAño.Size = new System.Drawing.Size(185, 24);
-            this.CbAño.TabIndex = 2;
-            this.CbAño.SelectedIndexChanged += new System.EventHandler(this.CbAño_SelectedIndexChanged);
+            this.CbAno.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbAno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbAno.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.CbAno.ForeColor = System.Drawing.Color.White;
+            this.CbAno.FormattingEnabled = true;
+            this.CbAno.Location = new System.Drawing.Point(440, 49);
+            this.CbAno.Name = "CbAno";
+            this.CbAno.Size = new System.Drawing.Size(185, 24);
+            this.CbAno.TabIndex = 2;
+            this.CbAno.SelectedIndexChanged += new System.EventHandler(this.CbAño_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(457, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 23);
+            this.label2.TabIndex = 90;
+            this.label2.Text = "Vuelos por mes";
             // 
             // FrmHistograma
             // 
@@ -70,7 +82,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
-            this.Controls.Add(this.CbAño);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.CbAno);
             this.Controls.Add(this.ChartTiempoVsVuelos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmHistograma";
@@ -78,12 +91,14 @@
             this.Load += new System.EventHandler(this.FrmHistograma_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ChartTiempoVsVuelos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart ChartTiempoVsVuelos;
-        private System.Windows.Forms.ComboBox CbAño;
+        private System.Windows.Forms.ComboBox CbAno;
+        private System.Windows.Forms.Label label2;
     }
 }

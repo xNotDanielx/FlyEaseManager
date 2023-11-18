@@ -126,9 +126,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        private FormLoading CrearLoading()
+        private FrmLoading CrearLoading()
         {
-            FormLoading loadingForm = new FormLoading(principal);
+            FrmLoading loadingForm = new FrmLoading(principal);
             return loadingForm;
         }
 
@@ -137,7 +137,7 @@ namespace WindowsFormsApp1
             var loading = CrearLoading();
             try
             {
-                loading.ShowLoading();
+                loading.ShowLoading(loading);
                 CargarGrilla(await avionService.ObtenerTodos());
                 ConfigurarBotones();
                 loading.HideLoading();
