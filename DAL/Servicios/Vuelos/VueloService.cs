@@ -25,27 +25,6 @@ namespace BLL.Servicios
 
         public async Task<Dictionary<string, int>> ContarVuelosPorCiudadDestino()
         {
-            //List<Vuelo> vuelosRealizados = await lecturaRepository.ObtenerTodos();
-
-            //vuelosRealizados = vuelosRealizados.Where(item => item.Estado.Nombre.Equals("Realizado")).ToList();
-
-            //var conteoPorCiudad = new Dictionary<string, int>();
-
-            //foreach (Vuelo vuelo in vuelosRealizados)
-            //{
-            //    string ciudadDestino = vuelo.aeropuerto_Destino.Ciudad.Nombre;
-
-            //    if (conteoPorCiudad.ContainsKey(ciudadDestino))
-            //    {
-            //        conteoPorCiudad[ciudadDestino]++;
-            //    }
-            //    else
-            //    {
-            //        conteoPorCiudad[ciudadDestino] = 1;
-            //    }
-            //}
-            //return conteoPorCiudad;
-
             List<Vuelo> vuelosRealizados = await lecturaRepository.ObtenerTodos();
             List<string> ciudadesCompletadas = vuelosRealizados.Where(vuelo => vuelo.Estado.Nombre == "Completado").Select(vuelo => vuelo.aeropuerto_Destino.Ciudad.Nombre).ToList();
 
@@ -68,5 +47,28 @@ namespace BLL.Servicios
             return ciudadesTop10;
         }
 
+        public async Task<Dictionary<int, int>> ContarVuelosPorMes(int AñoVuelo)
+        {
+            List<Vuelo> vuelosRealizados = await lecturaRepository.ObtenerTodos();
+
+            List<Vuelo> vuelosFiltrrados = vuelosRealizados.Where(vuelo => vuelo.FechaRegistro.Year == AñoVuelo).ToList();
+
+            Dictionary<int, int> vuelosPorMes = new Dictionary<int, int>();
+
+            foreach (var vuelo in vuelosRealizados)
+            {
+                int mes = vuelo.FechaRegistro.Month;
+
+                if (vuelosPorMes.ContainsKey(mes))
+                {
+                    vuelosPorMes[mes]++;
+                }
+                else
+                {
+                    vuelosPorMes[mes] = 1;
+                }
+            }
+            return vuelosPorMes;
+        }        
     }
 }

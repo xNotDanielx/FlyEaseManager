@@ -110,6 +110,7 @@ namespace WindowsFormsApp1
         private void BtnTiempoxMeses_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false; PnSubmenuEstadisticas.Visible = false;
+            Abrirformhijo(new FrmHistograma());
         }
 
         private void BtnDineroGenerado_Click(object sender, EventArgs e)

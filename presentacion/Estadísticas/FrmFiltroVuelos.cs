@@ -23,8 +23,7 @@ namespace WindowsFormsApp1
         }
 
         private async void FrmFiltroVuelos_Load(object sender, EventArgs e)
-        {
-            
+        {            
             cargarCombo(await EstadoService.ObtenerTodos());
             CargarGrilla(await VueloService.ObtenerTodos());
         }
@@ -40,8 +39,6 @@ namespace WindowsFormsApp1
             {
                 CbEstado.Items.Add(item.Nombre.ToString());
             }
-            //CbEstado.DataSource = estados;
-            //CbEstado.DisplayMember = "Nombre";
         }
 
         private void CargarGrilla(List<Vuelo> vuelos)
