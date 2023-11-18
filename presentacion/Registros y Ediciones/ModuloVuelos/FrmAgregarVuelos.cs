@@ -109,6 +109,7 @@ namespace WindowsFormsApp1
             if (DtpFechaSalida.Value < horaLimite)
             {
                 MessageBox.Show("La hora de salida debe ser al menos una hora más tarde que la hora actual.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             var loading = CrearLoading();
