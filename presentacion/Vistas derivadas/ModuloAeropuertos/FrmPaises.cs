@@ -140,7 +140,6 @@ namespace WindowsFormsApp1
 
                 if (response != "Error en la solicitud Post")
                 {
-
                     await CargarDatos();
                     limpiarCampos();
                     MessageBox.Show("Se creado correctamente el país", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -163,13 +162,31 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
         private async Task CargarDatos()
         {
-            var lista = await paisService.ObtenerTodos();
-            CargarGrilla(lista);
-            ConfigurarBotones();
-            TxtNombre.ShortcutsEnabled = false;
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                var lista = await paisService.ObtenerTodos();
+                CargarGrilla(lista);
+                ConfigurarBotones();
+                TxtNombre.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
+
         private void ConfigurarBotones()
         {
             if (DgvPaises.RowCount == 0)

@@ -25,14 +25,36 @@ namespace WindowsFormsApp1
 
         private async void FrmClientes_Load(object sender, EventArgs e)
         {
-            CargarGrilla(await clienteService.ObtenerTodos());
-            TxtDocumento.ShortcutsEnabled = false;
-            TxtNombres.ShortcutsEnabled = false;
-            TxtApellidos.ShortcutsEnabled = false;
-            TxtCelular.ShortcutsEnabled = false;
-            TxtCorreo.ShortcutsEnabled = false;
-        }      
-        
+            await CargarDatos();
+        }
+
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
+        private async Task CargarDatos()
+        {
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                CargarGrilla(await clienteService.ObtenerTodos());
+                TxtDocumento.ShortcutsEnabled = false;
+                TxtNombres.ShortcutsEnabled = false;
+                TxtApellidos.ShortcutsEnabled = false;
+                TxtCelular.ShortcutsEnabled = false;
+                TxtCorreo.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+        }
+
         private void CargarGrilla(List<Cliente> clientes)
         {
             try
@@ -79,12 +101,13 @@ namespace WindowsFormsApp1
         private async void BtnAgregar_Click(object sender, EventArgs e)
         {
             string documento = TxtDocumento.Text.Trim();
+            string documentoTipo = CbTipoDocumento.Text.Trim();
             string nombres = TxtNombres.Text.Trim();
             string apellidos = TxtApellidos.Text.Trim();
             string celular = TxtCelular.Text.Trim();
             string correo = TxtCorreo.Text.Trim();
 
-            if (Validacion.EsNuloOVacio(documento) || Validacion.EsNuloOVacio(nombres) || Validacion.EsNuloOVacio(apellidos) || Validacion.EsNuloOVacio(celular) || Validacion.EsNuloOVacio(correo))
+            if (Validacion.EsNuloOVacio(documento) || Validacion.EsNuloOVacio(documentoTipo) || Validacion.EsNuloOVacio(nombres) || Validacion.EsNuloOVacio(apellidos) || Validacion.EsNuloOVacio(celular) || Validacion.EsNuloOVacio(correo))
             {
                 MessageBox.Show("No pueden quedar campos vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -126,7 +149,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    CargarGrilla(await clienteService.ObtenerTodos());
+                    await CargarDatos();
                     limpiarCampos();
                     MessageBox.Show("Se ha creado correctamente el cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -151,8 +174,21 @@ namespace WindowsFormsApp1
         {
             if (DgvClientes.CurrentRow == null) return;
 
+            string documento = TxtDocumento.Text.Trim();
+            string documentoTipo = CbTipoDocumento.Text.Trim();
+            string nombres = TxtNombres.Text.Trim();
+            string apellidos = TxtApellidos.Text.Trim();
+            string celular = TxtCelular.Text.Trim();
+            string correo = TxtCorreo.Text.Trim();
+
+            if (Validacion.EsNuloOVacio(documento) || Validacion.EsNuloOVacio(documentoTipo) || Validacion.EsNuloOVacio(nombres) || Validacion.EsNuloOVacio(apellidos) || Validacion.EsNuloOVacio(celular) || Validacion.EsNuloOVacio(correo))
+            {
+                MessageBox.Show("No pueden quedar campos vacíos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar el cliente: {DgvClientes.CurrentRow.Cells[2].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            
+
             if (resultado == DialogResult.OK)
             {
                 try
@@ -194,7 +230,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        CargarGrilla(await clienteService.ObtenerTodos());
+                        await CargarDatos();
                         limpiarCampos();
                         MessageBox.Show("Se ha actualizado correctamente el cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);                        
                     }
@@ -224,7 +260,7 @@ namespace WindowsFormsApp1
                     }
                     else
                     {
-                        CargarGrilla(await clienteService.ObtenerTodos());
+                        await CargarDatos();
                         limpiarCampos();
                         MessageBox.Show("Se ha eliminado correctamente el cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);                        
                     }

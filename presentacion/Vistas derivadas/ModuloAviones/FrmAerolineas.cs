@@ -100,14 +100,31 @@ namespace WindowsFormsApp1
             }
         }
 
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
         private async Task CargarDatos()
         {
-            var lista = await AereolineaService.ObtenerTodos();
-            CargarGrilla(lista);
-            ConfigurarBotones();
-            TxtNombre.ShortcutsEnabled = false;
-            TxtCodigoIATA.ShortcutsEnabled = false;
-            TxtCodigoICAO.ShortcutsEnabled = false;
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                var lista = await AereolineaService.ObtenerTodos();
+                CargarGrilla(lista);
+                ConfigurarBotones();
+                TxtNombre.ShortcutsEnabled = false;
+                TxtCodigoIATA.ShortcutsEnabled = false;
+                TxtCodigoICAO.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private void limpiarCampos()

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Entity;
 using System.CodeDom;
 using Entity.Utilidades;
+using System.Runtime.CompilerServices;
 
 namespace WindowsFormsApp1
 {
@@ -149,12 +150,13 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Se creado correctamente la region", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                {
+                { 
                     MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
+                
                 MessageBox.Show($"Error al crear la region: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -166,12 +168,29 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
         private async Task CargarDatos()
         {
-            CargarGrilla(await regionService.ObtenerTodos());
-            CargarCombo(await new PaisService().ObtenerTodos());
-            ConfigurarBotones();
-            TxtNombre.ShortcutsEnabled = false;
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                CargarGrilla(await regionService.ObtenerTodos());
+                CargarCombo(await new PaisService().ObtenerTodos());
+                ConfigurarBotones();
+                TxtNombre.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private void ConfigurarBotones()

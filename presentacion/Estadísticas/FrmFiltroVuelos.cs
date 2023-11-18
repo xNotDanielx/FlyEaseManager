@@ -15,17 +15,41 @@ namespace WindowsFormsApp1
 {
     public partial class FrmFiltroVuelos : Form
     {
+        private FrmPrincipal principal;
         private EstadoService EstadoService = new EstadoService();
         private VueloService VueloService = new VueloService();
-        public FrmFiltroVuelos()
+        public FrmFiltroVuelos(FrmPrincipal principal)
         {
             InitializeComponent();
+            this.principal = principal;
         }
 
         private async void FrmFiltroVuelos_Load(object sender, EventArgs e)
-        {            
-            cargarCombo(await EstadoService.ObtenerTodos());
-            CargarGrilla(await VueloService.ObtenerTodos());
+        {
+            await CargarDatos();
+        }
+
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
+        private async Task CargarDatos()
+        {
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                cargarCombo(await EstadoService.ObtenerTodos());
+                CargarGrilla(await VueloService.ObtenerTodos());
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         void cargarGrillaSinFiltro()
@@ -60,7 +84,21 @@ namespace WindowsFormsApp1
 
         private async void CbEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var vuelos = await VueloService.ObtenerTodos();
+            var loading = CrearLoading();
+            List<Vuelo> vuelos = null;
+
+            try
+            {
+                loading.ShowLoading(loading);
+                vuelos = await VueloService.ObtenerTodos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+                return;
+            }
 
             if (CbEstado.Text == "")
             {

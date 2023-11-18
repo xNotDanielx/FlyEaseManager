@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LblTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDineroGenerado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,12 +113,24 @@
             this.label2.TabIndex = 89;
             this.label2.Text = "Dinero generado";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(629, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 23);
+            this.label3.TabIndex = 90;
+            this.label3.Text = "Año:";
+            // 
             // FrmDineroGeneradoXVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LblTotal);
             this.Controls.Add(this.label1);
@@ -142,5 +155,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

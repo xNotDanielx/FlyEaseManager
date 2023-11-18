@@ -52,11 +52,10 @@ namespace WindowsFormsApp1
                 e.Handled = true; 
             }
 
-            // Verifica el rango de números permitido (1-100)
             if (e.KeyChar != (char)Keys.Back)
             {
                 int valorIngresado;
-                if (!int.TryParse(TxtDescuento.Text + e.KeyChar, out valorIngresado) || valorIngresado < 1 || valorIngresado > 100)
+                if (!int.TryParse(TxtDescuento.Text + e.KeyChar, out valorIngresado) || valorIngresado < 0 || valorIngresado > 100)
                 {
                     e.Handled = true;
                 }
@@ -73,6 +72,8 @@ namespace WindowsFormsApp1
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
+            if (DgvBoletos.CurrentRow == null) return;
+
             string descuento = TxtDescuento.Text.Trim();
 
             if (Validacion.EsNuloOVacio(descuento))
@@ -80,6 +81,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("El el descuento del boleto no puede estar vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             DialogResult resultado = MessageBox.Show($"¿Está seguro de actualizar el boleto de id: {DgvBoletos.CurrentRow.Cells[0].Value}?", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             if (resultado == DialogResult.OK)
@@ -130,10 +132,27 @@ namespace WindowsFormsApp1
             }
         }
 
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
         private async Task CargarDatos()
         {
-            CargarGrilla(await boletoService.ObtenerTodos());
-            TxtDescuento.ShortcutsEnabled = false;
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                CargarGrilla(await boletoService.ObtenerTodos());
+                TxtDescuento.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private void limpiarCampos()

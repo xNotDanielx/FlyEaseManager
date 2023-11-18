@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,7 +37,18 @@ namespace WindowsFormsApp1
 
         private async void FrmAsientos_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         void CargarGrilla(List<Asiento> asientos)
@@ -90,11 +102,19 @@ namespace WindowsFormsApp1
             await avionService.Actualizar(avion.IdAvion, avion);
         }
 
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
         private async Task CargarDatos()
         {
-            CargarGrilla(await asientoService.ObtenerTodos());
-            CargarCombos();
-            ConfigurarBotones();
+            
+                CargarGrilla(await asientoService.ObtenerTodos());
+                CargarCombos();
+                ConfigurarBotones();
+                
         }
 
         private void ConfigurarBotones()
@@ -134,6 +154,9 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
+                loading.ShowLoading(loading);
+
                 try
                 {
                     var obtenerCategoria = await categoriaService.ObtenerTodos();
@@ -152,22 +175,25 @@ namespace WindowsFormsApp1
                     };
 
                     var response = await asientoService.Actualizar(DgvAsientos.CurrentRow.Cells[0].Value.ToString(), asiento);
+                    
 
                     if (response != "Error en la solicitud Put")
                     {
                         await CargarDatos();
                         await ActualizarPasajerosAvion(avion);
+                        loading.HideLoading();
                         limpiarCampos();
                         MessageBox.Show("Se ha actualizado correctamente el asiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al actualizar el asiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -184,11 +210,15 @@ namespace WindowsFormsApp1
             if (DgvAsientos.CurrentRow == null) return;
 
             DialogResult resultado = MessageBox.Show($"¿Está seguro de eliminar el asiento? Se elminará el último asiento del avión {DgvAsientos.CurrentRow.Cells[4].Value}", "Mensaje", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            
-            try
+
+            if (resultado == DialogResult.OK)
             {
-                if (resultado == DialogResult.OK)
+                var loading = CrearLoading();
+                loading.ShowLoading(loading);
+
+                try
                 {
+
                     var aviones = await avionService.ObtenerTodos();
                     var avion = aviones.Where(p => p.Nombre == DgvAsientos.CurrentRow.Cells[4].Value.ToString()).FirstOrDefault();
                     var asientos = await asientoService.ObtenerTodos();
@@ -200,18 +230,23 @@ namespace WindowsFormsApp1
                     {
                         await CargarDatos();
                         await ActualizarPasajerosAvion(avion);
+                        loading.HideLoading();
+
                         limpiarCampos();
                         MessageBox.Show("Se ha aliminado correctamente el asiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al eliminar el asiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    loading.HideLoading();
+                    MessageBox.Show($"Error al eliminar el asiento: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

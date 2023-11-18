@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,17 +16,56 @@ namespace WindowsFormsApp1
 {
     public partial class FrmDineroGeneradoXVuelos : Form
     {
+        private FrmPrincipal principal;
         private VueloService vueloService = new VueloService();
         private BoletoService BoletoService = new BoletoService();
-        public FrmDineroGeneradoXVuelos()
+        public FrmDineroGeneradoXVuelos(FrmPrincipal principal)
         {
             InitializeComponent();
+            this.principal = principal;
         }
 
         private async void FrmDineroGeneradoXVuelos_Load(object sender, EventArgs e)
         {
-            cargarCombo(await vueloService.ObtenerTodos());
-            cargarGrilla(await BoletoService.ObtenerTodos());
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                cargarCombo(await vueloService.ObtenerTodos());
+                if (CbAno.Items.Count >= 0)
+                {
+                    CbAno.SelectedIndex = 0;
+                    loading.HideLoading();
+                    await CargarDatos();
+                }
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+        }
+
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
+        private async Task CargarDatos()
+        {
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                cargarGrilla(await BoletoService.ObtenerTodos());
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         void cargarCombo(List<Vuelo> vuelos)
@@ -61,16 +101,27 @@ namespace WindowsFormsApp1
         private async void CbAno_SelectedIndexChanged(object sender, EventArgs e)
         {
             double Total = 0;
-            if (CbAno.Text != "")
+            var loading = CrearLoading();
+            try
             {
-                cargarGrilla(await BoletoService.ListaPorAno(int.Parse(CbAno.Text)));
-                foreach (var item in await BoletoService.ListaPorAno(int.Parse(CbAno.Text)))
+                loading.ShowLoading(loading);
+                if (CbAno.Text != "")
                 {
-                    Total += item.PrecioTotal;
+                    cargarGrilla(await BoletoService.ListaPorAno(int.Parse(CbAno.Text)));
+                    foreach (var item in await BoletoService.ListaPorAno(int.Parse(CbAno.Text)))
+                    {
+                        Total += item.PrecioTotal;
+                    }
                 }
+                LblTotal.Text = Total.ToString();
+                LblTotal.Show();
+                loading.HideLoading();
             }
-            LblTotal.Text = Total.ToString();
-            LblTotal.Show();
-        }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+}
     }
 }

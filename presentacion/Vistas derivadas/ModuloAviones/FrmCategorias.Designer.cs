@@ -56,7 +56,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(843, 290);
+            this.label4.Location = new System.Drawing.Point(439, 414);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 18);
             this.label4.TabIndex = 103;
@@ -68,7 +68,7 @@
             this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnActualizar.ForeColor = System.Drawing.Color.White;
-            this.BtnActualizar.Location = new System.Drawing.Point(901, 336);
+            this.BtnActualizar.Location = new System.Drawing.Point(524, 452);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
             this.BtnActualizar.TabIndex = 102;
@@ -96,7 +96,7 @@
             this.TxtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtNombre.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtNombre.ForeColor = System.Drawing.Color.White;
-            this.TxtNombre.Location = new System.Drawing.Point(958, 133);
+            this.TxtNombre.Location = new System.Drawing.Point(554, 257);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(124, 24);
             this.TxtNombre.TabIndex = 100;
@@ -107,7 +107,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(840, 135);
+            this.label3.Location = new System.Drawing.Point(436, 259);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 18);
             this.label3.TabIndex = 99;
@@ -118,7 +118,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(932, 70);
+            this.label2.Location = new System.Drawing.Point(528, 194);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 23);
             this.label2.TabIndex = 98;
@@ -129,7 +129,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(366, 21);
+            this.label1.Location = new System.Drawing.Point(520, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 23);
             this.label1.TabIndex = 97;
@@ -147,9 +147,9 @@
             this.TarifaCategoria,
             this.Comercial,
             this.FechaRegistro});
-            this.DgvCategorias.Location = new System.Drawing.Point(23, 47);
+            this.DgvCategorias.Location = new System.Drawing.Point(154, 63);
             this.DgvCategorias.Name = "DgvCategorias";
-            this.DgvCategorias.Size = new System.Drawing.Size(804, 384);
+            this.DgvCategorias.Size = new System.Drawing.Size(771, 106);
             this.DgvCategorias.TabIndex = 94;
             this.DgvCategorias.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCategorias_CellMouseClick);
             // 
@@ -159,7 +159,7 @@
             this.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtDescripcion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtDescripcion.ForeColor = System.Drawing.Color.White;
-            this.TxtDescripcion.Location = new System.Drawing.Point(958, 185);
+            this.TxtDescripcion.Location = new System.Drawing.Point(554, 309);
             this.TxtDescripcion.Name = "TxtDescripcion";
             this.TxtDescripcion.Size = new System.Drawing.Size(124, 24);
             this.TxtDescripcion.TabIndex = 110;
@@ -170,7 +170,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(840, 187);
+            this.label7.Location = new System.Drawing.Point(436, 311);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 18);
             this.label7.TabIndex = 109;
@@ -182,7 +182,7 @@
             this.TxtTarifa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTarifa.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtTarifa.ForeColor = System.Drawing.Color.White;
-            this.TxtTarifa.Location = new System.Drawing.Point(958, 235);
+            this.TxtTarifa.Location = new System.Drawing.Point(554, 359);
             this.TxtTarifa.Name = "TxtTarifa";
             this.TxtTarifa.Size = new System.Drawing.Size(124, 24);
             this.TxtTarifa.TabIndex = 112;
@@ -193,7 +193,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(840, 237);
+            this.label5.Location = new System.Drawing.Point(436, 361);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 18);
             this.label5.TabIndex = 111;
@@ -206,7 +206,7 @@
             this.ChkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.ChkEstado.ForeColor = System.Drawing.Color.White;
-            this.ChkEstado.Location = new System.Drawing.Point(958, 290);
+            this.ChkEstado.Location = new System.Drawing.Point(554, 414);
             this.ChkEstado.Name = "ChkEstado";
             this.ChkEstado.Size = new System.Drawing.Size(70, 22);
             this.ChkEstado.TabIndex = 113;
@@ -256,7 +256,7 @@
             this.FechaRegistro.HeaderText = "Fecha de registro";
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
-            this.FechaRegistro.Width = 250;
+            this.FechaRegistro.Width = 150;
             // 
             // FrmCategorias
             // 

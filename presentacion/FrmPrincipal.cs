@@ -98,25 +98,25 @@ namespace WindowsFormsApp1
         private void BtnEstadoVuelos_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false;
-            Abrirformhijo(new FrmFiltroVuelos());
+            Abrirformhijo(new FrmFiltroVuelos(this));
         }
 
         private void BtnDestinosPopulares_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false;
-            Abrirformhijo(new FrmDestinosPopulares());
+            Abrirformhijo(new FrmDestinosPopulares(this));
         }
 
         private void BtnTiempoxMeses_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false; PnSubmenuEstadisticas.Visible = false;
-            Abrirformhijo(new FrmHistograma());
+            Abrirformhijo(new FrmHistograma(this));
         }
 
         private void BtnDineroGenerado_Click(object sender, EventArgs e)
         {
             PnSubmenuEstadisticas.Visible = false;
-            Abrirformhijo(new FrmDineroGeneradoXVuelos());
+            Abrirformhijo(new FrmDineroGeneradoXVuelos(this));
         }
 
         private void TmrFechaYHora_Tick(object sender, EventArgs e)

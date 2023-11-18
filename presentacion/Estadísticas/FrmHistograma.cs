@@ -16,18 +16,57 @@ namespace WindowsFormsApp1
 {
     public partial class FrmHistograma : Form
     {
+        private FrmPrincipal principal;
         private VueloService vueloService = new VueloService();
-        public FrmHistograma()
+        public FrmHistograma(FrmPrincipal principal)
         {
             InitializeComponent();
+            this.principal = principal;
         }
 
         private async void FrmHistograma_Load(object sender, EventArgs e)
         {
-            cargarCombo(await vueloService.ObtenerTodos());
-            if (CbAno.Text != "")
+            var loading = CrearLoading();
+            try
             {
-                configurarGrafica(await vueloService.ContarVuelosPorMes(int.Parse(CbAno.Text)));
+                loading.ShowLoading(loading);
+                cargarCombo(await vueloService.ObtenerTodos());
+                if (CbAno.Items.Count >= 0)
+                {
+                    CbAno.SelectedIndex = 0;
+                    loading.HideLoading();
+                    await CargarDatos();
+                }
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+        }
+
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
+        private async Task CargarDatos()
+        {
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                if (CbAno.Text != "")
+                {
+                    configurarGrafica(await vueloService.ContarVuelosPorMes(int.Parse(CbAno.Text)));
+                }
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
             }
         }
 
@@ -72,7 +111,7 @@ namespace WindowsFormsApp1
 
         private async void CbAño_SelectedIndexChanged(object sender, EventArgs e)
         {
-            configurarGrafica(await vueloService.ContarVuelosPorMes(int.Parse(CbAno.Text)));
+            await CargarDatos();
         }
     }
 }

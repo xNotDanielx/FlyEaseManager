@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,15 +38,32 @@ namespace WindowsFormsApp1
             await CargarDatos();
         }
 
+        private FrmLoading CrearLoading()
+        {
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
+        }
+
         private async Task CargarDatos()
         {
-            CargarGrilla(await categoriaService.ObtenerTodos());
-            TxtDescripcion.ShortcutsEnabled = false;
-            TxtTarifa.ShortcutsEnabled = false;
-            TxtNombre.Enabled = false;
-            TxtNombre.BackColor = Color.White;
-            TxtNombre.ForeColor = Color.Black;
-        }
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                CargarGrilla(await categoriaService.ObtenerTodos());
+                TxtDescripcion.ShortcutsEnabled = false;
+                TxtTarifa.ShortcutsEnabled = false;
+                TxtNombre.Enabled = false;
+                TxtNombre.BackColor = Color.White;
+                TxtNombre.ForeColor = Color.Black;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+}
 
         void CargarGrilla(List<Categoria> categorias)
         {
@@ -129,7 +147,7 @@ namespace WindowsFormsApp1
                         Descripcion = descripcion,
                         EstadoCategoria = ChkEstado.Checked,
                         Tarifa = double.Parse(tarifa),
-                        FechaRegistro = DateTime.Parse(DgvCategorias.CurrentRow.Cells[5].Value.ToString()),
+                        FechaRegistro = DateTime.Parse(DgvCategorias.CurrentRow.Cells[6].Value.ToString()),
                     };
 
                     var response = await categoriaService.Actualizar(DgvCategorias.CurrentRow.Cells[0].Value.ToString(), categoria);

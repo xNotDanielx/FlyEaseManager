@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,19 +39,30 @@ namespace WindowsFormsApp1
             TxtNombre.Text = fila.Cells[1].Value.ToString();
             CbRegiones.Text = fila.Cells[2].Value.ToString();
 
-            var ciudad = await ciudadService.ObtenerPorId(fila.Cells[0].Value.ToString());
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                var ciudad = await ciudadService.ObtenerPorId(fila.Cells[0].Value.ToString());
 
-            if (ciudad.Imagen == null)
-            {
-                pbImagen.Image = null;
+                if (ciudad.Imagen == null)
+                {
+                    pbImagen.Image = null;
+                }
+                else
+                {
+                    MemoryStream memoryStream = new MemoryStream(ciudad.Imagen);
+                    Bitmap bitmap = new Bitmap(memoryStream);
+                    pbImagen.Image = bitmap;
+                }
+                loading.HideLoading();
             }
-            else
+            catch (Exception ex)
             {
-                MemoryStream memoryStream = new MemoryStream(ciudad.Imagen);
-                Bitmap bitmap = new Bitmap(memoryStream);
-                pbImagen.Image = bitmap;
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
             }
-        }
+}
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
         {
@@ -208,15 +220,32 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
-        private async Task CargarDatos()
+        private FrmLoading CrearLoading()
         {
-            CargarGrilla(await ciudadService.ObtenerTodos());
-            CargarCombo(await new RegionService().ObtenerTodos());
-            ConfigurarBotones();
-            TxtNombre.ShortcutsEnabled = false;
+            FrmLoading loadingForm = new FrmLoading(principal);
+            return loadingForm;
         }
 
-        private void ConfigurarBotones()
+        private async Task CargarDatos()
+        {
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                CargarGrilla(await ciudadService.ObtenerTodos());
+                CargarCombo(await new RegionService().ObtenerTodos());
+                ConfigurarBotones();
+                TxtNombre.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+        }
+
+    private void ConfigurarBotones()
         {
             if (DgvCiudades.RowCount == 0)
             {
