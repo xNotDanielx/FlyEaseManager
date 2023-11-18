@@ -36,13 +36,35 @@ namespace WindowsFormsApp1
             this.Close();
         }
 
-        private void FrmAgregarVuelos_Load(object sender, EventArgs e)
+        private async void FrmAgregarVuelos_Load(object sender, EventArgs e)
         {
-            ConfigurarDateTimePickers();
-            CargarCombos();
-            TxtPrecio.ShortcutsEnabled = false;
-            TxtDescuento.ShortcutsEnabled = false;
-            TxtTarifa.ShortcutsEnabled = false;
+            await CargarDatos();
+        }
+
+        private FormLoading CrearLoading()
+        {
+            FormLoading loadingForm = new FormLoading(principal);
+            return loadingForm;
+        }
+
+        private async Task CargarDatos()
+        {
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading();
+                ConfigurarDateTimePickers();
+                await CargarCombos();
+                TxtPrecio.ShortcutsEnabled = false;
+                TxtDescuento.ShortcutsEnabled = false;
+                TxtTarifa.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         void ConfigurarDateTimePickers()
@@ -81,6 +103,16 @@ namespace WindowsFormsApp1
                 }
             }
 
+            DateTime horaActual = DateTime.Now;
+            DateTime horaLimite = horaActual.AddHours(1);
+
+            if (DtpFechaSalida.Value < horaLimite)
+            {
+                MessageBox.Show("La hora de salida debe ser al menos una hora más tarde que la hora actual.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            var loading = CrearLoading();
+
             try
             {
                 var obtenerAeropuerto = await aereopuertoService.ObtenerTodos();
@@ -97,11 +129,13 @@ namespace WindowsFormsApp1
                     Cupo = true,
                     aeropuerto_Despegue = obtenerAeropuerto.Where(p => p.Nombre == CbDespegue.Text).FirstOrDefault(),
                     aeropuerto_Destino = obtenerAeropuerto.Where(p => p.Nombre == CbDestino.Text).FirstOrDefault(),
-                    Estado = obtenerEstado.Where(p => p.Nombre == CbEstado.Text).FirstOrDefault(),
+                    Estado = obtenerEstado.Where(p => p.Nombre == "Disponible").FirstOrDefault(),
                     Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
                 };
 
+                loading.ShowLoading();
                 var response = await VueloService.Crear(vuelo);
+                loading.HideLoading();
 
                 if (response != "Error en la solicitud Post")
                 {
@@ -115,6 +149,7 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
+                loading.HideLoading();
                 MessageBox.Show($"Error al crear el vuelo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -128,10 +163,9 @@ namespace WindowsFormsApp1
             DtpFechaSalida.Value = DateTime.Now;
             CbDestino.Text = "";
             CbAvion.Text = "";      
-            CbEstado.Text = "";
         }
 
-        private async void CargarCombos()
+        private async Task CargarCombos()
         {
             //Despegue             
             CbDespegue.DataSource = await aereopuertoService.ObtenerTodos();
@@ -145,9 +179,6 @@ namespace WindowsFormsApp1
             CbAvion.DataSource = await AvionService.ObtenerTodos();
             CbAvion.DisplayMember = "Nombre";
 
-            //Estado
-            CbEstado.DataSource = await estadoService.ObtenerTodos();
-            CbEstado.DisplayMember = "Nombre";
         }
 
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)

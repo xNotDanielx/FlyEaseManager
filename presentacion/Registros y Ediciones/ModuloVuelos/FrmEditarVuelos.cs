@@ -32,16 +32,38 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void FrmEditarVuelos_Load(object sender, EventArgs e)
+        private async void FrmEditarVuelos_Load(object sender, EventArgs e)
         {
-            CargarCombos();
-            CargarCampos(vuelo);
-            TxtPrecio.ShortcutsEnabled = false;
-            TxtDescuento.ShortcutsEnabled = false;
-            TxtTarifa.ShortcutsEnabled = false;
+            await CargarDatos();
         }
 
-        private async void CargarCombos()
+        private async Task CargarDatos()
+        {
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading();
+                await CargarCombos();
+                CargarCampos(vuelo);
+                TxtPrecio.ShortcutsEnabled = false;
+                TxtDescuento.ShortcutsEnabled = false;
+                TxtTarifa.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+        }
+
+        private FormLoading CrearLoading()
+        {
+            FormLoading loadingForm = new FormLoading(principal);
+            return loadingForm;
+        }
+
+        private async Task CargarCombos()
         {
             //Despegue             
             CbDespegue.DataSource = await aereopuertoService.ObtenerTodos();
@@ -111,6 +133,16 @@ namespace WindowsFormsApp1
                     }   
             }
 
+            DateTime horaActual = DateTime.Now;
+            DateTime horaLimite = horaActual.AddHours(1);
+
+            if (DtpFechaSalida.Value < horaLimite)
+            {
+                MessageBox.Show("La hora de salida debe ser al menos una hora más tarde que la hora actual.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            var loading = CrearLoading();
+
             try
             {
                 var obtenerVuelo = await new VueloService().ObtenerTodos();
@@ -135,7 +167,9 @@ namespace WindowsFormsApp1
                     FechaRegistro = this.vuelo.FechaRegistro
                 };
 
+                loading.ShowLoading();
                 var response = await vueloService.Actualizar(this.vuelo.IdVuelo.ToString(), vuelo);
+                loading.HideLoading();
 
                 if (response != "Error en la solicitud Put")
                 {
@@ -149,6 +183,7 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
+                loading.HideLoading();
                 MessageBox.Show($"Error al actualizar el vuelo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 

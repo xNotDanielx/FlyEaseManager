@@ -43,6 +43,8 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            var loading = CrearLoading();
+
             try
             {
                 var obtenerAerolinea = await aereolineaService.ObtenerTodos();
@@ -59,7 +61,9 @@ namespace WindowsFormsApp1
                     FechaRegistro = this.avion.FechaRegistro
                 };
 
+                loading.ShowLoading();
                 var response = await avionService.Actualizar(avion.IdAvion, avion);
+                loading.HideLoading();
 
                 if (response != "Error en la solicitud Put")
                 {
@@ -73,28 +77,46 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
+                loading.HideLoading();
                 MessageBox.Show($"Error al actualizar el avion: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void FrmEditarAvion_Load(object sender, EventArgs e)
+        private async void FrmEditarAvion_Load(object sender, EventArgs e)
         {
-            CargarDatos();
+            await CargarDatos();
         }
 
-        private void CargarDatos()
+        private FormLoading CrearLoading()
         {
-            cargarCampos(avion);
-            CargarCombo();
-            TxtId.ShortcutsEnabled = false;
-            TxtNombre.ShortcutsEnabled = false;
-            TxtModelo.ShortcutsEnabled = false;
-            TxtFabricante.ShortcutsEnabled = false;
-            TxtVelocidad.ShortcutsEnabled = false;
-            TxtCatidadCarga.ShortcutsEnabled = false;
-            TxtCantidadPasajeros.Enabled = false;
-            TxtCantidadPasajeros.BackColor = Color.White;
-            TxtCantidadPasajeros.ForeColor = Color.Black;
+            FormLoading loadingForm = new FormLoading(principal);
+            return loadingForm;
+        }
+
+        private async Task CargarDatos()
+        {
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading();
+                cargarCampos(avion);
+                await CargarCombo();
+                TxtId.ShortcutsEnabled = false;
+                TxtNombre.ShortcutsEnabled = false;
+                TxtModelo.ShortcutsEnabled = false;
+                TxtFabricante.ShortcutsEnabled = false;
+                TxtVelocidad.ShortcutsEnabled = false;
+                TxtCatidadCarga.ShortcutsEnabled = false;
+                TxtCantidadPasajeros.Enabled = false;
+                TxtCantidadPasajeros.BackColor = Color.White;
+                TxtCantidadPasajeros.ForeColor = Color.Black;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private void cargarCampos(Avion avion)
@@ -120,7 +142,7 @@ namespace WindowsFormsApp1
             CbAerolinea.Text = "";
         }
 
-        async void CargarCombo()
+        private async Task CargarCombo()
         {
             CbAerolinea.DataSource = await aereolineaService.ObtenerTodos();
             CbAerolinea.DisplayMember = "Nombre";

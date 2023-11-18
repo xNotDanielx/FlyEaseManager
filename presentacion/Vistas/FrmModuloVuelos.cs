@@ -36,8 +36,7 @@ namespace WindowsFormsApp1
 
         private async void FrmModuloVuelos_Load(object sender, EventArgs e)
         {
-            CargarGrilla(await vueloService.ObtenerTodos());
-            ConfigurarBotones();
+            await CargarDatos();
         }
 
         private void ConfigurarBotones()
@@ -62,9 +61,10 @@ namespace WindowsFormsApp1
                 foreach (var item in vuelos)
                 {
                     DgvVuelos.Rows.Add(item.IdVuelo.ToString(), item.PrecioVuelo.ToString(), item.TarifaTemporada.ToString(), item.Descuento.ToString(), item.DistanciaRecorrida.ToString(),
-                        item.FechaYHoraDeSalida.ToString(), item.FechaYHoraLlegada.ToString(), item.aeropuerto_Despegue.Nombre, item.aeropuerto_Destino.Nombre,
+                        item.FechaYHoraDeSalida.ToString(), item.FechaYHoraLlegada.ToString(), item.aeropuerto_Despegue.Nombre, item.aeropuerto_Destino.Nombre, item.CupoToString(),
                         item.Estado.Nombre, item.Avion.Nombre, item.FechaRegistro.ToString());
                 }
+                
             }
             catch (Exception ex)
             {
@@ -122,11 +122,28 @@ namespace WindowsFormsApp1
             }
         }
 
+        private FormLoading CrearLoading()
+        {
+            FormLoading loadingForm = new FormLoading(principal);
+            return loadingForm;
+        }
+
         private async Task CargarDatos()
         {
-            CargarGrilla(await vueloService.ObtenerTodos());
-            ConfigurarBotones();
-        }
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading();
+                CargarGrilla(await vueloService.ObtenerTodos());
+                ConfigurarBotones();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+}
 
         private async void BtnRegresar_Click(object sender, EventArgs e) // ??
         {

@@ -47,11 +47,11 @@ namespace BLL.Servicios
             //return conteoPorCiudad;
 
             List<Vuelo> vuelosRealizados = await lecturaRepository.ObtenerTodos();
-            List<string> ciudades = vuelosRealizados.Select(vuelo => vuelo.aeropuerto_Destino.Ciudad.Nombre).ToList();
+            List<string> ciudadesCompletadas = vuelosRealizados.Where(vuelo => vuelo.Estado.Nombre == "Completado").Select(vuelo => vuelo.aeropuerto_Destino.Ciudad.Nombre).ToList();
 
             Dictionary<string, int> conteoPorCiudad = new Dictionary<string, int>();
 
-            foreach (string ciudad in ciudades)
+            foreach (string ciudad in ciudadesCompletadas)
             {
                 if (conteoPorCiudad.ContainsKey(ciudad))
                 {
@@ -62,7 +62,10 @@ namespace BLL.Servicios
                     conteoPorCiudad[ciudad] = 1;
                 }
             }
-            return conteoPorCiudad;
+
+            var ciudadesTop10 = conteoPorCiudad.OrderByDescending(pair => pair.Value).Take(10).ToDictionary(pair => pair.Key, pair => pair.Value);
+
+            return ciudadesTop10;
         }
 
     }

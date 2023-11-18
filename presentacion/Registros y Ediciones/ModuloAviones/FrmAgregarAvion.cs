@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,27 +29,44 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void FrmAgregarAvion_Load(object sender, EventArgs e)
+        private async void FrmAgregarAvion_Load(object sender, EventArgs e)
         {
-            CargarDatos();
+            await CargarDatos();
         }
 
-        private void CargarDatos()
+        private FormLoading CrearLoading()
         {
-            CargarCombo();
-            TxtId.ShortcutsEnabled = false;
-            TxtNombre.ShortcutsEnabled = false;
-            TxtModelo.ShortcutsEnabled = false;
-            TxtFabricante.ShortcutsEnabled = false;
-            TxtVelocidad.ShortcutsEnabled = false;
-            TxtCatidadCarga.ShortcutsEnabled = false;
-            TxtCantidadAsietos.ShortcutsEnabled = false;
-            TxtAsientosPremium.ShortcutsEnabled = false;
-            TxtAsientosEconomicos.ShortcutsEnabled = false;
-            txtAsientosNoComerciales.ShortcutsEnabled = false;
+            FormLoading loadingForm = new FormLoading(principal);
+            return loadingForm;
         }
 
-        private async void CargarCombo()
+        private async Task CargarDatos()
+        {
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading();
+                await CargarCombo();
+                TxtId.ShortcutsEnabled = false;
+                TxtNombre.ShortcutsEnabled = false;
+                TxtModelo.ShortcutsEnabled = false;
+                TxtFabricante.ShortcutsEnabled = false;
+                TxtVelocidad.ShortcutsEnabled = false;
+                TxtCatidadCarga.ShortcutsEnabled = false;
+                TxtCantidadAsietos.ShortcutsEnabled = false;
+                TxtAsientosPremium.ShortcutsEnabled = false;
+                TxtAsientosEconomicos.ShortcutsEnabled = false;
+                txtAsientosNoComerciales.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+        }
+
+        private async Task CargarCombo()
         {
             CbAerolinea.DataSource = await aereolineaService.ObtenerTodos();
             CbAerolinea.DisplayMember = "Nombre";
@@ -103,6 +121,8 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            var loading = CrearLoading();
+
             try
             {
                 var obtenerAerolinea = await aereolineaService.ObtenerTodos();
@@ -118,22 +138,27 @@ namespace WindowsFormsApp1
                     Aereolinea = obtenerAerolinea.Where(x => x.Nombre == CbAerolinea.Text).FirstOrDefault(),
                 };
 
+                
+                loading.ShowLoading();
                 var response = await avionService.Crear(avion);
                 avionActual = avion;
 
                 if (response != "Error en la solicitud Post")
                 {
                     await GuardarAsientos();
+                    loading.HideLoading();
                     limpiarCampos();
                     MessageBox.Show("Se ha creado correctamente el avión", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
+                    loading.HideLoading();
                     MessageBox.Show("No se ha podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
+                loading.HideLoading();
                 MessageBox.Show($"Error al crear el avión: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

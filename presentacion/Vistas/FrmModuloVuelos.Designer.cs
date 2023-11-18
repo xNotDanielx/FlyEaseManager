@@ -33,6 +33,8 @@
             this.BtnEditarVuelo = new System.Windows.Forms.Button();
             this.BtnAgregarVuelo = new System.Windows.Forms.Button();
             this.DgvVuelos = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnRegresar = new System.Windows.Forms.Button();
             this.IdVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TarifaVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,11 +44,10 @@
             this.FechaLlegada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AeropuertoDespegue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AeropuertoDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Avion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.BtnRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVuelos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,13 +118,39 @@
             this.FechaLlegada,
             this.AeropuertoDespegue,
             this.AeropuertoDestino,
+            this.Cupo,
             this.Estado,
             this.Avion,
             this.FechaRegistro});
-            this.DgvVuelos.Location = new System.Drawing.Point(34, 48);
+            this.DgvVuelos.Location = new System.Drawing.Point(4, 48);
             this.DgvVuelos.Name = "DgvVuelos";
-            this.DgvVuelos.Size = new System.Drawing.Size(1034, 384);
+            this.DgvVuelos.Size = new System.Drawing.Size(1084, 384);
             this.DgvVuelos.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(962, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 18);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Gestion";
+            // 
+            // BtnRegresar
+            // 
+            this.BtnRegresar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnRegresar.Font = new System.Drawing.Font("Microsoft Tai Le", 7F, System.Drawing.FontStyle.Bold);
+            this.BtnRegresar.ForeColor = System.Drawing.Color.White;
+            this.BtnRegresar.Location = new System.Drawing.Point(1026, 12);
+            this.BtnRegresar.Name = "BtnRegresar";
+            this.BtnRegresar.Size = new System.Drawing.Size(62, 23);
+            this.BtnRegresar.TabIndex = 58;
+            this.BtnRegresar.Text = "Estados >";
+            this.BtnRegresar.UseVisualStyleBackColor = false;
+            this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
             // 
             // IdVuelo
             // 
@@ -186,6 +213,12 @@
             this.AeropuertoDestino.ReadOnly = true;
             this.AeropuertoDestino.Width = 80;
             // 
+            // Cupo
+            // 
+            this.Cupo.HeaderText = "Cupo";
+            this.Cupo.Name = "Cupo";
+            this.Cupo.Width = 60;
+            // 
             // Estado
             // 
             this.Estado.HeaderText = "Estado";
@@ -205,31 +238,6 @@
             this.FechaRegistro.HeaderText = "Fecha registro";
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(962, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 18);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Gestion";
-            // 
-            // BtnRegresar
-            // 
-            this.BtnRegresar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnRegresar.Font = new System.Drawing.Font("Microsoft Tai Le", 7F, System.Drawing.FontStyle.Bold);
-            this.BtnRegresar.ForeColor = System.Drawing.Color.White;
-            this.BtnRegresar.Location = new System.Drawing.Point(1026, 12);
-            this.BtnRegresar.Name = "BtnRegresar";
-            this.BtnRegresar.Size = new System.Drawing.Size(62, 23);
-            this.BtnRegresar.TabIndex = 58;
-            this.BtnRegresar.Text = "Estados >";
-            this.BtnRegresar.UseVisualStyleBackColor = false;
-            this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
             // 
             // FrmModuloVuelos
             // 
@@ -264,6 +272,7 @@
         private System.Windows.Forms.Button BtnAgregarVuelo;
         private System.Windows.Forms.DataGridView DgvVuelos;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtnRegresar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdVuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TarifaVuelo;
@@ -273,9 +282,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaLlegada;
         private System.Windows.Forms.DataGridViewTextBoxColumn AeropuertoDespegue;
         private System.Windows.Forms.DataGridViewTextBoxColumn AeropuertoDestino;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Avion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
-        private System.Windows.Forms.Button BtnRegresar;
     }
 }

@@ -30,8 +30,6 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.BtnRegresar = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.CbEstado = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.CbAvion = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -71,30 +69,6 @@
             this.BtnRegresar.Text = "<Regresar";
             this.BtnRegresar.UseVisualStyleBackColor = false;
             this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(736, 286);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 18);
-            this.label10.TabIndex = 121;
-            this.label10.Text = "Estado";
-            // 
-            // CbEstado
-            // 
-            this.CbEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.CbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbEstado.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.CbEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.CbEstado.ForeColor = System.Drawing.Color.White;
-            this.CbEstado.FormattingEnabled = true;
-            this.CbEstado.Location = new System.Drawing.Point(811, 280);
-            this.CbEstado.Name = "CbEstado";
-            this.CbEstado.Size = new System.Drawing.Size(200, 24);
-            this.CbEstado.TabIndex = 120;
             // 
             // label9
             // 
@@ -275,8 +249,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
             this.Controls.Add(this.BtnGuardar);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.CbEstado);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.CbAvion);
             this.Controls.Add(this.label8);
@@ -306,8 +278,6 @@
         #endregion
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnRegresar;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox CbEstado;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox CbAvion;
         private System.Windows.Forms.Label label8;

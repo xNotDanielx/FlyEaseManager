@@ -108,10 +108,43 @@ namespace WindowsFormsApp1
             principal.OpenForms(vista);
             this.Close();
         }
-        
+
+        private FormLoading CrearLoading()
+        {
+            FormLoading loadingForm = new FormLoading(principal);
+            return loadingForm;
+        }
+
+
         private async Task CargarDatos()
         {
-            CargarGrilla(await aereopuertoService.ObtenerTodos());
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading();
+                CargarGrilla(await aereopuertoService.ObtenerTodos());
+                ConfigurarBotones();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
+        }
+
+        private void ConfigurarBotones()
+        {
+            if (DgvAeropuertos.RowCount == 0)
+            {
+                BtnEliminar.Enabled = false;
+                BtnEditar.Enabled = false;
+            }
+            else
+            {
+                BtnEliminar.Enabled = true;
+                BtnEditar.Enabled = true;
+            }
         }
 
         private void CargarGrilla(List<Aereopuerto> aeropuertos)

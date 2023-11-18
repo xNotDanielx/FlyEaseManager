@@ -22,10 +22,20 @@ namespace Entity
         public Aereopuerto aeropuerto_Destino { get; set; }
         public Estado Estado { get; set; }
         
-        
-
         public Vuelo()
         {
+        }
+
+        public string CupoToString()
+        {
+            if (this.Cupo)
+            {
+                return "Hay cupo";
+            }
+            else
+            {
+                return "Lleno";
+            }
         }
     }
 }

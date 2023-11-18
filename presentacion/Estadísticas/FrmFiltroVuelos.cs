@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
                 DgvVuelos.Rows.Clear();
                 foreach (var item in vuelos)
                 {
-                    DgvVuelos.Rows.Add(item.IdVuelo, item.PrecioVuelo, item.Descuento, item.DistanciaRecorrida, item.FechaYHoraDeSalida, item.FechaYHoraLlegada,
+                    DgvVuelos.Rows.Add(item.IdVuelo, item.PrecioVuelo,item.TarifaTemporada, item.Descuento, item.DistanciaRecorrida, item.FechaYHoraDeSalida, item.FechaYHoraLlegada,
                         item.aeropuerto_Despegue.Nombre, item.aeropuerto_Destino.Nombre, item.Estado.Nombre, item.Avion.Nombre, item.FechaRegistro.ToString());
                 }
             }
@@ -62,14 +62,16 @@ namespace WindowsFormsApp1
         }
 
         private async void CbEstado_SelectedIndexChanged(object sender, EventArgs e)
-        { 
+        {
+            var vuelos = await VueloService.ObtenerTodos();
+
             if (CbEstado.Text == "")
             {
-                CargarGrilla(await VueloService.ObtenerTodos());
+                CargarGrilla(vuelos);
             }
             else
             {
-
+                CargarGrilla(vuelos.Where(item => item.Estado.Nombre.Equals(CbEstado.Text)).ToList());
             }            
         }
     }

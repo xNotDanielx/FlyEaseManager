@@ -32,15 +32,32 @@ namespace WindowsFormsApp1
             TxtNombre.Focus();
         }
 
+        private FormLoading CrearLoading()
+        {
+            FormLoading loadingForm = new FormLoading(principal);
+            return loadingForm;
+        }
+
         private async Task CargarDatos()
         {
-            TxtNombre.Text = aereopuerto.Nombre;
-            TxtLatitud.Text = aereopuerto.Coordenadas.Latitud.ToString();
-            TxtLongitud.Text = aereopuerto.Coordenadas.Longitud.ToString();
-            CargarCombo(await ciudadService.ObtenerTodos());
-            TxtNombre.ShortcutsEnabled = false;
-            TxtLongitud.ShortcutsEnabled = false;
-            TxtLatitud.ShortcutsEnabled = false;
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading();
+                TxtNombre.Text = aereopuerto.Nombre;
+                TxtLatitud.Text = aereopuerto.Coordenadas.Latitud.ToString();
+                TxtLongitud.Text = aereopuerto.Coordenadas.Longitud.ToString();
+                CargarCombo(await ciudadService.ObtenerTodos());
+                TxtNombre.ShortcutsEnabled = false;
+                TxtLongitud.ShortcutsEnabled = false;
+                TxtLatitud.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
@@ -64,6 +81,20 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            if (double.Parse(latitud) < -90 || double.Parse(latitud) > 90)
+            {
+                MessageBox.Show("La latitud debe estar entre -90 y 90.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (double.Parse(longitud) < -90 || double.Parse(longitud) > 90)
+            {
+                MessageBox.Show("La longitud debe estar entre -90 y 90.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var loading = CrearLoading();
+
             try
             {
                 var obtenerCiudad = await ciudadService.ObtenerTodos();
@@ -83,7 +114,10 @@ namespace WindowsFormsApp1
                     FechaRegistro = aereopuerto.FechaRegistro
                 };
 
+                
+                loading.ShowLoading();
                 var response = await aereopuertoService.Actualizar(aereopuerto.IdAereopuerto.ToString(), aeropuerto);
+                loading.HideLoading();
 
                 if (response != "Error en la solicitud Put")
                 {
@@ -97,6 +131,7 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
+                loading.HideLoading();
                 MessageBox.Show($"Error al actualizar el aeropuerto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -135,12 +170,12 @@ namespace WindowsFormsApp1
 
         private void TxtLatitud_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
 
-            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(","))
             {
                 e.Handled = true;
             }
@@ -154,12 +189,12 @@ namespace WindowsFormsApp1
 
         private void TxtLongitud_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
 
-            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(","))
             {
                 e.Handled = true;
             }

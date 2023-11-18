@@ -10,19 +10,21 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices; // Para poder mover la ventana
 using BLL.Servicios;
 using static System.Net.Mime.MediaTypeNames;
+using System.Runtime.CompilerServices;
 
 namespace WindowsFormsApp1
 {
     public partial class FrmIniciarSesion : Form
     {
-       
-
+        
         public FrmIniciarSesion()
         {
             InitializeComponent();
         }
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
+
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam); // Para poder mover la ventana
 
@@ -94,24 +96,42 @@ namespace WindowsFormsApp1
 
         private async void BtnAcceder_Click(object sender, EventArgs e)
         {
-            await Task.Delay(200);
-            AdministradorService administradorService = new AdministradorService();
-            var token = await administradorService.Autenticar(TxtUsuario.Text, TxtContrasena.Text);
-            if (token != null)
+            var loading = CrearLoading();
+            try
             {
-                AdministradorService administradorService2 = new AdministradorService();
-                var administradores = await administradorService2.ObtenerTodos();
-                var administrador = administradores.Where(item => item.Usuario == TxtUsuario.Text && item.Clave == TxtContrasena.Text).FirstOrDefault();
-                FrmPrincipal principal = new FrmPrincipal(administrador, this);
+                loading.ShowLoading();
+                AdministradorService administradorService = new AdministradorService();
+                var token = await administradorService.Autenticar(TxtUsuario.Text, TxtContrasena.Text);
+                if (token != null)
+                {
+                    AdministradorService administradorService2 = new AdministradorService();
+                    var administradores = await administradorService2.ObtenerTodos();
+                    var administrador = administradores.Where(item => item.Usuario == TxtUsuario.Text && item.Clave == TxtContrasena.Text).FirstOrDefault();
+                    loading.HideLoading();
+                    FrmPrincipal principal = new FrmPrincipal(administrador, this);
 
-                principal.Show(); // Le permitimos al nuevo formulario poder visualizarse
-                this.Hide(); // Ocultamos el formulario actual
+                    principal.Show(); // Le permitimos al nuevo formulario poder visualizarse
+                    this.Hide(); // Ocultamos el formulario actual
 
+                }
+                else
+                {
+                    loading.HideLoading();
+                    MessageBox.Show("No se encontró el usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No se encontró el usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
             }
+           
+        }
+
+        private FormLoading CrearLoading()
+        {
+            FormLoading loadingForm = new FormLoading(this);
+            return loadingForm;
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)

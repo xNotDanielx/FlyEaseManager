@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoading.Designer.cs">
+      <DependentUpon>FormLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIniciarSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     <EmbeddedResource Include="Estadísticas\FrmFiltroVuelos.resx">
       <DependentUpon>FrmFiltroVuelos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLoading.resx">
+      <DependentUpon>FormLoading.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmIniciarSesion.resx">
       <DependentUpon>FrmIniciarSesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +339,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\boletoPng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\loading.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

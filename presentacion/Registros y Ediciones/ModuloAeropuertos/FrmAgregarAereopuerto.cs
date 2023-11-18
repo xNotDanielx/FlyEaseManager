@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,6 +52,20 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            if (double.Parse(latitud) < -90 || double.Parse(latitud) > 90)
+            {
+                MessageBox.Show("La latitud debe estar entre -90 y 90.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (double.Parse(longitud) < -90 || double.Parse(longitud) > 90)
+            {
+                MessageBox.Show("La longitud debe estar entre -90 y 90.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var loading = CrearLoading();
+
             try
             {
                 var obtenerCiudad = await ciudadService.ObtenerTodos();
@@ -68,10 +83,14 @@ namespace WindowsFormsApp1
                     Ciudad = obtenerCiudad.Where(p => p.Nombre == CbCiudades.Text).FirstOrDefault()
                 };
 
+               
+                loading.ShowLoading();
                 var response = await aereopuertoService.Crear(aereopuerto);
+                loading.HideLoading();
 
                 if (response != "Error en la solicitud Post")
                 { 
+
                     limpiarCampos();
                     MessageBox.Show("Se ha creado correctamente el aeropuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -82,6 +101,7 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
+                loading.HideLoading();
                 MessageBox.Show($"Error al crear el aeropuerto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -100,12 +120,29 @@ namespace WindowsFormsApp1
             CbCiudades.DisplayMember = "Nombre";
         }
 
+        private FormLoading CrearLoading()
+        {
+            FormLoading loadingForm = new FormLoading(principal);
+            return loadingForm;
+        }
+
         private async Task CargarDatos()
         {
-            CargarCombo(await ciudadService.ObtenerTodos());
-            TxtNombre.ShortcutsEnabled = false;
-            TxtLongitud.ShortcutsEnabled = false;
-            TxtLatitud.ShortcutsEnabled = false;
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading();
+                CargarCombo(await ciudadService.ObtenerTodos());
+                TxtNombre.ShortcutsEnabled = false;
+                TxtLongitud.ShortcutsEnabled = false;
+                TxtLatitud.ShortcutsEnabled = false;
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -128,12 +165,12 @@ namespace WindowsFormsApp1
 
         private void TxtLatitud_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
 
-            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(","))
             {
                 e.Handled = true;
             }
@@ -147,12 +184,12 @@ namespace WindowsFormsApp1
 
         private void TxtLongitud_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
 
-            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            if (e.KeyChar == ',' && (sender as TextBox).Text.Contains(","))
             {
                 e.Handled = true;
             }

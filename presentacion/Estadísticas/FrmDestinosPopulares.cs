@@ -54,7 +54,7 @@ namespace WindowsFormsApp1
 
             foreach (var kvp in conteo)
             {
-                string legend = $"{kvp.Key} veces";
+                string legend = $"{kvp.Key} {kvp.Value} veces";
                 ChartDestinosPopulares.Series[0].Points.AddXY(legend, kvp.Value);
             }
 
