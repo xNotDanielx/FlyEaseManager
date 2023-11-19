@@ -157,7 +157,7 @@ namespace WindowsFormsApp1
                     DgvAeropuertos.Rows.Add(item.IdAereopuerto, item.Nombre, item.Coordenadas.Latitud, item.Coordenadas.Longitud, item.Ciudad.Nombre, item.FechaRegistro.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

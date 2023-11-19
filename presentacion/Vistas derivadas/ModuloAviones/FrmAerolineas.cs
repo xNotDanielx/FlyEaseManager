@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
                     DgvAerolineas.Rows.Add(item.IdAereolinea, item.Nombre, item.CodigoIATA,item.CodigoICAO, item.FechaRegistro.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

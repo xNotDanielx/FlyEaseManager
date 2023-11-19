@@ -147,9 +147,10 @@
             this.NombreCiudad,
             this.NombreRegion,
             this.FechaRegistro});
-            this.DgvCiudades.Location = new System.Drawing.Point(67, 48);
+            this.DgvCiudades.Location = new System.Drawing.Point(90, 48);
             this.DgvCiudades.Name = "DgvCiudades";
-            this.DgvCiudades.Size = new System.Drawing.Size(740, 384);
+            this.DgvCiudades.RowHeadersVisible = false;
+            this.DgvCiudades.Size = new System.Drawing.Size(704, 384);
             this.DgvCiudades.TabIndex = 47;
             this.DgvCiudades.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCiudades_CellMouseClick);
             // 

@@ -66,7 +66,7 @@ namespace WindowsFormsApp1
                 }
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

@@ -217,7 +217,7 @@ namespace WindowsFormsApp1
                     DgvRegiones.Rows.Add(item.IdRegion, item.Nombre, item.Pais.Nombre, item.FechaRegistro.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

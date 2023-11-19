@@ -74,7 +74,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(737, 219);
+            this.label9.Location = new System.Drawing.Point(588, 216);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 18);
             this.label9.TabIndex = 119;
@@ -88,16 +88,16 @@
             this.CbAvion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbAvion.ForeColor = System.Drawing.Color.White;
             this.CbAvion.FormattingEnabled = true;
-            this.CbAvion.Location = new System.Drawing.Point(811, 216);
+            this.CbAvion.Location = new System.Drawing.Point(800, 210);
             this.CbAvion.Name = "CbAvion";
             this.CbAvion.Size = new System.Drawing.Size(200, 24);
-            this.CbAvion.TabIndex = 118;
+            this.CbAvion.TabIndex = 7;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(615, 156);
+            this.label8.Location = new System.Drawing.Point(588, 152);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(173, 18);
             this.label8.TabIndex = 111;
@@ -111,16 +111,16 @@
             this.CbDestino.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbDestino.ForeColor = System.Drawing.Color.White;
             this.CbDestino.FormattingEnabled = true;
-            this.CbDestino.Location = new System.Drawing.Point(811, 156);
+            this.CbDestino.Location = new System.Drawing.Point(800, 149);
             this.CbDestino.Name = "CbDestino";
             this.CbDestino.Size = new System.Drawing.Size(200, 24);
-            this.CbDestino.TabIndex = 110;
+            this.CbDestino.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(599, 95);
+            this.label5.Location = new System.Drawing.Point(588, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(189, 18);
             this.label5.TabIndex = 109;
@@ -134,10 +134,10 @@
             this.CbDespegue.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbDespegue.ForeColor = System.Drawing.Color.White;
             this.CbDespegue.FormattingEnabled = true;
-            this.CbDespegue.Location = new System.Drawing.Point(811, 92);
+            this.CbDespegue.Location = new System.Drawing.Point(800, 91);
             this.CbDespegue.Name = "CbDespegue";
             this.CbDespegue.Size = new System.Drawing.Size(200, 24);
-            this.CbDespegue.TabIndex = 108;
+            this.CbDespegue.TabIndex = 5;
             // 
             // label2
             // 
@@ -158,7 +158,7 @@
             this.TxtPrecio.Location = new System.Drawing.Point(303, 92);
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(200, 24);
-            this.TxtPrecio.TabIndex = 106;
+            this.TxtPrecio.TabIndex = 1;
             this.TxtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
             // 
             // DtpFechaSalida
@@ -172,7 +172,7 @@
             this.DtpFechaSalida.Location = new System.Drawing.Point(303, 217);
             this.DtpFechaSalida.Name = "DtpFechaSalida";
             this.DtpFechaSalida.Size = new System.Drawing.Size(200, 20);
-            this.DtpFechaSalida.TabIndex = 105;
+            this.DtpFechaSalida.TabIndex = 3;
             // 
             // label7
             // 
@@ -204,7 +204,7 @@
             this.TxtDescuento.Location = new System.Drawing.Point(303, 150);
             this.TxtDescuento.Name = "TxtDescuento";
             this.TxtDescuento.Size = new System.Drawing.Size(200, 24);
-            this.TxtDescuento.TabIndex = 101;
+            this.TxtDescuento.TabIndex = 2;
             this.TxtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDescuento_KeyPress);
             // 
             // label1
@@ -226,7 +226,7 @@
             this.TxtTarifa.Location = new System.Drawing.Point(303, 277);
             this.TxtTarifa.Name = "TxtTarifa";
             this.TxtTarifa.Size = new System.Drawing.Size(200, 24);
-            this.TxtTarifa.TabIndex = 98;
+            this.TxtTarifa.TabIndex = 4;
             this.TxtTarifa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTarifa_KeyPress);
             // 
             // BtnGuardar

@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
                     DgvAsientos.Rows.Add(item.IdAsiento, item.Posicion, disponibilidad, item.Categoria.Nombre, item.Avion.Nombre, item.FechaRegistro.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

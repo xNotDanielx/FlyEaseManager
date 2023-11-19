@@ -95,7 +95,7 @@ namespace WindowsFormsApp1
                     DgvCategorias.Rows.Add(item.IdCategoria, item.Nombre, item.Descripcion, estado, item.Tarifa, categoria,  item.FechaRegistro.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

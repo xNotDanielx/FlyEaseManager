@@ -211,7 +211,7 @@ namespace WindowsFormsApp1
                     DgvPaises.Rows.Add(item.IdPais, item.Nombre, item.FechaRegistro.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

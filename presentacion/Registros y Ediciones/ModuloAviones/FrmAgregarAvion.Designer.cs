@@ -74,7 +74,7 @@
             this.TxtId.Location = new System.Drawing.Point(216, 91);
             this.TxtId.Name = "TxtId";
             this.TxtId.Size = new System.Drawing.Size(200, 24);
-            this.TxtId.TabIndex = 188;
+            this.TxtId.TabIndex = 1;
             this.TxtId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtId_KeyPress);
             // 
             // BtnAgregar
@@ -111,7 +111,7 @@
             this.CbAerolinea.Location = new System.Drawing.Point(775, 356);
             this.CbAerolinea.Name = "CbAerolinea";
             this.CbAerolinea.Size = new System.Drawing.Size(200, 24);
-            this.CbAerolinea.TabIndex = 185;
+            this.CbAerolinea.TabIndex = 11;
             // 
             // label8
             // 
@@ -152,7 +152,7 @@
             this.TxtNombre.Location = new System.Drawing.Point(216, 162);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(200, 24);
-            this.TxtNombre.TabIndex = 180;
+            this.TxtNombre.TabIndex = 2;
             this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // label4
@@ -174,7 +174,7 @@
             this.TxtFabricante.Location = new System.Drawing.Point(216, 297);
             this.TxtFabricante.Name = "TxtFabricante";
             this.TxtFabricante.Size = new System.Drawing.Size(200, 24);
-            this.TxtFabricante.TabIndex = 177;
+            this.TxtFabricante.TabIndex = 4;
             this.TxtFabricante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFabricante_KeyPress);
             // 
             // label1
@@ -196,7 +196,7 @@
             this.TxtCatidadCarga.Location = new System.Drawing.Point(216, 413);
             this.TxtCatidadCarga.Name = "TxtCatidadCarga";
             this.TxtCatidadCarga.Size = new System.Drawing.Size(200, 24);
-            this.TxtCatidadCarga.TabIndex = 175;
+            this.TxtCatidadCarga.TabIndex = 6;
             this.TxtCatidadCarga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCatidadCarga_KeyPress);
             // 
             // TxtModelo
@@ -208,7 +208,7 @@
             this.TxtModelo.Location = new System.Drawing.Point(216, 234);
             this.TxtModelo.Name = "TxtModelo";
             this.TxtModelo.Size = new System.Drawing.Size(200, 24);
-            this.TxtModelo.TabIndex = 174;
+            this.TxtModelo.TabIndex = 3;
             this.TxtModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtModelo_KeyPress);
             // 
             // TxtVelocidad
@@ -220,7 +220,7 @@
             this.TxtVelocidad.Location = new System.Drawing.Point(216, 357);
             this.TxtVelocidad.Name = "TxtVelocidad";
             this.TxtVelocidad.Size = new System.Drawing.Size(200, 24);
-            this.TxtVelocidad.TabIndex = 173;
+            this.TxtVelocidad.TabIndex = 5;
             this.TxtVelocidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtVelocidad_KeyPress);
             // 
             // BtnRegresar
@@ -255,7 +255,7 @@
             this.TxtAsientosPremium.Location = new System.Drawing.Point(775, 162);
             this.TxtAsientosPremium.Name = "TxtAsientosPremium";
             this.TxtAsientosPremium.Size = new System.Drawing.Size(200, 24);
-            this.TxtAsientosPremium.TabIndex = 195;
+            this.TxtAsientosPremium.TabIndex = 8;
             this.TxtAsientosPremium.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAsientosPremium_KeyPress);
             // 
             // label13
@@ -277,7 +277,7 @@
             this.TxtAsientosEconomicos.Location = new System.Drawing.Point(775, 234);
             this.TxtAsientosEconomicos.Name = "TxtAsientosEconomicos";
             this.TxtAsientosEconomicos.Size = new System.Drawing.Size(200, 24);
-            this.TxtAsientosEconomicos.TabIndex = 193;
+            this.TxtAsientosEconomicos.TabIndex = 9;
             this.TxtAsientosEconomicos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAsientosEconomicos_KeyPress);
             // 
             // TxtCantidadAsietos
@@ -289,7 +289,7 @@
             this.TxtCantidadAsietos.Location = new System.Drawing.Point(775, 95);
             this.TxtCantidadAsietos.Name = "TxtCantidadAsietos";
             this.TxtCantidadAsietos.Size = new System.Drawing.Size(200, 24);
-            this.TxtCantidadAsietos.TabIndex = 192;
+            this.TxtCantidadAsietos.TabIndex = 7;
             this.TxtCantidadAsietos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidadAsietos_KeyPress);
             // 
             // label12
@@ -321,7 +321,8 @@
             this.txtAsientosNoComerciales.Location = new System.Drawing.Point(775, 293);
             this.txtAsientosNoComerciales.Name = "txtAsientosNoComerciales";
             this.txtAsientosNoComerciales.Size = new System.Drawing.Size(200, 24);
-            this.txtAsientosNoComerciales.TabIndex = 196;
+            this.txtAsientosNoComerciales.TabIndex = 10;
+            this.txtAsientosNoComerciales.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAsientosNoComerciales_KeyPress);
             // 
             // label7
             // 

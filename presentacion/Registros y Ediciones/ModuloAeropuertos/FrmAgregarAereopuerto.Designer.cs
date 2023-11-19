@@ -74,7 +74,7 @@
             this.TxtNombre.Location = new System.Drawing.Point(558, 108);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(200, 24);
-            this.TxtNombre.TabIndex = 134;
+            this.TxtNombre.TabIndex = 1;
             this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // label1
@@ -96,7 +96,7 @@
             this.TxtLatitud.Location = new System.Drawing.Point(558, 176);
             this.TxtLatitud.Name = "TxtLatitud";
             this.TxtLatitud.Size = new System.Drawing.Size(200, 24);
-            this.TxtLatitud.TabIndex = 127;
+            this.TxtLatitud.TabIndex = 2;
             this.TxtLatitud.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtLatitud_KeyPress);
             // 
             // label3
@@ -128,7 +128,7 @@
             this.TxtLongitud.Location = new System.Drawing.Point(558, 245);
             this.TxtLongitud.Name = "TxtLongitud";
             this.TxtLongitud.Size = new System.Drawing.Size(200, 24);
-            this.TxtLongitud.TabIndex = 136;
+            this.TxtLongitud.TabIndex = 3;
             this.TxtLongitud.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtLongitud_KeyPress);
             // 
             // label5
@@ -151,7 +151,7 @@
             this.CbCiudades.Location = new System.Drawing.Point(558, 315);
             this.CbCiudades.Name = "CbCiudades";
             this.CbCiudades.Size = new System.Drawing.Size(200, 24);
-            this.CbCiudades.TabIndex = 139;
+            this.CbCiudades.TabIndex = 4;
             // 
             // BtnGuardar
             // 

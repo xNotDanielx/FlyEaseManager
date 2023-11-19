@@ -343,5 +343,13 @@ namespace WindowsFormsApp1
                 e.Handled = true;
             }
         }
+
+        private void txtAsientosNoComerciales_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

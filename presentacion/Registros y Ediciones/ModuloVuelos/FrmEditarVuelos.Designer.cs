@@ -70,7 +70,7 @@
             this.CbDestino.Location = new System.Drawing.Point(830, 130);
             this.CbDestino.Name = "CbDestino";
             this.CbDestino.Size = new System.Drawing.Size(200, 24);
-            this.CbDestino.TabIndex = 80;
+            this.CbDestino.TabIndex = 6;
             // 
             // label5
             // 
@@ -93,7 +93,7 @@
             this.CbDespegue.Location = new System.Drawing.Point(830, 57);
             this.CbDespegue.Name = "CbDespegue";
             this.CbDespegue.Size = new System.Drawing.Size(200, 24);
-            this.CbDespegue.TabIndex = 78;
+            this.CbDespegue.TabIndex = 5;
             // 
             // label2
             // 
@@ -114,7 +114,7 @@
             this.TxtPrecio.Location = new System.Drawing.Point(312, 61);
             this.TxtPrecio.Name = "TxtPrecio";
             this.TxtPrecio.Size = new System.Drawing.Size(200, 24);
-            this.TxtPrecio.TabIndex = 76;
+            this.TxtPrecio.TabIndex = 1;
             this.TxtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
             // 
             // BtnRegresar
@@ -141,7 +141,7 @@
             this.DtpFechaSalida.Location = new System.Drawing.Point(312, 215);
             this.DtpFechaSalida.Name = "DtpFechaSalida";
             this.DtpFechaSalida.Size = new System.Drawing.Size(200, 20);
-            this.DtpFechaSalida.TabIndex = 74;
+            this.DtpFechaSalida.TabIndex = 3;
             // 
             // label7
             // 
@@ -173,7 +173,7 @@
             this.TxtDescuento.Location = new System.Drawing.Point(312, 134);
             this.TxtDescuento.Name = "TxtDescuento";
             this.TxtDescuento.Size = new System.Drawing.Size(200, 24);
-            this.TxtDescuento.TabIndex = 70;
+            this.TxtDescuento.TabIndex = 2;
             this.TxtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDescuento_KeyPress);
             // 
             // label3
@@ -205,7 +205,7 @@
             this.TxtTarifa.Location = new System.Drawing.Point(312, 293);
             this.TxtTarifa.Name = "TxtTarifa";
             this.TxtTarifa.Size = new System.Drawing.Size(200, 24);
-            this.TxtTarifa.TabIndex = 66;
+            this.TxtTarifa.TabIndex = 4;
             this.TxtTarifa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTarifa_KeyPress);
             // 
             // label10
@@ -230,7 +230,7 @@
             this.CbEstado.Location = new System.Drawing.Point(830, 292);
             this.CbEstado.Name = "CbEstado";
             this.CbEstado.Size = new System.Drawing.Size(200, 24);
-            this.CbEstado.TabIndex = 96;
+            this.CbEstado.TabIndex = 8;
             // 
             // label9
             // 
@@ -253,7 +253,7 @@
             this.CbAvion.Location = new System.Drawing.Point(830, 211);
             this.CbAvion.Name = "CbAvion";
             this.CbAvion.Size = new System.Drawing.Size(200, 24);
-            this.CbAvion.TabIndex = 94;
+            this.CbAvion.TabIndex = 7;
             // 
             // BtnActualizar
             // 

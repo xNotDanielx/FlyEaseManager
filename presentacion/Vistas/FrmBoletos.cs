@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
                     DgvBoletos.Rows.Add(item.IdBoleto, item.Precio, item.Descuento, item.PrecioTotal, item.Cliente.NumeroDocumento, item.Asiento.IdAsiento, item.Asiento.Categoria.Nombre, item.Vuelo.IdVuelo, item.Vuelo.FechaYHoraDeSalida, item.Vuelo.Avion.IdAvion, item.FechaRegistro.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }

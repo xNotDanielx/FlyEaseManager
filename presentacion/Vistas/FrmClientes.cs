@@ -65,7 +65,7 @@ namespace WindowsFormsApp1
                     DgvClientes.Rows.Add(item.NumeroDocumento, item.TipoDocumento, item.Nombres, item.Apellidos, item.Celular, item.Correo, item.FechaRegistro.ToString());
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }
@@ -274,23 +274,59 @@ namespace WindowsFormsApp1
 
         private void TxtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (TxtDocumento.Text.Length > 9 && !char.IsControl(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true;
+                e.Handled = true; 
             }
-            else if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+
+            // Controlar la longitud del texto
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text.Length >= 10 && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true;
+                e.Handled = true; 
             }
         }
 
         private void TxtCelular_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (TxtCelular.Text.Length > 9 && !char.IsControl(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
-            else if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+
+            // Controlar la longitud del texto
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text.Length >= 10 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '@' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text.Length >= 50 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

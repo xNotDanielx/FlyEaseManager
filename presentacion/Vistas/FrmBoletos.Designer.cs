@@ -54,7 +54,7 @@
             this.TxtDescuento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtDescuento.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtDescuento.ForeColor = System.Drawing.Color.White;
-            this.TxtDescuento.Location = new System.Drawing.Point(444, 473);
+            this.TxtDescuento.Location = new System.Drawing.Point(509, 460);
             this.TxtDescuento.Name = "TxtDescuento";
             this.TxtDescuento.Size = new System.Drawing.Size(106, 24);
             this.TxtDescuento.TabIndex = 94;
@@ -65,7 +65,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(319, 475);
+            this.label4.Location = new System.Drawing.Point(384, 462);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 18);
             this.label4.TabIndex = 93;
@@ -77,7 +77,7 @@
             this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnActualizar.ForeColor = System.Drawing.Color.White;
-            this.BtnActualizar.Location = new System.Drawing.Point(595, 460);
+            this.BtnActualizar.Location = new System.Drawing.Point(660, 447);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
             this.BtnActualizar.TabIndex = 90;
@@ -90,7 +90,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(186, 475);
+            this.label2.Location = new System.Drawing.Point(251, 462);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 87;
@@ -101,7 +101,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(350, 9);
+            this.label1.Location = new System.Drawing.Point(503, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 23);
             this.label1.TabIndex = 86;
@@ -123,10 +123,10 @@
             this.FechaSalida,
             this.IdAvion,
             this.FechaRegistro});
-            this.DgvBoletos.Location = new System.Drawing.Point(12, 35);
+            this.DgvBoletos.Location = new System.Drawing.Point(51, 35);
             this.DgvBoletos.Name = "DgvBoletos";
             this.DgvBoletos.RowHeadersVisible = false;
-            this.DgvBoletos.Size = new System.Drawing.Size(997, 406);
+            this.DgvBoletos.Size = new System.Drawing.Size(1004, 406);
             this.DgvBoletos.TabIndex = 83;
             this.DgvBoletos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvBoletos_CellMouseClick);
             // 

@@ -83,7 +83,7 @@
             this.CbAerolinea.Location = new System.Drawing.Point(714, 281);
             this.CbAerolinea.Name = "CbAerolinea";
             this.CbAerolinea.Size = new System.Drawing.Size(200, 24);
-            this.CbAerolinea.TabIndex = 166;
+            this.CbAerolinea.TabIndex = 8;
             // 
             // TxtCantidadPasajeros
             // 
@@ -94,7 +94,7 @@
             this.TxtCantidadPasajeros.Location = new System.Drawing.Point(714, 216);
             this.TxtCantidadPasajeros.Name = "TxtCantidadPasajeros";
             this.TxtCantidadPasajeros.Size = new System.Drawing.Size(200, 24);
-            this.TxtCantidadPasajeros.TabIndex = 165;
+            this.TxtCantidadPasajeros.TabIndex = 7;
             this.TxtCantidadPasajeros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCantidadPasajeros_KeyPress);
             // 
             // label8
@@ -136,7 +136,7 @@
             this.TxtNombre.Location = new System.Drawing.Point(256, 151);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(200, 24);
-            this.TxtNombre.TabIndex = 161;
+            this.TxtNombre.TabIndex = 2;
             this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // label7
@@ -169,7 +169,7 @@
             this.TxtFabricante.Location = new System.Drawing.Point(256, 281);
             this.TxtFabricante.Name = "TxtFabricante";
             this.TxtFabricante.Size = new System.Drawing.Size(200, 24);
-            this.TxtFabricante.TabIndex = 158;
+            this.TxtFabricante.TabIndex = 4;
             this.TxtFabricante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFabricante_KeyPress);
             // 
             // label1
@@ -191,7 +191,7 @@
             this.TxtCatidadCarga.Location = new System.Drawing.Point(714, 151);
             this.TxtCatidadCarga.Name = "TxtCatidadCarga";
             this.TxtCatidadCarga.Size = new System.Drawing.Size(200, 24);
-            this.TxtCatidadCarga.TabIndex = 156;
+            this.TxtCatidadCarga.TabIndex = 6;
             this.TxtCatidadCarga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCatidadCarga_KeyPress);
             // 
             // TxtModelo
@@ -203,7 +203,7 @@
             this.TxtModelo.Location = new System.Drawing.Point(256, 216);
             this.TxtModelo.Name = "TxtModelo";
             this.TxtModelo.Size = new System.Drawing.Size(200, 24);
-            this.TxtModelo.TabIndex = 155;
+            this.TxtModelo.TabIndex = 3;
             this.TxtModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtModelo_KeyPress);
             // 
             // TxtVelocidad
@@ -215,7 +215,7 @@
             this.TxtVelocidad.Location = new System.Drawing.Point(714, 85);
             this.TxtVelocidad.Name = "TxtVelocidad";
             this.TxtVelocidad.Size = new System.Drawing.Size(200, 24);
-            this.TxtVelocidad.TabIndex = 154;
+            this.TxtVelocidad.TabIndex = 5;
             this.TxtVelocidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtVelocidad_KeyPress);
             // 
             // BtnRegresar
@@ -260,7 +260,7 @@
             this.TxtId.Location = new System.Drawing.Point(256, 85);
             this.TxtId.Name = "TxtId";
             this.TxtId.Size = new System.Drawing.Size(200, 24);
-            this.TxtId.TabIndex = 169;
+            this.TxtId.TabIndex = 1;
             this.TxtId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtId_KeyPress);
             // 
             // FrmEditarAvion
