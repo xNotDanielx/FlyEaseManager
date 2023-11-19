@@ -34,6 +34,7 @@
             this.ChartDestinosPopulares = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.CbAno = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ChartDestinosPopulares)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +76,22 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(28, 9);
+            this.label2.Location = new System.Drawing.Point(406, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 23);
             this.label2.TabIndex = 90;
             this.label2.Text = "Destinos populares";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(32, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 23);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Seleccione un año:";
             // 
             // FrmDestinosPopulares
             // 
@@ -87,6 +99,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 524);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CbAno);
             this.Controls.Add(this.ChartDestinosPopulares);
@@ -104,5 +117,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart ChartDestinosPopulares;
         private System.Windows.Forms.ComboBox CbAno;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

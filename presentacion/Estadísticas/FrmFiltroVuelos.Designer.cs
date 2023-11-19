@@ -179,11 +179,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(654, 14);
+            this.label5.Location = new System.Drawing.Point(585, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 18);
+            this.label5.Size = new System.Drawing.Size(152, 18);
             this.label5.TabIndex = 74;
-            this.label5.Text = "Estado:";
+            this.label5.Text = "Seleccione un estado:";
             // 
             // FrmFiltroVuelos
             // 

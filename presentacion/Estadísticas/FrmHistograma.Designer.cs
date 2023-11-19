@@ -31,9 +31,11 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.ChartTiempoVsVuelos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.CbAno = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ChartTiempoVsVuelos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,11 +48,15 @@
             this.ChartTiempoVsVuelos.Location = new System.Drawing.Point(65, 79);
             this.ChartTiempoVsVuelos.Name = "ChartTiempoVsVuelos";
             series1.ChartArea = "ChartArea1";
+            series1.Enabled = false;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.ChartTiempoVsVuelos.Series.Add(series1);
             this.ChartTiempoVsVuelos.Size = new System.Drawing.Size(937, 390);
             this.ChartTiempoVsVuelos.TabIndex = 0;
+            title1.Name = "Historial de vuelos por mes en un año especifico";
+            title1.Text = "Historial de vuelos por mes en un año especifico";
+            this.ChartTiempoVsVuelos.Titles.Add(title1);
             // 
             // CbAno
             // 
@@ -76,12 +82,24 @@
             this.label2.TabIndex = 90;
             this.label2.Text = "Vuelos por mes";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(258, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(176, 23);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Seleccione un año:";
+            // 
             // FrmHistograma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(1100, 524);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CbAno);
             this.Controls.Add(this.ChartTiempoVsVuelos);
@@ -100,5 +118,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart ChartTiempoVsVuelos;
         private System.Windows.Forms.ComboBox CbAno;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

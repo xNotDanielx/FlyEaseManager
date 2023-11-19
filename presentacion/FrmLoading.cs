@@ -40,7 +40,6 @@ namespace WindowsFormsApp1
         public void ShowLoading(FrmLoading loadingForm)
         {
             loadingForm.Size = formulario.Size;
-            loadingForm.StartPosition = formulario.StartPosition;
             loadingForm.Show(formulario);
             loadingForm.BringToFront();
             loadingForm.Refresh();
@@ -69,6 +68,7 @@ namespace WindowsFormsApp1
         private void FormLoading_Load(object sender, EventArgs e)
         {
             IniciarGif();
+            Location = formulario.Location;
         }
     }
 }

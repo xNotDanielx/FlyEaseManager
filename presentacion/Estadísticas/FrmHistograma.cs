@@ -26,23 +26,7 @@ namespace WindowsFormsApp1
 
         private async void FrmHistograma_Load(object sender, EventArgs e)
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
-                cargarCombo(await vueloService.ObtenerTodos());
-                if (CbAno.Items.Count >= 0)
-                {
-                    CbAno.SelectedIndex = 0;
-                    loading.HideLoading();
-                    await CargarDatos();
-                }
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+            await CargarDatos();
         }
 
         private FrmLoading CrearLoading()
@@ -57,6 +41,7 @@ namespace WindowsFormsApp1
             try
             {
                 loading.ShowLoading(loading);
+                cargarCombo(await vueloService.ObtenerTodos());
                 if (CbAno.Text != "")
                 {
                     configurarGrafica(await vueloService.ContarVuelosPorMes(int.Parse(CbAno.Text)));
@@ -73,7 +58,6 @@ namespace WindowsFormsApp1
         void configurarGrafica(Dictionary<int, int> conteo)
         {
             ChartTiempoVsVuelos.Series.Clear();
-            ChartTiempoVsVuelos.Titles.Add("Historial de vuelos por mes en un año especifico");
             Series series = new Series
             {
                 Name = "Vuelos",

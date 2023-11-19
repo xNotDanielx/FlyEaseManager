@@ -27,23 +27,7 @@ namespace WindowsFormsApp1
 
         private async void FrmDineroGeneradoXVuelos_Load(object sender, EventArgs e)
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
-                cargarCombo(await vueloService.ObtenerTodos());
-                if (CbAno.Items.Count >= 0)
-                {
-                    CbAno.SelectedIndex = 0;
-                    loading.HideLoading();
-                    await CargarDatos();
-                }
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+            await CargarDatos();
         }
 
         private FrmLoading CrearLoading()
@@ -58,6 +42,7 @@ namespace WindowsFormsApp1
             try
             {
                 loading.ShowLoading(loading);
+                cargarCombo(await vueloService.ObtenerTodos());
                 cargarGrilla(await BoletoService.ObtenerTodos());
                 loading.HideLoading();
             }

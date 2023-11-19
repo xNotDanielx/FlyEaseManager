@@ -73,7 +73,7 @@
             this.CbAno.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.CbAno.ForeColor = System.Drawing.Color.White;
             this.CbAno.FormattingEnabled = true;
-            this.CbAno.Location = new System.Drawing.Point(687, 94);
+            this.CbAno.Location = new System.Drawing.Point(763, 92);
             this.CbAno.Name = "CbAno";
             this.CbAno.Size = new System.Drawing.Size(168, 24);
             this.CbAno.TabIndex = 2;
@@ -118,11 +118,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(629, 95);
+            this.label3.Location = new System.Drawing.Point(581, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 23);
+            this.label3.Size = new System.Drawing.Size(176, 23);
             this.label3.TabIndex = 90;
-            this.label3.Text = "Año:";
+            this.label3.Text = "Seleccione un año:";
             // 
             // FrmDineroGeneradoXVuelos
             // 
