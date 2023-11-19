@@ -27,7 +27,18 @@ namespace WindowsFormsApp1
 
         private async void FrmPaises_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private void DgvPaises_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -51,23 +62,28 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var response = await paisService.EliminarPorId(DgvPaises.CurrentRow.Cells[0].Value.ToString());
 
                     if (response != "Error en la solicitud Delete")
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha eliminado correctamente el país", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al eliminar el país: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -89,8 +105,10 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var pais = new Pais
                     {
                         IdPais = Convert.ToInt32(DgvPaises.CurrentRow.Cells[0].Value),
@@ -104,16 +122,19 @@ namespace WindowsFormsApp1
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha actualizado correctamente el país", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al actualizar el país: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -129,8 +150,10 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            var loading = CrearLoading();
             try
             {
+                loading.ShowLoading(loading);
                 var pais = new Pais
                 {
                     Nombre = nombre
@@ -142,15 +165,18 @@ namespace WindowsFormsApp1
                 {
                     await CargarDatos();
                     limpiarCampos();
+                    loading.HideLoading();
                     MessageBox.Show("Se creado correctamente el país", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
+                    loading.HideLoading();
                     MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
+                loading.HideLoading();
                 MessageBox.Show($"Error al crear el país: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -170,21 +196,12 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 var lista = await paisService.ObtenerTodos();
                 CargarGrilla(lista);
                 ConfigurarBotones();
                 TxtNombre.ShortcutsEnabled = false;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
         private void ConfigurarBotones()

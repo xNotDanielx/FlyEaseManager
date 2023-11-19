@@ -155,10 +155,11 @@ namespace WindowsFormsApp1
             if (resultado == DialogResult.OK)
             {
                 var loading = CrearLoading();
-                loading.ShowLoading(loading);
+                
 
                 try
                 {
+                    loading.ShowLoading(loading);
                     var obtenerCategoria = await categoriaService.ObtenerTodos();
 
                     var aviones = await avionService.ObtenerTodos();
@@ -181,8 +182,9 @@ namespace WindowsFormsApp1
                     {
                         await CargarDatos();
                         await ActualizarPasajerosAvion(avion);
-                        loading.HideLoading();
+                        
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha actualizado correctamente el asiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -214,11 +216,11 @@ namespace WindowsFormsApp1
             if (resultado == DialogResult.OK)
             {
                 var loading = CrearLoading();
-                loading.ShowLoading(loading);
+                
 
                 try
                 {
-
+                    loading.ShowLoading(loading);
                     var aviones = await avionService.ObtenerTodos();
                     var avion = aviones.Where(p => p.Nombre == DgvAsientos.CurrentRow.Cells[4].Value.ToString()).FirstOrDefault();
                     var asientos = await asientoService.ObtenerTodos();
@@ -230,9 +232,10 @@ namespace WindowsFormsApp1
                     {
                         await CargarDatos();
                         await ActualizarPasajerosAvion(avion);
-                        loading.HideLoading();
+                        
 
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha aliminado correctamente el asiento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else

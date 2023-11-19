@@ -25,7 +25,18 @@ namespace WindowsFormsApp1
 
         private async void FrmModuloAeropuertos_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private async void BtnEliminar_Click(object sender, EventArgs e)
@@ -36,22 +47,27 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var response = await aereopuertoService.EliminarPorId($"{DgvAeropuertos.CurrentRow.Cells[0].Value}");
 
                     if (response != "Error en la solicitud Delete")
                     {
                         await CargarDatos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha eliminado correctamente el aereopuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al eliminar el aereopuerto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -118,19 +134,10 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 CargarGrilla(await aereopuertoService.ObtenerTodos());
                 ConfigurarBotones();
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
         private void ConfigurarBotones()

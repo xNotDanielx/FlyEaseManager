@@ -359,9 +359,11 @@
     <None Include="Resources\boletoPng.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\hidden.png" />
     <Content Include="Resources\loading.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\visibility1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

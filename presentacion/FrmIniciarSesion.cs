@@ -123,7 +123,7 @@ namespace WindowsFormsApp1
             catch (Exception ex)
             {
                 loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
+                MessageBox.Show($"{ex.Message}");
             }
            
         }
@@ -180,6 +180,18 @@ namespace WindowsFormsApp1
                 // Si no es una letra ni un número, suprimir el carácter
                 e.Handled = true;
             }
+        }
+
+        private void pbMostrar_Click(object sender, EventArgs e)
+        {
+            pbOcultar.BringToFront();
+            TxtContrasena.UseSystemPasswordChar = false;
+        }
+
+        private void pbOcultar_Click(object sender, EventArgs e)
+        {
+            pbMostrar.BringToFront();
+            TxtContrasena.UseSystemPasswordChar = true;
         }
     }
 }

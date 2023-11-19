@@ -44,6 +44,7 @@
             this.BtnBoletosVendidos = new System.Windows.Forms.Button();
             this.LblNombreUsuario = new System.Windows.Forms.Label();
             this.PnSubmenuEstadisticas = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -74,7 +75,6 @@
             this.panel19 = new System.Windows.Forms.Panel();
             this.LblHora = new System.Windows.Forms.Label();
             this.TmrFechaYHora = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
             this.PnTitulo.SuspendLayout();
             this.PnMenu.SuspendLayout();
             this.PnContenedorMenu.SuspendLayout();
@@ -275,6 +275,14 @@
             this.PnSubmenuEstadisticas.Size = new System.Drawing.Size(159, 130);
             this.PnSubmenuEstadisticas.TabIndex = 0;
             this.PnSubmenuEstadisticas.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel2.Location = new System.Drawing.Point(4, 60);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(13, 27);
+            this.panel2.TabIndex = 26;
             // 
             // panel16
             // 
@@ -591,14 +599,6 @@
             // 
             this.TmrFechaYHora.Tick += new System.EventHandler(this.TmrFechaYHora_Tick);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
-            this.panel2.Location = new System.Drawing.Point(4, 60);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(13, 27);
-            this.panel2.TabIndex = 26;
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,9 +610,10 @@
             this.Controls.Add(this.PnMenu);
             this.Controls.Add(this.PnTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "    ";
+            this.Text = "FlyEase Manager";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.PnTitulo.ResumeLayout(false);
             this.PnMenu.ResumeLayout(false);

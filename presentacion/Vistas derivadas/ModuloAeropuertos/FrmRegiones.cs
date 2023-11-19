@@ -25,7 +25,18 @@ namespace WindowsFormsApp1
         }
         private async void FrmRegiones_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private void DgvPaises_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -50,23 +61,28 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var response = await regionService.EliminarPorId($"{DgvRegiones.CurrentRow.Cells[0].Value}");
 
                     if (response != "Error en la solicitud Delete")
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha eliminado correctamente la region", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al eliminar la region: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -88,8 +104,10 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var paises = await new PaisService().ObtenerTodos();
                     var pais = paises.Where(p => p.Nombre == CbPaises.Text).FirstOrDefault();
 
@@ -107,15 +125,18 @@ namespace WindowsFormsApp1
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha actualizado correctamente la region", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al actualizar la region: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -131,8 +152,10 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            var loading = CrearLoading();
             try
             {
+                loading.ShowLoading(loading);
                 var obtenerPais = await new PaisService().ObtenerTodos();
 
                 Region region = new Region
@@ -147,16 +170,18 @@ namespace WindowsFormsApp1
                 {
                     await CargarDatos();
                     limpiarCampos();
+                    loading.HideLoading();
                     MessageBox.Show("Se creado correctamente la region", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                { 
+                {
+                    loading.HideLoading();
                     MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                
+                loading.HideLoading();
                 MessageBox.Show($"Error al crear la region: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -176,21 +201,12 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 CargarGrilla(await regionService.ObtenerTodos());
                 CargarCombo(await new PaisService().ObtenerTodos());
                 ConfigurarBotones();
                 TxtNombre.ShortcutsEnabled = false;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
         private void ConfigurarBotones()

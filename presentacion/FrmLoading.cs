@@ -18,6 +18,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             this.formulario = formulario;
+
+            ShowInTaskbar = false;
         }
 
         private void IniciarGif()
@@ -47,21 +49,7 @@ namespace WindowsFormsApp1
 
         public void HideLoading()
         {
-            List<Form> formsToClose = new List<Form>();
-
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.Owner == formulario && form is FrmLoading loadingForm)
-                {
-                    formsToClose.Add(loadingForm);
-                }
-            }
-
-            foreach (Form form in formsToClose)
-            {
-                form.Close();
-            }
-
+            Close();
             formulario.Focus();
         }
 

@@ -27,8 +27,19 @@ namespace WindowsFormsApp1
 
         private async void FrmAgregarAereopuerto_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
-            TxtNombre.Focus();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                TxtNombre.Focus();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
@@ -68,6 +79,7 @@ namespace WindowsFormsApp1
 
             try
             {
+                loading.ShowLoading(loading);
                 var obtenerCiudad = await ciudadService.ObtenerTodos();
 
                 Coordenadas coordenada = new Coordenadas
@@ -83,19 +95,18 @@ namespace WindowsFormsApp1
                     Ciudad = obtenerCiudad.Where(p => p.Nombre == CbCiudades.Text).FirstOrDefault()
                 };
 
-               
-                loading.ShowLoading(loading);
                 var response = await aereopuertoService.Crear(aereopuerto);
-                loading.HideLoading();
+                
 
                 if (response != "Error en la solicitud Post")
-                { 
-
+                {
                     limpiarCampos();
+                    loading.HideLoading();
                     MessageBox.Show("Se ha creado correctamente el aeropuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
+                    loading.HideLoading();
                     MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -128,21 +139,12 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 CargarCombo(await ciudadService.ObtenerTodos());
                 TxtNombre.ShortcutsEnabled = false;
                 TxtLongitud.ShortcutsEnabled = false;
                 TxtLatitud.ShortcutsEnabled = false;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)

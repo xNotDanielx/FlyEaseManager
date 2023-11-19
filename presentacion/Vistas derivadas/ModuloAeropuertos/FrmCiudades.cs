@@ -29,7 +29,18 @@ namespace WindowsFormsApp1
 
         private async void FrmCiudades_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private async void DgvCiudades_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -78,23 +89,28 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var response = await ciudadService.EliminarPorId($"{DgvCiudades.CurrentRow.Cells[0].Value}");
 
                     if (response != "Error en la solicitud Delete: ")
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha eliminado correctamente la ciudad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al eliminar la ciudad: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -121,8 +137,10 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var regiones = await new RegionService().ObtenerTodos();
                     var region = regiones.Where(p => p.Nombre == CbRegiones.Text).FirstOrDefault();
 
@@ -141,15 +159,18 @@ namespace WindowsFormsApp1
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha actualizado correctamente la ciudad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al actualizar la ciudad: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -170,8 +191,10 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            var loading = CrearLoading();
             try
             {
+                loading.ShowLoading(loading);
                 var obtenerRegion = await new RegionService().ObtenerTodos();
 
                 Ciudad ciudad = new Ciudad()
@@ -187,15 +210,18 @@ namespace WindowsFormsApp1
                 {
                     await CargarDatos();
                     limpiarCampos();
+                    loading.HideLoading();
                     MessageBox.Show("Se creado correctamente la ciudad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
+                    loading.HideLoading();
                     MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
+                loading.HideLoading();
                 MessageBox.Show($"Error al crear la ciudad: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -228,21 +254,12 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 CargarGrilla(await ciudadService.ObtenerTodos());
                 CargarCombo(await new RegionService().ObtenerTodos());
                 ConfigurarBotones();
                 TxtNombre.ShortcutsEnabled = false;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
     private void ConfigurarBotones()

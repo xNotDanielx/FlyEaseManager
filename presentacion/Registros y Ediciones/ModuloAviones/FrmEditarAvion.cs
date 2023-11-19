@@ -47,6 +47,7 @@ namespace WindowsFormsApp1
 
             try
             {
+                loading.ShowLoading(loading);
                 var obtenerAerolinea = await aereolineaService.ObtenerTodos();
                 Avion avion = new Avion
                 {
@@ -61,17 +62,17 @@ namespace WindowsFormsApp1
                     FechaRegistro = this.avion.FechaRegistro
                 };
 
-                loading.ShowLoading(loading);
                 var response = await avionService.Actualizar(avion.IdAvion, avion);
-                loading.HideLoading();
 
                 if (response != "Error en la solicitud Put")
                 {
                     limpiarCampos();
+                    loading.HideLoading();
                     MessageBox.Show("Se ha actualizado correctamente el avion", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
+                    loading.HideLoading();
                     MessageBox.Show("No se ha podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -84,7 +85,18 @@ namespace WindowsFormsApp1
 
         private async void FrmEditarAvion_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private FrmLoading CrearLoading()
@@ -95,10 +107,7 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 cargarCampos(avion);
                 await CargarCombo();
                 TxtId.ShortcutsEnabled = false;
@@ -110,13 +119,7 @@ namespace WindowsFormsApp1
                 TxtCantidadPasajeros.Enabled = false;
                 TxtCantidadPasajeros.BackColor = Color.White;
                 TxtCantidadPasajeros.ForeColor = Color.Black;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
         private void cargarCampos(Avion avion)
@@ -133,6 +136,7 @@ namespace WindowsFormsApp1
 
         void limpiarCampos()
         {
+            TxtId.Text = "";
             TxtNombre.Text = "";
             TxtModelo.Text = "";
             TxtFabricante.Text = "";

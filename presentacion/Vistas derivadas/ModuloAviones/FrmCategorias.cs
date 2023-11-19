@@ -35,7 +35,18 @@ namespace WindowsFormsApp1
 
         private async void FrmCategorias_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private FrmLoading CrearLoading()
@@ -46,23 +57,14 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 CargarGrilla(await categoriaService.ObtenerTodos());
                 TxtDescripcion.ShortcutsEnabled = false;
                 TxtTarifa.ShortcutsEnabled = false;
                 TxtNombre.Enabled = false;
                 TxtNombre.BackColor = Color.White;
                 TxtNombre.ForeColor = Color.Black;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
 }
 
         void CargarGrilla(List<Categoria> categorias)
@@ -138,14 +140,17 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     Categoria categoria = new Categoria
                     {
                         IdCategoria = int.Parse(DgvCategorias.CurrentRow.Cells[0].Value.ToString()),
                         Nombre = nombre,
                         Descripcion = descripcion,
                         EstadoCategoria = ChkEstado.Checked,
+                        Comercial = bool.Parse(DgvCategorias.CurrentRow.Cells[4].Value.ToString()),
                         Tarifa = double.Parse(tarifa),
                         FechaRegistro = DateTime.Parse(DgvCategorias.CurrentRow.Cells[6].Value.ToString()),
                     };
@@ -156,18 +161,21 @@ namespace WindowsFormsApp1
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha actualizado correctamente la categoria", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
-                MessageBox.Show($"Error al actualizar la categoria: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    loading.HideLoading();
+                    MessageBox.Show($"Error al actualizar la categoria: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-        }
         }
 
         void limpiarCampos()

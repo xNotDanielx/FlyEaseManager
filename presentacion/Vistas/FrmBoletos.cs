@@ -26,7 +26,18 @@ namespace WindowsFormsApp1
 
         private async void FrmBoletos_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         void CargarGrilla(List<Boleto> boletos)
@@ -86,8 +97,10 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     ClienteService clienteService = new ClienteService();
                     var clientes = await clienteService.ObtenerTodos();
                     var cliente = clientes.Where(item => item.NumeroDocumento.Equals(DgvBoletos.CurrentRow.Cells[4].Value.ToString())).FirstOrDefault();
@@ -118,15 +131,18 @@ namespace WindowsFormsApp1
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha actualizado correctamente el boleto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al actualizar el boleto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -140,19 +156,10 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 CargarGrilla(await boletoService.ObtenerTodos());
                 TxtDescuento.ShortcutsEnabled = false;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
         private void limpiarCampos()

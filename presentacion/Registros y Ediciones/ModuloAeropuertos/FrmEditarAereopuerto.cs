@@ -28,8 +28,19 @@ namespace WindowsFormsApp1
 
         private async void FrmEditarAereopuerto_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
-            TxtNombre.Focus();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                TxtNombre.Focus();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private FrmLoading CrearLoading()
@@ -40,10 +51,7 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 TxtNombre.Text = aereopuerto.Nombre;
                 TxtLatitud.Text = aereopuerto.Coordenadas.Latitud.ToString();
                 TxtLongitud.Text = aereopuerto.Coordenadas.Longitud.ToString();
@@ -51,13 +59,8 @@ namespace WindowsFormsApp1
                 TxtNombre.ShortcutsEnabled = false;
                 TxtLongitud.ShortcutsEnabled = false;
                 TxtLatitud.ShortcutsEnabled = false;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
+            
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)
@@ -97,6 +100,7 @@ namespace WindowsFormsApp1
 
             try
             {
+                loading.ShowLoading(loading);
                 var obtenerCiudad = await ciudadService.ObtenerTodos();
 
                 Coordenadas coordenada = new Coordenadas
@@ -114,18 +118,17 @@ namespace WindowsFormsApp1
                     FechaRegistro = aereopuerto.FechaRegistro
                 };
 
-                
-                loading.ShowLoading(loading);
                 var response = await aereopuertoService.Actualizar(aereopuerto.IdAereopuerto.ToString(), aeropuerto);
-                loading.HideLoading();
 
                 if (response != "Error en la solicitud Put")
                 {
+                    loading.HideLoading();
                     limpiarCampos();
                     MessageBox.Show("Se ha actualizado correctamente el aeropuerto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
+                    loading.HideLoading();
                     MessageBox.Show("No se ha podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

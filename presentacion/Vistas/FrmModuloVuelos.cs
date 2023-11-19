@@ -36,7 +36,18 @@ namespace WindowsFormsApp1
 
         private async void FrmModuloVuelos_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private void ConfigurarBotones()
@@ -75,14 +86,24 @@ namespace WindowsFormsApp1
         private async void BtnEditarVuelo_Click(object sender, EventArgs e)
         {
             await Task.Delay(190);
+
             if (DgvVuelos.CurrentRow == null) return;
 
-            var vuelos = await vueloService.ObtenerTodos();
-            var vuelo = vuelos.Where(item => item.IdVuelo == int.Parse(DgvVuelos.CurrentRow.Cells[0].Value.ToString())).FirstOrDefault();
-            FrmEditarVuelos vista = new FrmEditarVuelos(principal, vuelo);
-            vista.Dock = DockStyle.Fill;
-            principal.OpenForms(vista);
-            this.Close();
+            try
+            {
+
+
+                var vuelos = await vueloService.ObtenerTodos();
+                var vuelo = vuelos.Where(item => item.IdVuelo == int.Parse(DgvVuelos.CurrentRow.Cells[0].Value.ToString())).FirstOrDefault();
+                FrmEditarVuelos vista = new FrmEditarVuelos(principal, vuelo);
+                vista.Dock = DockStyle.Fill;
+                principal.OpenForms(vista);
+                this.Close();
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         private async void BtnEliminarVuelo_Click(object sender, EventArgs e)
@@ -91,8 +112,10 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var asientos = await asientoService.ObtenerTodos();
                     var vuelos = await vueloService.ObtenerTodos();
                     var vuelo = vuelos.Where(item => item.IdVuelo == int.Parse(DgvVuelos.CurrentRow.Cells[0].Value.ToString())).FirstOrDefault(); 
@@ -108,15 +131,18 @@ namespace WindowsFormsApp1
                         }
 
                         await CargarDatos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha eliminado correctamente el vuelo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al eliminar el vuelo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -130,20 +156,11 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 CargarGrilla(await vueloService.ObtenerTodos());
                 ConfigurarBotones();
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
-}
+                
+        }
 
         private async void BtnRegresar_Click(object sender, EventArgs e) // ??
         {

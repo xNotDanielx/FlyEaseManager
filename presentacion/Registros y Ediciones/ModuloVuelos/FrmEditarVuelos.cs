@@ -34,20 +34,11 @@ namespace WindowsFormsApp1
 
         private async void FrmEditarVuelos_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
-        }
-
-        private async Task CargarDatos()
-        {
             var loading = CrearLoading();
             try
             {
                 loading.ShowLoading(loading);
-                await CargarCombos();
-                CargarCampos(vuelo);
-                TxtPrecio.ShortcutsEnabled = false;
-                TxtDescuento.ShortcutsEnabled = false;
-                TxtTarifa.ShortcutsEnabled = false;
+                await CargarDatos();
                 loading.HideLoading();
             }
             catch (Exception ex)
@@ -55,6 +46,17 @@ namespace WindowsFormsApp1
                 loading.HideLoading();
                 MessageBox.Show($"Error {ex.Message}");
             }
+        }
+
+        private async Task CargarDatos()
+        {
+            
+                await CargarCombos();
+                CargarCampos(vuelo);
+                TxtPrecio.ShortcutsEnabled = false;
+                TxtDescuento.ShortcutsEnabled = false;
+                TxtTarifa.ShortcutsEnabled = false;
+                
         }
 
         private FrmLoading CrearLoading()
@@ -121,16 +123,22 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            var loading = CrearLoading();
+            loading.ShowLoading(loading);
+
             var vuelos = await vueloService.ObtenerTodos();
             var vuelosDelAvion = vuelos.Where(item => item.Avion.Nombre.Equals(CbAvion.Text)).ToList();
 
             foreach (var item in vuelosDelAvion)
             {
+                if (vuelo.IdVuelo != item.IdVuelo) {
                     if (DtpFechaSalida.Value >= item.FechaYHoraDeSalida && DtpFechaSalida.Value <= item.FechaYHoraLlegada)
                     {
+                        loading.HideLoading();
                         MessageBox.Show("La fecha de salida del avión seleccionado no debe interferir en la fecha de sus vuelos ya programados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
-                    }   
+                    }
+                }
             }
 
             DateTime horaActual = DateTime.Now;
@@ -138,14 +146,16 @@ namespace WindowsFormsApp1
 
             if (DtpFechaSalida.Value < horaLimite)
             {
+                loading.HideLoading();
                 MessageBox.Show("La hora de salida debe ser al menos una hora más tarde que la hora actual.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var loading = CrearLoading();
+            
 
             try
             {
+                
                 var obtenerVuelo = await new VueloService().ObtenerTodos();
                 var obtenerAereopuerto = await new AereopuertoService().ObtenerTodos();
                 var obtenerEstado = await new EstadoService().ObtenerTodos();
@@ -168,17 +178,17 @@ namespace WindowsFormsApp1
                     FechaRegistro = this.vuelo.FechaRegistro
                 };
 
-                loading.ShowLoading(loading);
                 var response = await vueloService.Actualizar(this.vuelo.IdVuelo.ToString(), vuelo);
-                loading.HideLoading();
 
                 if (response != "Error en la solicitud Put")
                 {
                     limpiarCampos();
+                    loading.HideLoading();
                     MessageBox.Show("Se ha actualizado correctamente el vuelo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
+                    loading.HideLoading();
                     MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

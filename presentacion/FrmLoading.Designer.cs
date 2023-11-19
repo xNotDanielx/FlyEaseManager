@@ -40,16 +40,15 @@
             this.pbGif.TabIndex = 0;
             this.pbGif.TabStop = false;
             // 
-            // FormLoading
+            // FrmLoading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pbGif);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormLoading";
+            this.Name = "FrmLoading";
             this.Opacity = 0.7D;
-            this.Text = "FormLoading";
             this.Load += new System.EventHandler(this.FormLoading_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbGif)).EndInit();
             this.ResumeLayout(false);

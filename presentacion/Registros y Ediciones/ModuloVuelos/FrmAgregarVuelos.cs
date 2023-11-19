@@ -38,7 +38,18 @@ namespace WindowsFormsApp1
 
         private async void FrmAgregarVuelos_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private FrmLoading CrearLoading()
@@ -49,22 +60,13 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 ConfigurarDateTimePickers();
                 await CargarCombos();
                 TxtPrecio.ShortcutsEnabled = false;
                 TxtDescuento.ShortcutsEnabled = false;
                 TxtTarifa.ShortcutsEnabled = false;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
         void ConfigurarDateTimePickers()
@@ -90,6 +92,8 @@ namespace WindowsFormsApp1
                 MessageBox.Show("EL areopuerto de despegue no puede ser el mismo de destino", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            var loading = CrearLoading();
+            loading.ShowLoading(loading);
 
             var vuelos = await VueloService.ObtenerTodos();
             var vuelosDelAvion = vuelos.Where(item => item.Avion.Nombre.Equals(CbAvion.Text)).ToList();
@@ -98,6 +102,7 @@ namespace WindowsFormsApp1
             {
                 if (DtpFechaSalida.Value >= item.FechaYHoraDeSalida && DtpFechaSalida.Value <= item.FechaYHoraLlegada)
                 {
+                    loading.HideLoading();
                     MessageBox.Show("La fecha de salida del avión seleccionado no debe interferir en la fecha de sus vuelos ya programados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -108,14 +113,14 @@ namespace WindowsFormsApp1
 
             if (DtpFechaSalida.Value < horaLimite)
             {
+                loading.HideLoading();
                 MessageBox.Show("La hora de salida debe ser al menos una hora más tarde que la hora actual.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var loading = CrearLoading();
-
             try
             {
+                
                 var obtenerAeropuerto = await aereopuertoService.ObtenerTodos();
                 var obtenerEstado = await estadoService.ObtenerTodos();
                 var obtenerAvion = await AvionService.ObtenerTodos();
@@ -134,17 +139,17 @@ namespace WindowsFormsApp1
                     Avion = obtenerAvion.Where(p => p.Nombre == CbAvion.Text).FirstOrDefault()
                 };
 
-                loading.ShowLoading(loading);
                 var response = await VueloService.Crear(vuelo);
-                loading.HideLoading();
 
                 if (response != "Error en la solicitud Post")
                 {
                     LimpiarCampos();
+                    loading.HideLoading();
                     MessageBox.Show("Se ha creado correctamente el vuelo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
+                    loading.HideLoading();
                     MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

@@ -31,7 +31,18 @@ namespace WindowsFormsApp1
 
         private async void FrmAgregarAvion_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private FrmLoading CrearLoading()
@@ -42,10 +53,7 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 await CargarCombo();
                 TxtId.ShortcutsEnabled = false;
                 TxtNombre.ShortcutsEnabled = false;
@@ -57,13 +65,7 @@ namespace WindowsFormsApp1
                 TxtAsientosPremium.ShortcutsEnabled = false;
                 TxtAsientosEconomicos.ShortcutsEnabled = false;
                 txtAsientosNoComerciales.ShortcutsEnabled = false;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
         private async Task CargarCombo()
@@ -114,9 +116,9 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            if ((int.Parse(asientosPremium) + int.Parse(asientosEconomicos)) > int.Parse(cantidadAsientos) )
+            if ((int.Parse(asientosPremium) + int.Parse(asientosEconomicos)) != int.Parse(cantidadAsientos) )
             {
-                MessageBox.Show("La suma de asientos premium y económicos no puede ser mayor a la cantidad de asientos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La suma de asientos premium y económicos debe ser igual a la cantidad de asientos comerciales", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TxtCantidadAsietos.Focus();
                 return;
             }
@@ -125,6 +127,7 @@ namespace WindowsFormsApp1
 
             try
             {
+                loading.ShowLoading(loading);
                 var obtenerAerolinea = await aereolineaService.ObtenerTodos();
                 Avion avion = new Avion
                 {
@@ -138,16 +141,14 @@ namespace WindowsFormsApp1
                     Aereolinea = obtenerAerolinea.Where(x => x.Nombre == CbAerolinea.Text).FirstOrDefault(),
                 };
 
-                
-                loading.ShowLoading(loading);
                 var response = await avionService.Crear(avion);
                 avionActual = avion;
 
                 if (response != "Error en la solicitud Post")
                 {
                     await GuardarAsientos();
-                    loading.HideLoading();
                     limpiarCampos();
+                    loading.HideLoading();
                     MessageBox.Show("Se ha creado correctamente el avión", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else

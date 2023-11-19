@@ -25,7 +25,18 @@ namespace WindowsFormsApp1
 
         private async void FrmClientes_Load(object sender, EventArgs e)
         {
-            await CargarDatos();
+            var loading = CrearLoading();
+            try
+            {
+                loading.ShowLoading(loading);
+                await CargarDatos();
+                loading.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                loading.HideLoading();
+                MessageBox.Show($"Error {ex.Message}");
+            }
         }
 
         private FrmLoading CrearLoading()
@@ -36,23 +47,14 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            var loading = CrearLoading();
-            try
-            {
-                loading.ShowLoading(loading);
+            
                 CargarGrilla(await clienteService.ObtenerTodos());
                 TxtDocumento.ShortcutsEnabled = false;
                 TxtNombres.ShortcutsEnabled = false;
                 TxtApellidos.ShortcutsEnabled = false;
                 TxtCelular.ShortcutsEnabled = false;
                 TxtCorreo.ShortcutsEnabled = false;
-                loading.HideLoading();
-            }
-            catch (Exception ex)
-            {
-                loading.HideLoading();
-                MessageBox.Show($"Error {ex.Message}");
-            }
+                
         }
 
         private void CargarGrilla(List<Cliente> clientes)
@@ -113,8 +115,10 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            var loading = CrearLoading();
             try
             {
+                loading.ShowLoading(loading);
                 var tipoDocumento = "";
                 if (CbTipoDocumento.Text == "Cedula de ciudadania")
                 {
@@ -145,17 +149,20 @@ namespace WindowsFormsApp1
 
                 if (response == "Error en la solicitud Post")
                 {
+                    loading.HideLoading();
                     MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     await CargarDatos();
                     limpiarCampos();
+                    loading.HideLoading();
                     MessageBox.Show("Se ha creado correctamente el cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
+                loading.HideLoading();
                 MessageBox.Show($"Error al crear el cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -191,8 +198,10 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var tipoDocumento = "";
                     if (CbTipoDocumento.Text == "Cedula de ciudadania")
                     {
@@ -226,17 +235,20 @@ namespace WindowsFormsApp1
 
                     if (response == "Error en la solicitud Put")
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha actualizado correctamente el cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);                        
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al actualizar el cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -250,23 +262,28 @@ namespace WindowsFormsApp1
 
             if (resultado == DialogResult.OK)
             {
+                var loading = CrearLoading();
                 try
                 {
+                    loading.ShowLoading(loading);
                     var response = await clienteService.EliminarPorId($"{DgvClientes.CurrentRow.Cells[0].Value}");
 
                     if (response == "Error en la solicitud Delete")
                     {
+                        loading.HideLoading();
                         MessageBox.Show("No se han podido realizar la operación\nIntente más tarde.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         await CargarDatos();
                         limpiarCampos();
+                        loading.HideLoading();
                         MessageBox.Show("Se ha eliminado correctamente el cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);                        
                     }
                 }
                 catch (Exception ex)
                 {
+                    loading.HideLoading();
                     MessageBox.Show($"Error al eliminar el cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
