@@ -55,9 +55,10 @@
             this.NombreRegion,
             this.NombrePais,
             this.FecchaRegistro});
-            this.DgvRegiones.Location = new System.Drawing.Point(67, 49);
+            this.DgvRegiones.Location = new System.Drawing.Point(87, 49);
             this.DgvRegiones.Name = "DgvRegiones";
-            this.DgvRegiones.Size = new System.Drawing.Size(743, 384);
+            this.DgvRegiones.RowHeadersVisible = false;
+            this.DgvRegiones.Size = new System.Drawing.Size(704, 384);
             this.DgvRegiones.TabIndex = 0;
             this.DgvRegiones.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvPaises_CellMouseClick);
             // 

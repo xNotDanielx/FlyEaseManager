@@ -171,7 +171,8 @@
             this.FechaRegistro});
             this.DgvAviones.Location = new System.Drawing.Point(12, 48);
             this.DgvAviones.Name = "DgvAviones";
-            this.DgvAviones.Size = new System.Drawing.Size(903, 384);
+            this.DgvAviones.RowHeadersVisible = false;
+            this.DgvAviones.Size = new System.Drawing.Size(893, 384);
             this.DgvAviones.TabIndex = 33;
             // 
             // IdAvion
@@ -179,7 +180,7 @@
             this.IdAvion.HeaderText = "Id";
             this.IdAvion.Name = "IdAvion";
             this.IdAvion.ReadOnly = true;
-            this.IdAvion.Width = 50;
+            this.IdAvion.Width = 80;
             // 
             // NombreAvion
             // 

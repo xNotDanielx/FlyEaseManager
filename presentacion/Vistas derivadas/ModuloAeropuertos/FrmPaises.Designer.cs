@@ -96,7 +96,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(419, 22);
+            this.label1.Location = new System.Drawing.Point(365, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 23);
             this.label1.TabIndex = 50;
@@ -108,7 +108,7 @@
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(278, 438);
+            this.BtnEliminar.Location = new System.Drawing.Point(330, 438);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminar.TabIndex = 49;
@@ -138,9 +138,10 @@
             this.IdPais,
             this.NombrePais,
             this.FechaRegistro});
-            this.DgvPaises.Location = new System.Drawing.Point(67, 48);
+            this.DgvPaises.Location = new System.Drawing.Point(117, 48);
             this.DgvPaises.Name = "DgvPaises";
-            this.DgvPaises.Size = new System.Drawing.Size(594, 384);
+            this.DgvPaises.RowHeadersVisible = false;
+            this.DgvPaises.Size = new System.Drawing.Size(554, 384);
             this.DgvPaises.TabIndex = 47;
             this.DgvPaises.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvPaises_CellMouseClick);
             // 

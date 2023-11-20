@@ -113,7 +113,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(411, 22);
+            this.label1.Location = new System.Drawing.Point(401, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 23);
             this.label1.TabIndex = 80;
@@ -125,7 +125,7 @@
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(365, 438);
+            this.BtnEliminar.Location = new System.Drawing.Point(386, 438);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminar.TabIndex = 79;
@@ -144,9 +144,10 @@
             this.NombreCategoria,
             this.NombreAvion,
             this.FechaRegistro});
-            this.DgvAsientos.Location = new System.Drawing.Point(69, 48);
+            this.DgvAsientos.Location = new System.Drawing.Point(103, 48);
             this.DgvAsientos.Name = "DgvAsientos";
-            this.DgvAsientos.Size = new System.Drawing.Size(704, 384);
+            this.DgvAsientos.RowHeadersVisible = false;
+            this.DgvAsientos.Size = new System.Drawing.Size(664, 384);
             this.DgvAsientos.TabIndex = 77;
             this.DgvAsientos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvAsientos_CellMouseClick);
             // 

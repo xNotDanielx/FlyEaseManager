@@ -83,7 +83,7 @@ namespace WindowsFormsApp1
                 }            
         }
 
-        private async void CbAno_SelectedIndexChanged(object sender, EventArgs e)
+        private async void configurarGrafica()
         {
             double Total = 0;
             var loading = CrearLoading();
@@ -107,6 +107,11 @@ namespace WindowsFormsApp1
                 loading.HideLoading();
                 MessageBox.Show($"Error {ex.Message}");
             }
-}
+        }
+
+        private void CbAno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            configurarGrafica();
+        }
     }
 }

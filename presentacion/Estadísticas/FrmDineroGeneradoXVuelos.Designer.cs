@@ -49,7 +49,7 @@
             this.DgvDineroGenerado.Location = new System.Drawing.Point(101, 60);
             this.DgvDineroGenerado.Name = "DgvDineroGenerado";
             this.DgvDineroGenerado.RowHeadersVisible = false;
-            this.DgvDineroGenerado.Size = new System.Drawing.Size(402, 410);
+            this.DgvDineroGenerado.Size = new System.Drawing.Size(403, 410);
             this.DgvDineroGenerado.TabIndex = 0;
             // 
             // IdVuelo

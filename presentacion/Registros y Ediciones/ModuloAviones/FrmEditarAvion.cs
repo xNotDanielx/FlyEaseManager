@@ -107,9 +107,9 @@ namespace WindowsFormsApp1
 
         private async Task CargarDatos()
         {
-            
-                cargarCampos(avion);
-                await CargarCombo();
+                            
+                await CargarCombo(await aereolineaService.ObtenerTodos());
+                cargarCampos(this.avion);
                 TxtId.ShortcutsEnabled = false;
                 TxtNombre.ShortcutsEnabled = false;
                 TxtModelo.ShortcutsEnabled = false;
@@ -131,7 +131,7 @@ namespace WindowsFormsApp1
             TxtVelocidad.Text = avion.VelocidadPromedio.ToString();
             TxtCantidadPasajeros.Text = avion.CantidadPasajeros.ToString();
             TxtCatidadCarga.Text = avion.CantidadCarga.ToString();
-            CbAerolinea.Text = avion.Aereolinea.Nombre;
+            CbAerolinea.Text = avion.Aereolinea.Nombre.ToString();
         }
 
         void limpiarCampos()
@@ -146,10 +146,12 @@ namespace WindowsFormsApp1
             CbAerolinea.Text = "";
         }
 
-        private async Task CargarCombo()
+        public async Task CargarCombo(List<Aereolinea> aereolineas)
         {
-            CbAerolinea.DataSource = await aereolineaService.ObtenerTodos();
-            CbAerolinea.DisplayMember = "Nombre";
+            foreach (var item in aereolineas)
+            {
+                CbAerolinea.Items.Add(item.Nombre);
+            }
         }
 
         private async void BtnRegresar_Click(object sender, EventArgs e)

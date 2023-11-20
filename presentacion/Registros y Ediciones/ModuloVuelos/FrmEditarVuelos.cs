@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace WindowsFormsApp1
 {
@@ -19,7 +20,6 @@ namespace WindowsFormsApp1
         private FrmPrincipal principal;
         private Vuelo vuelo;
         private VueloService vueloService = new VueloService();
-        private AsientoService AsientoService = new AsientoService();
         private AereopuertoService aereopuertoService = new AereopuertoService();
         private AvionService AvionService = new AvionService();
         private EstadoService estadoService = new EstadoService();
@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         {
             this.principal = principal;
             
-            this.vuelo= vuelo;
+            this.vuelo = vuelo;
             InitializeComponent();
         }
 
@@ -49,14 +49,12 @@ namespace WindowsFormsApp1
         }
 
         private async Task CargarDatos()
-        {
-            
+        {            
                 await CargarCombos();
-                CargarCampos(vuelo);
+                CargarCampos(this.vuelo);
                 TxtPrecio.ShortcutsEnabled = false;
                 TxtDescuento.ShortcutsEnabled = false;
-                TxtTarifa.ShortcutsEnabled = false;
-                
+                TxtTarifa.ShortcutsEnabled = false;                
         }
 
         private FrmLoading CrearLoading()
@@ -68,20 +66,28 @@ namespace WindowsFormsApp1
         private async Task CargarCombos()
         {
             //Despegue             
-            CbDespegue.DataSource = await aereopuertoService.ObtenerTodos();
-            CbDespegue.DisplayMember = "Nombre";
+            foreach (var item in await aereopuertoService.ObtenerTodos())
+            {
+                CbDespegue.Items.Add(item.Nombre);
+            }
 
             //Destino
-            CbDestino.DataSource = await aereopuertoService.ObtenerTodos();
-            CbDestino.DisplayMember = "Nombre";
+            foreach (var item in await aereopuertoService.ObtenerTodos())
+            {
+                CbDestino.Items.Add(item.Nombre);
+            }
 
             //Avion
-            CbAvion.DataSource = await AvionService.ObtenerTodos();
-            CbAvion.DisplayMember = "Nombre";
+            foreach (var item in await AvionService.ObtenerTodos())
+            {
+                CbAvion.Items.Add(item.Nombre);
+            }
 
             //Estado
-            CbEstado.DataSource = await estadoService.ObtenerTodos();
-            CbEstado.DisplayMember = "Nombre";
+            foreach (var item in await estadoService.ObtenerTodos())
+            {
+                CbEstado.Items.Add(item.Nombre);
+            }
         }
 
         private void CargarCampos(Vuelo vuelo)
@@ -89,9 +95,9 @@ namespace WindowsFormsApp1
             TxtPrecio.Text = vuelo.PrecioVuelo.ToString();
             TxtTarifa.Text = vuelo.TarifaTemporada.ToString();
             TxtDescuento.Text = vuelo.Descuento.ToString();
-            CbDespegue.Text = vuelo.aeropuerto_Despegue.ToString();
+            CbDespegue.Text = vuelo.aeropuerto_Despegue.Nombre.ToString();
             DtpFechaSalida.Value = vuelo.FechaYHoraDeSalida;
-            CbDestino.Text = vuelo.aeropuerto_Destino.ToString();
+            CbDestino.Text = vuelo.aeropuerto_Destino.Nombre.ToString();
             CbAvion.Text = vuelo.Avion.Nombre.ToString();
             CbEstado.Text = vuelo.Estado.Nombre.ToString();
         }

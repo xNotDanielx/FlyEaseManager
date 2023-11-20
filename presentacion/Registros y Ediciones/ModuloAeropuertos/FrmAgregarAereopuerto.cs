@@ -126,9 +126,11 @@ namespace WindowsFormsApp1
         }
 
         private void CargarCombo(List<Ciudad> ciudades)
-        {
-            CbCiudades.DataSource = ciudades;
-            CbCiudades.DisplayMember = "Nombre";
+        {            
+            foreach (var item in ciudades)
+            {
+                CbCiudades.Items.Add(item.Nombre);
+            }
         }
 
         private FrmLoading CrearLoading()

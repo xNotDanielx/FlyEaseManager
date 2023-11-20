@@ -36,11 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DgvCategorias = new System.Windows.Forms.DataGridView();
-            this.TxtDescripcion = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TxtTarifa = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ChkEstado = new System.Windows.Forms.CheckBox();
             this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +43,11 @@
             this.TarifaCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtDescripcion = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TxtTarifa = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ChkEstado = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCategorias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +96,7 @@
             this.TxtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtNombre.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtNombre.ForeColor = System.Drawing.Color.White;
-            this.TxtNombre.Location = new System.Drawing.Point(554, 257);
+            this.TxtNombre.Location = new System.Drawing.Point(554, 290);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(124, 24);
             this.TxtNombre.TabIndex = 100;
@@ -107,7 +107,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(436, 259);
+            this.label3.Location = new System.Drawing.Point(436, 292);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 18);
             this.label3.TabIndex = 99;
@@ -118,7 +118,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(528, 194);
+            this.label2.Location = new System.Drawing.Point(530, 246);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 23);
             this.label2.TabIndex = 98;
@@ -147,71 +147,12 @@
             this.TarifaCategoria,
             this.Comercial,
             this.FechaRegistro});
-            this.DgvCategorias.Location = new System.Drawing.Point(154, 63);
+            this.DgvCategorias.Location = new System.Drawing.Point(191, 59);
             this.DgvCategorias.Name = "DgvCategorias";
-            this.DgvCategorias.Size = new System.Drawing.Size(771, 106);
+            this.DgvCategorias.RowHeadersVisible = false;
+            this.DgvCategorias.Size = new System.Drawing.Size(763, 169);
             this.DgvCategorias.TabIndex = 94;
             this.DgvCategorias.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCategorias_CellMouseClick);
-            // 
-            // TxtDescripcion
-            // 
-            this.TxtDescripcion.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtDescripcion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.TxtDescripcion.ForeColor = System.Drawing.Color.White;
-            this.TxtDescripcion.Location = new System.Drawing.Point(554, 309);
-            this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Size = new System.Drawing.Size(124, 24);
-            this.TxtDescripcion.TabIndex = 110;
-            this.TxtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDescripcion_KeyPress);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(436, 311);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 18);
-            this.label7.TabIndex = 109;
-            this.label7.Text = "Descripcion:";
-            // 
-            // TxtTarifa
-            // 
-            this.TxtTarifa.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.TxtTarifa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtTarifa.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.TxtTarifa.ForeColor = System.Drawing.Color.White;
-            this.TxtTarifa.Location = new System.Drawing.Point(554, 359);
-            this.TxtTarifa.Name = "TxtTarifa";
-            this.TxtTarifa.Size = new System.Drawing.Size(124, 24);
-            this.TxtTarifa.TabIndex = 112;
-            this.TxtTarifa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTarifa_KeyPress);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(436, 361);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 18);
-            this.label5.TabIndex = 111;
-            this.label5.Text = "Tarifa (%): ";
-            // 
-            // ChkEstado
-            // 
-            this.ChkEstado.AutoSize = true;
-            this.ChkEstado.Checked = true;
-            this.ChkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ChkEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.ChkEstado.ForeColor = System.Drawing.Color.White;
-            this.ChkEstado.Location = new System.Drawing.Point(554, 414);
-            this.ChkEstado.Name = "ChkEstado";
-            this.ChkEstado.Size = new System.Drawing.Size(70, 22);
-            this.ChkEstado.TabIndex = 113;
-            this.ChkEstado.Text = "Activo";
-            this.ChkEstado.UseVisualStyleBackColor = true;
             // 
             // IdCategoria
             // 
@@ -257,6 +198,66 @@
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             this.FechaRegistro.Width = 150;
+            // 
+            // TxtDescripcion
+            // 
+            this.TxtDescripcion.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtDescripcion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.TxtDescripcion.ForeColor = System.Drawing.Color.White;
+            this.TxtDescripcion.Location = new System.Drawing.Point(554, 332);
+            this.TxtDescripcion.Name = "TxtDescripcion";
+            this.TxtDescripcion.Size = new System.Drawing.Size(124, 24);
+            this.TxtDescripcion.TabIndex = 110;
+            this.TxtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDescripcion_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(436, 334);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 18);
+            this.label7.TabIndex = 109;
+            this.label7.Text = "Descripcion:";
+            // 
+            // TxtTarifa
+            // 
+            this.TxtTarifa.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtTarifa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtTarifa.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.TxtTarifa.ForeColor = System.Drawing.Color.White;
+            this.TxtTarifa.Location = new System.Drawing.Point(554, 374);
+            this.TxtTarifa.Name = "TxtTarifa";
+            this.TxtTarifa.Size = new System.Drawing.Size(124, 24);
+            this.TxtTarifa.TabIndex = 112;
+            this.TxtTarifa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTarifa_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(436, 376);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 18);
+            this.label5.TabIndex = 111;
+            this.label5.Text = "Tarifa (%): ";
+            // 
+            // ChkEstado
+            // 
+            this.ChkEstado.AutoSize = true;
+            this.ChkEstado.Checked = true;
+            this.ChkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.ChkEstado.ForeColor = System.Drawing.Color.White;
+            this.ChkEstado.Location = new System.Drawing.Point(554, 414);
+            this.ChkEstado.Name = "ChkEstado";
+            this.ChkEstado.Size = new System.Drawing.Size(70, 22);
+            this.ChkEstado.TabIndex = 113;
+            this.ChkEstado.Text = "Activo";
+            this.ChkEstado.UseVisualStyleBackColor = true;
             // 
             // FrmCategorias
             // 

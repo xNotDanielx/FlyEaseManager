@@ -58,7 +58,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(539, 66);
+            this.label1.Location = new System.Drawing.Point(525, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 23);
             this.label1.TabIndex = 65;
@@ -74,9 +74,10 @@
             this.DescripcionEstado,
             this.DetencionEstado,
             this.FechaRegistro});
-            this.DgvEstados.Location = new System.Drawing.Point(205, 145);
+            this.DgvEstados.Location = new System.Drawing.Point(231, 146);
             this.DgvEstados.Name = "DgvEstados";
-            this.DgvEstados.Size = new System.Drawing.Size(704, 197);
+            this.DgvEstados.RowHeadersVisible = false;
+            this.DgvEstados.Size = new System.Drawing.Size(663, 215);
             this.DgvEstados.TabIndex = 62;
             this.DgvEstados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEstados_CellContentClick);
             // 

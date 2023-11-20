@@ -174,17 +174,22 @@ namespace WindowsFormsApp1
         private async Task CargarCombos()
         {
             //Despegue             
-            CbDespegue.DataSource = await aereopuertoService.ObtenerTodos();
-            CbDespegue.DisplayMember = "Nombre";
+            foreach (var item in await aereopuertoService.ObtenerTodos())
+            {
+                CbDespegue.Items.Add(item.Nombre);
+            }
 
             //Destino
-            CbDestino.DataSource = await aereopuertoService.ObtenerTodos();
-            CbDestino.DisplayMember = "Nombre";
+            foreach (var item in await aereopuertoService.ObtenerTodos())
+            {
+                CbDestino.Items.Add(item.Nombre);
+            }
 
             //Avion
-            CbAvion.DataSource = await AvionService.ObtenerTodos();
-            CbAvion.DisplayMember = "Nombre";
-
+            foreach (var item in await AvionService.ObtenerTodos())
+            {
+                CbAvion.Items.Add(item.Nombre);
+            }
         }
 
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)

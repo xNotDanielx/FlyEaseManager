@@ -128,7 +128,7 @@
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(384, 438);
+            this.BtnEliminar.Location = new System.Drawing.Point(396, 438);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminar.TabIndex = 64;
@@ -160,9 +160,10 @@
             this.CodigoIATA,
             this.CodigoICAO,
             this.FechaRegistro});
-            this.DgvAerolineas.Location = new System.Drawing.Point(147, 48);
+            this.DgvAerolineas.Location = new System.Drawing.Point(168, 48);
             this.DgvAerolineas.Name = "DgvAerolineas";
-            this.DgvAerolineas.Size = new System.Drawing.Size(603, 384);
+            this.DgvAerolineas.RowHeadersVisible = false;
+            this.DgvAerolineas.Size = new System.Drawing.Size(563, 384);
             this.DgvAerolineas.TabIndex = 62;
             this.DgvAerolineas.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvAerolineas_CellMouseClick);
             // 

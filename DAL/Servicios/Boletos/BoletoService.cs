@@ -27,7 +27,7 @@ namespace BLL.Servicios
             {
                 if (item.Vuelo.Estado.Nombre == "Completado")
                 {
-                    if (item.Vuelo.FechaYHoraDeSalida.Year == ano)
+                    if (item.Vuelo.FechaYHoraLlegada.Year == ano)
                     {
                         boletosPorAño.Add(item);
                     }

@@ -70,8 +70,10 @@ namespace WindowsFormsApp1
 
         private async Task CargarCombo()
         {
-            CbAerolinea.DataSource = await aereolineaService.ObtenerTodos();
-            CbAerolinea.DisplayMember = "Nombre";
+            foreach (var item in await aereolineaService.ObtenerTodos())
+            {
+                CbAerolinea.Items.Add(item.Nombre);
+            }
         }
 
         private void limpiarCampos()

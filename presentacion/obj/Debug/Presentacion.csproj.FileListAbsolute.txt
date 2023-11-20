@@ -44,9 +44,6 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\Presentacion.csproj.CopyComplete
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\proyecto\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
-C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\WindowsFormsApp1.exe.config
-C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\WindowsFormsApp1.exe
-C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\WindowsFormsApp1.pdb
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\BLL.dll
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\Entity.dll
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\DAL.dll
@@ -77,7 +74,6 @@ C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\b
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\System.Buffers.xml
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
-C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FormIniciarSesion.resources
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAgregarVuelos.resources
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmBienvenida.resources
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmModuloVuelos.resources
@@ -88,8 +84,6 @@ C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\o
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\Presentacion.csproj.CopyComplete
-C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.exe
-C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAgregarVuelos.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmBienvenida.resources
@@ -226,3 +220,31 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.exe
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.pdb
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\Resources\loading.gif
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\Resources\loading.gif
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\FlyEase Manager.exe.config
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\FlyEase Manager.exe
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\FlyEase Manager.pdb
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\Imazen.WebP.dll
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\Imazen.WebP.xml
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmFiltroVuelos.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmDineroGeneradoXVuelos.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmLoading.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmHistograma.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmIniciarSesion.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmDestinosPopulares.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAgregarAereopuerto.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmEditarAereopuerto.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAgregarAvion.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmEditarAvion.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmEditarVuelos.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmCiudades.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmPaises.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmRegiones.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAerolineas.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmAsientos.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmCategorias.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmEstados.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmBoletos.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmClientes.resources
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.exe
+C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.pdb

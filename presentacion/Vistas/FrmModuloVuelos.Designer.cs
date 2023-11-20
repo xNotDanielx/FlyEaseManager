@@ -124,6 +124,7 @@
             this.FechaRegistro});
             this.DgvVuelos.Location = new System.Drawing.Point(4, 48);
             this.DgvVuelos.Name = "DgvVuelos";
+            this.DgvVuelos.RowHeadersVisible = false;
             this.DgvVuelos.Size = new System.Drawing.Size(1084, 384);
             this.DgvVuelos.TabIndex = 13;
             // 
@@ -157,7 +158,7 @@
             this.IdVuelo.HeaderText = "Id";
             this.IdVuelo.Name = "IdVuelo";
             this.IdVuelo.ReadOnly = true;
-            this.IdVuelo.Width = 50;
+            this.IdVuelo.Width = 80;
             // 
             // PrecioVuelo
             // 
