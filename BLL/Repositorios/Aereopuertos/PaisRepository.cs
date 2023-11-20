@@ -12,7 +12,7 @@ namespace DAL.Repositorios
     public class PaisRepository : AbstractCRUDRepository<Pais>
     {
         public PaisRepository()
-            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Paises", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Paises")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Paises", TokenManager.Instance._token, TokenManager.Instance._refresh), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Paises")
         {
         }
     }

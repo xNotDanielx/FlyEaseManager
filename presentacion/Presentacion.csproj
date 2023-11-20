@@ -7,7 +7,7 @@
     <ProjectGuid>{7FC99ACF-0885-43A0-8548-A6D7B41BF04B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WindowsFormsApp1</RootNamespace>
-    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <AssemblyName>FlyEase Manager</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo FlyEase.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Imazen.WebP, Version=10.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -360,9 +363,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hidden.png" />
-    <Content Include="Resources\loading.gif">
+    <Content Include="Logo FlyEase.ico" />
+    <None Include="Resources\loading.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="Resources\visibility1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -15,7 +15,7 @@ namespace DAL.Repositorios
     public class ClienteRepository : AbstractCRUDRepository<Cliente>
     {
         public ClienteRepository()
-            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Clientes", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Clientes")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Clientes", TokenManager.Instance._token, TokenManager.Instance._refresh), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Clientes")
         {
         }
     }

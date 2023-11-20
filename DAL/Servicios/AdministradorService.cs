@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Entity.Utilidades.RespuestaAutenticacion;
 
 namespace BLL.Servicios
 {
@@ -19,7 +20,7 @@ namespace BLL.Servicios
         {
         }
 
-        public async Task<string> Autenticar(string username, string clave)
+        public async Task<Token> Autenticar(string username, string clave)
         {
             Administrador administrador = new Administrador()
             {
@@ -28,7 +29,15 @@ namespace BLL.Servicios
             };
 
             var tokenManager = TokenManager.Instance;
-            return tokenManager._token = await administradorRepository.Autenticar(administrador); ;
+            var response = await administradorRepository.Autenticar(administrador);
+            tokenManager._token = response.TokenString;
+            tokenManager._refresh = response.RefreshToken;
+            Token token = new Token
+            {
+                TokenString = tokenManager._token,
+                RefreshToken = tokenManager._refresh
+            };
+            return token;
         }
     }
 }

@@ -8,17 +8,18 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using static Entity.Utilidades.RespuestaAutenticacion;
 
 namespace DAL
 {
     public class AdministradorRepository : AbstractLecturaRepository<Administrador>
     {
         public AdministradorRepository()
-            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Administradores", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Administradores")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Administradores", TokenManager.Instance._token, TokenManager.Instance._refresh), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Administradores")
         {
         }
 
-        public async Task<string> Autenticar(Administrador administrador)
+        public async Task<Token> Autenticar(Administrador administrador)
         {
             string endpoint = $"{baseURI}/Authentication";
 
@@ -34,7 +35,7 @@ namespace DAL
 
                     var responseObject = JsonConvert.DeserializeObject<RespuestaAutenticacion>(jsonResponse);
 
-                    string token = responseObject?.Response?.Token?.TokenString;
+                    Token token = responseObject?.Response?.Token;
                     return token;
                 }
                 else
@@ -43,7 +44,5 @@ namespace DAL
                 }
             }
         }
-
-
     }
 }

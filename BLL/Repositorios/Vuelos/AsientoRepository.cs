@@ -12,7 +12,7 @@ namespace DAL.Repositorios
     public class AsientoRepository : AbstractCRUDRepository<Asiento>
     {
         public AsientoRepository()
-            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Asientos", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Asientos")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Asientos", TokenManager.Instance._token, TokenManager.Instance._refresh), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Asientos")
         {
         }
     }

@@ -12,7 +12,7 @@ namespace DAL.Repositorios
     public class CiudadRepository : AbstractCRUDRepository<Ciudad>
     {
         public CiudadRepository()
-            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Ciudades", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Ciudades")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Ciudades", TokenManager.Instance._token, TokenManager.Instance._refresh), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Ciudades")
         {
         }
     }

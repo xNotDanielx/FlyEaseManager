@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Interfaces;
+using Entity.Utilidades;
+using Newtonsoft.Json;
 using RestSharp;
 
 namespace DAL
@@ -12,13 +14,15 @@ namespace DAL
     {
         private readonly RestClient client;
         private readonly string baseURI;
-        private readonly string authToken;
+        private string authToken;
+        private string refreshToken;
 
-        public ApiClient(string baseURI, string authToken)
+        public ApiClient(string baseURI, string authToken, string refreshToken)
         {
             client = new RestClient(baseURI);
             this.baseURI = baseURI;
             this.authToken = authToken;
+            this.refreshToken = refreshToken;
         }
 
         private void AddAuthorizationHeader(RestRequest request)
@@ -26,6 +30,41 @@ namespace DAL
             if (!string.IsNullOrEmpty(authToken))
             {
                 request.AddHeader("Authorization", $"Bearer {authToken}");
+            }
+        }
+
+        private async Task<bool> RefreshToken()
+        {
+            string endpoint = "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Administradores/GetRefreshToken";
+
+            var request = new RestRequest(endpoint, Method.Post);
+            request.RequestFormat = DataFormat.Json;
+
+            var refreshTokenRequest = new
+            {
+                expiredToken = authToken,
+                refreshToken = refreshToken
+            };
+
+            request.AddJsonBody(refreshTokenRequest);
+            var response = await client.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+            {
+                string jsonResponse = response.Content;
+                var responseObject = JsonConvert.DeserializeObject<RespuestaAutenticacion>(jsonResponse);
+
+                authToken = responseObject?.Response?.Token?.TokenString;
+                refreshToken = responseObject?.Response?.Token?.RefreshToken;
+
+                TokenManager._instance._token = authToken;
+                TokenManager._instance._refresh = refreshToken;
+
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -40,6 +79,16 @@ namespace DAL
                 if (response.IsSuccessful)
                 {
                     return response.Content;
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    var refresh = await RefreshToken();
+                    if (refresh)
+                    {
+                        var res = await GetAsync(endpoint);
+                        return res;
+                    }
+                    return "Error en la solicitud Get";
                 }
                 else
                 {
@@ -67,6 +116,16 @@ namespace DAL
                 {
                     return response.Content;
                 }
+                else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    var refresh = await RefreshToken();
+                    if (refresh)
+                    {
+                        var res = await PostAsync(endpoint, data);
+                        return res;
+                    }
+                    return "Error en la solicitud Post";
+                }
                 else
                 {
                     return "Error en la solicitud Post";
@@ -78,7 +137,7 @@ namespace DAL
             }
         }
 
-        public async Task<string> PutAsync(string endpoint, object data) 
+        public async Task<string> PutAsync(string endpoint, object data)
         {
             try
             {
@@ -92,6 +151,16 @@ namespace DAL
                 if (response.IsSuccessful)
                 {
                     return response.Content;
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    var refresh = await RefreshToken();
+                    if (refresh)
+                    {
+                        var res = await PutAsync(endpoint, data);
+                        return res;
+                    }
+                    return "Error en la solicitud Post";
                 }
                 else
                 {
@@ -115,6 +184,16 @@ namespace DAL
                 if (response.IsSuccessful)
                 {
                     return response.Content;
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    var refresh = await RefreshToken();
+                    if (refresh)
+                    {
+                        var res = await DeleteAsync(endpoint);
+                        return res;
+                    }
+                    return "Error en la solicitud Post";
                 }
                 else
                 {

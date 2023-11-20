@@ -10,6 +10,7 @@ namespace Entity.Utilidades
     {
         public static TokenManager _instance;
         public string _token;
+        public string _refresh;
 
         public TokenManager()
         {

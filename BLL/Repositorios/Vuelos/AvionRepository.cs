@@ -12,7 +12,7 @@ namespace DAL.Repositorios
     public class AvionRepository : AbstractCRUDRepository<Avion>
     {
         public AvionRepository()
-            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Aviones", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Aviones")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Aviones", TokenManager.Instance._token, TokenManager.Instance._refresh), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Aviones")
         {
         }
     }

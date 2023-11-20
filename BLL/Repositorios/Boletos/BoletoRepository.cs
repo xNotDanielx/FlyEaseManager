@@ -12,7 +12,7 @@ namespace DAL.Repositorios
     public class BoletoRepository : AbstractCRUDRepository<Boleto>
     {
         public BoletoRepository()
-            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Boletos", TokenManager.Instance._token), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Boletos")
+            : base(new ApiClient("https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Boletos", TokenManager.Instance._token, TokenManager.Instance._refresh), "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Boletos")
         {
         }
     }
