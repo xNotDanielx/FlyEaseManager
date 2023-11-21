@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
                     DgvDineroGenerado.Rows.Clear();
                     foreach (var item in boletos)
                     {
-                        DgvDineroGenerado.Rows.Add(item.Vuelo.IdVuelo, item.PrecioTotal);
+                        DgvDineroGenerado.Rows.Add(item.Vuelo.IdVuelo, item.IdBoleto, item.PrecioTotal);
                     }
                 }
                 catch (Exception)

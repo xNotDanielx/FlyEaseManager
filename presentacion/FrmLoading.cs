@@ -27,7 +27,6 @@ namespace WindowsFormsApp1
             pbGif.BackColor = Color.Transparent;
             pbGif.SizeMode = PictureBoxSizeMode.CenterImage;
 
-            pbGif.Image = Image.FromFile("Resources/loading.gif");
             ActualizarTamañoPB();
         }
 

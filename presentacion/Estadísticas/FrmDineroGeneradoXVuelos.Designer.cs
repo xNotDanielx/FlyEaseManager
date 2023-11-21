@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.DgvDineroGenerado = new System.Windows.Forms.DataGridView();
-            this.IdVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pagado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CbAno = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LblTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.IdVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdBoleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pagado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDineroGenerado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,26 +46,13 @@
             this.DgvDineroGenerado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvDineroGenerado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdVuelo,
+            this.IdBoleto,
             this.Pagado});
             this.DgvDineroGenerado.Location = new System.Drawing.Point(101, 60);
             this.DgvDineroGenerado.Name = "DgvDineroGenerado";
             this.DgvDineroGenerado.RowHeadersVisible = false;
             this.DgvDineroGenerado.Size = new System.Drawing.Size(403, 410);
             this.DgvDineroGenerado.TabIndex = 0;
-            // 
-            // IdVuelo
-            // 
-            this.IdVuelo.HeaderText = "Id del vuelo";
-            this.IdVuelo.Name = "IdVuelo";
-            this.IdVuelo.ReadOnly = true;
-            this.IdVuelo.Width = 200;
-            // 
-            // Pagado
-            // 
-            this.Pagado.HeaderText = "Dinero pagado";
-            this.Pagado.Name = "Pagado";
-            this.Pagado.ReadOnly = true;
-            this.Pagado.Width = 200;
             // 
             // CbAno
             // 
@@ -124,6 +112,24 @@
             this.label3.TabIndex = 90;
             this.label3.Text = "Seleccione un año:";
             // 
+            // IdVuelo
+            // 
+            this.IdVuelo.HeaderText = "Id del vuelo";
+            this.IdVuelo.Name = "IdVuelo";
+            this.IdVuelo.ReadOnly = true;
+            // 
+            // IdBoleto
+            // 
+            this.IdBoleto.HeaderText = "IdBoleto";
+            this.IdBoleto.Name = "IdBoleto";
+            // 
+            // Pagado
+            // 
+            this.Pagado.HeaderText = "Dinero pagado";
+            this.Pagado.Name = "Pagado";
+            this.Pagado.ReadOnly = true;
+            this.Pagado.Width = 200;
+            // 
             // FrmDineroGeneradoXVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,12 +155,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DgvDineroGenerado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdVuelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pagado;
         private System.Windows.Forms.ComboBox CbAno;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdVuelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdBoleto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pagado;
     }
 }

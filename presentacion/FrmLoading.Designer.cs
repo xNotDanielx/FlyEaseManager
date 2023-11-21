@@ -34,6 +34,7 @@
             // 
             // pbGif
             // 
+            this.pbGif.Image = global::WindowsFormsApp1.Properties.Resources.loading;
             this.pbGif.Location = new System.Drawing.Point(285, 149);
             this.pbGif.Name = "pbGif";
             this.pbGif.Size = new System.Drawing.Size(197, 155);

@@ -219,7 +219,6 @@ C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Pro
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\FlyEase Manager.pdb
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.exe
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.pdb
-C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\bin\Debug\Resources\loading.gif
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\Resources\loading.gif
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\FlyEase Manager.exe.config
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\bin\Debug\FlyEase Manager.exe

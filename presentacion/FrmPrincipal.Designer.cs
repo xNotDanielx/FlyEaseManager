@@ -424,7 +424,7 @@
             // 
             this.PbLogoPrincipal.BackColor = System.Drawing.Color.White;
             this.PbLogoPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("PbLogoPrincipal.Image")));
-            this.PbLogoPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.PbLogoPrincipal.Location = new System.Drawing.Point(0, 4);
             this.PbLogoPrincipal.Name = "PbLogoPrincipal";
             this.PbLogoPrincipal.Size = new System.Drawing.Size(197, 121);
             this.PbLogoPrincipal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

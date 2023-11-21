@@ -30,14 +30,23 @@ namespace BLL.Servicios
 
             var tokenManager = TokenManager.Instance;
             var response = await administradorRepository.Autenticar(administrador);
-            tokenManager._token = response.TokenString;
-            tokenManager._refresh = response.RefreshToken;
-            Token token = new Token
+
+            if (response != null)
             {
-                TokenString = tokenManager._token,
-                RefreshToken = tokenManager._refresh
-            };
-            return token;
+                tokenManager._token = response.TokenString;
+                tokenManager._refresh = response.RefreshToken;
+
+                Token token = new Token
+                {
+                    TokenString = tokenManager._token,
+                    RefreshToken = tokenManager._refresh
+                };
+                return token;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
