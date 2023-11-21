@@ -354,5 +354,60 @@ namespace WindowsFormsApp1
                 e.Handled = true;
             }
         }
+
+        private void TxtId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtModelo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtFabricante_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtVelocidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtCatidadCarga_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtCantidadAsietos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtAsientosPremium_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtAsientosEconomicos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAsientosNoComerciales_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CbAerolinea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -199,5 +199,25 @@ namespace WindowsFormsApp1
             }
 
         }
+
+        private void TxtLatitud_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtLongitud_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CbCiudades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

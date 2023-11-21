@@ -50,31 +50,31 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(794, 294);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 18);
+            this.label5.Size = new System.Drawing.Size(87, 16);
             this.label5.TabIndex = 88;
             this.label5.Text = "Categoria: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(791, 246);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 18);
+            this.label4.Size = new System.Drawing.Size(113, 16);
             this.label4.TabIndex = 86;
             this.label4.Text = "Disponibilidad:";
             // 
             // BtnActualizar
             // 
-            this.BtnActualizar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
+            this.BtnActualizar.BackColor = System.Drawing.Color.Firebrick;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnActualizar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActualizar.ForeColor = System.Drawing.Color.FloralWhite;
             this.BtnActualizar.Location = new System.Drawing.Point(886, 359);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
@@ -86,45 +86,45 @@
             // BtnRegresar
             // 
             this.BtnRegresar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnRegresar.Font = new System.Drawing.Font("Microsoft Tai Le", 7F, System.Drawing.FontStyle.Bold);
+            this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRegresar.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegresar.ForeColor = System.Drawing.Color.White;
             this.BtnRegresar.Location = new System.Drawing.Point(12, 12);
             this.BtnRegresar.Name = "BtnRegresar";
             this.BtnRegresar.Size = new System.Drawing.Size(62, 23);
             this.BtnRegresar.TabIndex = 84;
-            this.BtnRegresar.Text = "<Regresar";
+            this.BtnRegresar.Text = "Regresar";
             this.BtnRegresar.UseVisualStyleBackColor = false;
             this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(883, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 23);
+            this.label2.Size = new System.Drawing.Size(88, 23);
             this.label2.TabIndex = 81;
             this.label2.Text = "Edición";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(401, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 23);
+            this.label1.Size = new System.Drawing.Size(103, 23);
             this.label1.TabIndex = 80;
             this.label1.Text = "Asientos";
             // 
             // BtnEliminar
             // 
-            this.BtnEliminar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.ForeColor = System.Drawing.Color.White;
+            this.BtnEliminar.BackColor = System.Drawing.Color.Firebrick;
+            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEliminar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminar.ForeColor = System.Drawing.Color.FloralWhite;
             this.BtnEliminar.Location = new System.Drawing.Point(386, 438);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(121, 46);
@@ -193,11 +193,11 @@
             // 
             // CbCategorias
             // 
-            this.CbCategorias.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbCategorias.BackColor = System.Drawing.Color.White;
             this.CbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbCategorias.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CbCategorias.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.CbCategorias.ForeColor = System.Drawing.Color.White;
+            this.CbCategorias.ForeColor = System.Drawing.Color.Black;
             this.CbCategorias.FormattingEnabled = true;
             this.CbCategorias.Location = new System.Drawing.Point(909, 291);
             this.CbCategorias.Name = "CbCategorias";
@@ -210,7 +210,7 @@
             this.ChkDisponibilidad.Checked = true;
             this.ChkDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkDisponibilidad.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.ChkDisponibilidad.ForeColor = System.Drawing.Color.White;
+            this.ChkDisponibilidad.ForeColor = System.Drawing.Color.Black;
             this.ChkDisponibilidad.Location = new System.Drawing.Point(909, 242);
             this.ChkDisponibilidad.Name = "ChkDisponibilidad";
             this.ChkDisponibilidad.Size = new System.Drawing.Size(98, 22);
@@ -222,7 +222,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1084, 485);
             this.Controls.Add(this.ChkDisponibilidad);
             this.Controls.Add(this.CbCategorias);

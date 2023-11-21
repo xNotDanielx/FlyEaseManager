@@ -60,10 +60,10 @@
             // 
             // CbAno
             // 
-            this.CbAno.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbAno.BackColor = System.Drawing.Color.White;
             this.CbAno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbAno.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.CbAno.ForeColor = System.Drawing.Color.White;
+            this.CbAno.ForeColor = System.Drawing.Color.Black;
             this.CbAno.FormattingEnabled = true;
             this.CbAno.Location = new System.Drawing.Point(32, 37);
             this.CbAno.Name = "CbAno";
@@ -74,22 +74,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(406, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 23);
+            this.label2.Size = new System.Drawing.Size(217, 23);
             this.label2.TabIndex = 90;
             this.label2.Text = "Destinos populares";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(32, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 23);
+            this.label1.Size = new System.Drawing.Size(216, 23);
             this.label1.TabIndex = 91;
             this.label1.Text = "Seleccione un año:";
             // 

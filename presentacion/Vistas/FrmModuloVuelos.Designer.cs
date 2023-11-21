@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnEliminarVuelo = new System.Windows.Forms.Button();
             this.BtnEditarVuelo = new System.Windows.Forms.Button();
             this.BtnAgregarVuelo = new System.Windows.Forms.Button();
             this.DgvVuelos = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.BtnRegresar = new System.Windows.Forms.Button();
             this.IdVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TarifaVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,27 +49,29 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Avion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVuelos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(509, 22);
+            this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(571, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 23);
+            this.label1.Size = new System.Drawing.Size(83, 23);
             this.label1.TabIndex = 17;
             this.label1.Text = "Vuelos";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // BtnEliminarVuelo
             // 
-            this.BtnEliminarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnEliminarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnEliminarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminarVuelo.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminarVuelo.Location = new System.Drawing.Point(726, 438);
+            this.BtnEliminarVuelo.BackColor = System.Drawing.Color.Firebrick;
+            this.BtnEliminarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEliminarVuelo.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEliminarVuelo.ForeColor = System.Drawing.Color.FloralWhite;
+            this.BtnEliminarVuelo.Location = new System.Drawing.Point(575, 438);
             this.BtnEliminarVuelo.Name = "BtnEliminarVuelo";
             this.BtnEliminarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnEliminarVuelo.TabIndex = 16;
@@ -78,11 +81,11 @@
             // 
             // BtnEditarVuelo
             // 
-            this.BtnEditarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnEditarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnEditarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEditarVuelo.ForeColor = System.Drawing.Color.White;
-            this.BtnEditarVuelo.Location = new System.Drawing.Point(483, 438);
+            this.BtnEditarVuelo.BackColor = System.Drawing.Color.Firebrick;
+            this.BtnEditarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditarVuelo.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditarVuelo.ForeColor = System.Drawing.Color.FloralWhite;
+            this.BtnEditarVuelo.Location = new System.Drawing.Point(380, 438);
             this.BtnEditarVuelo.Name = "BtnEditarVuelo";
             this.BtnEditarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnEditarVuelo.TabIndex = 15;
@@ -92,11 +95,11 @@
             // 
             // BtnAgregarVuelo
             // 
-            this.BtnAgregarVuelo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnAgregarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnAgregarVuelo.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAgregarVuelo.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregarVuelo.Location = new System.Drawing.Point(232, 438);
+            this.BtnAgregarVuelo.BackColor = System.Drawing.Color.Firebrick;
+            this.BtnAgregarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAgregarVuelo.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAgregarVuelo.ForeColor = System.Drawing.Color.FloralWhite;
+            this.BtnAgregarVuelo.Location = new System.Drawing.Point(179, 438);
             this.BtnAgregarVuelo.Name = "BtnAgregarVuelo";
             this.BtnAgregarVuelo.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregarVuelo.TabIndex = 14;
@@ -107,6 +110,21 @@
             // DgvVuelos
             // 
             this.DgvVuelos.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.DgvVuelos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvVuelos.BackgroundColor = System.Drawing.Color.FloralWhite;
+            this.DgvVuelos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.DgvVuelos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvVuelos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DgvVuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvVuelos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdVuelo,
@@ -122,36 +140,21 @@
             this.Estado,
             this.Avion,
             this.FechaRegistro});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvVuelos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DgvVuelos.EnableHeadersVisualStyles = false;
             this.DgvVuelos.Location = new System.Drawing.Point(4, 48);
             this.DgvVuelos.Name = "DgvVuelos";
             this.DgvVuelos.RowHeadersVisible = false;
+            this.DgvVuelos.RowTemplate.Height = 30;
             this.DgvVuelos.Size = new System.Drawing.Size(1084, 384);
             this.DgvVuelos.TabIndex = 13;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(962, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 18);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Gestion";
-            // 
-            // BtnRegresar
-            // 
-            this.BtnRegresar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnRegresar.Font = new System.Drawing.Font("Microsoft Tai Le", 7F, System.Drawing.FontStyle.Bold);
-            this.BtnRegresar.ForeColor = System.Drawing.Color.White;
-            this.BtnRegresar.Location = new System.Drawing.Point(1026, 12);
-            this.BtnRegresar.Name = "BtnRegresar";
-            this.BtnRegresar.Size = new System.Drawing.Size(62, 23);
-            this.BtnRegresar.TabIndex = 58;
-            this.BtnRegresar.Text = "Estados >";
-            this.BtnRegresar.UseVisualStyleBackColor = false;
-            this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
             // 
             // IdVuelo
             // 
@@ -240,14 +243,27 @@
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             // 
+            // BtnRegresar
+            // 
+            this.BtnRegresar.BackColor = System.Drawing.Color.Firebrick;
+            this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRegresar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegresar.ForeColor = System.Drawing.Color.FloralWhite;
+            this.BtnRegresar.Location = new System.Drawing.Point(770, 438);
+            this.BtnRegresar.Name = "BtnRegresar";
+            this.BtnRegresar.Size = new System.Drawing.Size(121, 46);
+            this.BtnRegresar.TabIndex = 58;
+            this.BtnRegresar.Text = "Ver Estados";
+            this.BtnRegresar.UseVisualStyleBackColor = false;
+            this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
+            // 
             // FrmModuloVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1100, 524);
             this.Controls.Add(this.BtnRegresar);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnEliminarVuelo);
             this.Controls.Add(this.BtnEditarVuelo);
@@ -272,7 +288,6 @@
         private System.Windows.Forms.Button BtnEditarVuelo;
         private System.Windows.Forms.Button BtnAgregarVuelo;
         private System.Windows.Forms.DataGridView DgvVuelos;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnRegresar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdVuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVuelo;

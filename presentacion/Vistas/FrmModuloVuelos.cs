@@ -171,5 +171,10 @@ namespace WindowsFormsApp1
             principal.OpenForms(vista);
             this.Close();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

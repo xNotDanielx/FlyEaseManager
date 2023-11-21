@@ -154,7 +154,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(185, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(247, 23);
@@ -163,10 +163,10 @@
             // 
             // CbEstado
             // 
-            this.CbEstado.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.CbEstado.BackColor = System.Drawing.Color.White;
             this.CbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.CbEstado.ForeColor = System.Drawing.Color.White;
+            this.CbEstado.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbEstado.ForeColor = System.Drawing.Color.Black;
             this.CbEstado.FormattingEnabled = true;
             this.CbEstado.Location = new System.Drawing.Point(743, 11);
             this.CbEstado.Name = "CbEstado";
@@ -178,7 +178,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(585, 14);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(152, 18);
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1100, 524);
             this.Controls.Add(this.CbEstado);
             this.Controls.Add(this.label5);

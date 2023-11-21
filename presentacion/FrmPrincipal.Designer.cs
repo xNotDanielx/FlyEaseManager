@@ -92,7 +92,7 @@
             // 
             // PnTitulo
             // 
-            this.PnTitulo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PnTitulo.BackColor = System.Drawing.Color.Firebrick;
             this.PnTitulo.Controls.Add(this.BtnCerrrar);
             this.PnTitulo.Controls.Add(this.BtnMinimizar);
             this.PnTitulo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -104,26 +104,26 @@
             // 
             // BtnCerrrar
             // 
-            this.BtnCerrrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BtnCerrrar.BackColor = System.Drawing.Color.Firebrick;
             this.BtnCerrrar.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_close_icon_135015;
             this.BtnCerrrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnCerrrar.Location = new System.Drawing.Point(1263, 3);
+            this.BtnCerrrar.Location = new System.Drawing.Point(1264, 0);
             this.BtnCerrrar.Name = "BtnCerrrar";
-            this.BtnCerrrar.Size = new System.Drawing.Size(34, 21);
+            this.BtnCerrrar.Size = new System.Drawing.Size(36, 24);
             this.BtnCerrrar.TabIndex = 18;
             this.BtnCerrrar.UseVisualStyleBackColor = false;
             this.BtnCerrrar.Click += new System.EventHandler(this.BtnCerrrar_Click);
             // 
             // BtnMinimizar
             // 
-            this.BtnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BtnMinimizar.BackColor = System.Drawing.Color.Firebrick;
             this.BtnMinimizar.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.window_minimize_icon_138009;
             this.BtnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnMinimizar.Location = new System.Drawing.Point(1223, 3);
+            this.BtnMinimizar.Location = new System.Drawing.Point(1229, 0);
             this.BtnMinimizar.Name = "BtnMinimizar";
-            this.BtnMinimizar.Size = new System.Drawing.Size(34, 21);
+            this.BtnMinimizar.Size = new System.Drawing.Size(36, 24);
             this.BtnMinimizar.TabIndex = 17;
             this.BtnMinimizar.UseVisualStyleBackColor = false;
             this.BtnMinimizar.Click += new System.EventHandler(this.BtnMinimizar_Click);
@@ -140,7 +140,7 @@
             // 
             // PnContenedorMenu
             // 
-            this.PnContenedorMenu.BackColor = System.Drawing.Color.White;
+            this.PnContenedorMenu.BackColor = System.Drawing.Color.FloralWhite;
             this.PnContenedorMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PnContenedorMenu.Controls.Add(this.pictureBox2);
             this.PnContenedorMenu.Controls.Add(this.pictureBox3);
@@ -172,7 +172,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::WindowsFormsApp1.Properties.Resources.boletoPng;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 179);
+            this.pictureBox2.Location = new System.Drawing.Point(11, 179);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(39, 44);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -182,7 +182,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::WindowsFormsApp1.Properties.Resources.ClientesPn;
-            this.pictureBox3.Location = new System.Drawing.Point(12, 381);
+            this.pictureBox3.Location = new System.Drawing.Point(10, 381);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(39, 44);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -192,7 +192,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.R;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 328);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 328);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(39, 44);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -201,7 +201,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel4.BackColor = System.Drawing.Color.Firebrick;
             this.panel4.Location = new System.Drawing.Point(0, 328);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(11, 44);
@@ -209,7 +209,7 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel7.BackColor = System.Drawing.Color.Firebrick;
             this.panel7.Location = new System.Drawing.Point(-1, 381);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(11, 44);
@@ -217,11 +217,11 @@
             // 
             // BtnClientes
             // 
-            this.BtnClientes.BackColor = System.Drawing.Color.White;
+            this.BtnClientes.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnClientes.FlatAppearance.BorderSize = 0;
             this.BtnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnClientes.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnClientes.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClientes.Location = new System.Drawing.Point(0, 381);
             this.BtnClientes.Name = "BtnClientes";
             this.BtnClientes.Size = new System.Drawing.Size(197, 44);
@@ -232,11 +232,11 @@
             // 
             // BtnBoletosVendidos
             // 
-            this.BtnBoletosVendidos.BackColor = System.Drawing.Color.White;
+            this.BtnBoletosVendidos.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnBoletosVendidos.FlatAppearance.BorderSize = 0;
             this.BtnBoletosVendidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnBoletosVendidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBoletosVendidos.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnBoletosVendidos.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBoletosVendidos.Location = new System.Drawing.Point(1, 328);
             this.BtnBoletosVendidos.Name = "BtnBoletosVendidos";
             this.BtnBoletosVendidos.Size = new System.Drawing.Size(197, 44);
@@ -248,10 +248,10 @@
             // LblNombreUsuario
             // 
             this.LblNombreUsuario.AutoSize = true;
-            this.LblNombreUsuario.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreUsuario.Location = new System.Drawing.Point(36, 160);
+            this.LblNombreUsuario.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreUsuario.Location = new System.Drawing.Point(36, 158);
             this.LblNombreUsuario.Name = "LblNombreUsuario";
-            this.LblNombreUsuario.Size = new System.Drawing.Size(126, 16);
+            this.LblNombreUsuario.Size = new System.Drawing.Size(144, 16);
             this.LblNombreUsuario.TabIndex = 19;
             this.LblNombreUsuario.Text = "Nombre de usuario";
             this.LblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,7 +278,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel2.BackColor = System.Drawing.Color.Firebrick;
             this.panel2.Location = new System.Drawing.Point(4, 60);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(13, 27);
@@ -286,7 +286,7 @@
             // 
             // panel16
             // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel16.BackColor = System.Drawing.Color.Firebrick;
             this.panel16.Location = new System.Drawing.Point(4, 93);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(13, 27);
@@ -294,7 +294,7 @@
             // 
             // panel9
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel9.BackColor = System.Drawing.Color.Firebrick;
             this.panel9.Location = new System.Drawing.Point(4, 33);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(13, 21);
@@ -302,7 +302,7 @@
             // 
             // panel11
             // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel11.BackColor = System.Drawing.Color.Firebrick;
             this.panel11.Location = new System.Drawing.Point(4, 3);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(13, 21);
@@ -310,11 +310,11 @@
             // 
             // BtnDineroGenerado
             // 
-            this.BtnDineroGenerado.BackColor = System.Drawing.Color.White;
+            this.BtnDineroGenerado.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnDineroGenerado.FlatAppearance.BorderSize = 0;
             this.BtnDineroGenerado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnDineroGenerado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDineroGenerado.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnDineroGenerado.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDineroGenerado.Location = new System.Drawing.Point(6, 93);
             this.BtnDineroGenerado.Name = "BtnDineroGenerado";
             this.BtnDineroGenerado.Size = new System.Drawing.Size(152, 27);
@@ -333,16 +333,16 @@
             // 
             // BtnTiempoxMeses
             // 
-            this.BtnTiempoxMeses.BackColor = System.Drawing.Color.White;
+            this.BtnTiempoxMeses.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnTiempoxMeses.FlatAppearance.BorderSize = 0;
             this.BtnTiempoxMeses.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnTiempoxMeses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTiempoxMeses.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnTiempoxMeses.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnTiempoxMeses.Location = new System.Drawing.Point(5, 63);
             this.BtnTiempoxMeses.Name = "BtnTiempoxMeses";
             this.BtnTiempoxMeses.Size = new System.Drawing.Size(153, 24);
             this.BtnTiempoxMeses.TabIndex = 26;
-            this.BtnTiempoxMeses.Text = "Histograma vuelos";
+            this.BtnTiempoxMeses.Text = "Histograma";
             this.BtnTiempoxMeses.UseVisualStyleBackColor = false;
             this.BtnTiempoxMeses.Click += new System.EventHandler(this.BtnTiempoxMeses_Click);
             // 
@@ -356,11 +356,11 @@
             // 
             // BtnDestinosPopulares
             // 
-            this.BtnDestinosPopulares.BackColor = System.Drawing.Color.White;
+            this.BtnDestinosPopulares.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnDestinosPopulares.FlatAppearance.BorderSize = 0;
             this.BtnDestinosPopulares.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnDestinosPopulares.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDestinosPopulares.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnDestinosPopulares.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDestinosPopulares.Location = new System.Drawing.Point(5, 33);
             this.BtnDestinosPopulares.Name = "BtnDestinosPopulares";
             this.BtnDestinosPopulares.Size = new System.Drawing.Size(153, 21);
@@ -379,11 +379,11 @@
             // 
             // BtnEstadoVuelos
             // 
-            this.BtnEstadoVuelos.BackColor = System.Drawing.Color.White;
+            this.BtnEstadoVuelos.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnEstadoVuelos.FlatAppearance.BorderSize = 0;
             this.BtnEstadoVuelos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnEstadoVuelos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEstadoVuelos.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnEstadoVuelos.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEstadoVuelos.Location = new System.Drawing.Point(5, 3);
             this.BtnEstadoVuelos.Name = "BtnEstadoVuelos";
             this.BtnEstadoVuelos.Size = new System.Drawing.Size(153, 21);
@@ -403,17 +403,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(57, 134);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.Size = new System.Drawing.Size(100, 16);
             this.label2.TabIndex = 20;
             this.label2.Text = "¡Bienvenido!";
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::WindowsFormsApp1.Properties.Resources.vueloPng1;
-            this.pictureBox7.Location = new System.Drawing.Point(12, 279);
+            this.pictureBox7.Location = new System.Drawing.Point(11, 279);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(39, 44);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -422,7 +422,7 @@
             // 
             // PbLogoPrincipal
             // 
-            this.PbLogoPrincipal.BackColor = System.Drawing.Color.White;
+            this.PbLogoPrincipal.BackColor = System.Drawing.Color.FloralWhite;
             this.PbLogoPrincipal.Image = ((System.Drawing.Image)(resources.GetObject("PbLogoPrincipal.Image")));
             this.PbLogoPrincipal.Location = new System.Drawing.Point(0, 4);
             this.PbLogoPrincipal.Name = "PbLogoPrincipal";
@@ -434,7 +434,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel6.BackColor = System.Drawing.Color.Firebrick;
             this.panel6.Location = new System.Drawing.Point(0, 279);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(11, 44);
@@ -442,11 +442,11 @@
             // 
             // BtnAviones
             // 
-            this.BtnAviones.BackColor = System.Drawing.Color.White;
+            this.BtnAviones.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnAviones.FlatAppearance.BorderSize = 0;
             this.BtnAviones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnAviones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAviones.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnAviones.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAviones.Location = new System.Drawing.Point(0, 279);
             this.BtnAviones.Name = "BtnAviones";
             this.BtnAviones.Size = new System.Drawing.Size(197, 44);
@@ -458,7 +458,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::WindowsFormsApp1.Properties.Resources.AeropertoPng;
-            this.pictureBox6.Location = new System.Drawing.Point(12, 229);
+            this.pictureBox6.Location = new System.Drawing.Point(11, 229);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(39, 44);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -467,7 +467,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel5.BackColor = System.Drawing.Color.Firebrick;
             this.panel5.Location = new System.Drawing.Point(0, 229);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(11, 44);
@@ -475,11 +475,11 @@
             // 
             // BtnAeropuertos
             // 
-            this.BtnAeropuertos.BackColor = System.Drawing.Color.White;
+            this.BtnAeropuertos.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnAeropuertos.FlatAppearance.BorderSize = 0;
             this.BtnAeropuertos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnAeropuertos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAeropuertos.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnAeropuertos.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAeropuertos.Location = new System.Drawing.Point(0, 229);
             this.BtnAeropuertos.Name = "BtnAeropuertos";
             this.BtnAeropuertos.Size = new System.Drawing.Size(197, 44);
@@ -491,7 +491,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::WindowsFormsApp1.Properties.Resources.EstadisticasPng;
-            this.pictureBox5.Location = new System.Drawing.Point(12, 431);
+            this.pictureBox5.Location = new System.Drawing.Point(11, 431);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(39, 44);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -500,7 +500,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel1.BackColor = System.Drawing.Color.Firebrick;
             this.panel1.Location = new System.Drawing.Point(0, 431);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(11, 44);
@@ -508,11 +508,11 @@
             // 
             // BtnVuelos
             // 
-            this.BtnVuelos.BackColor = System.Drawing.Color.White;
+            this.BtnVuelos.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnVuelos.FlatAppearance.BorderSize = 0;
             this.BtnVuelos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnVuelos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVuelos.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnVuelos.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnVuelos.Location = new System.Drawing.Point(12, 179);
             this.BtnVuelos.Name = "BtnVuelos";
             this.BtnVuelos.Size = new System.Drawing.Size(185, 44);
@@ -523,7 +523,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.panel3.BackColor = System.Drawing.Color.Firebrick;
             this.panel3.Location = new System.Drawing.Point(0, 179);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(11, 44);
@@ -531,11 +531,11 @@
             // 
             // BtnEstadisticas
             // 
-            this.BtnEstadisticas.BackColor = System.Drawing.Color.White;
+            this.BtnEstadisticas.BackColor = System.Drawing.Color.FloralWhite;
             this.BtnEstadisticas.FlatAppearance.BorderSize = 0;
             this.BtnEstadisticas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold;
             this.BtnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEstadisticas.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnEstadisticas.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEstadisticas.Location = new System.Drawing.Point(0, 431);
             this.BtnEstadisticas.Name = "BtnEstadisticas";
             this.BtnEstadisticas.Size = new System.Drawing.Size(197, 44);
@@ -546,7 +546,7 @@
             // 
             // PnPrincipal
             // 
-            this.PnPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.PnPrincipal.BackColor = System.Drawing.Color.FloralWhite;
             this.PnPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PnPrincipal.Location = new System.Drawing.Point(200, 35);
             this.PnPrincipal.Name = "PnPrincipal";
@@ -555,7 +555,7 @@
             // 
             // panel18
             // 
-            this.panel18.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel18.BackColor = System.Drawing.Color.IndianRed;
             this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel18.Controls.Add(this.LblFecha);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -568,7 +568,7 @@
             // 
             this.LblFecha.AutoSize = true;
             this.LblFecha.Font = new System.Drawing.Font("Berlin Sans FB Demi", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFecha.ForeColor = System.Drawing.Color.White;
+            this.LblFecha.ForeColor = System.Drawing.Color.FloralWhite;
             this.LblFecha.Location = new System.Drawing.Point(55, 4);
             this.LblFecha.Name = "LblFecha";
             this.LblFecha.Size = new System.Drawing.Size(89, 31);
@@ -577,7 +577,7 @@
             // 
             // panel19
             // 
-            this.panel19.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel19.BackColor = System.Drawing.Color.Firebrick;
             this.panel19.Controls.Add(this.LblHora);
             this.panel19.Location = new System.Drawing.Point(200, 538);
             this.panel19.Name = "panel19";
@@ -588,7 +588,7 @@
             // 
             this.LblHora.AutoSize = true;
             this.LblHora.Font = new System.Drawing.Font("Berlin Sans FB Demi", 26.25F, System.Drawing.FontStyle.Bold);
-            this.LblHora.ForeColor = System.Drawing.Color.White;
+            this.LblHora.ForeColor = System.Drawing.Color.FloralWhite;
             this.LblHora.Location = new System.Drawing.Point(52, 11);
             this.LblHora.Name = "LblHora";
             this.LblHora.Size = new System.Drawing.Size(112, 40);
@@ -645,7 +645,6 @@
         private System.Windows.Forms.PictureBox PbLogoPrincipal;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button BtnVuelos;
         private System.Windows.Forms.Panel PnContenedorMenu;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
@@ -682,5 +681,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button BtnVuelos;
     }
 }

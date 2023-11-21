@@ -50,10 +50,10 @@
             // 
             // TxtDescuento
             // 
-            this.TxtDescuento.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TxtDescuento.BackColor = System.Drawing.Color.White;
             this.TxtDescuento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtDescuento.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.TxtDescuento.ForeColor = System.Drawing.Color.White;
+            this.TxtDescuento.ForeColor = System.Drawing.Color.Black;
             this.TxtDescuento.Location = new System.Drawing.Point(509, 460);
             this.TxtDescuento.Name = "TxtDescuento";
             this.TxtDescuento.Size = new System.Drawing.Size(106, 24);
@@ -64,7 +64,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(384, 462);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 18);
@@ -73,10 +73,10 @@
             // 
             // BtnActualizar
             // 
-            this.BtnActualizar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.BackColor = System.Drawing.Color.Firebrick;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnActualizar.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActualizar.ForeColor = System.Drawing.Color.White;
+            this.BtnActualizar.ForeColor = System.Drawing.Color.FloralWhite;
             this.BtnActualizar.Location = new System.Drawing.Point(660, 447);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
@@ -100,7 +100,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(503, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 23);
@@ -203,7 +203,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
+            this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(1100, 524);
             this.Controls.Add(this.TxtDescuento);
             this.Controls.Add(this.label4);
