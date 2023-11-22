@@ -25,13 +25,13 @@ namespace BLL.Servicios
             List<Boleto> boletosPorAño = new List<Boleto>();
             foreach (var item in boletos)
             {
-                if (item.Vuelo.Estado.Nombre == "Completado")
-                {
+                //if (item.Vuelo.Estado.Nombre == "Completado")
+                //{
                     if (item.Vuelo.FechaYHoraLlegada.Year == ano)
                     {
                         boletosPorAño.Add(item);
                     }
-                }
+                //}
             }
 
             return boletosPorAño;

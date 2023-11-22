@@ -248,10 +248,11 @@
             // LblNombreUsuario
             // 
             this.LblNombreUsuario.AutoSize = true;
-            this.LblNombreUsuario.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombreUsuario.Location = new System.Drawing.Point(36, 158);
+            this.LblNombreUsuario.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombreUsuario.ForeColor = System.Drawing.Color.Black;
+            this.LblNombreUsuario.Location = new System.Drawing.Point(1, 155);
             this.LblNombreUsuario.Name = "LblNombreUsuario";
-            this.LblNombreUsuario.Size = new System.Drawing.Size(144, 16);
+            this.LblNombreUsuario.Size = new System.Drawing.Size(131, 13);
             this.LblNombreUsuario.TabIndex = 19;
             this.LblNombreUsuario.Text = "Nombre de usuario";
             this.LblNombreUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
