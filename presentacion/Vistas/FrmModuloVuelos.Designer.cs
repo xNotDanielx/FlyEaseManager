@@ -36,6 +36,7 @@
             this.BtnEditarVuelo = new System.Windows.Forms.Button();
             this.BtnAgregarVuelo = new System.Windows.Forms.Button();
             this.DgvVuelos = new System.Windows.Forms.DataGridView();
+            this.BtnRegresar = new System.Windows.Forms.Button();
             this.IdVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TarifaVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +50,6 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Avion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnRegresar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVuelos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +63,6 @@
             this.label1.Size = new System.Drawing.Size(83, 23);
             this.label1.TabIndex = 17;
             this.label1.Text = "Vuelos";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // BtnEliminarVuelo
             // 
@@ -149,19 +148,33 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DgvVuelos.DefaultCellStyle = dataGridViewCellStyle3;
             this.DgvVuelos.EnableHeadersVisualStyles = false;
-            this.DgvVuelos.Location = new System.Drawing.Point(4, 48);
+            this.DgvVuelos.Location = new System.Drawing.Point(25, 48);
             this.DgvVuelos.Name = "DgvVuelos";
             this.DgvVuelos.RowHeadersVisible = false;
             this.DgvVuelos.RowTemplate.Height = 30;
-            this.DgvVuelos.Size = new System.Drawing.Size(1084, 384);
+            this.DgvVuelos.Size = new System.Drawing.Size(1054, 384);
             this.DgvVuelos.TabIndex = 13;
+            // 
+            // BtnRegresar
+            // 
+            this.BtnRegresar.BackColor = System.Drawing.Color.Firebrick;
+            this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRegresar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRegresar.ForeColor = System.Drawing.Color.FloralWhite;
+            this.BtnRegresar.Location = new System.Drawing.Point(770, 438);
+            this.BtnRegresar.Name = "BtnRegresar";
+            this.BtnRegresar.Size = new System.Drawing.Size(121, 46);
+            this.BtnRegresar.TabIndex = 58;
+            this.BtnRegresar.Text = "Ver Estados";
+            this.BtnRegresar.UseVisualStyleBackColor = false;
+            this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
             // 
             // IdVuelo
             // 
             this.IdVuelo.HeaderText = "Id";
             this.IdVuelo.Name = "IdVuelo";
             this.IdVuelo.ReadOnly = true;
-            this.IdVuelo.Width = 80;
+            this.IdVuelo.Width = 50;
             // 
             // PrecioVuelo
             // 
@@ -242,20 +255,6 @@
             this.FechaRegistro.HeaderText = "Fecha registro";
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
-            // 
-            // BtnRegresar
-            // 
-            this.BtnRegresar.BackColor = System.Drawing.Color.Firebrick;
-            this.BtnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRegresar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRegresar.ForeColor = System.Drawing.Color.FloralWhite;
-            this.BtnRegresar.Location = new System.Drawing.Point(770, 438);
-            this.BtnRegresar.Name = "BtnRegresar";
-            this.BtnRegresar.Size = new System.Drawing.Size(121, 46);
-            this.BtnRegresar.TabIndex = 58;
-            this.BtnRegresar.Text = "Ver Estados";
-            this.BtnRegresar.UseVisualStyleBackColor = false;
-            this.BtnRegresar.Click += new System.EventHandler(this.BtnRegresar_Click);
             // 
             // FrmModuloVuelos
             // 

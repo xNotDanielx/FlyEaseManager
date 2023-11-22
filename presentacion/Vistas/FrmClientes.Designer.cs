@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnActualizar = new System.Windows.Forms.Button();
             this.CbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,7 +66,7 @@
             this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnActualizar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnActualizar.ForeColor = System.Drawing.Color.FloralWhite;
-            this.BtnActualizar.Location = new System.Drawing.Point(967, 386);
+            this.BtnActualizar.Location = new System.Drawing.Point(932, 380);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
             this.BtnActualizar.TabIndex = 72;
@@ -82,7 +86,7 @@
             "Cedula de extranjeria",
             "Tarjeta de identidad",
             "Pasaporte"});
-            this.CbTipoDocumento.Location = new System.Drawing.Point(920, 138);
+            this.CbTipoDocumento.Location = new System.Drawing.Point(885, 132);
             this.CbTipoDocumento.Name = "CbTipoDocumento";
             this.CbTipoDocumento.Size = new System.Drawing.Size(168, 24);
             this.CbTipoDocumento.TabIndex = 2;
@@ -92,7 +96,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(796, 140);
+            this.label5.Location = new System.Drawing.Point(761, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 18);
             this.label5.TabIndex = 70;
@@ -103,7 +107,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(916, 48);
+            this.label2.Location = new System.Drawing.Point(881, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 23);
             this.label2.TabIndex = 66;
@@ -140,7 +144,7 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.FloralWhite;
-            this.BtnAgregar.Location = new System.Drawing.Point(799, 386);
+            this.BtnAgregar.Location = new System.Drawing.Point(764, 380);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(121, 46);
             this.BtnAgregar.TabIndex = 63;
@@ -151,6 +155,19 @@
             // DgvClientes
             // 
             this.DgvClientes.AllowUserToAddRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.DgvClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DgvClientes.BackgroundColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NumeroDocumento,
@@ -160,10 +177,27 @@
             this.Celular,
             this.Correo,
             this.FechaRegistro});
-            this.DgvClientes.Location = new System.Drawing.Point(42, 48);
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvClientes.DefaultCellStyle = dataGridViewCellStyle7;
+            this.DgvClientes.EnableHeadersVisualStyles = false;
+            this.DgvClientes.Location = new System.Drawing.Point(57, 48);
             this.DgvClientes.Name = "DgvClientes";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.DgvClientes.RowHeadersVisible = false;
-            this.DgvClientes.Size = new System.Drawing.Size(685, 384);
+            this.DgvClientes.Size = new System.Drawing.Size(682, 384);
             this.DgvClientes.TabIndex = 62;
             this.DgvClientes.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvClientes_CellMouseClick);
             // 
@@ -216,7 +250,7 @@
             this.TxtApellidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtApellidos.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtApellidos.ForeColor = System.Drawing.Color.Black;
-            this.TxtApellidos.Location = new System.Drawing.Point(920, 231);
+            this.TxtApellidos.Location = new System.Drawing.Point(885, 225);
             this.TxtApellidos.Name = "TxtApellidos";
             this.TxtApellidos.Size = new System.Drawing.Size(168, 24);
             this.TxtApellidos.TabIndex = 4;
@@ -227,7 +261,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(796, 233);
+            this.label3.Location = new System.Drawing.Point(761, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 18);
             this.label3.TabIndex = 73;
@@ -239,7 +273,7 @@
             this.TxtNombres.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtNombres.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtNombres.ForeColor = System.Drawing.Color.Black;
-            this.TxtNombres.Location = new System.Drawing.Point(920, 184);
+            this.TxtNombres.Location = new System.Drawing.Point(885, 178);
             this.TxtNombres.Name = "TxtNombres";
             this.TxtNombres.Size = new System.Drawing.Size(168, 24);
             this.TxtNombres.TabIndex = 3;
@@ -250,7 +284,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(796, 186);
+            this.label4.Location = new System.Drawing.Point(761, 180);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 18);
             this.label4.TabIndex = 75;
@@ -262,7 +296,7 @@
             this.TxtDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtDocumento.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtDocumento.ForeColor = System.Drawing.Color.Black;
-            this.TxtDocumento.Location = new System.Drawing.Point(920, 96);
+            this.TxtDocumento.Location = new System.Drawing.Point(885, 90);
             this.TxtDocumento.Name = "TxtDocumento";
             this.TxtDocumento.Size = new System.Drawing.Size(168, 24);
             this.TxtDocumento.TabIndex = 1;
@@ -273,7 +307,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(796, 98);
+            this.label6.Location = new System.Drawing.Point(761, 92);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 18);
             this.label6.TabIndex = 77;
@@ -285,7 +319,7 @@
             this.TxtCelular.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtCelular.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtCelular.ForeColor = System.Drawing.Color.Black;
-            this.TxtCelular.Location = new System.Drawing.Point(920, 278);
+            this.TxtCelular.Location = new System.Drawing.Point(885, 272);
             this.TxtCelular.Name = "TxtCelular";
             this.TxtCelular.Size = new System.Drawing.Size(168, 24);
             this.TxtCelular.TabIndex = 5;
@@ -296,7 +330,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(796, 280);
+            this.label7.Location = new System.Drawing.Point(761, 274);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 18);
             this.label7.TabIndex = 81;
@@ -308,7 +342,7 @@
             this.TxtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtCorreo.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtCorreo.ForeColor = System.Drawing.Color.Black;
-            this.TxtCorreo.Location = new System.Drawing.Point(920, 328);
+            this.TxtCorreo.Location = new System.Drawing.Point(885, 322);
             this.TxtCorreo.Name = "TxtCorreo";
             this.TxtCorreo.Size = new System.Drawing.Size(168, 24);
             this.TxtCorreo.TabIndex = 6;
@@ -319,7 +353,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(796, 330);
+            this.label8.Location = new System.Drawing.Point(761, 324);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 18);
             this.label8.TabIndex = 79;

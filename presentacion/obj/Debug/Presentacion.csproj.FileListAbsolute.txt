@@ -94,11 +94,6 @@ C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
-C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.exe
-C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.pdb
-C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\WindowsFormsApp1.exe.config
-C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\WindowsFormsApp1.exe
-C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\WindowsFormsApp1.pdb
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\BLL.dll
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\Entity.dll
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\DAL.dll
@@ -207,7 +202,6 @@ C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmFiltroVuelos.resources
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmIniciarSesion.resources
 C:\Users\diego\OneDrive\Documentos\Ingeniería de Sistemas\Periodo 2023 - II\Programación III\Proyecto de Aula\Proyecto\Proyecto\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmDestinosPopulares.resources
-C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\Resources\loading.gif
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmHistograma.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmLoading.resources
 C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmDineroGeneradoXVuelos.resources
@@ -247,3 +241,8 @@ C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\o
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\WindowsFormsApp1.FrmClientes.resources
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.exe
 C:\Users\rosif\OneDrive\Documentos\proyecto daniel\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.pdb
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\FlyEase Manager.exe.config
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\FlyEase Manager.exe
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\bin\Debug\FlyEase Manager.pdb
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.exe
+C:\Users\Daniel\Documents\FlyEase Manager\FlyEaseManager\presentacion\obj\Debug\FlyEase Manager.pdb

@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvDineroGenerado = new System.Windows.Forms.DataGridView();
             this.IdVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdBoleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,11 +47,33 @@
             // DgvDineroGenerado
             // 
             this.DgvDineroGenerado.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.DgvDineroGenerado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvDineroGenerado.BackgroundColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvDineroGenerado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DgvDineroGenerado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvDineroGenerado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdVuelo,
             this.IdBoleto,
             this.Pagado});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvDineroGenerado.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DgvDineroGenerado.EnableHeadersVisualStyles = false;
             this.DgvDineroGenerado.Location = new System.Drawing.Point(101, 122);
             this.DgvDineroGenerado.Name = "DgvDineroGenerado";
             this.DgvDineroGenerado.RowHeadersVisible = false;

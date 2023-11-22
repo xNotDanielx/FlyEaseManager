@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvVuelos = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CbEstado = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.IdVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TarifaVuelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,15 +47,25 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Avion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CbEstado = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvVuelos)).BeginInit();
             this.SuspendLayout();
             // 
             // DgvVuelos
             // 
             this.DgvVuelos.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.DgvVuelos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvVuelos.BackgroundColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Firebrick;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvVuelos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DgvVuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvVuelos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdVuelo,
@@ -64,18 +80,62 @@
             this.Estado,
             this.Avion,
             this.FechaRegistro});
-            this.DgvVuelos.Location = new System.Drawing.Point(12, 52);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvVuelos.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DgvVuelos.EnableHeadersVisualStyles = false;
+            this.DgvVuelos.Location = new System.Drawing.Point(29, 51);
             this.DgvVuelos.Name = "DgvVuelos";
             this.DgvVuelos.RowHeadersVisible = false;
-            this.DgvVuelos.Size = new System.Drawing.Size(1076, 446);
+            this.DgvVuelos.Size = new System.Drawing.Size(1045, 446);
             this.DgvVuelos.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(185, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(247, 23);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "Filtro de vuelos por estado";
+            // 
+            // CbEstado
+            // 
+            this.CbEstado.BackColor = System.Drawing.Color.White;
+            this.CbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbEstado.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbEstado.ForeColor = System.Drawing.Color.Black;
+            this.CbEstado.FormattingEnabled = true;
+            this.CbEstado.Location = new System.Drawing.Point(743, 11);
+            this.CbEstado.Name = "CbEstado";
+            this.CbEstado.Size = new System.Drawing.Size(168, 24);
+            this.CbEstado.TabIndex = 1;
+            this.CbEstado.SelectedIndexChanged += new System.EventHandler(this.CbEstado_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(585, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(152, 18);
+            this.label5.TabIndex = 74;
+            this.label5.Text = "Seleccione un estado:";
             // 
             // IdVuelo
             // 
             this.IdVuelo.HeaderText = "Id";
             this.IdVuelo.Name = "IdVuelo";
             this.IdVuelo.ReadOnly = true;
-            this.IdVuelo.Width = 80;
+            this.IdVuelo.Width = 50;
             // 
             // PrecioVuelo
             // 
@@ -150,41 +210,6 @@
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(185, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(247, 23);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "Filtro de vuelos por estado";
-            // 
-            // CbEstado
-            // 
-            this.CbEstado.BackColor = System.Drawing.Color.White;
-            this.CbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbEstado.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbEstado.ForeColor = System.Drawing.Color.Black;
-            this.CbEstado.FormattingEnabled = true;
-            this.CbEstado.Location = new System.Drawing.Point(743, 11);
-            this.CbEstado.Name = "CbEstado";
-            this.CbEstado.Size = new System.Drawing.Size(168, 24);
-            this.CbEstado.TabIndex = 1;
-            this.CbEstado.SelectedIndexChanged += new System.EventHandler(this.CbEstado_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(585, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 18);
-            this.label5.TabIndex = 74;
-            this.label5.Text = "Seleccione un estado:";
-            // 
             // FrmFiltroVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +233,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DgvVuelos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CbEstado;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdVuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TarifaVuelo;
@@ -220,8 +248,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Avion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox CbEstado;
-        private System.Windows.Forms.Label label5;
     }
 }
