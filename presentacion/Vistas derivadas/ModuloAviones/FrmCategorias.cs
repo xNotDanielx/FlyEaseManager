@@ -144,13 +144,24 @@ namespace WindowsFormsApp1
                 try
                 {
                     loading.ShowLoading(loading);
+
+                    bool comercial;
+                    if (DgvCategorias.CurrentRow.Cells[5].Value.ToString() == "No")
+                    {
+                        comercial = false;
+                    }
+                    else
+                    {
+                        comercial = true;
+                    }
+
                     Categoria categoria = new Categoria
                     {
                         IdCategoria = int.Parse(DgvCategorias.CurrentRow.Cells[0].Value.ToString()),
                         Nombre = nombre,
                         Descripcion = descripcion,
                         EstadoCategoria = ChkEstado.Checked,
-                        Comercial = bool.Parse(DgvCategorias.CurrentRow.Cells[4].Value.ToString()),
+                        Comercial = comercial,
                         Tarifa = double.Parse(tarifa),
                         FechaRegistro = DateTime.Parse(DgvCategorias.CurrentRow.Cells[6].Value.ToString()),
                     };

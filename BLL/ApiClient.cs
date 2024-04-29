@@ -35,7 +35,7 @@ namespace DAL
 
         private async Task<bool> RefreshToken()
         {
-            string endpoint = "https://flyeasewebapi.azurewebsites.net/FlyEaseApi/Administradores/GetRefreshToken";
+            string endpoint = "http://flyeaseapi-dev-env.eba-sbxyzdge.us-east-2.elasticbeanstalk.com/FlyEaseApi/Administradores/GetRefreshToken";
 
             var request = new RestRequest(endpoint, Method.Post);
             request.RequestFormat = DataFormat.Json;

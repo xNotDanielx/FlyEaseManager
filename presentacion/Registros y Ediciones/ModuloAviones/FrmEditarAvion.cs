@@ -62,7 +62,7 @@ namespace WindowsFormsApp1
                     FechaRegistro = this.avion.FechaRegistro
                 };
 
-                var response = await avionService.Actualizar(avion.IdAvion, avion);
+                var response = await avionService.Actualizar(this.avion.IdAvion, avion);
 
                 if (response != "Error en la solicitud Put")
                 {

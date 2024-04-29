@@ -60,7 +60,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(439, 414);
+            this.label4.Location = new System.Drawing.Point(825, 264);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 16);
             this.label4.TabIndex = 103;
@@ -72,7 +72,7 @@
             this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnActualizar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnActualizar.ForeColor = System.Drawing.Color.FloralWhite;
-            this.BtnActualizar.Location = new System.Drawing.Point(524, 452);
+            this.BtnActualizar.Location = new System.Drawing.Point(910, 302);
             this.BtnActualizar.Name = "BtnActualizar";
             this.BtnActualizar.Size = new System.Drawing.Size(121, 46);
             this.BtnActualizar.TabIndex = 102;
@@ -100,7 +100,7 @@
             this.TxtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtNombre.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtNombre.ForeColor = System.Drawing.Color.Black;
-            this.TxtNombre.Location = new System.Drawing.Point(554, 290);
+            this.TxtNombre.Location = new System.Drawing.Point(940, 140);
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(124, 24);
             this.TxtNombre.TabIndex = 100;
@@ -111,7 +111,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(436, 292);
+            this.label3.Location = new System.Drawing.Point(822, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 99;
@@ -122,7 +122,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(530, 246);
+            this.label2.Location = new System.Drawing.Point(916, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 23);
             this.label2.TabIndex = 98;
@@ -133,7 +133,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(520, 11);
+            this.label1.Location = new System.Drawing.Point(344, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 23);
             this.label1.TabIndex = 97;
@@ -173,7 +173,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DgvCategorias.DefaultCellStyle = dataGridViewCellStyle3;
             this.DgvCategorias.EnableHeadersVisualStyles = false;
-            this.DgvCategorias.Location = new System.Drawing.Point(191, 59);
+            this.DgvCategorias.Location = new System.Drawing.Point(23, 129);
             this.DgvCategorias.Name = "DgvCategorias";
             this.DgvCategorias.RowHeadersVisible = false;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FloralWhite;
@@ -235,7 +235,7 @@
             this.TxtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtDescripcion.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.TxtDescripcion.Location = new System.Drawing.Point(554, 332);
+            this.TxtDescripcion.Location = new System.Drawing.Point(940, 182);
             this.TxtDescripcion.Name = "TxtDescripcion";
             this.TxtDescripcion.Size = new System.Drawing.Size(124, 24);
             this.TxtDescripcion.TabIndex = 110;
@@ -246,7 +246,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(436, 334);
+            this.label7.Location = new System.Drawing.Point(822, 184);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 16);
             this.label7.TabIndex = 109;
@@ -258,7 +258,7 @@
             this.TxtTarifa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtTarifa.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.TxtTarifa.ForeColor = System.Drawing.Color.Black;
-            this.TxtTarifa.Location = new System.Drawing.Point(554, 374);
+            this.TxtTarifa.Location = new System.Drawing.Point(940, 224);
             this.TxtTarifa.Name = "TxtTarifa";
             this.TxtTarifa.Size = new System.Drawing.Size(124, 24);
             this.TxtTarifa.TabIndex = 112;
@@ -269,7 +269,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(436, 376);
+            this.label5.Location = new System.Drawing.Point(822, 226);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 16);
             this.label5.TabIndex = 111;
@@ -282,7 +282,7 @@
             this.ChkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold);
             this.ChkEstado.ForeColor = System.Drawing.Color.Black;
-            this.ChkEstado.Location = new System.Drawing.Point(554, 414);
+            this.ChkEstado.Location = new System.Drawing.Point(940, 264);
             this.ChkEstado.Name = "ChkEstado";
             this.ChkEstado.Size = new System.Drawing.Size(70, 22);
             this.ChkEstado.TabIndex = 113;
